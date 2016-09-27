@@ -36,7 +36,24 @@
                 </MenuItem>
             </MenuItem>
         </Menu>
-        <StatusBar DockPanel.Dock="Bottom" Height="20" Margin="0,320,0,0" VerticalAlignment="Top" HorizontalAlignment="Center" Width="750"/>
+        <StatusBar DockPanel.Dock="Bottom" Height="20" Margin="0,320,0,0" VerticalAlignment="Top" HorizontalAlignment="Center" Width="750">
+            <StatusBar.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="100" />
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="100" />
+                        </Grid.ColumnDefinitions>
+                    </Grid>
+                </ItemsPanelTemplate>
+            </StatusBar.ItemsPanel>
+            <StatusBarItem Grid.Column="1" >
+                <TextBlock Text="c:\path\of\current\file.txt" />
+            </StatusBarItem>
+        </StatusBar>
     </DockPanel>
 
 </Window>
