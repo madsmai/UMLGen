@@ -17,9 +17,9 @@
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Window.Resources>
-    <DockPanel HorizontalAlignment="Left" Height="770" LastChildFill="False" VerticalAlignment="Top" Width="790" Margin="0,0,0,0">
-        <ToolBar DockPanel.Dock="Left" x:Name="toolBar" Height="740" VerticalAlignment="Top" Width="100" Margin="0,30,0,0"/>
-        <Menu DockPanel.Dock="Top" x:Name="menu" Height="30" Margin="-110,0,0,0">
+    <DockPanel HorizontalAlignment="Left" LastChildFill="True" Width="790">
+        <ToolBar DockPanel.Dock="Left" x:Name="toolBar" Width="100" Margin="0,70,0,0"/>
+        <Menu DockPanel.Dock="Top" x:Name="menu" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="-100,0,0,0" Width="790" >
             <MenuItem Header="_File" Height="30" Width="70" Margin="10,0,0,0">
                 <MenuItem Header="_New"/>
                 <MenuItem Header="_Open"/>
@@ -36,7 +36,19 @@
                 </MenuItem>
             </MenuItem>
         </Menu>
-        <StatusBar DockPanel.Dock="Bottom" Height="20" Margin="0,320,0,0" VerticalAlignment="Top" HorizontalAlignment="Center" Width="750">
+        <ToolBar DockPanel.Dock="Top" x:Name="toolBar1" Height="40" Margin="-0100,0,0,0" >
+            <Button x:Name="CopyBtn" Height="30"  ToolTip="Copy selection to clipboard" VerticalAlignment="Center" Width="75">
+                <Image Source="/Images/Copy.png" />
+            </Button>
+            <Button x:Name="CutBtn" Height="30"   ToolTip="Cut selection to clipboard" VerticalAlignment="Center" Width="75">
+                <Image Source="/Images/Cut.png" />
+            </Button>
+            <Button x:Name="PasteBtn" Height="30"  ToolTip="Pastes the element in the clipboard" VerticalAlignment="Center" Width="75">
+                <Image Source="/Images/Paste.png" />
+            </Button>
+        </ToolBar>
+
+        <StatusBar DockPanel.Dock="Bottom" Height="20" VerticalAlignment="Top" HorizontalAlignment="Center" Width="690">
             <StatusBar.ItemsPanel>
                 <ItemsPanelTemplate>
                     <Grid>
@@ -54,6 +66,12 @@
                 <TextBlock Text="c:\path\of\current\file.txt" />
             </StatusBarItem>
         </StatusBar>
+        <ScrollBar DockPanel.Dock="Right" VerticalAlignment="Center" x:Name="scrollBar" Height="680" Width="20" HorizontalAlignment="Right" ValueChanged="scrollBar_ValueChanged"/>
+        
+        
+        <Canvas Height="710" VerticalAlignment="Top" Width="680"/>
+
+
     </DockPanel>
 
 </Window>
