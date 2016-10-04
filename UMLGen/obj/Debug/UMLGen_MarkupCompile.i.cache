@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\Users\Mads_\OneDrive\documents\visual studio 2015\Projects\UMLGen\UMLGen\obj\Debug\
+C:\Users\krest\OneDrive\Dokumenter\DTU\Windows Programming\UMLGen\UMLGen\obj\Debug\
 UMLGen
 none
 false
 CODE_ANALYSIS;DEBUG;TRACE
-C:\Users\Mads_\OneDrive\documents\visual studio 2015\Projects\UMLGen\UMLGen\App.xaml
-2-1356017796
+C:\Users\krest\OneDrive\Dokumenter\DTU\Windows Programming\UMLGen\UMLGen\View\App.xaml
+32059041015
 
-15-51445786
-68-1392136775
-MainWindow.xaml;Skins\MainSkin.xaml;
+16-2037179474
+70-731038533
+View\MainWindow.xaml;View\ClassShape.xaml;View\Skins\MainSkin.xaml;
 
 False
 

@@ -31,3 +31,6 @@ C:\Users\Mads_\OneDrive\Documents\Visual Studio 2015\Projects\UMLGen\UMLGen\obj\
 C:\Users\Mads_\OneDrive\Documents\Visual Studio 2015\Projects\UMLGen\UMLGen\obj\Debug\UMLGen.csproj.GenerateResource.Cache
 C:\Users\Mads_\OneDrive\Documents\Visual Studio 2015\Projects\UMLGen\UMLGen\obj\Debug\UMLGen.exe
 C:\Users\Mads_\OneDrive\Documents\Visual Studio 2015\Projects\UMLGen\UMLGen\obj\Debug\UMLGen.pdb
+C:\Users\krest\OneDrive\Dokumenter\DTU\Windows Programming\UMLGen\UMLGen\bin\Debug\UMLGen.exe.config
+C:\Users\krest\OneDrive\Dokumenter\DTU\Windows Programming\UMLGen\UMLGen\obj\Debug\UMLGen.exe
+C:\Users\krest\OneDrive\Dokumenter\DTU\Windows Programming\UMLGen\UMLGen\obj\Debug\UMLGen.pdb
