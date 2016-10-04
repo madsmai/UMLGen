@@ -22,7 +22,7 @@ namespace UMLGen.Model
             X = 400;
             Y = 400;
             Width = 5;
-            Height = 50;
+            Height = 51;
         }
         public Arrow(ObservableCollection<Shape> endPoints, ObservableCollection<Shape> startingPoints, Double x, Double y, Double thickness, Double length) {
             EndPoints = endPoints;
