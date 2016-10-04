@@ -16,11 +16,11 @@ using System.Windows.Shapes;
 namespace UMLGen.View
 {
     /// <summary>
-    /// Interaction logic for Page1.xaml
+    /// Interaction logic for UserControl1.xaml
     /// </summary>
-    public partial class Page1 : Page
+    public partial class UserControl1 : UserControl
     {
-        public Page1()
+        public UserControl1()
         {
             InitializeComponent();
         }

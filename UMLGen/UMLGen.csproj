@@ -86,20 +86,16 @@
     <Compile Include="View\App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\ClassShape.xaml.cs">
-      <DependentUpon>ClassShape.xaml</DependentUpon>
-    </Compile>
     <Compile Include="View\MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
     </Compile>
-    <Page Include="View\App.xaml">
+    <Compile Include="View\UMLClass.xaml.cs">
+      <DependentUpon>UMLClass.xaml</DependentUpon>
+    </Compile>
+    <ApplicationDefinition Include="View\App.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
-    </Page>
-    <Page Include="View\ClassShape.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
+    </ApplicationDefinition>
     <Page Include="View\MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -107,6 +103,10 @@
     <Page Include="View\Skins\MainSkin.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\UMLClass.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
   <ItemGroup>
