@@ -1,4 +1,5 @@
 ﻿using GalaSoft.MvvmLight;
+using System.Collections.ObjectModel;
 using UMLGen.Model;
 
 namespace UMLGen.ViewModel
@@ -11,6 +12,11 @@ namespace UMLGen.ViewModel
     /// </summary>
     public class MainViewModel : ViewModelBase
     {
+
+        public ObservableCollection<Shape> Shapes { get; set; }
+
+
+
         private readonly IDataService _dataService;
 
         /// <summary>

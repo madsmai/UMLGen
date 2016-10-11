@@ -71,6 +71,9 @@
     <Reference Include="PresentationFramework" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Command\AddShapeCommand.cs" />
+    <Compile Include="Command\IUndoRedoCommand.cs" />
+    <Compile Include="Command\UndoRedoController.cs" />
     <Compile Include="Design\DesignDataService.cs" />
     <Compile Include="Model\Arrow.cs" />
     <Compile Include="Model\Ellipse.cs" />
@@ -146,9 +149,7 @@
   <ItemGroup>
     <Resource Include="Images\Paste.png" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Command\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

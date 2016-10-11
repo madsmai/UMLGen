@@ -12,7 +12,6 @@ namespace UMLGen.Model
 
         enum LineType { None, Solid, Dotted  };
 
-
         // Center x coordinate
         private double _x;
 
