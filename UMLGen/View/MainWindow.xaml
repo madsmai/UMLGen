@@ -7,7 +7,7 @@
         mc:Ignorable="d ignore"
         Height="800"
         Width="800"
-        Title="MVVM Light Application"
+        Title="We need a better title..."
         DataContext="{Binding Main, Source={StaticResource Locator}}">
 
     <Window.Resources>
@@ -18,7 +18,7 @@
         </ResourceDictionary>
     </Window.Resources>
     <DockPanel HorizontalAlignment="Left" LastChildFill="True" Width="790">
-        <ToolBar DockPanel.Dock="Left" x:Name="toolBar" Width="100" Margin="0,70,0,0"/>
+		<ToolBar DockPanel.Dock="Left" x:Name="toolBar" Width="100" Margin="0,70,0,0" ToolBarTray.IsLocked="True" ToolBar.OverflowMode="Never" Style="{DynamicResource ToolBarStyleNoGripOverflow}"/>
         <Menu DockPanel.Dock="Top" x:Name="menu" VerticalAlignment="Top" Margin="-100,0,0,0" >
             <MenuItem Header="_File" Height="30" Width="70" Margin="10,0,0,0">
                 <MenuItem Header="_New"/>
@@ -36,7 +36,7 @@
                 </MenuItem>
             </MenuItem>
         </Menu>
-        <ToolBar DockPanel.Dock="Top" x:Name="toolBar1" Height="40" Margin="-100,0,0,0" >
+		<ToolBar DockPanel.Dock="Top" x:Name="toolBar1" Height="40" Margin="-100,0,0,0" ToolBarTray.IsLocked="True" ToolBar.OverflowMode="Never" Style="{DynamicResource ToolBarStyleNoGripOverflow}">
             <Button x:Name="CopyBtn" Height="30"  ToolTip="Copy selection to clipboard" VerticalAlignment="Center" Width="75">
                 <Image Source="/Images/Copy.png" />
             </Button>

@@ -108,3 +108,43 @@ Z:\Users\Kasper\UMLGen\UMLGen\obj\Debug\UMLGen.pdb
 \\psf\Home\Downloads\Hutlihut\UMLGen\obj\Debug\UMLGen.g.resources
 \\psf\Home\Downloads\Hutlihut\UMLGen\obj\Debug\UMLGen.Properties.Resources.resources
 \\psf\Home\Downloads\Hutlihut\UMLGen\obj\Debug\UMLGen.csproj.GenerateResource.Cache
+C:\Users\Engberg\Documents\UnGit Repositories\UMLGen\UMLGen\bin\Debug\UMLGen.exe.config
+C:\Users\Engberg\Documents\UnGit Repositories\UMLGen\UMLGen\obj\Debug\UMLGen.exe
+C:\Users\Engberg\Documents\UnGit Repositories\UMLGen\UMLGen\obj\Debug\UMLGen.pdb
+C:\Users\Engberg\Documents\UnGit Repositories\UMLGen\UMLGen\bin\Debug\UMLGen.exe
+C:\Users\Engberg\Documents\UnGit Repositories\UMLGen\UMLGen\bin\Debug\UMLGen.pdb
+C:\Users\Engberg\Documents\UnGit Repositories\UMLGen\UMLGen\bin\Debug\UMLGen.exe.CodeAnalysisLog.xml
+C:\Users\Engberg\Documents\UnGit Repositories\UMLGen\UMLGen\bin\Debug\UMLGen.exe.lastcodeanalysissucceeded
+C:\Users\Engberg\Documents\UnGit Repositories\UMLGen\UMLGen\bin\Debug\GalaSoft.MvvmLight.dll
+C:\Users\Engberg\Documents\UnGit Repositories\UMLGen\UMLGen\bin\Debug\GalaSoft.MvvmLight.Extras.dll
+C:\Users\Engberg\Documents\UnGit Repositories\UMLGen\UMLGen\bin\Debug\GalaSoft.MvvmLight.Platform.dll
+C:\Users\Engberg\Documents\UnGit Repositories\UMLGen\UMLGen\bin\Debug\Microsoft.Practices.ServiceLocation.dll
+C:\Users\Engberg\Documents\UnGit Repositories\UMLGen\UMLGen\bin\Debug\System.Windows.Interactivity.dll
+C:\Users\Engberg\Documents\UnGit Repositories\UMLGen\UMLGen\bin\Debug\GalaSoft.MvvmLight.pdb
+C:\Users\Engberg\Documents\UnGit Repositories\UMLGen\UMLGen\bin\Debug\GalaSoft.MvvmLight.xml
+C:\Users\Engberg\Documents\UnGit Repositories\UMLGen\UMLGen\bin\Debug\GalaSoft.MvvmLight.Extras.pdb
+C:\Users\Engberg\Documents\UnGit Repositories\UMLGen\UMLGen\bin\Debug\GalaSoft.MvvmLight.Extras.xml
+C:\Users\Engberg\Documents\UnGit Repositories\UMLGen\UMLGen\bin\Debug\GalaSoft.MvvmLight.Platform.pdb
+C:\Users\Engberg\Documents\UnGit Repositories\UMLGen\UMLGen\bin\Debug\GalaSoft.MvvmLight.Platform.xml
+C:\Users\Engberg\Documents\UnGit Repositories\UMLGen\UMLGen\bin\Debug\Microsoft.Practices.ServiceLocation.pdb
+C:\Users\Engberg\Documents\UnGit Repositories\UMLGen\UMLGen\bin\Debug\Microsoft.Practices.ServiceLocation.xml
+C:\Users\Engberg\Documents\UnGit Repositories\UMLGen\UMLGen\obj\Debug\UMLGen.csprojResolveAssemblyReference.cache
+C:\Users\Engberg\Documents\UnGit Repositories\UMLGen\UMLGen\obj\Debug\View\MainWindow.baml
+C:\Users\Engberg\Documents\UnGit Repositories\UMLGen\UMLGen\obj\Debug\View\Skins\MainSkin.baml
+C:\Users\Engberg\Documents\UnGit Repositories\UMLGen\UMLGen\obj\Debug\View\Box.g.cs
+C:\Users\Engberg\Documents\UnGit Repositories\UMLGen\UMLGen\obj\Debug\View\Elipse.g.cs
+C:\Users\Engberg\Documents\UnGit Repositories\UMLGen\UMLGen\obj\Debug\View\MainWindow.g.cs
+C:\Users\Engberg\Documents\UnGit Repositories\UMLGen\UMLGen\obj\Debug\View\Square.g.cs
+C:\Users\Engberg\Documents\UnGit Repositories\UMLGen\UMLGen\obj\Debug\View\UMLClass.g.cs
+C:\Users\Engberg\Documents\UnGit Repositories\UMLGen\UMLGen\obj\Debug\View\App.g.cs
+C:\Users\Engberg\Documents\UnGit Repositories\UMLGen\UMLGen\obj\Debug\GeneratedInternalTypeHelper.g.cs
+C:\Users\Engberg\Documents\UnGit Repositories\UMLGen\UMLGen\obj\Debug\UMLGen_MarkupCompile.cache
+C:\Users\Engberg\Documents\UnGit Repositories\UMLGen\UMLGen\obj\Debug\UMLGen_MarkupCompile.lref
+C:\Users\Engberg\Documents\UnGit Repositories\UMLGen\UMLGen\obj\Debug\View\App.baml
+C:\Users\Engberg\Documents\UnGit Repositories\UMLGen\UMLGen\obj\Debug\View\Box.baml
+C:\Users\Engberg\Documents\UnGit Repositories\UMLGen\UMLGen\obj\Debug\View\Elipse.baml
+C:\Users\Engberg\Documents\UnGit Repositories\UMLGen\UMLGen\obj\Debug\View\Square.baml
+C:\Users\Engberg\Documents\UnGit Repositories\UMLGen\UMLGen\obj\Debug\View\UMLClass.baml
+C:\Users\Engberg\Documents\UnGit Repositories\UMLGen\UMLGen\obj\Debug\UMLGen.g.resources
+C:\Users\Engberg\Documents\UnGit Repositories\UMLGen\UMLGen\obj\Debug\UMLGen.Properties.Resources.resources
+C:\Users\Engberg\Documents\UnGit Repositories\UMLGen\UMLGen\obj\Debug\UMLGen.csproj.GenerateResource.Cache

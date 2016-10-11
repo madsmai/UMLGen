@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-\\psf\Home\Downloads\Hutlihut\UMLGen\obj\Debug\
+C:\Users\Engberg\Documents\UnGit Repositories\UMLGen\UMLGen\obj\Debug\
 UMLGen
 none
 false
 CODE_ANALYSIS;DEBUG;TRACE
-\\psf\Home\Downloads\Hutlihut\UMLGen\View\App.xaml
+C:\Users\Engberg\Documents\UnGit Repositories\UMLGen\UMLGen\View\App.xaml
 6423940728
 
-28-1349692236
-68-1380187992
+28-1759660356
+69-453133310
 View\Box.xaml;View\Elipse.xaml;View\MainWindow.xaml;View\Skins\MainSkin.xaml;View\Square.xaml;View\UMLClass.xaml;
 
-False
+True
 
