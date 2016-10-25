@@ -7,7 +7,7 @@
         mc:Ignorable="d ignore"
         Height="800"
         Width="800"
-        Title="We need a better title..."
+        Title="UMLGen"
         DataContext="{Binding Main, Source={StaticResource Locator}}">
 
     <!-- 
@@ -70,7 +70,8 @@
         </StatusBar>
         <ScrollBar DockPanel.Dock="Right" x:Name="scrollBar" Width="20" HorizontalAlignment="Right" ValueChanged="scrollBar_ValueChanged" />
 
-        <ItemsControl ItemsSource="{Binding Shapes}"/>
+
+        <ItemsControl ItemsSource="{Binding Shapes}" ItemTemplate="{StaticResource square}"/>
 
 
     </DockPanel>

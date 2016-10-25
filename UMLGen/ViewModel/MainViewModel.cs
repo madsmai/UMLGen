@@ -60,7 +60,11 @@ namespace UMLGen.ViewModel
 
                     WelcomeTitle = item.Title;
                 });
+<<<<<<< HEAD
             Shapes.Add(new Square());
+=======
+            Shapes.Add(new Square(100,100,200,50));
+>>>>>>> origin/Adding_shapes
         }
 
         ////public override void Cleanup()

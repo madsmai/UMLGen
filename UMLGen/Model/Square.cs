@@ -21,13 +21,16 @@ namespace UMLGen.Model
             Arrows = new ObservableCollection<Shape>();
         }
 
-        public Square(double x, double y)
+        public Square(double x, double y, double width, double height)
         {
             X = x;
             Y = y;
-            Width = baseValue;
-            Height = baseValue;
+
             Arrows = new ObservableCollection<Shape>();
+
+            Width = width;
+            Height = height;
+
 
         }
 
