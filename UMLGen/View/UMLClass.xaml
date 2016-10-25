@@ -21,7 +21,7 @@
                 </LinearGradientBrush>
             </Grid.Background>
             <Border BorderBrush="Black" BorderThickness="1" Grid.Row="0">
-                <TextBlock x:Name="ClassName" HorizontalAlignment="Left" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="41" Width="288" Margin="3,3,3,0"/>
+                <TextBlock x:Name="ClassName" HorizontalAlignment="Left" TextWrapping="Wrap" Text="{Binding ClassName}" VerticalAlignment="Top" Height="41" Width="288" Margin="3,3,3,0"/>
             </Border>
         </Grid>
 
@@ -32,7 +32,7 @@
                 </LinearGradientBrush>
             </Grid.Background>
             <Border BorderBrush="Black" BorderThickness="1" Grid.Row="0">
-                <TextBlock x:Name="FieldsBox" HorizontalAlignment="Left" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="133" Width="285" Margin="3,3,3,0"/>
+                <TextBlock x:Name="FieldsBox" HorizontalAlignment="Left" TextWrapping="Wrap" Text="{Binding FieldNames}" VerticalAlignment="Top" Height="133" Width="285" Margin="3,3,3,0"/>
             </Border>
         </Grid>
 
@@ -43,7 +43,7 @@
                 </LinearGradientBrush>
             </Grid.Background>
             <Border BorderBrush="Black" BorderThickness="1" Grid.Row="0">
-                <TextBlock x:Name="MethodBox" HorizontalAlignment="Left" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="95" Width="285" Margin="3,3,3,0"/>
+                <TextBlock x:Name="MethodBox" HorizontalAlignment="Left" TextWrapping="Wrap" Text="{Binding MethodNames}" VerticalAlignment="Top" Height="95" Width="285" Margin="3,3,3,0"/>
             </Border>
         </Grid>
 

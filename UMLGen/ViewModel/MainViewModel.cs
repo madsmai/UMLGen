@@ -62,7 +62,8 @@ namespace UMLGen.ViewModel
                 });
 
             Shapes.Add(new Square(100,100,420,69));
-            Shapes.Add(new Ellipse(50,50,10,10));
+            Shapes.Add(new Ellipse());
+            Shapes.Add(new UMLClass());
         }
 
         ////public override void Cleanup()

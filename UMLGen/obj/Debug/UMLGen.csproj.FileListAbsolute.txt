@@ -192,3 +192,43 @@ C:\Users\Mads_\OneDrive\documents\visual studio 2015\Projects\UMLGen\UMLGen\obj\
 C:\Users\Mads_\OneDrive\documents\visual studio 2015\Projects\UMLGen\UMLGen\obj\Debug\UMLGen.pdb
 C:\Users\krest\OneDrive\Dokumenter\DTU\Windows Programming\UMLGen\UMLGen\obj\Debug\View\Ellipse.g.cs
 C:\Users\krest\OneDrive\Dokumenter\DTU\Windows Programming\UMLGen\UMLGen\obj\Debug\View\Ellipse.baml
+F:\Programming\UMLGen\UMLGen\bin\Debug\UMLGen.exe.config
+F:\Programming\UMLGen\UMLGen\obj\Debug\UMLGen.exe
+F:\Programming\UMLGen\UMLGen\obj\Debug\UMLGen.pdb
+F:\Programming\UMLGen\UMLGen\bin\Debug\UMLGen.exe
+F:\Programming\UMLGen\UMLGen\bin\Debug\UMLGen.pdb
+F:\Programming\UMLGen\UMLGen\bin\Debug\UMLGen.exe.CodeAnalysisLog.xml
+F:\Programming\UMLGen\UMLGen\bin\Debug\UMLGen.exe.lastcodeanalysissucceeded
+F:\Programming\UMLGen\UMLGen\bin\Debug\GalaSoft.MvvmLight.dll
+F:\Programming\UMLGen\UMLGen\bin\Debug\GalaSoft.MvvmLight.Extras.dll
+F:\Programming\UMLGen\UMLGen\bin\Debug\GalaSoft.MvvmLight.Platform.dll
+F:\Programming\UMLGen\UMLGen\bin\Debug\Microsoft.Practices.ServiceLocation.dll
+F:\Programming\UMLGen\UMLGen\bin\Debug\System.Windows.Interactivity.dll
+F:\Programming\UMLGen\UMLGen\bin\Debug\GalaSoft.MvvmLight.pdb
+F:\Programming\UMLGen\UMLGen\bin\Debug\GalaSoft.MvvmLight.xml
+F:\Programming\UMLGen\UMLGen\bin\Debug\GalaSoft.MvvmLight.Extras.pdb
+F:\Programming\UMLGen\UMLGen\bin\Debug\GalaSoft.MvvmLight.Extras.xml
+F:\Programming\UMLGen\UMLGen\bin\Debug\GalaSoft.MvvmLight.Platform.pdb
+F:\Programming\UMLGen\UMLGen\bin\Debug\GalaSoft.MvvmLight.Platform.xml
+F:\Programming\UMLGen\UMLGen\bin\Debug\Microsoft.Practices.ServiceLocation.pdb
+F:\Programming\UMLGen\UMLGen\bin\Debug\Microsoft.Practices.ServiceLocation.xml
+F:\Programming\UMLGen\UMLGen\obj\Debug\UMLGen.csprojResolveAssemblyReference.cache
+F:\Programming\UMLGen\UMLGen\obj\Debug\View\Skins\MainSkin.baml
+F:\Programming\UMLGen\UMLGen\obj\Debug\View\Box.g.cs
+F:\Programming\UMLGen\UMLGen\obj\Debug\View\Ellipse.g.cs
+F:\Programming\UMLGen\UMLGen\obj\Debug\View\MainWindow.g.cs
+F:\Programming\UMLGen\UMLGen\obj\Debug\View\Square.g.cs
+F:\Programming\UMLGen\UMLGen\obj\Debug\View\UMLClass.g.cs
+F:\Programming\UMLGen\UMLGen\obj\Debug\View\App.g.cs
+F:\Programming\UMLGen\UMLGen\obj\Debug\GeneratedInternalTypeHelper.g.cs
+F:\Programming\UMLGen\UMLGen\obj\Debug\UMLGen_MarkupCompile.cache
+F:\Programming\UMLGen\UMLGen\obj\Debug\UMLGen_MarkupCompile.lref
+F:\Programming\UMLGen\UMLGen\obj\Debug\View\App.baml
+F:\Programming\UMLGen\UMLGen\obj\Debug\View\Box.baml
+F:\Programming\UMLGen\UMLGen\obj\Debug\View\Ellipse.baml
+F:\Programming\UMLGen\UMLGen\obj\Debug\View\MainWindow.baml
+F:\Programming\UMLGen\UMLGen\obj\Debug\View\Square.baml
+F:\Programming\UMLGen\UMLGen\obj\Debug\View\UMLClass.baml
+F:\Programming\UMLGen\UMLGen\obj\Debug\UMLGen.g.resources
+F:\Programming\UMLGen\UMLGen\obj\Debug\UMLGen.Properties.Resources.resources
+F:\Programming\UMLGen\UMLGen\obj\Debug\UMLGen.csproj.GenerateResource.Cache
