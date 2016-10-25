@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 ﻿C:\Users\Mads_\OneDrive\documents\visual studio 2015\Projects\UMLGen\UMLGen\obj\Debug\GeneratedInternalTypeHelper.g.cs
 FC:\Users\Mads_\OneDrive\documents\visual studio 2015\Projects\UMLGen\UMLGen\View\App.xaml;;
 FC:\Users\Mads_\OneDrive\documents\visual studio 2015\Projects\UMLGen\UMLGen\View\Box.xaml;;
@@ -5,4 +6,13 @@ FC:\Users\Mads_\OneDrive\documents\visual studio 2015\Projects\UMLGen\UMLGen\Vie
 FC:\Users\Mads_\OneDrive\documents\visual studio 2015\Projects\UMLGen\UMLGen\View\MainWindow.xaml;;
 FC:\Users\Mads_\OneDrive\documents\visual studio 2015\Projects\UMLGen\UMLGen\View\Square.xaml;;
 FC:\Users\Mads_\OneDrive\documents\visual studio 2015\Projects\UMLGen\UMLGen\View\UMLClass.xaml;;
+=======
+﻿C:\Users\krest\OneDrive\Dokumenter\DTU\Windows Programming\UMLGen\UMLGen\obj\Debug\GeneratedInternalTypeHelper.g.cs
+FC:\Users\krest\OneDrive\Dokumenter\DTU\Windows Programming\UMLGen\UMLGen\View\App.xaml;;
+FC:\Users\krest\OneDrive\Dokumenter\DTU\Windows Programming\UMLGen\UMLGen\View\Box.xaml;;
+FC:\Users\krest\OneDrive\Dokumenter\DTU\Windows Programming\UMLGen\UMLGen\View\Elipse.xaml;;
+FC:\Users\krest\OneDrive\Dokumenter\DTU\Windows Programming\UMLGen\UMLGen\View\MainWindow.xaml;;
+FC:\Users\krest\OneDrive\Dokumenter\DTU\Windows Programming\UMLGen\UMLGen\View\Square.xaml;;
+FC:\Users\krest\OneDrive\Dokumenter\DTU\Windows Programming\UMLGen\UMLGen\View\UMLClass.xaml;;
+>>>>>>> Github/Adding_shapes
 
