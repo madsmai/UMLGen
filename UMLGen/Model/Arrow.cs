@@ -23,6 +23,7 @@ namespace UMLGen.Model
             Y = 400;
             Width = 5;
             Height = 51;
+            Arrows = new ObservableCollection<Shape>();
         }
         public Arrow(ObservableCollection<Shape> endPoints, ObservableCollection<Shape> startingPoints, Double x, Double y, Double thickness, Double length) {
             EndPoints = endPoints;
@@ -31,6 +32,7 @@ namespace UMLGen.Model
             Y = x;
             Width = thickness;
             Height = length;
+            Arrows = new ObservableCollection<Shape>();
         }
     }
 }

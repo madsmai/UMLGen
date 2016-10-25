@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -17,6 +18,7 @@ namespace UMLGen.Model
             Y = 400;
             Width = baseValue;
             Height = baseValue;
+            Arrows = new ObservableCollection<Shape>();
         }
 
         // Used for drag-n-drop
@@ -27,6 +29,7 @@ namespace UMLGen.Model
             Y = y;
             Width = baseValue;
             Height = baseValue;
+            Arrows = new ObservableCollection<Shape>();
         }
     }
 }

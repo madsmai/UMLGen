@@ -12,7 +12,7 @@ namespace UMLGen.ViewModel
     /// </summary>
     public class MainViewModel : ViewModelBase
     {
-
+        
         public ObservableCollection<Shape> Shapes { get; set; }
 
 
