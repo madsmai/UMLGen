@@ -68,7 +68,7 @@
         </StatusBar>
         <ScrollBar DockPanel.Dock="Right" x:Name="scrollBar" Width="20" HorizontalAlignment="Right" ValueChanged="scrollBar_ValueChanged" />
 
-        <Canvas Height="499" VerticalAlignment="Top" Width="438"/>
+        <ItemsControl ItemsSource="{Binding Shapes}"/>
 
 
     </DockPanel>

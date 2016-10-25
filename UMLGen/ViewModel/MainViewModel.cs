@@ -47,6 +47,7 @@ namespace UMLGen.ViewModel
         /// </summary>
         public MainViewModel(IDataService dataService)
         {
+            Shapes = new ObservableCollection<Shape>();
             _dataService = dataService;
             _dataService.GetData(
                 (item, error) =>
@@ -59,6 +60,7 @@ namespace UMLGen.ViewModel
 
                     WelcomeTitle = item.Title;
                 });
+            Shapes.Add(new Square());
         }
 
         ////public override void Cleanup()

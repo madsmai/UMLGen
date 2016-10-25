@@ -8,6 +8,7 @@ namespace UMLGen.Model
 {
     class Square : Shape
     {
+
         private double baseValue = 10;
 
         public Square()
