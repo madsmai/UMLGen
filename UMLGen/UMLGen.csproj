@@ -107,13 +107,13 @@
     <Compile Include="View\Square.xaml.cs">
       <DependentUpon>Square.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\UMLClass.xaml.cs">
-      <DependentUpon>UMLClass.xaml</DependentUpon>
-    </Compile>
     <ApplicationDefinition Include="View\App.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="View\UMLClass.xaml.cs">
+      <DependentUpon>UMLClass.xaml</DependentUpon>
+    </Compile>
     <Page Include="View\Box.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>

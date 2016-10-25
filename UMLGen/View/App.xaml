@@ -14,18 +14,23 @@
         <vm:ViewModelLocator x:Key="Locator"
                              d:IsDataSource="True" />
 
-        <DataTemplate x:Key="square" DataType="{x:Type Shape}">
+        <DataTemplate x:Key="Square" DataType="{x:Type Shape}">
             <Canvas>
                 <View:Square/>
             </Canvas>  
         </DataTemplate>
 
-        <DataTemplate x:Key="elipse" DataType="{x:Type Shape}">
+        <DataTemplate x:Key="Ellipse" DataType="{x:Type Shape}">
             <Canvas>
                 <View:Elipse/>
             </Canvas>
         </DataTemplate>
 
+        <DataTemplate x:Key="UMLClass" DataType="{x:Type Shape}">
+            <Canvas>
+                <View:UMLClass/>
+            </Canvas>
+        </DataTemplate>
 
     </Application.Resources>
     
