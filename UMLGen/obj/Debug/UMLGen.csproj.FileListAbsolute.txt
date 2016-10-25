@@ -137,7 +137,6 @@ C:\Users\krest\OneDrive\Dokumenter\DTU\Windows Programming\UMLGen\UMLGen\obj\Deb
 C:\Users\krest\OneDrive\Dokumenter\DTU\Windows Programming\UMLGen\UMLGen\obj\Debug\View\MainWindow.baml
 C:\Users\krest\OneDrive\Dokumenter\DTU\Windows Programming\UMLGen\UMLGen\obj\Debug\View\Skins\MainSkin.baml
 C:\Users\krest\OneDrive\Dokumenter\DTU\Windows Programming\UMLGen\UMLGen\obj\Debug\View\Box.g.cs
-C:\Users\krest\OneDrive\Dokumenter\DTU\Windows Programming\UMLGen\UMLGen\obj\Debug\View\Elipse.g.cs
 C:\Users\krest\OneDrive\Dokumenter\DTU\Windows Programming\UMLGen\UMLGen\obj\Debug\View\MainWindow.g.cs
 C:\Users\krest\OneDrive\Dokumenter\DTU\Windows Programming\UMLGen\UMLGen\obj\Debug\View\Square.g.cs
 C:\Users\krest\OneDrive\Dokumenter\DTU\Windows Programming\UMLGen\UMLGen\obj\Debug\View\UMLClass.g.cs
@@ -147,7 +146,6 @@ C:\Users\krest\OneDrive\Dokumenter\DTU\Windows Programming\UMLGen\UMLGen\obj\Deb
 C:\Users\krest\OneDrive\Dokumenter\DTU\Windows Programming\UMLGen\UMLGen\obj\Debug\UMLGen_MarkupCompile.lref
 C:\Users\krest\OneDrive\Dokumenter\DTU\Windows Programming\UMLGen\UMLGen\obj\Debug\View\App.baml
 C:\Users\krest\OneDrive\Dokumenter\DTU\Windows Programming\UMLGen\UMLGen\obj\Debug\View\Box.baml
-C:\Users\krest\OneDrive\Dokumenter\DTU\Windows Programming\UMLGen\UMLGen\obj\Debug\View\Elipse.baml
 C:\Users\krest\OneDrive\Dokumenter\DTU\Windows Programming\UMLGen\UMLGen\obj\Debug\View\Square.baml
 C:\Users\krest\OneDrive\Dokumenter\DTU\Windows Programming\UMLGen\UMLGen\obj\Debug\View\UMLClass.baml
 C:\Users\krest\OneDrive\Dokumenter\DTU\Windows Programming\UMLGen\UMLGen\obj\Debug\UMLGen.g.resources
@@ -192,3 +190,5 @@ C:\Users\Mads_\OneDrive\documents\visual studio 2015\Projects\UMLGen\UMLGen\obj\
 C:\Users\Mads_\OneDrive\documents\visual studio 2015\Projects\UMLGen\UMLGen\obj\Debug\UMLGen.csproj.GenerateResource.Cache
 C:\Users\Mads_\OneDrive\documents\visual studio 2015\Projects\UMLGen\UMLGen\obj\Debug\UMLGen.exe
 C:\Users\Mads_\OneDrive\documents\visual studio 2015\Projects\UMLGen\UMLGen\obj\Debug\UMLGen.pdb
+C:\Users\krest\OneDrive\Dokumenter\DTU\Windows Programming\UMLGen\UMLGen\obj\Debug\View\Ellipse.g.cs
+C:\Users\krest\OneDrive\Dokumenter\DTU\Windows Programming\UMLGen\UMLGen\obj\Debug\View\Ellipse.baml

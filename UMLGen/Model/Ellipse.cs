@@ -9,7 +9,7 @@ namespace UMLGen.Model
     class Ellipse : Shape
     {
 
-        private double baseValue = 10;
+        private double baseValue = 100;
 
         public Ellipse()
         {
@@ -20,13 +20,13 @@ namespace UMLGen.Model
         }
 
         // Used for drag-n-drop
-        public Ellipse(double x, double y)
+        public Ellipse(double x, double y, double width, double height)
         {
             // x and y should be the coordinate of the mouse when released
             X = x;
             Y = y;
-            Width = baseValue;
-            Height = baseValue;
+            Width = width;
+            Height = height;
         }
     }
 }

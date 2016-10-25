@@ -15,7 +15,7 @@ namespace UMLGen.ViewModel
 
         public ObservableCollection<Shape> Shapes { get; set; }
 
-        //public TemplateSelector tempSel();
+        
 
         private readonly IDataService _dataService;
 
@@ -60,7 +60,9 @@ namespace UMLGen.ViewModel
 
                     WelcomeTitle = item.Title;
                 });
+
             Shapes.Add(new Square(100,100,420,69));
+            Shapes.Add(new Ellipse(50,50,10,10));
         }
 
         ////public override void Cleanup()

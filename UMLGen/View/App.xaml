@@ -23,20 +23,17 @@
 
         <DataTemplate x:Key="Ellipse" DataType="{x:Type Shape}">
             <Canvas>
-                <View:Elipse/>
+                <View:Ellipse/>
             </Canvas>
         </DataTemplate>
 
-<<<<<<< HEAD
-        <Model:TemplateSelector x:Key="dataSelector"/>
-
-=======
         <DataTemplate x:Key="UMLClass" DataType="{x:Type Shape}">
             <Canvas>
                 <View:UMLClass/>
             </Canvas>
         </DataTemplate>
->>>>>>> Github/Adding_shapes
+
+        <Model:TemplateSelector x:Key="dataSelector"/>
 
     </Application.Resources>
     

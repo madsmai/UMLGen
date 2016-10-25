@@ -69,15 +69,10 @@
         </StatusBar>
         <ScrollBar DockPanel.Dock="Right" x:Name="scrollBar" Width="20" HorizontalAlignment="Right" ValueChanged="scrollBar_ValueChanged" />
 
-<<<<<<< HEAD
-        <!--<ItemsControl ItemsSource="{Binding Shapes}" ItemTemplate="{StaticResource square}"/>-->
+        <!--<ItemsControl ItemsSource="{Binding Shapes}" ItemTemplate="{StaticResource Square}"/>-->
 
         <ItemsControl ItemsSource="{Binding Shapes}" ItemTemplateSelector="{StaticResource dataSelector}" />
 
-=======
-        <ItemsControl ItemsSource="{Binding Shapes}" ItemTemplate="{StaticResource Square}"/>
-       
->>>>>>> Github/Adding_shapes
     </DockPanel>
 
 </Window>
