@@ -73,6 +73,10 @@
     <Reference Include="PresentationFramework" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Arrows\ArrowEnds.cs" />
+    <Compile Include="Arrows\ArrowLine.cs" />
+    <Compile Include="Arrows\ArrowLineBase.cs" />
+    <Compile Include="Arrows\ArrowPolyline.cs" />
     <Compile Include="Command\AddShapeCommand.cs" />
     <Compile Include="Command\IUndoRedoCommand.cs" />
     <Compile Include="Command\RemoveShapeCommand.cs" />
