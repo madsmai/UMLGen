@@ -5,6 +5,8 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:UMLGen.View"
              mc:Ignorable="d" 
+             Canvas.Left="{Binding X}" Canvas.Top="{Binding Y}" Width="{Binding Width}" Height="{Binding Height}"
              d:DesignHeight="100" d:DesignWidth="100">
+    
     <Ellipse Fill="Firebrick" HorizontalAlignment="Left" Height="100" Margin="0,0,0,0" Stroke="Black" VerticalAlignment="Top" Width="100"/>
  </UserControl>
