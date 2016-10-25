@@ -98,8 +98,8 @@
     <Compile Include="View\Box.xaml.cs">
       <DependentUpon>Box.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\Elipse.xaml.cs">
-      <DependentUpon>Elipse.xaml</DependentUpon>
+    <Compile Include="View\Ellipse.xaml.cs">
+      <DependentUpon>Ellipse.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
@@ -118,7 +118,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="View\Elipse.xaml">
+    <Page Include="View\Ellipse.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>

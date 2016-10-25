@@ -6,6 +6,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
 			 xmlns:ignore="http://www.galasoft.ch/ignore"
              xmlns:View="clr-namespace:UMLGen.View"
+             xmlns:Model="clr-namespace:UMLGen.Model"
              StartupUri="MainWindow.xaml"
              mc:Ignorable="d ignore">
     
@@ -14,17 +15,19 @@
         <vm:ViewModelLocator x:Key="Locator"
                              d:IsDataSource="True" />
 
-        <DataTemplate x:Key="square" DataType="{x:Type Shape}">
+        <DataTemplate x:Key="Square" DataType="{x:Type Shape}">
             <Canvas>
                 <View:Square/>
             </Canvas>  
         </DataTemplate>
 
-        <DataTemplate x:Key="elipse" DataType="{x:Type Shape}">
+        <DataTemplate x:Key="Ellipse" DataType="{x:Type Shape}">
             <Canvas>
                 <View:Elipse/>
             </Canvas>
         </DataTemplate>
+
+        <Model:TemplateSelector x:Key="dataSelector"/>
 
 
     </Application.Resources>

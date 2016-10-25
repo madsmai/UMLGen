@@ -17,9 +17,22 @@ namespace UMLGen.Model
 
             if (element != null && item != null && item is Shape)
             {
-                Shape auctionItem = item as Shape;
-                Window window = Application.Current.MainWindow;
-
+              if (item is Square)
+                {
+                    return element.FindResource("Square") as DataTemplate;
+                }
+              else if (item is Ellipse)
+                {
+                    return element.FindResource("Ellipse") as DataTemplate;
+                }
+              else if (item is UMLClass)
+                {
+                    return element.FindResource("UMLClass") as DataTemplate;
+                }
+              else if (item is Arrow)
+                {
+                    return element.FindResource("Arrow") as DataTemplate;
+                }
             }
 
             return null;

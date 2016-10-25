@@ -69,8 +69,10 @@
         </StatusBar>
         <ScrollBar DockPanel.Dock="Right" x:Name="scrollBar" Width="20" HorizontalAlignment="Right" ValueChanged="scrollBar_ValueChanged" />
 
-        <ItemsControl ItemsSource="{Binding Shapes}" ItemTemplate="{StaticResource square}"/>
-       
+        <!--<ItemsControl ItemsSource="{Binding Shapes}" ItemTemplate="{StaticResource square}"/>-->
+
+        <ItemsControl ItemsSource="{Binding Shapes}" ItemTemplateSelector="{StaticResource dataSelector}" />
+
     </DockPanel>
 
 </Window>
