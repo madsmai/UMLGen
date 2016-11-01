@@ -16,11 +16,11 @@ using System.Windows.Shapes;
 namespace UMLGen.View
 {
     /// <summary>
-    /// Interaction logic for Elipse.xaml
+    /// Interaction logic for Ellipse.xaml
     /// </summary>
-    public partial class Elipse : UserControl
+    public partial class Ellipse : UserControl
     {
-        public Elipse()
+        public Ellipse()
         {
             InitializeComponent();
         }

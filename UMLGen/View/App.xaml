@@ -5,6 +5,8 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
 			 xmlns:ignore="http://www.galasoft.ch/ignore"
+             xmlns:View="clr-namespace:UMLGen.View"
+             xmlns:Model="clr-namespace:UMLGen.Model"
              StartupUri="MainWindow.xaml"
              mc:Ignorable="d ignore">
     
@@ -12,6 +14,27 @@
         <!--Global View Model Locator-->
         <vm:ViewModelLocator x:Key="Locator"
                              d:IsDataSource="True" />
+
+        <DataTemplate x:Key="Square" DataType="{x:Type Shape}">
+            <Canvas>
+                <View:Square/>
+            </Canvas>  
+        </DataTemplate>
+
+        <DataTemplate x:Key="Ellipse" DataType="{x:Type Shape}">
+            <Canvas>
+                <View:Ellipse/>
+            </Canvas>
+        </DataTemplate>
+
+        <DataTemplate x:Key="UMLClass" DataType="{x:Type Shape}">
+            <Canvas>
+                <View:UMLClass/>
+            </Canvas>
+        </DataTemplate>
+
+        <Model:TemplateSelector x:Key="dataSelector"/>
+
     </Application.Resources>
     
 </Application>
