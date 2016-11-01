@@ -6,15 +6,21 @@
              xmlns:local="clr-namespace:UMLGen.View"
              mc:Ignorable="d" 
              Canvas.Left="{Binding X}" Canvas.Top="{Binding Y}" Width="{Binding Width}" Height="{Binding Height}"
-             d:DesignHeight="300" d:DesignWidth="300">
+             d:DesignHeight="{Binding Height}" d:DesignWidth="{Binding Width}">
     <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        
         <Grid.Background>
             <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                 <GradientStop Color="LightBlue" Offset="0" />
             </LinearGradientBrush>
         </Grid.Background>
 
-        <Grid HorizontalAlignment="Left" Height="47" VerticalAlignment="Top" Width="294" Margin="3,3,3,0">
+        <Grid Grid.Row="0">
             <Grid.Background>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                     <GradientStop Color="WhiteSmoke" Offset="0" />
@@ -25,7 +31,7 @@
             </Border>
         </Grid>
 
-        <Grid HorizontalAlignment="Left" Height="142" Margin="3,52,3,0" VerticalAlignment="Top" Width="294">
+        <Grid Grid.Row="1">
             <Grid.Background>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                     <GradientStop Color="WhiteSmoke" Offset="0" />
@@ -36,7 +42,7 @@
             </Border>
         </Grid>
 
-        <Grid HorizontalAlignment="Left" Height="105" Margin="3,195,3,0" VerticalAlignment="Top" Width="294">
+        <Grid Grid.Row="2">
             <Grid.Background>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                     <GradientStop Color="WhiteSmoke" Offset="0" />
@@ -47,7 +53,9 @@
             </Border>
         </Grid>
 
-        <Border BorderBrush="Black" BorderThickness="3" Grid.Row="0"></Border>
+        <Border BorderBrush="Black" BorderThickness="1" Grid.Row="0"></Border>
+        <Border BorderBrush="Black" BorderThickness="1" Grid.Row="1"></Border>
+        <Border BorderBrush="Black" BorderThickness="1" Grid.Row="2"></Border>
 
     </Grid>
 </UserControl>
