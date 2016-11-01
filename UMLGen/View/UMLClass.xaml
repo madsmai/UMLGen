@@ -8,13 +8,23 @@
              Canvas.Left="{Binding X}" Canvas.Top="{Binding Y}" Width="{Binding Width}" Height="{Binding Height}"
              d:DesignHeight="{Binding Height}" d:DesignWidth="{Binding Width}">
     <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        
         <Grid.Background>
             <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                 <GradientStop Color="LightBlue" Offset="0" />
             </LinearGradientBrush>
         </Grid.Background>
 
+<<<<<<< HEAD
         <Grid HorizontalAlignment="Left" Height="49" VerticalAlignment="Top" Width="auto" Margin="3,3,0,0">
+=======
+        <Grid Grid.Row="0">
+>>>>>>> Github/Adding_shapes
             <Grid.Background>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                     <GradientStop Color="WhiteSmoke" Offset="0" />
@@ -25,7 +35,11 @@
             </Border>
         </Grid>
 
+<<<<<<< HEAD
         <Grid HorizontalAlignment="Left" Height="140" Margin="3,52,0,0" VerticalAlignment="Top" Width="auto">
+=======
+        <Grid Grid.Row="1">
+>>>>>>> Github/Adding_shapes
             <Grid.Background>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                     <GradientStop Color="WhiteSmoke" Offset="0" />
@@ -36,7 +50,11 @@
             </Border>
         </Grid>
 
+<<<<<<< HEAD
         <Grid HorizontalAlignment="Left" Height="58" Margin="3,192,0,0" VerticalAlignment="Top" Width="auto">
+=======
+        <Grid Grid.Row="2">
+>>>>>>> Github/Adding_shapes
             <Grid.Background>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                     <GradientStop Color="WhiteSmoke" Offset="0" />
@@ -47,7 +65,9 @@
             </Border>
         </Grid>
 
-        <Border BorderBrush="Black" BorderThickness="3" Grid.Row="0"></Border>
+        <Border BorderBrush="Black" BorderThickness="1" Grid.Row="0"></Border>
+        <Border BorderBrush="Black" BorderThickness="1" Grid.Row="1"></Border>
+        <Border BorderBrush="Black" BorderThickness="1" Grid.Row="2"></Border>
 
     </Grid>
 </UserControl>
