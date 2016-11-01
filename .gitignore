@@ -26,4 +26,11 @@ UMLGen/obj/Debug/View/MainWindow.g.cs
 UMLGen/obj/Debug/View/MainWindow.g.i.cs
 UMLGen/obj/Debug/MainWindow.g.cs
 UMLGen/obj/Debug/GeneratedInternalTypeHelper.g.cs
-UMLGen/obj/Debug/App.g.cs
+UMLGen/obj/Debug/App.g.csUMLGen/obj/Debug/App.g.cs
+=======
+UMLGen/obj/Debug/View/App.g.cs
+UMLGen/obj/Debug/View/App.g.i.cs
+UMLGen/obj/Debug/View/MainWindow.g.cs
+UMLGen/obj/Debug/View/MainWindow.g.i.cs
+UMLGen/obj/Debug/View/UMLClass.g.i.cs
+UMLGen/obj/Debug/UMLGen.csprojResolveAssemblyReference.cache
