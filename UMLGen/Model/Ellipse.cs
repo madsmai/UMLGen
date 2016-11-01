@@ -13,8 +13,8 @@ namespace UMLGen.Model
 
         public Ellipse()
         {
-            X = 200;
-            Y = 200;
+            X = 300;
+            Y = 300;
             Width = baseValue;
             Height = baseValue;
         }

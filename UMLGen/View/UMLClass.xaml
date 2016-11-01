@@ -6,7 +6,7 @@
              xmlns:local="clr-namespace:UMLGen.View"
              mc:Ignorable="d" 
              Canvas.Left="{Binding X}" Canvas.Top="{Binding Y}" Width="{Binding Width}" Height="{Binding Height}"
-             d:DesignHeight="300" d:DesignWidth="300">
+             d:DesignHeight="{Binding Height}" d:DesignWidth="{Binding Width}">
     <Grid>
         <Grid.Background>
             <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
@@ -14,36 +14,36 @@
             </LinearGradientBrush>
         </Grid.Background>
 
-        <Grid HorizontalAlignment="Left" Height="47" VerticalAlignment="Top" Width="294" Margin="3,3,3,0">
+        <Grid HorizontalAlignment="Left" Height="49" VerticalAlignment="Top" Width="auto" Margin="3,3,0,0">
             <Grid.Background>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                     <GradientStop Color="WhiteSmoke" Offset="0" />
                 </LinearGradientBrush>
             </Grid.Background>
             <Border BorderBrush="Black" BorderThickness="1" Grid.Row="0">
-                <TextBlock x:Name="ClassName" HorizontalAlignment="Left" TextWrapping="Wrap" Text="{Binding ClassName}" VerticalAlignment="Top" Height="41" Width="288" Margin="3,3,3,0"/>
+                <TextBlock x:Name="ClassName" HorizontalAlignment="Left" TextWrapping="Wrap" Text="{Binding ClassName}" VerticalAlignment="Top" Height="40" Width="190" Margin="3,3,3,0"/>
             </Border>
         </Grid>
 
-        <Grid HorizontalAlignment="Left" Height="142" Margin="3,52,3,0" VerticalAlignment="Top" Width="294">
+        <Grid HorizontalAlignment="Left" Height="140" Margin="3,52,0,0" VerticalAlignment="Top" Width="auto">
             <Grid.Background>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                     <GradientStop Color="WhiteSmoke" Offset="0" />
                 </LinearGradientBrush>
             </Grid.Background>
             <Border BorderBrush="Black" BorderThickness="1" Grid.Row="0">
-                <TextBlock x:Name="FieldsBox" HorizontalAlignment="Left" TextWrapping="Wrap" Text="{Binding FieldNames}" VerticalAlignment="Top" Height="133" Width="285" Margin="3,3,3,0"/>
+                <TextBlock x:Name="FieldsBox" HorizontalAlignment="Left" TextWrapping="Wrap" Text="{Binding FieldNames}" VerticalAlignment="Top" Height="100" Width="190" Margin="3,3,3,0"/>
             </Border>
         </Grid>
 
-        <Grid HorizontalAlignment="Left" Height="105" Margin="3,195,3,0" VerticalAlignment="Top" Width="294">
+        <Grid HorizontalAlignment="Left" Height="58" Margin="3,192,0,0" VerticalAlignment="Top" Width="auto">
             <Grid.Background>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                     <GradientStop Color="WhiteSmoke" Offset="0" />
                 </LinearGradientBrush>
             </Grid.Background>
             <Border BorderBrush="Black" BorderThickness="1" Grid.Row="0">
-                <TextBlock x:Name="MethodBox" HorizontalAlignment="Left" TextWrapping="Wrap" Text="{Binding MethodNames}" VerticalAlignment="Top" Height="95" Width="285" Margin="3,3,3,0"/>
+                <TextBlock x:Name="MethodBox" HorizontalAlignment="Left" TextWrapping="Wrap" Text="{Binding MethodNames}" VerticalAlignment="Top" Height="50" Width="190" Margin="3,3,3,0"/>
             </Border>
         </Grid>
 

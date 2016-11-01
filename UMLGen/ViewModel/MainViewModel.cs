@@ -1,4 +1,6 @@
 ﻿using GalaSoft.MvvmLight;
+using System;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using UMLGen.Model;
 
@@ -60,10 +62,12 @@ namespace UMLGen.ViewModel
 
                     WelcomeTitle = item.Title;
                 });
-
+            string Methods = "exampleMethod \n toString \n";
+            string Fields = "String Name \n Int no \n";
             Shapes.Add(new Square(100,100,420,69));
             Shapes.Add(new Ellipse());
-            Shapes.Add(new UMLClass());
+
+            Shapes.Add(new UMLClass("ExampleClass",Fields,Methods));
         }
 
         ////public override void Cleanup()
