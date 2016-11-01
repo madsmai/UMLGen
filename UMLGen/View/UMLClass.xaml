@@ -20,54 +20,49 @@
             </LinearGradientBrush>
         </Grid.Background>
 
-<<<<<<< HEAD
         <Grid HorizontalAlignment="Left" Height="49" VerticalAlignment="Top" Width="auto" Margin="3,3,0,0">
-=======
-        <Grid Grid.Row="0">
->>>>>>> Github/Adding_shapes
-            <Grid.Background>
+            <Grid Grid.Row="0">
+               <Grid.Background>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                     <GradientStop Color="WhiteSmoke" Offset="0" />
                 </LinearGradientBrush>
-            </Grid.Background>
+               </Grid.Background>
             <Border BorderBrush="Black" BorderThickness="1" Grid.Row="0">
                 <TextBlock x:Name="ClassName" HorizontalAlignment="Left" TextWrapping="Wrap" Text="{Binding ClassName}" VerticalAlignment="Top" Height="40" Width="190" Margin="3,3,3,0"/>
             </Border>
+       </Grid>
         </Grid>
 
-<<<<<<< HEAD
         <Grid HorizontalAlignment="Left" Height="140" Margin="3,52,0,0" VerticalAlignment="Top" Width="auto">
-=======
-        <Grid Grid.Row="1">
->>>>>>> Github/Adding_shapes
-            <Grid.Background>
+            <Grid Grid.Row="1">
+              <Grid.Background>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                     <GradientStop Color="WhiteSmoke" Offset="0" />
                 </LinearGradientBrush>
-            </Grid.Background>
-            <Border BorderBrush="Black" BorderThickness="1" Grid.Row="0">
+       </Grid.Background>
+          <Border BorderBrush="Black" BorderThickness="1" Grid.Row="0">
                 <TextBlock x:Name="FieldsBox" HorizontalAlignment="Left" TextWrapping="Wrap" Text="{Binding FieldNames}" VerticalAlignment="Top" Height="100" Width="190" Margin="3,3,3,0"/>
-            </Border>
-        </Grid>
+          </Border>
+       </Grid>
+            </Grid>
 
-<<<<<<< HEAD
-        <Grid HorizontalAlignment="Left" Height="58" Margin="3,192,0,0" VerticalAlignment="Top" Width="auto">
-=======
-        <Grid Grid.Row="2">
->>>>>>> Github/Adding_shapes
-            <Grid.Background>
-                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                    <GradientStop Color="WhiteSmoke" Offset="0" />
-                </LinearGradientBrush>
-            </Grid.Background>
-            <Border BorderBrush="Black" BorderThickness="1" Grid.Row="0">
-                <TextBlock x:Name="MethodBox" HorizontalAlignment="Left" TextWrapping="Wrap" Text="{Binding MethodNames}" VerticalAlignment="Top" Height="50" Width="190" Margin="3,3,3,0"/>
-            </Border>
-        </Grid>
+       <Grid HorizontalAlignment="Left" Height="58" Margin="3,192,0,0" VerticalAlignment="Top" Width="auto">
+                    <Grid Grid.Row="2">
+                        <Grid.Background>
+                            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                <GradientStop Color="WhiteSmoke" Offset="0" />
+                            </LinearGradientBrush>
+                        </Grid.Background>
+                        <Border BorderBrush="Black" BorderThickness="1" Grid.Row="0">
+                            <TextBlock x:Name="MethodBox" HorizontalAlignment="Left" TextWrapping="Wrap" Text="{Binding MethodNames}" VerticalAlignment="Top" Height="50" Width="190" Margin="3,3,3,0"/>
+                        </Border>
 
-        <Border BorderBrush="Black" BorderThickness="1" Grid.Row="0"></Border>
-        <Border BorderBrush="Black" BorderThickness="1" Grid.Row="1"></Border>
-        <Border BorderBrush="Black" BorderThickness="1" Grid.Row="2"></Border>
+                        <Border BorderBrush="Black" BorderThickness="1" Grid.Row="0"></Border>
+                        <Border BorderBrush="Black" BorderThickness="1" Grid.Row="1"></Border>
+                        <Border BorderBrush="Black" BorderThickness="1" Grid.Row="2"></Border>
 
+                    </Grid>
+                </Grid>
     </Grid>
+
 </UserControl>

@@ -62,16 +62,12 @@ namespace UMLGen.ViewModel
 
                     WelcomeTitle = item.Title;
                 });
-<<<<<<< HEAD
-            Shapes.Add(new Square());
-=======
             string Methods = "exampleMethod \n toString \n";
             string Fields = "String Name \n Int no \n";
             Shapes.Add(new Square(100,100,420,69));
             Shapes.Add(new Ellipse());
 
             Shapes.Add(new UMLClass("ExampleClass",Fields,Methods));
->>>>>>> Github/Adding_shapes
         }
 
         ////public override void Cleanup()

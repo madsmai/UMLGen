@@ -28,7 +28,7 @@ namespace UMLGen.Model
             Height = 250;
         }
 
-        public UMLClass( String ClassName, String FieldNames, String MethodNames)
+        public UMLClass(String ClassName, String FieldNames, String MethodNames)
         {
             this.ClassName = ClassName;
             this.FieldNames = FieldNames;
@@ -38,25 +38,5 @@ namespace UMLGen.Model
             Width = 200;
             Height = 250;
         }
-
-
-<<<<<<< HEAD
-        public List<String> MethodNames { get { return _methodNames; } set { _methodNames = value; NotifyPropertyChanged(); } }
-
-        public UMLClass ()
-        {
-            ClassName = "";
-            FieldNames = new List<string>();
-            MethodNames = new List<string>();
-        }
-
-        public UMLClass (string Name, List<String> Fields, List<String> Methods)
-        {
-            ClassName = Name;
-            FieldNames = Fields;
-            MethodNames = Methods;
-        }
-=======
->>>>>>> Github/Adding_shapes
     }
 }

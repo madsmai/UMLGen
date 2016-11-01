@@ -8,12 +8,8 @@ namespace UMLGen.Model
 {
     class Square : Shape
     {
-<<<<<<< HEAD
 
-        private double baseValue = 10;
-=======
         private double baseValue = 100;
->>>>>>> Github/Adding_shapes
 
         public Square()
         {
