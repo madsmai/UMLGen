@@ -6,61 +6,9 @@ C:\Users\Mads_\OneDrive\Documents\Visual Studio 2015\Projects\UMLGen\UMLGen\bin\
 C:\Users\Mads_\OneDrive\Documents\Visual Studio 2015\Projects\UMLGen\UMLGen\bin\Debug\UMLGen.exe.CodeAnalysisLog.xml
 C:\Users\Mads_\OneDrive\Documents\Visual Studio 2015\Projects\UMLGen\UMLGen\bin\Debug\UMLGen.exe.lastcodeanalysissucceeded
 C:\Users\Mads_\OneDrive\Documents\Visual Studio 2015\Projects\UMLGen\UMLGen\bin\Debug\GalaSoft.MvvmLight.dll
-C:\Users\Mads_\OneDrive\Documents\Visual Studio 2015\Projects\UMLGen\UMLGen\obj\Debug\UMLGen.pdb
-=======
->>>>>>> Github/Adding_shapes
-Z:\Users\Kasper\UMLGen\UMLGen\obj\Debug\UMLGen.g.resources
-Z:\Users\Kasper\UMLGen\UMLGen\obj\Debug\UMLGen.Properties.Resources.resources
-Z:\Users\Kasper\UMLGen\UMLGen\obj\Debug\UMLGen.csproj.GenerateResource.Cache
-Z:\Users\Kasper\UMLGen\UMLGen\obj\Debug\UMLGen.exe
-Z:\Users\Kasper\UMLGen\UMLGen\obj\Debug\UMLGen.pdb
-\\psf\Home\Downloads\Hutlihut\UMLGen\bin\Debug\UMLGen.exe.config
-\\psf\Home\Downloads\Hutlihut\UMLGen\obj\Debug\UMLGen.exe
-\\psf\Home\Downloads\Hutlihut\UMLGen\obj\Debug\UMLGen.pdb
-\\psf\Home\Downloads\Hutlihut\UMLGen\bin\Debug\UMLGen.exe
-\\psf\Home\Downloads\Hutlihut\UMLGen\bin\Debug\UMLGen.pdb
-\\psf\Home\Downloads\Hutlihut\UMLGen\bin\Debug\UMLGen.exe.CodeAnalysisLog.xml
-\\psf\Home\Downloads\Hutlihut\UMLGen\bin\Debug\UMLGen.exe.lastcodeanalysissucceeded
-\\psf\Home\Downloads\Hutlihut\UMLGen\bin\Debug\GalaSoft.MvvmLight.dll
-\\psf\Home\Downloads\Hutlihut\UMLGen\bin\Debug\GalaSoft.MvvmLight.Extras.dll
-\\psf\Home\Downloads\Hutlihut\UMLGen\bin\Debug\GalaSoft.MvvmLight.Platform.dll
-\\psf\Home\Downloads\Hutlihut\UMLGen\bin\Debug\Microsoft.Practices.ServiceLocation.dll
-\\psf\Home\Downloads\Hutlihut\UMLGen\bin\Debug\System.Windows.Interactivity.dll
 \\psf\Home\Downloads\Hutlihut\UMLGen\bin\Debug\GalaSoft.MvvmLight.pdb
 \\psf\Home\Downloads\Hutlihut\UMLGen\bin\Debug\GalaSoft.MvvmLight.xml
 \\psf\Home\Downloads\Hutlihut\UMLGen\bin\Debug\GalaSoft.MvvmLight.Extras.pdb
-\\psf\Home\Downloads\Hutlihut\UMLGen\bin\Debug\GalaSoft.MvvmLight.Extras.xml
-\\psf\Home\Downloads\Hutlihut\UMLGen\bin\Debug\GalaSoft.MvvmLight.Platform.pdb
-\\psf\Home\Downloads\Hutlihut\UMLGen\bin\Debug\GalaSoft.MvvmLight.Platform.xml
-\\psf\Home\Downloads\Hutlihut\UMLGen\bin\Debug\Microsoft.Practices.ServiceLocation.pdb
-\\psf\Home\Downloads\Hutlihut\UMLGen\bin\Debug\Microsoft.Practices.ServiceLocation.xml
-\\psf\Home\Downloads\Hutlihut\UMLGen\obj\Debug\UMLGen.csprojResolveAssemblyReference.cache
-\\psf\Home\Downloads\Hutlihut\UMLGen\obj\Debug\View\MainWindow.baml
-\\psf\Home\Downloads\Hutlihut\UMLGen\obj\Debug\View\Skins\MainSkin.baml
-\\psf\Home\Downloads\Hutlihut\UMLGen\obj\Debug\View\Box.g.cs
-\\psf\Home\Downloads\Hutlihut\UMLGen\obj\Debug\View\Elipse.g.cs
-\\psf\Home\Downloads\Hutlihut\UMLGen\obj\Debug\View\MainWindow.g.cs
-\\psf\Home\Downloads\Hutlihut\UMLGen\obj\Debug\View\Square.g.cs
-\\psf\Home\Downloads\Hutlihut\UMLGen\obj\Debug\View\UMLClass.g.cs
-\\psf\Home\Downloads\Hutlihut\UMLGen\obj\Debug\View\App.g.cs
-\\psf\Home\Downloads\Hutlihut\UMLGen\obj\Debug\GeneratedInternalTypeHelper.g.cs
-\\psf\Home\Downloads\Hutlihut\UMLGen\obj\Debug\UMLGen_MarkupCompile.cache
-\\psf\Home\Downloads\Hutlihut\UMLGen\obj\Debug\UMLGen_MarkupCompile.lref
-\\psf\Home\Downloads\Hutlihut\UMLGen\obj\Debug\View\App.baml
-\\psf\Home\Downloads\Hutlihut\UMLGen\obj\Debug\View\Box.baml
-\\psf\Home\Downloads\Hutlihut\UMLGen\obj\Debug\View\Elipse.baml
-\\psf\Home\Downloads\Hutlihut\UMLGen\obj\Debug\View\Square.baml
-\\psf\Home\Downloads\Hutlihut\UMLGen\obj\Debug\View\UMLClass.baml
-\\psf\Home\Downloads\Hutlihut\UMLGen\obj\Debug\UMLGen.g.resources
-\\psf\Home\Downloads\Hutlihut\UMLGen\obj\Debug\UMLGen.Properties.Resources.resources
-\\psf\Home\Downloads\Hutlihut\UMLGen\obj\Debug\UMLGen.csproj.GenerateResource.Cache
-C:\Users\Engberg\Documents\UnGit Repositories\UMLGen\UMLGen\bin\Debug\UMLGen.exe.config
-C:\Users\Engberg\Documents\UnGit Repositories\UMLGen\UMLGen\obj\Debug\UMLGen.exe
-C:\Users\Engberg\Documents\UnGit Repositories\UMLGen\UMLGen\obj\Debug\UMLGen.pdb
-C:\Users\Engberg\Documents\UnGit Repositories\UMLGen\UMLGen\bin\Debug\UMLGen.exe
-C:\Users\Engberg\Documents\UnGit Repositories\UMLGen\UMLGen\bin\Debug\UMLGen.pdb
-C:\Users\Engberg\Documents\UnGit Repositories\UMLGen\UMLGen\bin\Debug\UMLGen.exe.CodeAnalysisLog.xml
-C:\Users\Engberg\Documents\UnGit Repositories\UMLGen\UMLGen\bin\Debug\UMLGen.exe.lastcodeanalysissucceeded
 C:\Users\Engberg\Documents\UnGit Repositories\UMLGen\UMLGen\bin\Debug\GalaSoft.MvvmLight.dll
 C:\Users\Engberg\Documents\UnGit Repositories\UMLGen\UMLGen\bin\Debug\GalaSoft.MvvmLight.Extras.dll
 C:\Users\Engberg\Documents\UnGit Repositories\UMLGen\UMLGen\bin\Debug\GalaSoft.MvvmLight.Platform.dll
