@@ -10,7 +10,7 @@ namespace UMLGen.Model
     class Ellipse : Shape
     {
 
-        private double baseValue = 10;
+        private double baseValue = 100;
 
         public Ellipse()
         {
