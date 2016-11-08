@@ -1,3 +1,6 @@
-
-.vs/UMLGen/v14/.suo
-UMLGen/obj/
+*.suo
+*.user
+_ReSharper.*
+bin
+obj
+packages
