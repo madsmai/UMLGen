@@ -7,7 +7,7 @@
              xmlns:cmd="clr-namespace:GalaSoft.MvvmLight.Command;assembly=GalaSoft.MvvmLight.Platform"
              xmlns:local="clr-namespace:UMLGen.View"
              mc:Ignorable="d" 
-             Canvas.Left="{Binding X}" Canvas.Top="{Binding Y}" Width="{Binding Width}" Height="{Binding Height}"
+             Canvas.Left="{Binding X}" Canvas.Top="{Binding Y}" Width="{Binding Width}"
              d:DesignHeight="{Binding Height}" d:DesignWidth="{Binding Width}">
     
     <Grid>
