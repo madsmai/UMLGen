@@ -1,6 +1,13 @@
 ﻿using GalaSoft.MvvmLight;
+using GalaSoft.MvvmLight.CommandWpf;
 using System.Collections.ObjectModel;
+using System.Windows.Input;
 using UMLGen.Model;
+using System;
+using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Media;
+using UMLGen.Command;
 
 namespace UMLGen.ViewModel
 {
@@ -12,11 +19,23 @@ namespace UMLGen.ViewModel
     /// </summary>
     public class MainViewModel : ViewModelBase
     {
-        
+
+        private UndoRedoController undoRedoController = UndoRedoController.Instance;
+
         public ObservableCollection<Shape> Shapes { get; set; }
 
 
+        // Commands the UI can be bound to
+        public ICommand UndoCommand { get; }
+        public ICommand RedoCommand { get; }
+        public ICommand AddShapeCommand { get; }
+        public ICommand RemoveShapeCommand { get; }
 
+        // Commands the UI can be bound to
+        public ICommand MouseDownShapeCommand { get; }
+        public ICommand MouseMoveShapeCommand { get; }
+        public ICommand MouseUpShapeCommand { get; }
+        
         private readonly IDataService _dataService;
 
         /// <summary>
@@ -60,11 +79,43 @@ namespace UMLGen.ViewModel
 
                     WelcomeTitle = item.Title;
                 });
-<<<<<<< HEAD
-            Shapes.Add(new Square());
-=======
             Shapes.Add(new Square(100,100,200,50));
->>>>>>> origin/Adding_shapes
+
+
+            UndoCommand = new RelayCommand(undoRedoController.Undo, undoRedoController.CanUndo);
+            RedoCommand = new RelayCommand(undoRedoController.Redo, undoRedoController.CanRedo);
+
+            MouseDownShapeCommand = new RelayCommand<MouseButtonEventArgs>(MouseDownShape);
+
+
+        }
+
+        private void MouseDownShape(MouseButtonEventArgs obj)
+        {
+            
+
+        }
+
+        private Shape TargetShape(MouseEventArgs e)
+        {
+            // Here the visual element that the mouse is captured by is retrieved.
+            var shapeVisualElement = (FrameworkElement)e.MouseDevice.Target;
+            // From the shapes visual element, the Shape object which is the DataContext is retrieved.
+            return (Shape)shapeVisualElement.DataContext;
+        }
+        private Point RelativeMousePosition(MouseEventArgs e)
+        {
+            // Here the visual element that the mouse is captured by is retrieved.
+            var shapeVisualElement = (FrameworkElement)e.MouseDevice.Target;
+            // The canvas holding the shapes visual element, is found by searching up the tree of visual elements.
+            var canvas = FindParentOfType<Canvas>(shapeVisualElement);
+            // The mouse position relative to the canvas is gotten here.
+            return Mouse.GetPosition(canvas);
+        }
+        private static T FindParentOfType<T>(DependencyObject o)
+        {
+            dynamic parent = VisualTreeHelper.GetParent(o);
+            return parent.GetType().IsAssignableFrom(typeof(T)) ? parent : FindParentOfType<T>(parent);
         }
 
         ////public override void Cleanup()
@@ -74,4 +125,8 @@ namespace UMLGen.ViewModel
         ////    base.Cleanup();
         ////}
     }
+
+
+
+
 }
