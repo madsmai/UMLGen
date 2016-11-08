@@ -13,16 +13,35 @@ namespace UMLGen.Model
         private ObservableCollection<Shape> _endPoints;
 
         private String dataString;
+        private double _endX;
+        private double _endY;
 
         public ObservableCollection<Shape> EndPoints { get { return _endPoints; } set { _endPoints = value; NotifyPropertyChanged(); } }
 
         public ObservableCollection<Shape> StartingPoints { get { return _startingPoints; } set { _startingPoints = value; NotifyPropertyChanged(); } }
+
+        public double endX
+        {
+            get { return _endX; }
+            set { _endX = value;
+                NotifyPropertyChanged();
+            }
+        }
+        public double endY
+        {
+            get { return _endY; }
+            set { _endY = value;
+                NotifyPropertyChanged();
+            }
+        }
 
         public Arrow() {
             EndPoints = new ObservableCollection<Shape>();
             StartingPoints = new ObservableCollection<Shape>();
             X = 50;
             Y = 50;
+            endX = 100;
+            endY = 100;
             Width = 5;
             Height = 51;
             Arrows = new ObservableCollection<Shape>();
