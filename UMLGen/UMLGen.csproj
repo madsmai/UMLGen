@@ -98,6 +98,9 @@
     <Compile Include="View\App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\Arrow.xaml.cs">
+      <DependentUpon>Arrow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\Box.xaml.cs">
       <DependentUpon>Box.xaml</DependentUpon>
     </Compile>
@@ -117,6 +120,10 @@
     <Compile Include="View\UMLClass.xaml.cs">
       <DependentUpon>UMLClass.xaml</DependentUpon>
     </Compile>
+    <Page Include="View\Arrow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="View\Box.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>

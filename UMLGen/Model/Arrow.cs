@@ -12,6 +12,8 @@ namespace UMLGen.Model
         private ObservableCollection<Shape> _startingPoints;
         private ObservableCollection<Shape> _endPoints;
 
+        private String dataString;
+
         public ObservableCollection<Shape> EndPoints { get { return _endPoints; } set { _endPoints = value; NotifyPropertyChanged(); } }
 
         public ObservableCollection<Shape> StartingPoints { get { return _startingPoints; } set { _startingPoints = value; NotifyPropertyChanged(); } }
@@ -19,11 +21,12 @@ namespace UMLGen.Model
         public Arrow() {
             EndPoints = new ObservableCollection<Shape>();
             StartingPoints = new ObservableCollection<Shape>();
-            X = 400;
-            Y = 400;
+            X = 50;
+            Y = 50;
             Width = 5;
             Height = 51;
             Arrows = new ObservableCollection<Shape>();
+            dataString = "M " + X.ToString() + " " + Y.ToString() + " L " + "100" + " " + "100" + " Z";
         }
         public Arrow(ObservableCollection<Shape> endPoints, ObservableCollection<Shape> startingPoints, Double x, Double y, Double thickness, Double length) {
             EndPoints = endPoints;
@@ -33,6 +36,7 @@ namespace UMLGen.Model
             Width = thickness;
             Height = length;
             Arrows = new ObservableCollection<Shape>();
+            dataString = "M " + X.ToString() + " " + Y.ToString() + " L " + EndPoints[0].X.ToString() + " " + EndPoints[0].Y.ToString() + " Z";
         }
     }
 }

@@ -33,6 +33,12 @@
             </Canvas>
         </DataTemplate>
 
+        <DataTemplate x:Key="Arrow" DataType="{x:Type Shape}">
+            <Canvas>
+                <View:Arrow/>
+            </Canvas>
+        </DataTemplate>
+
         <Model:TemplateSelector x:Key="dataSelector"/>
 
     </Application.Resources>
