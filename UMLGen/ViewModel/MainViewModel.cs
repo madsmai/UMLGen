@@ -1,7 +1,5 @@
 ﻿using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.CommandWpf;
-using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Windows.Input;
 using UMLGen.Model;
@@ -9,6 +7,9 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
 using UMLGen.Command;
+using System;
+using System.Collections;
+using System.Linq;
 
 namespace UMLGen.ViewModel
 {
@@ -23,7 +24,6 @@ namespace UMLGen.ViewModel
 
         private UndoRedoController undoRedoController = UndoRedoController.Instance;
 
-
         // Saves the initial point that the mouse has during a move operation.
         private Point initialMousePosition;
         // Saves the initial point that the shape has during a move operation.
@@ -36,7 +36,9 @@ namespace UMLGen.ViewModel
         // Commands the UI can be bound to
         public ICommand UndoCommand { get; }
         public ICommand RedoCommand { get; }
-        public ICommand AddShapeCommand { get; }
+        public ICommand AddUMLCommand { get; }
+        public ICommand AddElipseCommand { get; }
+        public ICommand AddSquareCommand { get; }
         public ICommand RemoveShapeCommand { get; }
 
 
@@ -45,49 +47,11 @@ namespace UMLGen.ViewModel
         public ICommand MouseMoveShapeCommand { get; }
         public ICommand MouseUpShapeCommand { get; }
 
-        private readonly IDataService _dataService;
 
-        /// <summary>
-        /// The <see cref="WelcomeTitle" /> property's name.
-        /// </summary>
-        public const string WelcomeTitlePropertyName = "WelcomeTitle";
-
-        private string _welcomeTitle = string.Empty;
-
-        /// <summary>
-        /// Gets the WelcomeTitle property.
-        /// Changes to that property's value raise the PropertyChanged event. 
-        /// </summary>
-        public string WelcomeTitle
-        {
-            get
-            {
-                return _welcomeTitle;
-            }
-            set
-            {
-                Set(ref _welcomeTitle, value);
-            }
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the MainViewModel class.
-        /// </summary>
-        public MainViewModel(IDataService dataService)
+        // The constructor
+        public MainViewModel()
         {
             Shapes = new ObservableCollection<Shape>();
-            _dataService = dataService;
-            _dataService.GetData(
-                (item, error) =>
-                {
-                    if (error != null)
-                    {
-                        // Report error here
-                        return;
-                    }
-
-                    WelcomeTitle = item.Title;
-                });
 
             string Methods = "exampleMethod \n toString \n";
             string Fields = "String Name \n Int no \n";
@@ -100,6 +64,11 @@ namespace UMLGen.ViewModel
             UndoCommand = new RelayCommand(undoRedoController.Undo, undoRedoController.CanUndo);
             RedoCommand = new RelayCommand(undoRedoController.Redo, undoRedoController.CanRedo);
 
+            AddUMLCommand = new RelayCommand(AddUML);
+            AddElipseCommand = new RelayCommand(AddEllipse);
+            AddSquareCommand = new RelayCommand(AddSquare);
+            RemoveShapeCommand = new RelayCommand<IList>(RemoveShape, CanRemoveShape);
+
             MouseDownShapeCommand = new RelayCommand<MouseButtonEventArgs>(MouseDownShape);
             MouseMoveShapeCommand = new RelayCommand<MouseEventArgs>(MouseMoveShape);
             MouseUpShapeCommand = new RelayCommand<MouseButtonEventArgs>(MouseUpShape);
@@ -107,10 +76,30 @@ namespace UMLGen.ViewModel
 
         }
 
+        private void AddUML()
+        {
+            undoRedoController.ExecuteCommand(new AddShapeCommand(Shapes, new UMLClass()));
+        }
+        private void AddEllipse()
+        {
+            undoRedoController.ExecuteCommand(new AddShapeCommand(Shapes, new Ellipse()));
+        }
+        private void AddSquare()
+        {
+            undoRedoController.ExecuteCommand(new AddShapeCommand(Shapes, new Square()));
+        }
+
+        private bool CanRemoveShape(IList _shapes) => _shapes.Count == 1;
+
+        private void RemoveShape(IList _shapes)
+        {
+            undoRedoController.ExecuteCommand(new RemoveShapeCommand(Shapes, _shapes.Cast<Shape>().ToList()));
+        }
+
+
+
         private void MouseDownShape(MouseButtonEventArgs e)
         {
-
-
             var shape = TargetShape(e);
             var mousePosition = RelativeMousePosition(e);
 
@@ -118,25 +107,20 @@ namespace UMLGen.ViewModel
             initialShapePosition = new Point(shape.X, shape.Y);
 
             e.MouseDevice.Target.CaptureMouse();
-
         }
 
 
         private void MouseMoveShape(MouseEventArgs e)
         {
-
             if (Mouse.Captured != null)
             {
-                // gets the shape from the Mouse Event
                 var shape = TargetShape(e);
 
                 var mousePosition = RelativeMousePosition(e);
 
                 shape.X = initialShapePosition.X + (mousePosition.X - initialMousePosition.X);
                 shape.Y = initialShapePosition.Y + (mousePosition.Y - initialMousePosition.Y);
-
             }
-
         }
 
         private void MouseUpShape(MouseButtonEventArgs e)
@@ -152,15 +136,16 @@ namespace UMLGen.ViewModel
             e.MouseDevice.Target.ReleaseMouseCapture();
         }
 
-
+        // Returns a shape from a Mouse Event
         private Shape TargetShape(MouseEventArgs e)
         {
             // Here the visual element that the mouse is captured by is retrieved.
             var shapeVisualElement = (FrameworkElement)e.MouseDevice.Target;
 
-            // From the shapes visual element, the Shape object which is the DataContext is retrieved.
+            // The Shape object is retrieved.
             return (Shape)shapeVisualElement.DataContext;
         }
+
         private Point RelativeMousePosition(MouseEventArgs e)
         {
             // Here the visual element that the mouse is captured by is retrieved.
@@ -176,12 +161,6 @@ namespace UMLGen.ViewModel
             return parent.GetType().IsAssignableFrom(typeof(T)) ? parent : FindParentOfType<T>(parent);
         }
 
-        ////public override void Cleanup()
-        ////{
-        ////    // Clean up if needed
-
-        ////    base.Cleanup();
-        ////}
     }
 
 
