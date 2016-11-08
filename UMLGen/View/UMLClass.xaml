@@ -9,6 +9,7 @@
              mc:Ignorable="d" 
              Canvas.Left="{Binding X}" Canvas.Top="{Binding Y}" Width="{Binding Width}" Height="{Binding Height}"
              d:DesignHeight="{Binding Height}" d:DesignWidth="{Binding Width}">
+    
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="4" />
@@ -16,22 +17,16 @@
             <RowDefinition Height="Auto" />
             <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
-               
-        <Grid.Background>
-            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                <GradientStop Color="WhiteSmoke" Offset="0" />
-            </LinearGradientBrush>
-        </Grid.Background>
-
-        <Viewbox Grid.Row="1" HorizontalAlignment="Left" VerticalAlignment="Top" >
+        
+        <Viewbox Grid.Row="1" MaxHeight="50" HorizontalAlignment="Left" VerticalAlignment="Top" >
             <TextBox x:Name="ClassName" TextWrapping="Wrap" Text="{Binding ClassName}" AcceptsReturn="True"/>
         </Viewbox>
 
-        <Viewbox Grid.Row="2" HorizontalAlignment="Left" VerticalAlignment="Top" >
+        <Viewbox Grid.Row="2" MaxHeight="200" HorizontalAlignment="Left" VerticalAlignment="Top" >
             <TextBox x:Name="FieldsBox" TextWrapping="Wrap" Text="{Binding FieldNames}" AcceptsReturn="True"/>
         </Viewbox>
 
-        <Viewbox Grid.Row="3" HorizontalAlignment="Left" VerticalAlignment="Top" >
+        <Viewbox Grid.Row="3" MaxHeight="100" HorizontalAlignment="Left" VerticalAlignment="Top" >
              <TextBox x:Name="MethodBox" TextWrapping="Wrap" Text="{Binding MethodNames}" AcceptsReturn="True"/>
        </Viewbox>
 
