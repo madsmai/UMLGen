@@ -20,23 +20,17 @@
             </LinearGradientBrush>
         </Grid.Background>
 
-        <Grid HorizontalAlignment="Left" VerticalAlignment="Top" Width="auto" Grid.Row="0">
-            <Viewbox>
-                <TextBlock x:Name="ClassName" HorizontalAlignment="Left" TextWrapping="Wrap" Text="{Binding ClassName}" VerticalAlignment="Top"/>
-            </Viewbox>
-        </Grid>
+        <Viewbox Grid.Row="0" HorizontalAlignment="Left" VerticalAlignment="Top" >
+            <TextBox x:Name="ClassName" TextWrapping="Wrap" Text="{Binding ClassName}" AcceptsReturn="True"/>
+        </Viewbox>
 
-        <Grid HorizontalAlignment="Left" VerticalAlignment="Top" Width="auto" Grid.Row="1">
-            <Viewbox>
-                <TextBlock x:Name="FieldsBox" HorizontalAlignment="Left" TextWrapping="Wrap" Text="{Binding FieldNames}" VerticalAlignment="Top"/>
-            </Viewbox>
-        </Grid>
+        <Viewbox Grid.Row="1" HorizontalAlignment="Left" VerticalAlignment="Top" >
+            <TextBox x:Name="FieldsBox" TextWrapping="Wrap" Text="{Binding FieldNames}" AcceptsReturn="True"/>
+        </Viewbox>
 
-       <Grid HorizontalAlignment="Left" VerticalAlignment="Top" Width="auto" Grid.Row="2">
-            <Viewbox>
-                <TextBlock x:Name="MethodBox" HorizontalAlignment="Left" TextWrapping="Wrap" Text="{Binding MethodNames}" VerticalAlignment="Top"/>
-            </Viewbox>
-        </Grid>
+        <Viewbox Grid.Row="2" HorizontalAlignment="Left" VerticalAlignment="Top" >
+             <TextBox x:Name="MethodBox" TextWrapping="Wrap" Text="{Binding MethodNames}" AcceptsReturn="True"/>
+       </Viewbox>
         
         <Border BorderBrush="Black" BorderThickness="1" Grid.Row="0"></Border>
         <Border BorderBrush="Black" BorderThickness="1" Grid.Row="1"></Border>
