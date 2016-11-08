@@ -23,6 +23,13 @@ namespace UMLGen.ViewModel
 
         private UndoRedoController undoRedoController = UndoRedoController.Instance;
 
+
+        // Saves the initial point that the mouse has during a move operation.
+        private Point initialMousePosition;
+        // Saves the initial point that the shape has during a move operation.
+        private Point initialShapePosition;
+
+
         public ObservableCollection<Shape> Shapes { get; set; }
 
 
@@ -94,20 +101,63 @@ namespace UMLGen.ViewModel
             RedoCommand = new RelayCommand(undoRedoController.Redo, undoRedoController.CanRedo);
 
             MouseDownShapeCommand = new RelayCommand<MouseButtonEventArgs>(MouseDownShape);
+            MouseMoveShapeCommand = new RelayCommand<MouseEventArgs>(MouseMoveShape);
+            MouseUpShapeCommand = new RelayCommand<MouseButtonEventArgs>(MouseUpShape);
 
 
         }
 
-        private void MouseDownShape(MouseButtonEventArgs obj)
+        private void MouseDownShape(MouseButtonEventArgs e)
         {
 
 
+            var shape = TargetShape(e);
+            var mousePosition = RelativeMousePosition(e);
+
+            initialMousePosition = mousePosition;
+            initialShapePosition = new Point(shape.X, shape.Y);
+
+            e.MouseDevice.Target.CaptureMouse();
+
         }
+
+
+        private void MouseMoveShape(MouseEventArgs e)
+        {
+
+            if (Mouse.Captured != null)
+            {
+                // gets the shape from the Mouse Event
+                var shape = TargetShape(e);
+
+                var mousePosition = RelativeMousePosition(e);
+
+                shape.X = initialShapePosition.X + (mousePosition.X - initialMousePosition.X);
+                shape.Y = initialShapePosition.Y + (mousePosition.Y - initialMousePosition.Y);
+
+            }
+
+        }
+
+        private void MouseUpShape(MouseButtonEventArgs e)
+        {
+            var shape = TargetShape(e);
+            var mousePosition = RelativeMousePosition(e);
+
+            shape.X = initialShapePosition.X;
+            shape.Y = initialShapePosition.Y;
+
+            undoRedoController.ExecuteCommand(new MoveShapeCommand(shape, mousePosition.X - initialMousePosition.X, mousePosition.Y - initialMousePosition.Y));
+
+            e.MouseDevice.Target.ReleaseMouseCapture();
+        }
+
 
         private Shape TargetShape(MouseEventArgs e)
         {
             // Here the visual element that the mouse is captured by is retrieved.
             var shapeVisualElement = (FrameworkElement)e.MouseDevice.Target;
+
             // From the shapes visual element, the Shape object which is the DataContext is retrieved.
             return (Shape)shapeVisualElement.DataContext;
         }

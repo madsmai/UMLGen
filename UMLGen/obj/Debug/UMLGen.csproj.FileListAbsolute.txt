@@ -198,3 +198,4 @@ Z:\Users\Kasper\UMLGen\UMLGen\obj\Debug\UMLGen.Properties.Resources.resources
 Z:\Users\Kasper\UMLGen\UMLGen\obj\Debug\UMLGen.csproj.GenerateResource.Cache
 Z:\Users\Kasper\UMLGen\UMLGen\obj\Debug\UMLGen.exe
 Z:\Users\Kasper\UMLGen\UMLGen\obj\Debug\UMLGen.pdb
+Z:\Users\Kasper\UMLGen\UMLGen\obj\Debug\UMLGen.csprojResolveAssemblyReference.cache
