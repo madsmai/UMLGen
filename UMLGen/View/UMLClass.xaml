@@ -9,32 +9,35 @@
              d:DesignHeight="{Binding Height}" d:DesignWidth="{Binding Width}">
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="*" />
-            <RowDefinition Height="*" />
-            <RowDefinition Height="*" />
+            <RowDefinition Height="2" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
-        
+               
         <Grid.Background>
             <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                 <GradientStop Color="WhiteSmoke" Offset="0" />
             </LinearGradientBrush>
         </Grid.Background>
 
-        <Viewbox Grid.Row="0" HorizontalAlignment="Left" VerticalAlignment="Top" >
+        <Viewbox Grid.Row="1" HorizontalAlignment="Left" VerticalAlignment="Top" >
             <TextBox x:Name="ClassName" TextWrapping="Wrap" Text="{Binding ClassName}" AcceptsReturn="True"/>
         </Viewbox>
 
-        <Viewbox Grid.Row="1" HorizontalAlignment="Left" VerticalAlignment="Top" >
+        <Viewbox Grid.Row="2" HorizontalAlignment="Left" VerticalAlignment="Top" >
             <TextBox x:Name="FieldsBox" TextWrapping="Wrap" Text="{Binding FieldNames}" AcceptsReturn="True"/>
         </Viewbox>
 
-        <Viewbox Grid.Row="2" HorizontalAlignment="Left" VerticalAlignment="Top" >
+        <Viewbox Grid.Row="3" HorizontalAlignment="Left" VerticalAlignment="Top" >
              <TextBox x:Name="MethodBox" TextWrapping="Wrap" Text="{Binding MethodNames}" AcceptsReturn="True"/>
        </Viewbox>
-        
+
+        <Border BorderBrush="Black" BorderThickness="2"></Border>
         <Border BorderBrush="Black" BorderThickness="1" Grid.Row="0"></Border>
         <Border BorderBrush="Black" BorderThickness="1" Grid.Row="1"></Border>
         <Border BorderBrush="Black" BorderThickness="1" Grid.Row="2"></Border>
+        <Border BorderBrush="Black" BorderThickness="1" Grid.Row="3"></Border>
     </Grid>
 
 </UserControl>
