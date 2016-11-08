@@ -1,14 +1,10 @@
 ﻿using GalaSoft.MvvmLight;
-<<<<<<< HEAD
 using GalaSoft.MvvmLight.CommandWpf;
-=======
 using System;
 using System.Collections.Generic;
->>>>>>> origin/master
 using System.Collections.ObjectModel;
 using System.Windows.Input;
 using UMLGen.Model;
-using System;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
@@ -29,22 +25,19 @@ namespace UMLGen.ViewModel
 
         public ObservableCollection<Shape> Shapes { get; set; }
 
-<<<<<<< HEAD
 
         // Commands the UI can be bound to
         public ICommand UndoCommand { get; }
         public ICommand RedoCommand { get; }
         public ICommand AddShapeCommand { get; }
         public ICommand RemoveShapeCommand { get; }
-=======
-        
->>>>>>> origin/master
+
 
         // Commands the UI can be bound to
         public ICommand MouseDownShapeCommand { get; }
         public ICommand MouseMoveShapeCommand { get; }
         public ICommand MouseUpShapeCommand { get; }
-        
+
         private readonly IDataService _dataService;
 
         /// <summary>
@@ -88,8 +81,13 @@ namespace UMLGen.ViewModel
 
                     WelcomeTitle = item.Title;
                 });
-<<<<<<< HEAD
-            Shapes.Add(new Square(100,100,200,50));
+
+            string Methods = "exampleMethod \n toString \n";
+            string Fields = "String Name \n Int no \n";
+            Shapes.Add(new Square(100, 100, 420, 69));
+            Shapes.Add(new Ellipse());
+
+            Shapes.Add(new UMLClass("ExampleClass", Fields, Methods));
 
 
             UndoCommand = new RelayCommand(undoRedoController.Undo, undoRedoController.CanUndo);
@@ -102,7 +100,7 @@ namespace UMLGen.ViewModel
 
         private void MouseDownShape(MouseButtonEventArgs obj)
         {
-            
+
 
         }
 
@@ -126,14 +124,6 @@ namespace UMLGen.ViewModel
         {
             dynamic parent = VisualTreeHelper.GetParent(o);
             return parent.GetType().IsAssignableFrom(typeof(T)) ? parent : FindParentOfType<T>(parent);
-=======
-            string Methods = "exampleMethod \n toString \n";
-            string Fields = "String Name \n Int no \n";
-            Shapes.Add(new Square(100,100,420,69));
-            Shapes.Add(new Ellipse());
-
-            Shapes.Add(new UMLClass("ExampleClass",Fields,Methods));
->>>>>>> origin/master
         }
 
         ////public override void Cleanup()
