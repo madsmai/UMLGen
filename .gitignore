@@ -1,2 +1,8 @@
 .vs/UMLGen/v14/.suo
 UMLGen/obj/
+UMLGen/obj/Debug/GeneratedInternalTypeHelper.g.cs
+UMLGen/obj/Debug/UMLGen.csproj.GenerateResource.Cache
+UMLGen/obj/Debug/UMLGen.g.resources
+UMLGen/obj/Debug/UMLGen_MarkupCompile.cache
+UMLGen/obj/Debug/View/UMLClass.g.cs
+UMLGen/obj/Debug/View/UMLClass.g.i.cs

@@ -1,47 +1,4 @@
-\\psf\home\documents\visual studio 2015\Projects\UMLGen\UMLGen\bin\Debug\UMLGen.exe.config
-<<<<<<< HEAD
-C:\Users\Mads_\OneDrive\Documents\Visual Studio 2015\Projects\UMLGen\UMLGen\bin\Debug\UMLGen.exe.config
-C:\Users\Mads_\OneDrive\Documents\Visual Studio 2015\Projects\UMLGen\UMLGen\bin\Debug\UMLGen.exe
-C:\Users\Mads_\OneDrive\Documents\Visual Studio 2015\Projects\UMLGen\UMLGen\bin\Debug\UMLGen.pdb
-C:\Users\Mads_\OneDrive\Documents\Visual Studio 2015\Projects\UMLGen\UMLGen\bin\Debug\UMLGen.exe.CodeAnalysisLog.xml
-C:\Users\Mads_\OneDrive\Documents\Visual Studio 2015\Projects\UMLGen\UMLGen\bin\Debug\UMLGen.exe.lastcodeanalysissucceeded
-C:\Users\Mads_\OneDrive\Documents\Visual Studio 2015\Projects\UMLGen\UMLGen\bin\Debug\GalaSoft.MvvmLight.dll
-\\psf\Home\Downloads\Hutlihut\UMLGen\bin\Debug\GalaSoft.MvvmLight.pdb
-\\psf\Home\Downloads\Hutlihut\UMLGen\bin\Debug\GalaSoft.MvvmLight.xml
-\\psf\Home\Downloads\Hutlihut\UMLGen\bin\Debug\GalaSoft.MvvmLight.Extras.pdb
-C:\Users\Engberg\Documents\UnGit Repositories\UMLGen\UMLGen\bin\Debug\GalaSoft.MvvmLight.dll
-C:\Users\Engberg\Documents\UnGit Repositories\UMLGen\UMLGen\bin\Debug\GalaSoft.MvvmLight.Extras.dll
-C:\Users\Engberg\Documents\UnGit Repositories\UMLGen\UMLGen\bin\Debug\GalaSoft.MvvmLight.Platform.dll
-C:\Users\Engberg\Documents\UnGit Repositories\UMLGen\UMLGen\bin\Debug\Microsoft.Practices.ServiceLocation.dll
-C:\Users\Engberg\Documents\UnGit Repositories\UMLGen\UMLGen\bin\Debug\System.Windows.Interactivity.dll
-C:\Users\Engberg\Documents\UnGit Repositories\UMLGen\UMLGen\bin\Debug\GalaSoft.MvvmLight.pdb
-C:\Users\Engberg\Documents\UnGit Repositories\UMLGen\UMLGen\bin\Debug\GalaSoft.MvvmLight.xml
-C:\Users\Engberg\Documents\UnGit Repositories\UMLGen\UMLGen\bin\Debug\GalaSoft.MvvmLight.Extras.pdb
-C:\Users\Engberg\Documents\UnGit Repositories\UMLGen\UMLGen\bin\Debug\GalaSoft.MvvmLight.Extras.xml
-C:\Users\Engberg\Documents\UnGit Repositories\UMLGen\UMLGen\bin\Debug\GalaSoft.MvvmLight.Platform.pdb
-C:\Users\Engberg\Documents\UnGit Repositories\UMLGen\UMLGen\bin\Debug\GalaSoft.MvvmLight.Platform.xml
-C:\Users\Engberg\Documents\UnGit Repositories\UMLGen\UMLGen\bin\Debug\Microsoft.Practices.ServiceLocation.pdb
-C:\Users\Engberg\Documents\UnGit Repositories\UMLGen\UMLGen\bin\Debug\Microsoft.Practices.ServiceLocation.xml
-C:\Users\Engberg\Documents\UnGit Repositories\UMLGen\UMLGen\obj\Debug\UMLGen.csprojResolveAssemblyReference.cache
-C:\Users\Engberg\Documents\UnGit Repositories\UMLGen\UMLGen\obj\Debug\View\MainWindow.baml
-C:\Users\Engberg\Documents\UnGit Repositories\UMLGen\UMLGen\obj\Debug\View\Skins\MainSkin.baml
-C:\Users\Engberg\Documents\UnGit Repositories\UMLGen\UMLGen\obj\Debug\View\Box.g.cs
-C:\Users\Engberg\Documents\UnGit Repositories\UMLGen\UMLGen\obj\Debug\View\Elipse.g.cs
-C:\Users\Engberg\Documents\UnGit Repositories\UMLGen\UMLGen\obj\Debug\View\MainWindow.g.cs
-C:\Users\Engberg\Documents\UnGit Repositories\UMLGen\UMLGen\obj\Debug\View\Square.g.cs
-C:\Users\Engberg\Documents\UnGit Repositories\UMLGen\UMLGen\obj\Debug\View\UMLClass.g.cs
-C:\Users\Engberg\Documents\UnGit Repositories\UMLGen\UMLGen\obj\Debug\View\App.g.cs
-C:\Users\Engberg\Documents\UnGit Repositories\UMLGen\UMLGen\obj\Debug\GeneratedInternalTypeHelper.g.cs
-C:\Users\Engberg\Documents\UnGit Repositories\UMLGen\UMLGen\obj\Debug\UMLGen_MarkupCompile.cache
-C:\Users\Engberg\Documents\UnGit Repositories\UMLGen\UMLGen\obj\Debug\UMLGen_MarkupCompile.lref
-C:\Users\Engberg\Documents\UnGit Repositories\UMLGen\UMLGen\obj\Debug\View\App.baml
-C:\Users\Engberg\Documents\UnGit Repositories\UMLGen\UMLGen\obj\Debug\View\Box.baml
-C:\Users\Engberg\Documents\UnGit Repositories\UMLGen\UMLGen\obj\Debug\View\Elipse.baml
-C:\Users\Engberg\Documents\UnGit Repositories\UMLGen\UMLGen\obj\Debug\View\Square.baml
-C:\Users\Engberg\Documents\UnGit Repositories\UMLGen\UMLGen\obj\Debug\View\UMLClass.baml
-C:\Users\Engberg\Documents\UnGit Repositories\UMLGen\UMLGen\obj\Debug\UMLGen.g.resources
-C:\Users\Engberg\Documents\UnGit Repositories\UMLGen\UMLGen\obj\Debug\UMLGen.Properties.Resources.resources
-C:\Users\Engberg\Documents\UnGit Repositories\UMLGen\UMLGen\obj\Debug\UMLGen.csproj.GenerateResource.Cache
+C:\Users\krest\OneDrive\Dokumenter\DTU\Windows Programming\UMLGen\UMLGen\bin\Debug\UMLGen.exe.config
 C:\Users\krest\OneDrive\Dokumenter\DTU\Windows Programming\UMLGen\UMLGen\bin\Debug\UMLGen.exe
 C:\Users\krest\OneDrive\Dokumenter\DTU\Windows Programming\UMLGen\UMLGen\bin\Debug\UMLGen.pdb
 C:\Users\krest\OneDrive\Dokumenter\DTU\Windows Programming\UMLGen\UMLGen\bin\Debug\UMLGen.exe.CodeAnalysisLog.xml
@@ -59,10 +16,9 @@ C:\Users\krest\OneDrive\Dokumenter\DTU\Windows Programming\UMLGen\UMLGen\bin\Deb
 C:\Users\krest\OneDrive\Dokumenter\DTU\Windows Programming\UMLGen\UMLGen\bin\Debug\GalaSoft.MvvmLight.Platform.xml
 C:\Users\krest\OneDrive\Dokumenter\DTU\Windows Programming\UMLGen\UMLGen\bin\Debug\Microsoft.Practices.ServiceLocation.pdb
 C:\Users\krest\OneDrive\Dokumenter\DTU\Windows Programming\UMLGen\UMLGen\bin\Debug\Microsoft.Practices.ServiceLocation.xml
-C:\Users\krest\OneDrive\Dokumenter\DTU\Windows Programming\UMLGen\UMLGen\obj\Debug\UMLGen.csprojResolveAssemblyReference.cache
-C:\Users\krest\OneDrive\Dokumenter\DTU\Windows Programming\UMLGen\UMLGen\obj\Debug\View\MainWindow.baml
 C:\Users\krest\OneDrive\Dokumenter\DTU\Windows Programming\UMLGen\UMLGen\obj\Debug\View\Skins\MainSkin.baml
 C:\Users\krest\OneDrive\Dokumenter\DTU\Windows Programming\UMLGen\UMLGen\obj\Debug\View\Box.g.cs
+C:\Users\krest\OneDrive\Dokumenter\DTU\Windows Programming\UMLGen\UMLGen\obj\Debug\View\Ellipse.g.cs
 C:\Users\krest\OneDrive\Dokumenter\DTU\Windows Programming\UMLGen\UMLGen\obj\Debug\View\MainWindow.g.cs
 C:\Users\krest\OneDrive\Dokumenter\DTU\Windows Programming\UMLGen\UMLGen\obj\Debug\View\Square.g.cs
 C:\Users\krest\OneDrive\Dokumenter\DTU\Windows Programming\UMLGen\UMLGen\obj\Debug\View\UMLClass.g.cs
@@ -72,104 +28,12 @@ C:\Users\krest\OneDrive\Dokumenter\DTU\Windows Programming\UMLGen\UMLGen\obj\Deb
 C:\Users\krest\OneDrive\Dokumenter\DTU\Windows Programming\UMLGen\UMLGen\obj\Debug\UMLGen_MarkupCompile.lref
 C:\Users\krest\OneDrive\Dokumenter\DTU\Windows Programming\UMLGen\UMLGen\obj\Debug\View\App.baml
 C:\Users\krest\OneDrive\Dokumenter\DTU\Windows Programming\UMLGen\UMLGen\obj\Debug\View\Box.baml
+C:\Users\krest\OneDrive\Dokumenter\DTU\Windows Programming\UMLGen\UMLGen\obj\Debug\View\Ellipse.baml
+C:\Users\krest\OneDrive\Dokumenter\DTU\Windows Programming\UMLGen\UMLGen\obj\Debug\View\MainWindow.baml
 C:\Users\krest\OneDrive\Dokumenter\DTU\Windows Programming\UMLGen\UMLGen\obj\Debug\View\Square.baml
 C:\Users\krest\OneDrive\Dokumenter\DTU\Windows Programming\UMLGen\UMLGen\obj\Debug\View\UMLClass.baml
 C:\Users\krest\OneDrive\Dokumenter\DTU\Windows Programming\UMLGen\UMLGen\obj\Debug\UMLGen.g.resources
 C:\Users\krest\OneDrive\Dokumenter\DTU\Windows Programming\UMLGen\UMLGen\obj\Debug\UMLGen.Properties.Resources.resources
 C:\Users\krest\OneDrive\Dokumenter\DTU\Windows Programming\UMLGen\UMLGen\obj\Debug\UMLGen.csproj.GenerateResource.Cache
-<<<<<<< HEAD
-C:\Users\Mads_\OneDrive\documents\visual studio 2015\Projects\UMLGen\UMLGen\obj\Debug\View\MainWindow.baml
-C:\Users\Mads_\OneDrive\documents\visual studio 2015\Projects\UMLGen\UMLGen\obj\Debug\View\Skins\MainSkin.baml
-C:\Users\Mads_\OneDrive\documents\visual studio 2015\Projects\UMLGen\UMLGen\obj\Debug\View\Box.g.cs
-C:\Users\Mads_\OneDrive\documents\visual studio 2015\Projects\UMLGen\UMLGen\obj\Debug\View\Elipse.g.cs
-=======
-C:\Users\Mads_\OneDrive\documents\visual studio 2015\Projects\UMLGen\UMLGen\bin\Debug\UMLGen.exe.config
-C:\Users\Mads_\OneDrive\documents\visual studio 2015\Projects\UMLGen\UMLGen\bin\Debug\UMLGen.exe
-C:\Users\Mads_\OneDrive\documents\visual studio 2015\Projects\UMLGen\UMLGen\bin\Debug\UMLGen.pdb
-C:\Users\Mads_\OneDrive\documents\visual studio 2015\Projects\UMLGen\UMLGen\bin\Debug\UMLGen.exe.CodeAnalysisLog.xml
-C:\Users\Mads_\OneDrive\documents\visual studio 2015\Projects\UMLGen\UMLGen\bin\Debug\UMLGen.exe.lastcodeanalysissucceeded
-C:\Users\Mads_\OneDrive\documents\visual studio 2015\Projects\UMLGen\UMLGen\bin\Debug\GalaSoft.MvvmLight.dll
-C:\Users\Mads_\OneDrive\documents\visual studio 2015\Projects\UMLGen\UMLGen\bin\Debug\GalaSoft.MvvmLight.Extras.dll
-C:\Users\Mads_\OneDrive\documents\visual studio 2015\Projects\UMLGen\UMLGen\bin\Debug\GalaSoft.MvvmLight.Platform.dll
-C:\Users\Mads_\OneDrive\documents\visual studio 2015\Projects\UMLGen\UMLGen\bin\Debug\Microsoft.Practices.ServiceLocation.dll
-C:\Users\Mads_\OneDrive\documents\visual studio 2015\Projects\UMLGen\UMLGen\bin\Debug\System.Windows.Interactivity.dll
-C:\Users\Mads_\OneDrive\documents\visual studio 2015\Projects\UMLGen\UMLGen\bin\Debug\GalaSoft.MvvmLight.pdb
-C:\Users\Mads_\OneDrive\documents\visual studio 2015\Projects\UMLGen\UMLGen\bin\Debug\GalaSoft.MvvmLight.xml
-C:\Users\Mads_\OneDrive\documents\visual studio 2015\Projects\UMLGen\UMLGen\bin\Debug\GalaSoft.MvvmLight.Extras.pdb
-C:\Users\Mads_\OneDrive\documents\visual studio 2015\Projects\UMLGen\UMLGen\bin\Debug\GalaSoft.MvvmLight.Extras.xml
-C:\Users\Mads_\OneDrive\documents\visual studio 2015\Projects\UMLGen\UMLGen\bin\Debug\GalaSoft.MvvmLight.Platform.pdb
-C:\Users\Mads_\OneDrive\documents\visual studio 2015\Projects\UMLGen\UMLGen\bin\Debug\GalaSoft.MvvmLight.Platform.xml
-C:\Users\Mads_\OneDrive\documents\visual studio 2015\Projects\UMLGen\UMLGen\bin\Debug\Microsoft.Practices.ServiceLocation.pdb
-C:\Users\Mads_\OneDrive\documents\visual studio 2015\Projects\UMLGen\UMLGen\bin\Debug\Microsoft.Practices.ServiceLocation.xml
-C:\Users\Mads_\OneDrive\documents\visual studio 2015\Projects\UMLGen\UMLGen\obj\Debug\View\Skins\MainSkin.baml
-C:\Users\Mads_\OneDrive\documents\visual studio 2015\Projects\UMLGen\UMLGen\obj\Debug\View\Box.g.cs
-C:\Users\Mads_\OneDrive\documents\visual studio 2015\Projects\UMLGen\UMLGen\obj\Debug\View\Ellipse.g.cs
->>>>>>> Github/Adding_shapes
-C:\Users\Mads_\OneDrive\documents\visual studio 2015\Projects\UMLGen\UMLGen\obj\Debug\View\MainWindow.g.cs
-C:\Users\Mads_\OneDrive\documents\visual studio 2015\Projects\UMLGen\UMLGen\obj\Debug\View\Square.g.cs
-C:\Users\Mads_\OneDrive\documents\visual studio 2015\Projects\UMLGen\UMLGen\obj\Debug\View\UMLClass.g.cs
-C:\Users\Mads_\OneDrive\documents\visual studio 2015\Projects\UMLGen\UMLGen\obj\Debug\View\App.g.cs
-<<<<<<< HEAD
-C:\Users\Mads_\OneDrive\documents\visual studio 2015\Projects\UMLGen\UMLGen\obj\Debug\View\App.baml
-C:\Users\Mads_\OneDrive\documents\visual studio 2015\Projects\UMLGen\UMLGen\obj\Debug\View\Box.baml
-C:\Users\Mads_\OneDrive\documents\visual studio 2015\Projects\UMLGen\UMLGen\obj\Debug\View\Elipse.baml
-C:\Users\Mads_\OneDrive\documents\visual studio 2015\Projects\UMLGen\UMLGen\obj\Debug\View\Square.baml
-C:\Users\Mads_\OneDrive\documents\visual studio 2015\Projects\UMLGen\UMLGen\obj\Debug\View\UMLClass.baml
-=======
-C:\Users\Mads_\OneDrive\documents\visual studio 2015\Projects\UMLGen\UMLGen\obj\Debug\GeneratedInternalTypeHelper.g.cs
-C:\Users\Mads_\OneDrive\documents\visual studio 2015\Projects\UMLGen\UMLGen\obj\Debug\UMLGen_MarkupCompile.cache
-C:\Users\Mads_\OneDrive\documents\visual studio 2015\Projects\UMLGen\UMLGen\obj\Debug\UMLGen_MarkupCompile.lref
-C:\Users\Mads_\OneDrive\documents\visual studio 2015\Projects\UMLGen\UMLGen\obj\Debug\View\App.baml
-C:\Users\Mads_\OneDrive\documents\visual studio 2015\Projects\UMLGen\UMLGen\obj\Debug\View\Box.baml
-C:\Users\Mads_\OneDrive\documents\visual studio 2015\Projects\UMLGen\UMLGen\obj\Debug\View\Ellipse.baml
-C:\Users\Mads_\OneDrive\documents\visual studio 2015\Projects\UMLGen\UMLGen\obj\Debug\View\MainWindow.baml
-C:\Users\Mads_\OneDrive\documents\visual studio 2015\Projects\UMLGen\UMLGen\obj\Debug\View\Square.baml
-C:\Users\Mads_\OneDrive\documents\visual studio 2015\Projects\UMLGen\UMLGen\obj\Debug\View\UMLClass.baml
-C:\Users\Mads_\OneDrive\documents\visual studio 2015\Projects\UMLGen\UMLGen\obj\Debug\UMLGen.g.resources
-C:\Users\Mads_\OneDrive\documents\visual studio 2015\Projects\UMLGen\UMLGen\obj\Debug\UMLGen.Properties.Resources.resources
-C:\Users\Mads_\OneDrive\documents\visual studio 2015\Projects\UMLGen\UMLGen\obj\Debug\UMLGen.csproj.GenerateResource.Cache
-C:\Users\Mads_\OneDrive\documents\visual studio 2015\Projects\UMLGen\UMLGen\obj\Debug\UMLGen.exe
-C:\Users\Mads_\OneDrive\documents\visual studio 2015\Projects\UMLGen\UMLGen\obj\Debug\UMLGen.pdb
-C:\Users\krest\OneDrive\Dokumenter\DTU\Windows Programming\UMLGen\UMLGen\obj\Debug\View\Ellipse.g.cs
-C:\Users\krest\OneDrive\Dokumenter\DTU\Windows Programming\UMLGen\UMLGen\obj\Debug\View\Ellipse.baml
-F:\Programming\UMLGen\UMLGen\bin\Debug\UMLGen.exe.config
-F:\Programming\UMLGen\UMLGen\obj\Debug\UMLGen.exe
-F:\Programming\UMLGen\UMLGen\obj\Debug\UMLGen.pdb
-F:\Programming\UMLGen\UMLGen\bin\Debug\UMLGen.exe
-F:\Programming\UMLGen\UMLGen\bin\Debug\UMLGen.pdb
-F:\Programming\UMLGen\UMLGen\bin\Debug\UMLGen.exe.CodeAnalysisLog.xml
-F:\Programming\UMLGen\UMLGen\bin\Debug\UMLGen.exe.lastcodeanalysissucceeded
-F:\Programming\UMLGen\UMLGen\bin\Debug\GalaSoft.MvvmLight.dll
-F:\Programming\UMLGen\UMLGen\bin\Debug\GalaSoft.MvvmLight.Extras.dll
-F:\Programming\UMLGen\UMLGen\bin\Debug\GalaSoft.MvvmLight.Platform.dll
-F:\Programming\UMLGen\UMLGen\bin\Debug\Microsoft.Practices.ServiceLocation.dll
-F:\Programming\UMLGen\UMLGen\bin\Debug\System.Windows.Interactivity.dll
-F:\Programming\UMLGen\UMLGen\bin\Debug\GalaSoft.MvvmLight.pdb
-F:\Programming\UMLGen\UMLGen\bin\Debug\GalaSoft.MvvmLight.xml
-F:\Programming\UMLGen\UMLGen\bin\Debug\GalaSoft.MvvmLight.Extras.pdb
-F:\Programming\UMLGen\UMLGen\bin\Debug\GalaSoft.MvvmLight.Extras.xml
-F:\Programming\UMLGen\UMLGen\bin\Debug\GalaSoft.MvvmLight.Platform.pdb
-F:\Programming\UMLGen\UMLGen\bin\Debug\GalaSoft.MvvmLight.Platform.xml
-F:\Programming\UMLGen\UMLGen\bin\Debug\Microsoft.Practices.ServiceLocation.pdb
-F:\Programming\UMLGen\UMLGen\bin\Debug\Microsoft.Practices.ServiceLocation.xml
-F:\Programming\UMLGen\UMLGen\obj\Debug\UMLGen.csprojResolveAssemblyReference.cache
-F:\Programming\UMLGen\UMLGen\obj\Debug\View\Skins\MainSkin.baml
-F:\Programming\UMLGen\UMLGen\obj\Debug\View\Box.g.cs
-F:\Programming\UMLGen\UMLGen\obj\Debug\View\Ellipse.g.cs
-F:\Programming\UMLGen\UMLGen\obj\Debug\View\MainWindow.g.cs
-F:\Programming\UMLGen\UMLGen\obj\Debug\View\Square.g.cs
-F:\Programming\UMLGen\UMLGen\obj\Debug\View\UMLClass.g.cs
-F:\Programming\UMLGen\UMLGen\obj\Debug\View\App.g.cs
-F:\Programming\UMLGen\UMLGen\obj\Debug\GeneratedInternalTypeHelper.g.cs
-F:\Programming\UMLGen\UMLGen\obj\Debug\UMLGen_MarkupCompile.cache
-F:\Programming\UMLGen\UMLGen\obj\Debug\UMLGen_MarkupCompile.lref
-F:\Programming\UMLGen\UMLGen\obj\Debug\View\App.baml
-F:\Programming\UMLGen\UMLGen\obj\Debug\View\Box.baml
-F:\Programming\UMLGen\UMLGen\obj\Debug\View\Ellipse.baml
-F:\Programming\UMLGen\UMLGen\obj\Debug\View\MainWindow.baml
-F:\Programming\UMLGen\UMLGen\obj\Debug\View\Square.baml
-F:\Programming\UMLGen\UMLGen\obj\Debug\View\UMLClass.baml
-F:\Programming\UMLGen\UMLGen\obj\Debug\UMLGen.g.resources
-F:\Programming\UMLGen\UMLGen\obj\Debug\UMLGen.Properties.Resources.resources
-F:\Programming\UMLGen\UMLGen\obj\Debug\UMLGen.csproj.GenerateResource.Cache
->>>>>>> Github/Adding_shapes
+C:\Users\krest\OneDrive\Dokumenter\DTU\Windows Programming\UMLGen\UMLGen\obj\Debug\UMLGen.exe
+C:\Users\krest\OneDrive\Dokumenter\DTU\Windows Programming\UMLGen\UMLGen\obj\Debug\UMLGen.pdb
