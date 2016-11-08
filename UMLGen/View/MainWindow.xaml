@@ -4,8 +4,9 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:ignore="http://www.galasoft.ch/ignore"
+        xmlns:Model="clr-namespace:UMLGen.Model"
         mc:Ignorable="d ignore"
-        Height="800"
+        Height="600"
         Width="800"
         Title="UMLGen"
         DataContext="{Binding Main, Source={StaticResource Locator}}">
@@ -70,10 +71,15 @@
         </StatusBar>
         <ScrollBar DockPanel.Dock="Right" x:Name="scrollBar" Width="20" HorizontalAlignment="Right" ValueChanged="scrollBar_ValueChanged" />
 
+<<<<<<< HEAD
 
         <ItemsControl ItemsSource="{Binding Shapes}" ItemTemplate="{StaticResource square}"/>
 
 
+=======
+        <ItemsControl ItemsSource="{Binding Shapes}" ItemTemplateSelector="{StaticResource dataSelector}" />
+
+>>>>>>> origin/master
     </DockPanel>
 
 </Window>
