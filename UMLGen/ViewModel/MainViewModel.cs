@@ -55,11 +55,11 @@ namespace UMLGen.ViewModel
 
             string Methods = "exampleMethod \n toString \n";
             string Fields = "String Name \n Int no \n";
-            Shapes.Add(new Square(100, 100, 420, 69));
-            Shapes.Add(new Ellipse());
+            //Shapes.Add(new Square(100, 100, 420, 69));
+            //Shapes.Add(new Ellipse());
 
-            Shapes.Add(new UMLClass("ExampleClass", Fields, Methods));
-            Shapes.Add(new Arrow());
+            //Shapes.Add(new UMLClass("ExampleClass", Fields, Methods));
+            //Shapes.Add(new Arrow());
 
 
             UndoCommand = new RelayCommand(undoRedoController.Undo, undoRedoController.CanUndo);
@@ -73,6 +73,10 @@ namespace UMLGen.ViewModel
             MouseDownShapeCommand = new RelayCommand<MouseButtonEventArgs>(MouseDownShape);
             MouseMoveShapeCommand = new RelayCommand<MouseEventArgs>(MouseMoveShape);
             MouseUpShapeCommand = new RelayCommand<MouseButtonEventArgs>(MouseUpShape);
+
+            AddEllipse();
+            AddSquare();
+            undoRedoController.ExecuteCommand(new AddShapeCommand(Shapes, new UMLClass("ExampleClass", Fields, Methods)));
 
 
         }
@@ -104,6 +108,8 @@ namespace UMLGen.ViewModel
             var shape = TargetShape(e);
             var mousePosition = RelativeMousePosition(e);
 
+            shape.IsSelected = true;
+
             initialMousePosition = mousePosition;
             initialShapePosition = new Point(shape.X, shape.Y);
 
@@ -128,6 +134,8 @@ namespace UMLGen.ViewModel
         {
             var shape = TargetShape(e);
             var mousePosition = RelativeMousePosition(e);
+
+            shape.IsSelected = false;
 
             shape.X = initialShapePosition.X;
             shape.Y = initialShapePosition.Y;

@@ -49,6 +49,15 @@
             <Button x:Name="PasteBtn" Height="30"  ToolTip="Pastes the element in the clipboard" VerticalAlignment="Center" Width="75">
                 <Image Source="/Images/Paste.png" />
             </Button>
+            <Button x:Name="AddUML" Height="30" Command="{Binding AddUMLCommand}"  ToolTip="Adds a new UML element" VerticalAlignment="Center" Width="75">
+                <Image Source="/Images/Plus.png" />
+            </Button>
+            <Button x:Name="AddSquare" Height="30" Command="{Binding AddSquareCommand}"  ToolTip="Adds a new square" VerticalAlignment="Center" Width="75">
+                <Image Source="/Images/Plus.png" />
+            </Button>
+            <Button x:Name="AddCircle" Height="30" Command="{Binding AddElipseCommand}" ToolTip="Adds a new circle" VerticalAlignment="Center" Width="75">
+                <Image Source="/Images/Plus.png" />
+            </Button>
         </ToolBar>
 
         <StatusBar DockPanel.Dock="Bottom" Height="20" VerticalAlignment="Top" HorizontalAlignment="Center" Width="690">
