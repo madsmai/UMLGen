@@ -76,6 +76,7 @@ namespace UMLGen.ViewModel
 
             AddEllipse();
             AddSquare();
+            Shapes.Add(new Arrow());
             undoRedoController.ExecuteCommand(new AddShapeCommand(Shapes, new UMLClass("ExampleClass", Fields, Methods)));
 
 

@@ -6,19 +6,21 @@
              xmlns:local="clr-namespace:UMLGen.View"
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300">
-    <!--<Grid>-->
-    <!--<Line Stroke="Red" X1="{Binding X}" Y1="{Binding Y}" X2="{Binding endX}" Y2="{Binding endY}" StrokeThickness="25" />-->
-    <Line Stroke="Red" X1="10" Y1="10" X2="20" Y2="250" StrokeThickness="25" />
+    <Canvas>
+        <Line Stroke="Red" X1="{Binding X}" Y1="{Binding Y}" X2="{Binding endX}" Y2="{Binding endY}" StrokeThickness="8" />
 
-    <!--<Path x:Name="CollapsedArrow"
-        HorizontalAlignment="Center"
-        VerticalAlignment="Center"
-        Data="M 0 0 L 25 25 L 25 0 Z">
-        <Path.Fill>
-            <SolidColorBrush Color="Black" />
-        </Path.Fill>
-    /Path>-->
-    <!--</Grid>-->
+        <Viewbox Height="25" Canvas.Top="{Binding ArrowY}" Canvas.Left="{Binding ArrowX}">
+            <Path x:Name="CollapsedArrow"
+            HorizontalAlignment="Right"
+            VerticalAlignment="Top"
+            Data="M 25 12 L 12 25 L 12 0 Z">
+                <Path.Fill>
+                    <SolidColorBrush Color="Red" />
+                </Path.Fill>
+            </Path>
+        </Viewbox>
+               
+    </Canvas>
 
 
 </UserControl>
