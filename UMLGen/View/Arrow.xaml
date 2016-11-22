@@ -13,7 +13,7 @@
             <Path x:Name="CollapsedArrow"
             HorizontalAlignment="Right"
             VerticalAlignment="Top"
-            Data="M 25 12 L 12 25 L 12 0 Z">
+            Data="{Binding Data}">
                 <Path.Fill>
                     <SolidColorBrush Color="Red" />
                 </Path.Fill>

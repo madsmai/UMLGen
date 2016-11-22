@@ -67,7 +67,7 @@ namespace UMLGen.ViewModel
             //Shapes.Add(new Ellipse());
 
             //Shapes.Add(new UMLClass("ExampleClass", Fields, Methods));
-            //Shapes.Add(new Arrow());
+            Shapes.Add(new Arrow());
 
 
             UndoCommand = new RelayCommand(undoRedoController.Undo, undoRedoController.CanUndo);
