@@ -20,10 +20,10 @@ namespace UMLGen.Model
             Y = 200;
             Width = baseValue;
             Height = baseValue;
-            connectionPoints[0] = new Point(Width / 2, Height);
-            connectionPoints[1] = new Point(Width, Height/2);
-            connectionPoints[2] = new Point(Width / 2, 0);
-            connectionPoints[3] = new Point(0, Height/2);
+            connectionPoints[0] = new Point(X + Width / 2, Y); //Top
+            connectionPoints[1] = new Point(X + Width, Y + Height / 2); //Right
+            connectionPoints[2] = new Point(X + Width / 2, Y + Height); //Bot
+            connectionPoints[3] = new Point(X, Y + Height / 2); //Left
 
             Arrows = new ObservableCollection<Shape>();
             BaseColor = Brushes.Firebrick;
@@ -39,10 +39,10 @@ namespace UMLGen.Model
             Height = baseValue;
             Arrows = new ObservableCollection<Shape>();
             BaseColor = Brushes.Firebrick;
-            connectionPoints[0] = new Point(Width / 2, Height);
-            connectionPoints[1] = new Point(Width, Height / 2);
-            connectionPoints[2] = new Point(Width / 2, 0);
-            connectionPoints[3] = new Point(0, Height / 2);
+            connectionPoints[0] = new Point(X + Width / 2, Y); //Top
+            connectionPoints[1] = new Point(X + Width, Y + Height / 2); //Right
+            connectionPoints[2] = new Point(X + Width / 2, Y + Height); //Bot
+            connectionPoints[3] = new Point(X, Y + Height / 2); //Left
         }
 
 

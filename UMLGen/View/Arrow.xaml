@@ -4,12 +4,11 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:UMLGen.View"
-             mc:Ignorable="d" 
-             d:DesignHeight="300" d:DesignWidth="300">
-    <Canvas>
+             mc:Ignorable="d" >
+    <Grid>
         <Line Stroke="Red" X1="{Binding X}" Y1="{Binding Y}" X2="{Binding endX}" Y2="{Binding endY}" StrokeThickness="8" />
 
-        <Viewbox Height="25" Canvas.Top="{Binding ArrowY}" Canvas.Left="{Binding ArrowX}">
+        <Viewbox Canvas.Top="{Binding ArrowY}" Canvas.Left="{Binding ArrowX}">
             <Path x:Name="CollapsedArrow"
             HorizontalAlignment="Right"
             VerticalAlignment="Top"
@@ -20,7 +19,7 @@
             </Path>
         </Viewbox>
                
-    </Canvas>
+    </Grid>
 
 
 </UserControl>

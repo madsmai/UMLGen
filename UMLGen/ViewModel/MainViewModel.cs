@@ -56,8 +56,10 @@ namespace UMLGen.ViewModel
         public ICommand MouseMoveShapeCommand { get; }
         public ICommand MouseUpShapeCommand { get; }
 
-        public ICommand MouseDownArrowCommand { get; }
-        public ICommand MouseMoveUpArrowCommand { get; }
+        public ICommand MouseDownArrowTopCommand { get; }
+        public ICommand MouseDownArrowRightCommand { get; }
+        public ICommand MouseDownArrowBotCommand { get; }
+        public ICommand MouseDownArrowLeftCommand { get; }
 
 
         // The constructor
@@ -88,7 +90,10 @@ namespace UMLGen.ViewModel
             MouseMoveShapeCommand = new RelayCommand<MouseEventArgs>(MouseMoveShape);
             MouseUpShapeCommand = new RelayCommand<MouseButtonEventArgs>(MouseUpShape);
 
-            MouseDownArrowCommand = new RelayCommand<MouseButtonEventArgs>(MouseDownArrow);
+            MouseDownArrowTopCommand = new RelayCommand<MouseButtonEventArgs>(MouseDownArrowTop);
+            MouseDownArrowRightCommand = new RelayCommand<MouseButtonEventArgs>(MouseDownArrowRight);
+            MouseDownArrowBotCommand = new RelayCommand<MouseButtonEventArgs>(MouseDownArrowBot);
+            MouseDownArrowLeftCommand = new RelayCommand<MouseButtonEventArgs>(MouseDownArrowLeft);
 
 
             AddEllipse();
@@ -109,19 +114,66 @@ namespace UMLGen.ViewModel
 
         }
 
-        private void MouseDownArrow( MouseEventArgs e)
+        private void MouseDownArrowTop( MouseEventArgs e)
         {
             var shape = TargetShape(e);
-            var mousePosition = RelativeMousePosition(e);
             shape.IsSelected = true;
 
             if(first)
             {
-                arrowSource = mousePosition;
+                arrowSource = shape.connectionPoints[0];
                 first = false;
             } else
             {
-                undoRedoController.ExecuteCommand(new ConnectShapesCommand(Shapes, arrowSource, mousePosition));
+                undoRedoController.ExecuteCommand(new ConnectShapesCommand(Shapes, arrowSource, shape.connectionPoints[0]));
+                first = true;
+            }
+        }
+        private void MouseDownArrowRight(MouseEventArgs e)
+        {
+            var shape = TargetShape(e);
+            shape.IsSelected = true;
+
+            if (first)
+            {
+                arrowSource = shape.connectionPoints[1];
+                first = false;
+            }
+            else
+            {
+                undoRedoController.ExecuteCommand(new ConnectShapesCommand(Shapes, arrowSource, shape.connectionPoints[1]));
+                first = true;
+            }
+        }
+        private void MouseDownArrowBot(MouseEventArgs e)
+        {
+            var shape = TargetShape(e);
+            shape.IsSelected = true;
+
+            if (first)
+            {
+                arrowSource = shape.connectionPoints[2] ;
+                first = false;
+            }
+            else
+            {
+                undoRedoController.ExecuteCommand(new ConnectShapesCommand(Shapes, arrowSource, shape.connectionPoints[2]));
+                first = true;
+            }
+        }
+        private void MouseDownArrowLeft(MouseEventArgs e)
+        {
+            var shape = TargetShape(e);
+            shape.IsSelected = true;
+
+            if (first)
+            {
+                arrowSource = shape.connectionPoints[3];
+                first = false;
+            }
+            else
+            {
+                undoRedoController.ExecuteCommand(new ConnectShapesCommand(Shapes, arrowSource, shape.connectionPoints[3]));
                 first = true;
             }
         }
