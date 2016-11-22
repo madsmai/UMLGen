@@ -6,12 +6,14 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Media;
 
+using System.ComponentModel;
+using System.Runtime.CompilerServices;
+using System.Windows;
+
 namespace UMLGen.Model
 {
     public abstract class Shape : NotifyBase
     {
-
-        enum LineType { None, Solid, Dotted  };
 
         // Center x coordinate
         private double _x;
@@ -21,6 +23,7 @@ namespace UMLGen.Model
         private double _width;
         private double _height;
         private bool _isSelected;
+        private Point[] _connectionPoints = new Point[4];
         private ObservableCollection<Shape> _arrows;
         private Brush _baseColor;
 
@@ -36,8 +39,9 @@ namespace UMLGen.Model
         public bool IsSelected { get { return _isSelected; } set { _isSelected = value; NotifyPropertyChanged(); NotifyPropertyChanged("SelectedColor"); } }
 
         public Brush SelectedColor { get { return IsSelected ? Brushes.Yellow : _baseColor; } }
-
         public ObservableCollection<Shape> Arrows { get { return _arrows; } set { _arrows = value; NotifyPropertyChanged(); } }
-     
+
+        public Point[] connectionPoints { get { return _connectionPoints; } set { _connectionPoints = value;  NotifyPropertyChanged(); } }
+
     }
 }

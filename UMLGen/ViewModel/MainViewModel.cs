@@ -30,6 +30,11 @@ namespace UMLGen.ViewModel
         private Point initialShapePosition;
 
 
+        private Shape firstShape = null;
+
+        private Point ArrowSource;
+        private Boolean first = false;
+
         public ObservableCollection<Shape> Shapes { get; set; }
         public ObservableCollection<Shape> SelectedShapes { get; set; }
         public Shape selectedShape;
@@ -80,6 +85,9 @@ namespace UMLGen.ViewModel
             MouseMoveShapeCommand = new RelayCommand<MouseEventArgs>(MouseMoveShape);
             MouseUpShapeCommand = new RelayCommand<MouseButtonEventArgs>(MouseUpShape);
 
+            MouseDownArrowCommand = new RelayCommand<MouseButtonEventArgs>(MouseDownArrowLeft);
+
+
             AddEllipse();
             AddSquare();
             undoRedoController.ExecuteCommand(new AddShapeCommand(Shapes, new UMLClass("ExampleClass", Fields, Methods)));
@@ -89,13 +97,29 @@ namespace UMLGen.ViewModel
 
         private void DeselectShape()
         {
-
             if (selectedShape != null)
             {
                 selectedShape.IsSelected = false;
                 selectedShape = null;
             }
             SelectedShapes.Clear();
+
+        }
+        private void MouseDownArrowLeft( MouseEventArgs e)
+        {
+            var shape = TargetShape(e);
+            var mousePosition = RelativeMousePosition(e);
+            shape.IsSelected = true;
+
+            if(first)
+            {
+                firstShape = shape;
+                first = false;
+            } else
+            {
+                undoRedoController.ExecuteCommand(new ConnectShapesCommand(Shapes,ArrowSource, mousePosition));
+                first = true;
+            }
         }
 
 

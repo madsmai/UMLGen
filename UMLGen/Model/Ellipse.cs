@@ -4,7 +4,7 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Windows.Media;
+using System.Windows;
 
 namespace UMLGen.Model
 {
@@ -19,6 +19,11 @@ namespace UMLGen.Model
             Y = 200;
             Width = baseValue;
             Height = baseValue;
+            connectionPoints[0] = new Point(Width / 2, Height);
+            connectionPoints[1] = new Point(Width, Height/2);
+            connectionPoints[2] = new Point(Width / 2, 0);
+            connectionPoints[3] = new Point(0, Height/2);
+
             Arrows = new ObservableCollection<Shape>();
             BaseColor = Brushes.Firebrick;
         }
@@ -33,6 +38,10 @@ namespace UMLGen.Model
             Height = baseValue;
             Arrows = new ObservableCollection<Shape>();
             BaseColor = Brushes.Firebrick;
+            connectionPoints[0] = new Point(Width / 2, Height);
+            connectionPoints[1] = new Point(Width, Height / 2);
+            connectionPoints[2] = new Point(Width / 2, 0);
+            connectionPoints[3] = new Point(0, Height / 2);
         }
 
 
