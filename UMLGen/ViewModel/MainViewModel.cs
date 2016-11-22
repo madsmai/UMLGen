@@ -30,6 +30,10 @@ namespace UMLGen.ViewModel
         private Point initialShapePosition;
 
 
+        private Boolean first = true;
+        private Point arrowSource = new Point(0, 0);
+
+
         public ObservableCollection<Shape> Shapes { get; set; }
 
 
@@ -42,10 +46,14 @@ namespace UMLGen.ViewModel
         public ICommand RemoveShapeCommand { get; }
 
 
+
         // Commands the UI can be bound to
         public ICommand MouseDownShapeCommand { get; }
         public ICommand MouseMoveShapeCommand { get; }
         public ICommand MouseUpShapeCommand { get; }
+
+        public ICommand MouseDownArrowCommand { get; }
+        public ICommand MouseMoveUpArrowCommand { get; }
 
 
         // The constructor
@@ -74,12 +82,32 @@ namespace UMLGen.ViewModel
             MouseMoveShapeCommand = new RelayCommand<MouseEventArgs>(MouseMoveShape);
             MouseUpShapeCommand = new RelayCommand<MouseButtonEventArgs>(MouseUpShape);
 
+            MouseDownArrowCommand = new RelayCommand<MouseButtonEventArgs>(MouseDownArrow);
+
+
             AddEllipse();
             AddSquare();
             Shapes.Add(new Arrow());
             undoRedoController.ExecuteCommand(new AddShapeCommand(Shapes, new UMLClass("ExampleClass", Fields, Methods)));
 
 
+        }
+
+        private void MouseDownArrow( MouseEventArgs e)
+        {
+            var shape = TargetShape(e);
+            var mousePosition = RelativeMousePosition(e);
+            shape.IsSelected = true;
+
+            if(first)
+            {
+                arrowSource = mousePosition;
+                first = false;
+            } else
+            {
+                undoRedoController.ExecuteCommand(new ConnectShapesCommand(Shapes, arrowSource, mousePosition));
+                first = true;
+            }
         }
 
         private void AddUML()
@@ -101,8 +129,6 @@ namespace UMLGen.ViewModel
         {
             undoRedoController.ExecuteCommand(new RemoveShapeCommand(Shapes, _shapes.Cast<Shape>().ToList()));
         }
-
-
 
         private void MouseDownShape(MouseButtonEventArgs e)
         {

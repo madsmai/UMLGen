@@ -81,7 +81,8 @@
         <ScrollBar DockPanel.Dock="Right" x:Name="scrollBar" Width="20" HorizontalAlignment="Right" ValueChanged="scrollBar_ValueChanged" />
 
 
-        <ItemsControl ItemsSource="{Binding Shapes}" ItemTemplateSelector="{StaticResource dataSelector}" />
+        <ItemsControl ItemsSource="{Binding Shapes}"  ItemTemplateSelector="{StaticResource dataSelector}" />
+        <!--<ContentControl Content="{Binding Shapes, Mode=OneWay}" ContentTemplateSelector="{StaticResource dataSelector}" /> -->
 
     </DockPanel>
 

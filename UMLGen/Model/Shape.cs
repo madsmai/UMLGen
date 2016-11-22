@@ -6,6 +6,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Media;
 
+using System.ComponentModel;
+using System.Runtime.CompilerServices;
+
 namespace UMLGen.Model
 {
     public abstract class Shape : NotifyBase
@@ -18,6 +21,7 @@ namespace UMLGen.Model
 
         // Center y coordinate
         private double _y;
+
         private double _width;
         private double _height;
         private bool _isSelected;
