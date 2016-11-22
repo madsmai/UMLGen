@@ -4,6 +4,7 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Media;
 
 namespace UMLGen.Model
 {
@@ -18,6 +19,7 @@ namespace UMLGen.Model
             Y = 400;
             Width = baseValue;
             Height = baseValue;
+            BaseColor = Brushes.ForestGreen;
             Arrows = new ObservableCollection<Shape>();
         }
 
@@ -25,7 +27,7 @@ namespace UMLGen.Model
         {
             X = x;
             Y = y;
-
+            BaseColor = Brushes.ForestGreen;
             Arrows = new ObservableCollection<Shape>();
 
             Width = width;
@@ -33,6 +35,8 @@ namespace UMLGen.Model
 
 
         }
+
+       // public Brush SelectedColor => IsSelected ? Brushes.Yellow : Brushes.ForestGreen;
 
     }
 }

@@ -18,9 +18,9 @@ namespace UMLGen.View
     /// <summary>
     /// Interaction logic for Square.xaml
     /// </summary>
-    public partial class Square : UserControl
+    public partial class SquareUC : UserControl
     {
-        public Square()
+        public SquareUC()
         {
             InitializeComponent();
         }

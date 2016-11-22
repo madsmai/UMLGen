@@ -4,6 +4,7 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Media;
 
 namespace UMLGen.Model
 {
@@ -19,6 +20,7 @@ namespace UMLGen.Model
             Width = baseValue;
             Height = baseValue;
             Arrows = new ObservableCollection<Shape>();
+            BaseColor = Brushes.Firebrick;
         }
 
         // Used for drag-n-drop
@@ -30,6 +32,9 @@ namespace UMLGen.Model
             Width = baseValue;
             Height = baseValue;
             Arrows = new ObservableCollection<Shape>();
+            BaseColor = Brushes.Firebrick;
         }
+
+
     }
 }

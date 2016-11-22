@@ -4,6 +4,7 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Media;
 
 namespace UMLGen.Model
 {
@@ -57,5 +58,6 @@ namespace UMLGen.Model
             Arrows = new ObservableCollection<Shape>();
             dataString = "M " + X.ToString() + " " + Y.ToString() + " L " + EndPoints[0].X.ToString() + " " + EndPoints[0].Y.ToString() + " Z";
         }
+        
     }
 }

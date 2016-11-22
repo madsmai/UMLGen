@@ -119,46 +119,6 @@ C:\Users\Mads_\OneDrive\documents\visual studio 2015\Projects\UMLGen\UMLGen\obj\
 C:\Users\Mads_\OneDrive\documents\visual studio 2015\Projects\UMLGen\UMLGen\obj\Debug\View\Elipse.baml
 C:\Users\Mads_\OneDrive\documents\visual studio 2015\Projects\UMLGen\UMLGen\obj\Debug\View\Square.baml
 C:\Users\Mads_\OneDrive\documents\visual studio 2015\Projects\UMLGen\UMLGen\obj\Debug\View\UMLClass.baml
-Z:\Users\Kasper\UMLGen\UMLGen\bin\Debug\UMLGen.exe.config
-Z:\Users\Kasper\UMLGen\UMLGen\bin\Debug\UMLGen.exe
-Z:\Users\Kasper\UMLGen\UMLGen\bin\Debug\UMLGen.pdb
-Z:\Users\Kasper\UMLGen\UMLGen\bin\Debug\UMLGen.exe.CodeAnalysisLog.xml
-Z:\Users\Kasper\UMLGen\UMLGen\bin\Debug\UMLGen.exe.lastcodeanalysissucceeded
-Z:\Users\Kasper\UMLGen\UMLGen\bin\Debug\GalaSoft.MvvmLight.dll
-Z:\Users\Kasper\UMLGen\UMLGen\bin\Debug\GalaSoft.MvvmLight.Extras.dll
-Z:\Users\Kasper\UMLGen\UMLGen\bin\Debug\GalaSoft.MvvmLight.Platform.dll
-Z:\Users\Kasper\UMLGen\UMLGen\bin\Debug\Microsoft.Practices.ServiceLocation.dll
-Z:\Users\Kasper\UMLGen\UMLGen\bin\Debug\System.Windows.Interactivity.dll
-Z:\Users\Kasper\UMLGen\UMLGen\bin\Debug\GalaSoft.MvvmLight.pdb
-Z:\Users\Kasper\UMLGen\UMLGen\bin\Debug\GalaSoft.MvvmLight.xml
-Z:\Users\Kasper\UMLGen\UMLGen\bin\Debug\GalaSoft.MvvmLight.Extras.pdb
-Z:\Users\Kasper\UMLGen\UMLGen\bin\Debug\GalaSoft.MvvmLight.Extras.xml
-Z:\Users\Kasper\UMLGen\UMLGen\bin\Debug\GalaSoft.MvvmLight.Platform.pdb
-Z:\Users\Kasper\UMLGen\UMLGen\bin\Debug\GalaSoft.MvvmLight.Platform.xml
-Z:\Users\Kasper\UMLGen\UMLGen\bin\Debug\Microsoft.Practices.ServiceLocation.pdb
-Z:\Users\Kasper\UMLGen\UMLGen\bin\Debug\Microsoft.Practices.ServiceLocation.xml
-Z:\Users\Kasper\UMLGen\UMLGen\obj\Debug\View\Skins\MainSkin.baml
-Z:\Users\Kasper\UMLGen\UMLGen\obj\Debug\View\Box.g.cs
-Z:\Users\Kasper\UMLGen\UMLGen\obj\Debug\View\Ellipse.g.cs
-Z:\Users\Kasper\UMLGen\UMLGen\obj\Debug\View\MainWindow.g.cs
-Z:\Users\Kasper\UMLGen\UMLGen\obj\Debug\View\Square.g.cs
-Z:\Users\Kasper\UMLGen\UMLGen\obj\Debug\View\UMLClass.g.cs
-Z:\Users\Kasper\UMLGen\UMLGen\obj\Debug\View\App.g.cs
-Z:\Users\Kasper\UMLGen\UMLGen\obj\Debug\GeneratedInternalTypeHelper.g.cs
-Z:\Users\Kasper\UMLGen\UMLGen\obj\Debug\UMLGen_MarkupCompile.cache
-Z:\Users\Kasper\UMLGen\UMLGen\obj\Debug\UMLGen_MarkupCompile.lref
-Z:\Users\Kasper\UMLGen\UMLGen\obj\Debug\View\App.baml
-Z:\Users\Kasper\UMLGen\UMLGen\obj\Debug\View\Box.baml
-Z:\Users\Kasper\UMLGen\UMLGen\obj\Debug\View\Ellipse.baml
-Z:\Users\Kasper\UMLGen\UMLGen\obj\Debug\View\MainWindow.baml
-Z:\Users\Kasper\UMLGen\UMLGen\obj\Debug\View\Square.baml
-Z:\Users\Kasper\UMLGen\UMLGen\obj\Debug\View\UMLClass.baml
-Z:\Users\Kasper\UMLGen\UMLGen\obj\Debug\UMLGen.g.resources
-Z:\Users\Kasper\UMLGen\UMLGen\obj\Debug\UMLGen.Properties.Resources.resources
-Z:\Users\Kasper\UMLGen\UMLGen\obj\Debug\UMLGen.csproj.GenerateResource.Cache
-Z:\Users\Kasper\UMLGen\UMLGen\obj\Debug\UMLGen.exe
-Z:\Users\Kasper\UMLGen\UMLGen\obj\Debug\UMLGen.pdb
-Z:\Users\Kasper\UMLGen\UMLGen\obj\Debug\UMLGen.csprojResolveAssemblyReference.cache
 C:\Users\krest\OneDrive\Dokumenter\DTU\Windows Programming\UMLGen\UMLGen\bin\Debug\UMLGen.exe.config
 C:\Users\krest\OneDrive\Dokumenter\DTU\Windows Programming\UMLGen\UMLGen\bin\Debug\UMLGen.exe
 C:\Users\krest\OneDrive\Dokumenter\DTU\Windows Programming\UMLGen\UMLGen\bin\Debug\UMLGen.pdb
@@ -198,3 +158,45 @@ C:\Users\krest\OneDrive\Dokumenter\DTU\Windows Programming\UMLGen\UMLGen\obj\Deb
 C:\Users\krest\OneDrive\Dokumenter\DTU\Windows Programming\UMLGen\UMLGen\obj\Debug\UMLGen.csproj.GenerateResource.Cache
 C:\Users\krest\OneDrive\Dokumenter\DTU\Windows Programming\UMLGen\UMLGen\obj\Debug\UMLGen.exe
 C:\Users\krest\OneDrive\Dokumenter\DTU\Windows Programming\UMLGen\UMLGen\obj\Debug\UMLGen.pdb
+Z:\Users\Kasper\UMLGen\UMLGen\bin\Debug\UMLGen.exe.config
+Z:\Users\Kasper\UMLGen\UMLGen\bin\Debug\UMLGen.exe
+Z:\Users\Kasper\UMLGen\UMLGen\bin\Debug\UMLGen.pdb
+Z:\Users\Kasper\UMLGen\UMLGen\bin\Debug\UMLGen.exe.CodeAnalysisLog.xml
+Z:\Users\Kasper\UMLGen\UMLGen\bin\Debug\UMLGen.exe.lastcodeanalysissucceeded
+Z:\Users\Kasper\UMLGen\UMLGen\bin\Debug\GalaSoft.MvvmLight.dll
+Z:\Users\Kasper\UMLGen\UMLGen\bin\Debug\GalaSoft.MvvmLight.Extras.dll
+Z:\Users\Kasper\UMLGen\UMLGen\bin\Debug\GalaSoft.MvvmLight.Platform.dll
+Z:\Users\Kasper\UMLGen\UMLGen\bin\Debug\Microsoft.Practices.ServiceLocation.dll
+Z:\Users\Kasper\UMLGen\UMLGen\bin\Debug\System.Windows.Interactivity.dll
+Z:\Users\Kasper\UMLGen\UMLGen\bin\Debug\GalaSoft.MvvmLight.pdb
+Z:\Users\Kasper\UMLGen\UMLGen\bin\Debug\GalaSoft.MvvmLight.xml
+Z:\Users\Kasper\UMLGen\UMLGen\bin\Debug\GalaSoft.MvvmLight.Extras.pdb
+Z:\Users\Kasper\UMLGen\UMLGen\bin\Debug\GalaSoft.MvvmLight.Extras.xml
+Z:\Users\Kasper\UMLGen\UMLGen\bin\Debug\GalaSoft.MvvmLight.Platform.pdb
+Z:\Users\Kasper\UMLGen\UMLGen\bin\Debug\GalaSoft.MvvmLight.Platform.xml
+Z:\Users\Kasper\UMLGen\UMLGen\bin\Debug\Microsoft.Practices.ServiceLocation.pdb
+Z:\Users\Kasper\UMLGen\UMLGen\bin\Debug\Microsoft.Practices.ServiceLocation.xml
+Z:\Users\Kasper\UMLGen\UMLGen\obj\Debug\View\Skins\MainSkin.baml
+Z:\Users\Kasper\UMLGen\UMLGen\obj\Debug\View\Arrow.g.cs
+Z:\Users\Kasper\UMLGen\UMLGen\obj\Debug\View\Box.g.cs
+Z:\Users\Kasper\UMLGen\UMLGen\obj\Debug\View\Ellipse.g.cs
+Z:\Users\Kasper\UMLGen\UMLGen\obj\Debug\View\MainWindow.g.cs
+Z:\Users\Kasper\UMLGen\UMLGen\obj\Debug\View\SquareUC.g.cs
+Z:\Users\Kasper\UMLGen\UMLGen\obj\Debug\View\UMLClass.g.cs
+Z:\Users\Kasper\UMLGen\UMLGen\obj\Debug\View\App.g.cs
+Z:\Users\Kasper\UMLGen\UMLGen\obj\Debug\GeneratedInternalTypeHelper.g.cs
+Z:\Users\Kasper\UMLGen\UMLGen\obj\Debug\UMLGen_MarkupCompile.cache
+Z:\Users\Kasper\UMLGen\UMLGen\obj\Debug\UMLGen_MarkupCompile.lref
+Z:\Users\Kasper\UMLGen\UMLGen\obj\Debug\View\App.baml
+Z:\Users\Kasper\UMLGen\UMLGen\obj\Debug\View\Arrow.baml
+Z:\Users\Kasper\UMLGen\UMLGen\obj\Debug\View\Box.baml
+Z:\Users\Kasper\UMLGen\UMLGen\obj\Debug\View\Ellipse.baml
+Z:\Users\Kasper\UMLGen\UMLGen\obj\Debug\View\MainWindow.baml
+Z:\Users\Kasper\UMLGen\UMLGen\obj\Debug\View\SquareUC.baml
+Z:\Users\Kasper\UMLGen\UMLGen\obj\Debug\View\UMLClass.baml
+Z:\Users\Kasper\UMLGen\UMLGen\obj\Debug\UMLGen.g.resources
+Z:\Users\Kasper\UMLGen\UMLGen\obj\Debug\UMLGen.Properties.Resources.resources
+Z:\Users\Kasper\UMLGen\UMLGen\obj\Debug\UMLGen.csproj.GenerateResource.Cache
+Z:\Users\Kasper\UMLGen\UMLGen\obj\Debug\UMLGen.exe
+Z:\Users\Kasper\UMLGen\UMLGen\obj\Debug\UMLGen.pdb
+Z:\Users\Kasper\UMLGen\UMLGen\obj\Debug\UMLGen.csprojResolveAssemblyReference.cache

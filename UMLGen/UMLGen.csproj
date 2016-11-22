@@ -110,8 +110,8 @@
     <Compile Include="View\MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\Square.xaml.cs">
-      <DependentUpon>Square.xaml</DependentUpon>
+    <Compile Include="View\SquareUC.xaml.cs">
+      <DependentUpon>SquareUC.xaml</DependentUpon>
     </Compile>
     <ApplicationDefinition Include="View\App.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -136,7 +136,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="View\Square.xaml">
+    <Page Include="View\SquareUC.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>

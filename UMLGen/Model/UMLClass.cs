@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Media;
 
 namespace UMLGen.Model
 {
@@ -26,6 +28,7 @@ namespace UMLGen.Model
             Y = 150;
             Width = 200;
             Height = 250;
+            Arrows = new ObservableCollection<Shape>();
         }
 
         public UMLClass(String ClassName, String FieldNames, String MethodNames)
@@ -37,6 +40,8 @@ namespace UMLGen.Model
             Y = 150;
             Width = 200;
             Height = 250;
+            Arrows = new ObservableCollection<Shape>();
         }
+
     }
 }
