@@ -35,6 +35,10 @@ namespace UMLGen.ViewModel
 
 
         public ObservableCollection<Shape> Shapes { get; set; }
+        public ObservableCollection<Shape> SelectedShapes { get; set; }
+        public Shape selectedShape;
+
+        public Shape clipboard { get; set; }
 
 
         // Commands the UI can be bound to
@@ -44,7 +48,7 @@ namespace UMLGen.ViewModel
         public ICommand AddElipseCommand { get; }
         public ICommand AddSquareCommand { get; }
         public ICommand RemoveShapeCommand { get; }
-
+        public ICommand DeselectShapeCommand { get; }
 
 
         // Commands the UI can be bound to
@@ -60,6 +64,7 @@ namespace UMLGen.ViewModel
         public MainViewModel()
         {
             Shapes = new ObservableCollection<Shape>();
+            SelectedShapes = new ObservableCollection<Shape>();
 
             string Methods = "exampleMethod \n toString \n";
             string Fields = "String Name \n Int no \n";
@@ -76,7 +81,8 @@ namespace UMLGen.ViewModel
             AddUMLCommand = new RelayCommand(AddUML);
             AddElipseCommand = new RelayCommand(AddEllipse);
             AddSquareCommand = new RelayCommand(AddSquare);
-            RemoveShapeCommand = new RelayCommand<IList>(RemoveShape, CanRemoveShape);
+            RemoveShapeCommand = new RelayCommand(RemoveShape, CanRemoveShape);
+            DeselectShapeCommand = new RelayCommand(DeselectShape);
 
             MouseDownShapeCommand = new RelayCommand<MouseButtonEventArgs>(MouseDownShape);
             MouseMoveShapeCommand = new RelayCommand<MouseEventArgs>(MouseMoveShape);
@@ -93,6 +99,16 @@ namespace UMLGen.ViewModel
 
         }
 
+        private void DeselectShape()
+        {
+            if (selectedShape != null)
+            {
+                selectedShape.IsSelected = false;
+                selectedShape = null;
+            }
+            SelectedShapes.Clear();
+
+        }
         private void MouseDownArrow( MouseEventArgs e)
         {
             var shape = TargetShape(e);
@@ -123,19 +139,17 @@ namespace UMLGen.ViewModel
             undoRedoController.ExecuteCommand(new AddShapeCommand(Shapes, new Square()));
         }
 
-        private bool CanRemoveShape(IList _shapes) => _shapes.Count == 1;
+        private bool CanRemoveShape() => SelectedShapes.Count == 1;
 
-        private void RemoveShape(IList _shapes)
+        private void RemoveShape()
         {
-            undoRedoController.ExecuteCommand(new RemoveShapeCommand(Shapes, _shapes.Cast<Shape>().ToList()));
+            undoRedoController.ExecuteCommand(new RemoveShapeCommand(Shapes, SelectedShapes.Cast<Shape>().ToList()));
         }
 
         private void MouseDownShape(MouseButtonEventArgs e)
         {
             var shape = TargetShape(e);
             var mousePosition = RelativeMousePosition(e);
-
-            shape.IsSelected = true;
 
             initialMousePosition = mousePosition;
             initialShapePosition = new Point(shape.X, shape.Y);
@@ -162,7 +176,16 @@ namespace UMLGen.ViewModel
             var shape = TargetShape(e);
             var mousePosition = RelativeMousePosition(e);
 
-            shape.IsSelected = false;
+            if (selectedShape != null)
+            {
+                SelectedShapes.Clear();
+                selectedShape.IsSelected = false;
+            }
+
+            shape.IsSelected = true;
+            selectedShape = shape;
+
+            SelectedShapes.Add(shape);
 
             shape.X = initialShapePosition.X;
             shape.Y = initialShapePosition.Y;
@@ -196,6 +219,8 @@ namespace UMLGen.ViewModel
             dynamic parent = VisualTreeHelper.GetParent(o);
             return parent.GetType().IsAssignableFrom(typeof(T)) ? parent : FindParentOfType<T>(parent);
         }
+
+
 
     }
 

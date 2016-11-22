@@ -11,8 +11,7 @@
              d:DesignHeight="100" d:DesignWidth="100">
 
     <Grid>
-
-    <Ellipse Fill="Firebrick" HorizontalAlignment="Left" Height="100" Margin="0,0,0,0" Stroke="Black" VerticalAlignment="Top" Width="100">
+    <Ellipse Fill="{Binding SelectedColor}" HorizontalAlignment="Left" Height="100" Margin="0,0,0,0" Stroke="Black" VerticalAlignment="Top" Width="100">
 
         <i:Interaction.Triggers>
             <i:EventTrigger EventName="MouseDown">
