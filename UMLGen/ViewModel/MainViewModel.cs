@@ -96,8 +96,7 @@ namespace UMLGen.ViewModel
             Shapes.Add(new Arrow());
             undoRedoController.ExecuteCommand(new AddShapeCommand(Shapes, new UMLClass("ExampleClass", Fields, Methods)));
 
-
-        }
+            }
 
         private void DeselectShape()
         {
@@ -109,6 +108,7 @@ namespace UMLGen.ViewModel
             SelectedShapes.Clear();
 
         }
+
         private void MouseDownArrow( MouseEventArgs e)
         {
             var shape = TargetShape(e);

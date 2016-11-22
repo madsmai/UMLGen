@@ -12,6 +12,7 @@
              Height="{Binding Height}"
              d:DesignHeight="100" d:DesignWidth="100">
 
+    
     <i:Interaction.Triggers>
         <i:EventTrigger EventName="MouseDown">
             <cmd:EventToCommand Command="{Binding DataContext.MouseDownShapeCommand, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}" PassEventArgsToCommand="True"/>
@@ -23,11 +24,40 @@
             <cmd:EventToCommand Command="{Binding DataContext.MouseUpShapeCommand, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}" PassEventArgsToCommand="True"/>
         </i:EventTrigger>
     </i:Interaction.Triggers>
-
-    <!--<Rectangle Fill="{Binding SelectedColor}" HorizontalAlignment="Left" Height="100" Margin="0,0,0,0" Stroke="Black" VerticalAlignment="Top" Width="100">
-
-    </Rectangle> -->
-
     
-    
+    <Grid>
+        <Rectangle Fill="Black"  HorizontalAlignment="Center" Height="10" Margin="0,0,0,0" Stroke="Black" VerticalAlignment="Top" Width="10">
+            <i:Interaction.Triggers>
+                <i:EventTrigger EventName="MouseDown">
+                    <cmd:EventToCommand Command="{Binding DataContext.MouseDownArrowCommand, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}" PassEventArgsToCommand="True"/>
+                </i:EventTrigger>
+            </i:Interaction.Triggers>
+        </Rectangle>
+
+        <Rectangle Fill="Black"  HorizontalAlignment="Left" Height="10" Margin="0,0,0,0" Stroke="Black" VerticalAlignment="Center" Width="10">
+            <i:Interaction.Triggers>
+                <i:EventTrigger EventName="MouseDown">
+                    <cmd:EventToCommand Command="{Binding DataContext.MouseDownArrowCommand, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}" PassEventArgsToCommand="True"/>
+                </i:EventTrigger>
+            </i:Interaction.Triggers>
+        </Rectangle>
+
+        <Rectangle Fill="Black"  HorizontalAlignment="Right" Height="10" Margin="0,0,0,0" Stroke="Black" VerticalAlignment="Center" Width="10">
+            <i:Interaction.Triggers>
+                <i:EventTrigger EventName="MouseDown">
+                    <cmd:EventToCommand Command="{Binding DataContext.MouseDownArrowCommand, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}" PassEventArgsToCommand="True"/>
+                </i:EventTrigger>
+            </i:Interaction.Triggers>
+        </Rectangle>
+
+        <Rectangle Fill="Black"  HorizontalAlignment="Center" Height="10" Margin="0,0,0,0" Stroke="Black" VerticalAlignment="Bottom" Width="10">
+            <i:Interaction.Triggers>
+                <i:EventTrigger EventName="MouseDown">
+                    <cmd:EventToCommand Command="{Binding DataContext.MouseDownArrowCommand, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}" PassEventArgsToCommand="True"/>
+                </i:EventTrigger>
+            </i:Interaction.Triggers>
+        </Rectangle>
+
+    </Grid>
+
 </UserControl>
