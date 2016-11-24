@@ -78,11 +78,6 @@ namespace UMLGen.ViewModel
 
             string Methods = "exampleMethod \n toString \n";
             string Fields = "String Name \n Int no \n";
-            //Shapes.Add(new Square(100, 100, 420, 69));
-            //Shapes.Add(new Ellipse());
-
-            //Shapes.Add(new UMLClass("ExampleClass", Fields, Methods));
-            Shapes.Add(new Arrow());
 
 
             UndoCommand = new RelayCommand(undoRedoController.Undo, undoRedoController.CanUndo);
@@ -110,7 +105,6 @@ namespace UMLGen.ViewModel
 
             AddEllipse();
             AddSquare();
-            Shapes.Add(new Arrow());
             undoRedoController.ExecuteCommand(new AddShapeCommand(Shapes, new UMLClass("ExampleClass", Fields, Methods)));
 
             }

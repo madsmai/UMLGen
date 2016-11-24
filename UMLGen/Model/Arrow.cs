@@ -9,12 +9,10 @@ using System.Windows;
 
 namespace UMLGen.Model
 {
-    class Arrow : Shape
+    public class Arrow : Shape
     {
         private double _endX;
         private double _endY;
-        private double _ArrowX;
-        private double _ArrowY;
         private string _Data;
 
         private Point _source;
@@ -25,31 +23,20 @@ namespace UMLGen.Model
 
         public Point Destination { get { return _destination; } set { _destination = value; NotifyPropertyChanged(); } }
         public Point Source { get { return _source; } set { _source = value; NotifyPropertyChanged(); } }
-        public double ArrowX { get { return _ArrowX; } set { _ArrowX = value; NotifyPropertyChanged(); } }
-        public double ArrowY { get { return _ArrowY; } set { _ArrowY = value; NotifyPropertyChanged(); } }
 
         public string Data { get { return _Data; } set { _Data = value; NotifyPropertyChanged(); } }
 
-        public Arrow()
-        {
-            X = 50;
-            Y = 50;
-            endX = 250;
-            endY = 50;
-
-            Data = DrawArrow(X, Y, endX, endY);
-
-            ArrowStarts = new ObservableCollection<Shape>();
-            ArrowEnds = new ObservableCollection<Shape>();
-        }
         public Arrow(Point source, Point destination)
         {
             Source = source;
             Destination = destination;
+
+            X = Source.X;
+            Y = Source.Y;
+            endX = Destination.X;
+            endY = Destination.Y;
             
-            Data = DrawArrow(source.X, source.Y, destination.X, destination.Y);
-            ArrowStarts = new ObservableCollection<Shape>();
-            ArrowEnds = new ObservableCollection<Shape>();
+            Data = DrawArrow(X, Y, endX, endY);
         }
 
 

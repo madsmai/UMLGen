@@ -25,8 +25,8 @@ namespace UMLGen.Model
         private double _height;
         private bool _isSelected;
         private Point[] _connectionPoints = new Point[4];
-        private ObservableCollection<Shape> _arrowStarts;
-        private ObservableCollection<Shape> _arrowEnds;
+        private ObservableCollection<Arrow> _arrowStarts;
+        private ObservableCollection<Arrow> _arrowEnds;
         private Brush _baseColor;
 
         public abstract Shape makeCopy();
@@ -41,8 +41,8 @@ namespace UMLGen.Model
         public bool IsSelected { get { return _isSelected; } set { _isSelected = value; NotifyPropertyChanged(); NotifyPropertyChanged("SelectedColor"); } }
 
         public Brush SelectedColor { get { return IsSelected ? Brushes.Yellow : _baseColor; } }
-        public ObservableCollection<Shape> ArrowStarts { get { return _arrowStarts; } set { _arrowStarts = value; NotifyPropertyChanged(); } }
-        public ObservableCollection<Shape> ArrowEnds { get { return _arrowEnds; } set { _arrowEnds = value; NotifyPropertyChanged(); } }
+        public ObservableCollection<Arrow> ArrowStarts { get { return _arrowStarts; } set { _arrowStarts = value; NotifyPropertyChanged(); } }
+        public ObservableCollection<Arrow> ArrowEnds { get { return _arrowEnds; } set { _arrowEnds = value; NotifyPropertyChanged(); } }
         public Point[] connectionPoints { get { return _connectionPoints; } set { _connectionPoints = value;  NotifyPropertyChanged(); } }
 
     }
