@@ -12,6 +12,7 @@ using System.Windows;
 
 namespace UMLGen.Model
 {
+    [Serializable]
     public abstract class Shape : NotifyBase
     {
 
@@ -25,8 +26,14 @@ namespace UMLGen.Model
         private double _height;
         private bool _isSelected;
         private Point[] _connectionPoints = new Point[4];
+<<<<<<< Updated upstream
         private ObservableCollection<Arrow> _arrowStarts;
         private ObservableCollection<Arrow> _arrowEnds;
+=======
+        private ObservableCollection<Shape> _arrows;
+
+        [NonSerialized]
+>>>>>>> Stashed changes
         private Brush _baseColor;
 
         public abstract Shape makeCopy();

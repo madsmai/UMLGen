@@ -73,10 +73,6 @@
     <Reference Include="PresentationFramework" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Arrows\ArrowEnds.cs" />
-    <Compile Include="Arrows\ArrowLine.cs" />
-    <Compile Include="Arrows\ArrowLineBase.cs" />
-    <Compile Include="Arrows\ArrowPolyline.cs" />
     <Compile Include="Command\ConnectShapesCommand.cs" />
     <Compile Include="Command\AddShapeCommand.cs" />
     <Compile Include="Command\IUndoRedoCommand.cs" />
@@ -102,9 +98,6 @@
     <Compile Include="View\Arrow.xaml.cs">
       <DependentUpon>Arrow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\Box.xaml.cs">
-      <DependentUpon>Box.xaml</DependentUpon>
-    </Compile>
     <Compile Include="View\Ellipse.xaml.cs">
       <DependentUpon>Ellipse.xaml</DependentUpon>
     </Compile>
@@ -122,10 +115,6 @@
       <DependentUpon>UMLClass.xaml</DependentUpon>
     </Compile>
     <Page Include="View\Arrow.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="View\Box.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>

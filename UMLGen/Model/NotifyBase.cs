@@ -6,11 +6,13 @@ using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 
+
 namespace UMLGen.Model
 {
 
     // The purpose of this class is to notify the view that a property has been changed, and that it has to update
 
+    [Serializable]
     public abstract class NotifyBase : INotifyPropertyChanged
     {
 

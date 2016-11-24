@@ -9,6 +9,7 @@ using System.Windows.Media;
 
 namespace UMLGen.Model
 {
+    [Serializable]
     class Ellipse : Shape
     {
 

@@ -9,6 +9,7 @@ using System.Windows.Media;
 
 namespace UMLGen.Model
 {
+    [Serializable]
     class Square : Shape
     {
 

@@ -8,6 +8,7 @@ using System.Windows;
 
 namespace UMLGen.Model
 {
+    [Serializable]
     class UMLClass : Shape
     {
         private String _className;

@@ -8,8 +8,9 @@ using System.Windows.Controls;
 using System.Windows.Media;
 using UMLGen.Command;
 using System;
-using System.Collections;
 using System.Linq;
+using System.IO;
+using System.Runtime.Serialization.Formatters.Binary;
 
 namespace UMLGen.ViewModel
 {
@@ -41,6 +42,9 @@ namespace UMLGen.ViewModel
         public Shape clipboard { get; set; }
 
 
+        public String pathDirectory;
+
+
         // Commands the UI can be bound to
         public ICommand UndoCommand { get; }
         public ICommand RedoCommand { get; }
@@ -49,13 +53,18 @@ namespace UMLGen.ViewModel
         public ICommand AddSquareCommand { get; }
         public ICommand RemoveShapeCommand { get; }
         public ICommand DeselectShapeCommand { get; }
- 
+
 
         public ICommand CopyShapeCommand { get; }
         public ICommand CutShapeCommand { get; }
         public ICommand PasteShapeCommand { get; }
 
 
+
+        // Save and Load commands
+        public ICommand SaveCurrentCommand { get; }
+        public ICommand SaveCurrentAsCommand { get; }
+        public ICommand LoadDiagramCommand { get; }
 
 
         // Commands the UI can be bound to
@@ -103,12 +112,74 @@ namespace UMLGen.ViewModel
             MouseDownArrowLeftCommand = new RelayCommand<MouseButtonEventArgs>(MouseDownArrowLeft);
 
 
+            // Save and Load commands
+            SaveCurrentCommand = new RelayCommand(SaveCommand);
+            SaveCurrentAsCommand = new RelayCommand(SaveCommand);
+            LoadDiagramCommand = new RelayCommand(LoadCommand);
+
+            pathDirectory = ".../.../Saved/";
+
+
             AddEllipse();
             AddSquare();
             undoRedoController.ExecuteCommand(new AddShapeCommand(Shapes, new UMLClass("ExampleClass", Fields, Methods)));
 
+
+            //SaveCommand();
+            //LoadCommand();
+
+        }
+
+
+
+
+        private void SaveCommand()
+        {
+
+            String pathName = "file123.xml";
+
+            Stream stream = File.Open(pathDirectory + pathName, FileMode.Create);
+            BinaryFormatter formatter = new BinaryFormatter();
+
+
+            formatter.Serialize(stream, Shapes);
+
+            //foreach (Shape shape in Shapes)
+            //{
+            //    // Serialize
+            //    Console.WriteLine(shape);
+            //    formatter.Serialize(stream, shape);
+            //}
+
+            stream.Close();
+            
+        }
+
+
+        private void LoadCommand()
+        {
+
+            String pathName = "file123.xml";
+
+            Stream stream = File.Open(pathDirectory + pathName, FileMode.Open);
+            BinaryFormatter formatter = new BinaryFormatter();
+
+
+
+            // Deserialize
+            ObservableCollection<Shape> a = (ObservableCollection<Shape>) formatter.Deserialize(stream);
+
+            foreach (Shape shape in a)
+            {
+
+                Shapes.Add(shape);
+
             }
 
+            stream.Close();
+
+
+        }
 
         private bool CanCopyCutShape() => selectedShape != null;
 
@@ -141,17 +212,18 @@ namespace UMLGen.ViewModel
 
         }
 
-        private void MouseDownArrowTop( MouseEventArgs e)
+        private void MouseDownArrowTop(MouseEventArgs e)
         {
             var shape = TargetShape(e);
             shape.IsSelected = true;
 
-            if(first)
+            if (first)
             {
                 arrowSource = shape.connectionPoints[0];
                 shapeSource = shape;
                 first = false;
-            } else
+            }
+            else
             {
                 undoRedoController.ExecuteCommand(new ConnectShapesCommand(Shapes, arrowSource, shapeSource, shape.connectionPoints[0], shape));
                 first = true;
@@ -181,8 +253,12 @@ namespace UMLGen.ViewModel
 
             if (first)
             {
+<<<<<<< Updated upstream
                 arrowSource = shape.connectionPoints[2] ;
                 shapeSource = shape;
+=======
+                arrowSource = shape.connectionPoints[2];
+>>>>>>> Stashed changes
                 first = false;
             }
             else
