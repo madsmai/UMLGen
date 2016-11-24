@@ -9,12 +9,9 @@ using System.Windows;
 
 namespace UMLGen.Model
 {
-<<<<<<< Updated upstream
-    public class Arrow : Shape
-=======
+
     [Serializable]
-    class Arrow : Shape
->>>>>>> Stashed changes
+    public class Arrow : Shape
     {
         private double _endX;
         private double _endY;
