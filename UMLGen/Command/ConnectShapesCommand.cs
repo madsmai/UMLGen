@@ -16,23 +16,33 @@ namespace UMLGen.Command
         private ObservableCollection<Shape> shapes;
 
         // holds the new shape
-        private Shape shape;
+        private Shape arrow;
+        private Shape startShape;
+        private Shape endShape;
 
-        public ConnectShapesCommand(ObservableCollection<Shape> _shapes, Point source, Point destination)
+        public ConnectShapesCommand(ObservableCollection<Shape> _shapes, Point source, Shape sourceShape, Point destination, Shape destinationShape)
         {
             shapes = _shapes;
-            shape = new Arrow(source, destination);
+            arrow = new Arrow(source, destination);
+            startShape = sourceShape;
+            endShape = destinationShape;
+
         }
 
 
         public void Execute()
         {
-            shapes.Add(shape);
+            shapes.Add(arrow);
+            startShape.ArrowStarts.Add(arrow);
+            endShape.ArrowEnds.Add(arrow);
         }
 
         public void UnExecute()
         {
-            shapes.Remove(shape);
+            shapes.Remove(arrow);
+            startShape.ArrowStarts.Remove(arrow);
+            endShape.ArrowEnds.Remove(arrow);
+
         }
     }
 }

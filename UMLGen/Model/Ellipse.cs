@@ -25,7 +25,8 @@ namespace UMLGen.Model
             connectionPoints[2] = new Point(X + Width / 2, Y + Height); //Bot
             connectionPoints[3] = new Point(X, Y + Height / 2); //Left
 
-            Arrows = new ObservableCollection<Shape>();
+            ArrowStarts = new ObservableCollection<Shape>();
+            ArrowEnds = new ObservableCollection<Shape>();
             BaseColor = Brushes.Firebrick;
         }
 
@@ -37,7 +38,10 @@ namespace UMLGen.Model
             Y = y;
             Width = width;
             Height = height;
-            Arrows = new ObservableCollection<Shape>();
+            Width = baseValue;
+            Height = baseValue;
+            ArrowStarts = new ObservableCollection<Shape>();
+            ArrowEnds = new ObservableCollection<Shape>();
             BaseColor = Brushes.Firebrick;
             connectionPoints[0] = new Point(X + Width / 2, Y); //Top
             connectionPoints[1] = new Point(X + Width, Y + Height / 2); //Right

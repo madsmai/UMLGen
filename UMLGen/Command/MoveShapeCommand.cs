@@ -27,12 +27,32 @@ namespace UMLGen.Command
         {
             shape.X += diffX;
             shape.Y += diffY;
+            foreach(Shape a in shape.ArrowStarts)
+            {
+                a.X += diffX;
+                a.Y += diffY;
+            }
+            foreach (Shape a in shape.ArrowEnds)
+            {
+                a.X += diffX;
+                a.Y += diffY;
+            }
         }
 
         public void UnExecute()
         {
             shape.X -= diffX;
             shape.Y -= diffY;
+            foreach (Shape a in shape.ArrowStarts)
+            {
+                a.X -= diffX;
+                a.Y -= diffY;
+            }
+            foreach (Shape a in shape.ArrowEnds)
+            {
+                a.X -= diffX;
+                a.Y -= diffY;
+            }
         }
     }
 }

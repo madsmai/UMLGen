@@ -22,6 +22,7 @@
         </ResourceDictionary>
     </Window.Resources>
     -->
+    <Viewbox Stretch="Uniform">
     <DockPanel HorizontalAlignment="Left" LastChildFill="True" Width="790">
         <ToolBar DockPanel.Dock="Left" x:Name="toolBar" Width="100" Margin="0,70,0,0" ToolBarTray.IsLocked="True" ToolBar.OverflowMode="Never" />
         <Menu DockPanel.Dock="Top" x:Name="menu" VerticalAlignment="Top" Margin="-100,0,0,0" >
@@ -79,24 +80,28 @@
                 <TextBlock Text="TODO:::::" />
             </StatusBarItem>
         </StatusBar>
-        <ScrollBar DockPanel.Dock="Right" x:Name="scrollBar" Width="20" HorizontalAlignment="Right" ValueChanged="scrollBar_ValueChanged" />
 
+        <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto">
+            <ItemsControl ItemsSource="{Binding Shapes}">
+                <ItemsControl.ItemsPanel>
+                    <ItemsPanelTemplate>
 
-        <ItemsControl ItemsSource="{Binding Shapes}">
-            <ItemsControl.ItemsPanel>
-                <ItemsPanelTemplate>
-                    <Canvas/>
-                </ItemsPanelTemplate>
-            </ItemsControl.ItemsPanel>
-            <ItemsControl.ItemContainerStyle>
+                        <Canvas Height="470" Width="689" Background="SeaShell"/>    
+
+                    </ItemsPanelTemplate>
+                </ItemsControl.ItemsPanel>
+                <ItemsControl.ItemContainerStyle>
                 <Style TargetType="ContentPresenter">
                     <Setter Property="Canvas.Left" Value="{Binding X}"/>
                     <Setter Property="Canvas.Top" Value="{Binding Y}"/>
                 </Style>
             </ItemsControl.ItemContainerStyle>
         </ItemsControl>
+        </ScrollViewer>
 
     </DockPanel>
+    </Viewbox>
+
 
     <Window.InputBindings>
         <KeyBinding Modifiers="Control" Key="Z" Command="{Binding UndoCommand}"/> <!-- Undo Keybind -->
@@ -108,5 +113,6 @@
         <KeyBinding Modifiers="Control" Key="C" Command="{Binding CopyShapeCommand}"/> <!-- Copy Keybind -->
         <KeyBinding Modifiers="Control" Key="V" Command="{Binding PasteShapeCommand}"/> <!-- Paste Keybind -->
     </Window.InputBindings>
+
 
 </Window>

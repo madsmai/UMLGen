@@ -32,6 +32,7 @@ namespace UMLGen.ViewModel
 
         private Boolean first = true;
         private Point arrowSource = new Point(0, 0);
+        private Shape shapeSource = null;
 
         public ObservableCollection<Shape> Shapes { get; set; }
         public ObservableCollection<Shape> SelectedShapes { get; set; }
@@ -154,10 +155,11 @@ namespace UMLGen.ViewModel
             if(first)
             {
                 arrowSource = shape.connectionPoints[0];
+                shapeSource = shape;
                 first = false;
             } else
             {
-                undoRedoController.ExecuteCommand(new ConnectShapesCommand(Shapes, arrowSource, shape.connectionPoints[0]));
+                undoRedoController.ExecuteCommand(new ConnectShapesCommand(Shapes, arrowSource, shapeSource, shape.connectionPoints[0], shape));
                 first = true;
             }
         }
@@ -169,11 +171,12 @@ namespace UMLGen.ViewModel
             if (first)
             {
                 arrowSource = shape.connectionPoints[1];
+                shapeSource = shape;
                 first = false;
             }
             else
             {
-                undoRedoController.ExecuteCommand(new ConnectShapesCommand(Shapes, arrowSource, shape.connectionPoints[1]));
+                undoRedoController.ExecuteCommand(new ConnectShapesCommand(Shapes, arrowSource, shapeSource, shape.connectionPoints[1], shape));
                 first = true;
             }
         }
@@ -185,11 +188,12 @@ namespace UMLGen.ViewModel
             if (first)
             {
                 arrowSource = shape.connectionPoints[2] ;
+                shapeSource = shape;
                 first = false;
             }
             else
             {
-                undoRedoController.ExecuteCommand(new ConnectShapesCommand(Shapes, arrowSource, shape.connectionPoints[2]));
+                undoRedoController.ExecuteCommand(new ConnectShapesCommand(Shapes, arrowSource, shapeSource, shape.connectionPoints[2], shape));
                 first = true;
             }
         }
@@ -201,11 +205,12 @@ namespace UMLGen.ViewModel
             if (first)
             {
                 arrowSource = shape.connectionPoints[3];
+                shapeSource = shape;
                 first = false;
             }
             else
             {
-                undoRedoController.ExecuteCommand(new ConnectShapesCommand(Shapes, arrowSource, shape.connectionPoints[3]));
+                undoRedoController.ExecuteCommand(new ConnectShapesCommand(Shapes, arrowSource, shapeSource, shape.connectionPoints[3], shape));
                 first = true;
             }
         }

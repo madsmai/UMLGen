@@ -26,7 +26,11 @@ namespace UMLGen.Command
             linesToRemove = new HashSet<Shape>();
             foreach (Shape shape in shapesToRemove)
             {
-                foreach (Shape arrow in shape.Arrows)
+                foreach (Shape arrow in shape.ArrowStarts)
+                {
+                    linesToRemove.Add(arrow);
+                }
+                foreach (Shape arrow in shape.ArrowEnds)
                 {
                     linesToRemove.Add(arrow);
                 }

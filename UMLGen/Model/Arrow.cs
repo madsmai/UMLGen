@@ -39,7 +39,8 @@ namespace UMLGen.Model
 
             Data = DrawArrow(X, Y, endX, endY);
 
-            Arrows = new ObservableCollection<Shape>();
+            ArrowStarts = new ObservableCollection<Shape>();
+            ArrowEnds = new ObservableCollection<Shape>();
         }
         public Arrow(Point source, Point destination)
         {
@@ -47,8 +48,8 @@ namespace UMLGen.Model
             Destination = destination;
             
             Data = DrawArrow(source.X, source.Y, destination.X, destination.Y);
-
-            Arrows = new ObservableCollection<Shape>();
+            ArrowStarts = new ObservableCollection<Shape>();
+            ArrowEnds = new ObservableCollection<Shape>();
         }
 
 
