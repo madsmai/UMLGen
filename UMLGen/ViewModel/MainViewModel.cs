@@ -253,12 +253,8 @@ namespace UMLGen.ViewModel
 
             if (first)
             {
-<<<<<<< Updated upstream
                 arrowSource = shape.connectionPoints[2] ;
                 shapeSource = shape;
-=======
-                arrowSource = shape.connectionPoints[2];
->>>>>>> Stashed changes
                 first = false;
             }
             else
