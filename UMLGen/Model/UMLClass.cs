@@ -51,5 +51,11 @@ namespace UMLGen.Model
             connectionPoints[3] = new Point(0, Height / 2);
         }
 
+
+        public override Shape makeCopy()
+        {
+            return new UMLClass(ClassName, FieldNames, MethodNames);
+        }
+
     }
 }

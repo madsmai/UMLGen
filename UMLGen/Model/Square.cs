@@ -45,7 +45,10 @@ namespace UMLGen.Model
 
         }
 
-       // public Brush SelectedColor => IsSelected ? Brushes.Yellow : Brushes.ForestGreen;
+        public override Shape makeCopy() {
+           return new Square(X, Y, Width, Height);
+        }
+
 
     }
 }

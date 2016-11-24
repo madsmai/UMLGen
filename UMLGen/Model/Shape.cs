@@ -28,7 +28,7 @@ namespace UMLGen.Model
         private ObservableCollection<Shape> _arrows;
         private Brush _baseColor;
 
-        //public abstract Brush SelectedColor();
+        public abstract Shape makeCopy();
 
 
         public double X { get { return _x; } set { _x = value; NotifyPropertyChanged(); } }

@@ -23,8 +23,8 @@ namespace UMLGen.Model
         public double endX { get { return _endX; } set { _endX = value; NotifyPropertyChanged(); } }
         public double endY { get { return _endY; } set { _endY = value; NotifyPropertyChanged(); } }
 
-        public Point destination { get { return _destination; } set { _destination = value; NotifyPropertyChanged(); } }
-        public Point source { get { return _source; } set { _source = value; NotifyPropertyChanged(); } }
+        public Point Destination { get { return _destination; } set { _destination = value; NotifyPropertyChanged(); } }
+        public Point Source { get { return _source; } set { _source = value; NotifyPropertyChanged(); } }
         public double ArrowX { get { return _ArrowX; } set { _ArrowX = value; NotifyPropertyChanged(); } }
         public double ArrowY { get { return _ArrowY; } set { _ArrowY = value; NotifyPropertyChanged(); } }
 
@@ -82,6 +82,9 @@ namespace UMLGen.Model
         }
         public Arrow(Point source, Point destination)
         {
+            Source = source;
+            Destination = destination;
+
             X = source.X;
             Y = source.Y;
             endX = destination.X;
@@ -121,6 +124,12 @@ namespace UMLGen.Model
                 Data = "M 0 0 L 0 25 L 25 0 Z";
             }
             Arrows = new ObservableCollection<Shape>();
+        }
+
+
+        public override Shape makeCopy()
+        {
+            return new Arrow(Source, Destination);
         }
 
     }

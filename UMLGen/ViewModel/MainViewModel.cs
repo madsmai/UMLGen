@@ -33,7 +33,6 @@ namespace UMLGen.ViewModel
         private Boolean first = true;
         private Point arrowSource = new Point(0, 0);
 
-
         public ObservableCollection<Shape> Shapes { get; set; }
         public ObservableCollection<Shape> SelectedShapes { get; set; }
         public Shape selectedShape;
@@ -49,6 +48,13 @@ namespace UMLGen.ViewModel
         public ICommand AddSquareCommand { get; }
         public ICommand RemoveShapeCommand { get; }
         public ICommand DeselectShapeCommand { get; }
+ 
+
+        public ICommand CopyShapeCommand { get; }
+        public ICommand CutShapeCommand { get; }
+        public ICommand PasteShapeCommand { get; }
+
+
 
 
         // Commands the UI can be bound to
@@ -65,6 +71,7 @@ namespace UMLGen.ViewModel
         // The constructor
         public MainViewModel()
         {
+
             Shapes = new ObservableCollection<Shape>();
             SelectedShapes = new ObservableCollection<Shape>();
 
@@ -86,6 +93,10 @@ namespace UMLGen.ViewModel
             RemoveShapeCommand = new RelayCommand(RemoveShape, CanRemoveShape);
             DeselectShapeCommand = new RelayCommand(DeselectShape);
 
+            CopyShapeCommand = new RelayCommand(CopyShape, CanCopyCutShape);
+            CutShapeCommand = new RelayCommand(CutShape, CanCopyCutShape);
+            PasteShapeCommand = new RelayCommand(PasteShape);
+
             MouseDownShapeCommand = new RelayCommand<MouseButtonEventArgs>(MouseDownShape);
             MouseMoveShapeCommand = new RelayCommand<MouseEventArgs>(MouseMoveShape);
             MouseUpShapeCommand = new RelayCommand<MouseButtonEventArgs>(MouseUpShape);
@@ -102,6 +113,27 @@ namespace UMLGen.ViewModel
             undoRedoController.ExecuteCommand(new AddShapeCommand(Shapes, new UMLClass("ExampleClass", Fields, Methods)));
 
             }
+
+
+        private bool CanCopyCutShape() => selectedShape != null;
+
+        private void CopyShape()
+        {
+            clipboard = selectedShape.makeCopy();
+        }
+
+        private void CutShape()
+        {
+            CopyShape();
+            RemoveShape();
+        }
+
+        private void PasteShape()
+        {
+            undoRedoController.ExecuteCommand(new AddShapeCommand(Shapes, clipboard.makeCopy()));
+        }
+
+
 
         private void DeselectShape()
         {

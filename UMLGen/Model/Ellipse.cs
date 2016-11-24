@@ -30,13 +30,13 @@ namespace UMLGen.Model
         }
 
         // Used for drag-n-drop
-        public Ellipse(double x, double y)
+        public Ellipse(double x, double y, double width, double height)
         {
             // x and y should be the coordinate of the mouse when released
             X = x;
             Y = y;
-            Width = baseValue;
-            Height = baseValue;
+            Width = width;
+            Height = height;
             Arrows = new ObservableCollection<Shape>();
             BaseColor = Brushes.Firebrick;
             connectionPoints[0] = new Point(X + Width / 2, Y); //Top
@@ -45,6 +45,13 @@ namespace UMLGen.Model
             connectionPoints[3] = new Point(X, Y + Height / 2); //Left
         }
 
+
+
+
+        public override Shape makeCopy()
+        {
+            return new Ellipse(X, Y, Width, Height);
+        }
 
     }
 }
