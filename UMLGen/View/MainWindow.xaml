@@ -86,7 +86,7 @@
                 <ItemsControl.ItemsPanel>
                     <ItemsPanelTemplate>
 
-                        <Canvas Height="470" Width="689" Background="SeaShell"/>    
+                        <Canvas Height="470" Width="689" Background="GhostWhite"/>    
 
                     </ItemsPanelTemplate>
                 </ItemsControl.ItemsPanel>

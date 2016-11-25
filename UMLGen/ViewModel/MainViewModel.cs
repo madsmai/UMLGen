@@ -234,6 +234,8 @@ namespace UMLGen.ViewModel
             {
                 undoRedoController.ExecuteCommand(new ConnectShapesCommand(Shapes, arrowSource, shapeSource, shape.connectionPoints[0], shape));
                 first = true;
+                shape.IsSelected = false;
+                shapeSource.IsSelected = false;
             }
         }
         private void MouseDownArrowRight(MouseEventArgs e)
@@ -251,6 +253,8 @@ namespace UMLGen.ViewModel
             {
                 undoRedoController.ExecuteCommand(new ConnectShapesCommand(Shapes, arrowSource, shapeSource, shape.connectionPoints[1], shape));
                 first = true;
+                shape.IsSelected = false;
+                shapeSource.IsSelected = false;
             }
         }
         private void MouseDownArrowBot(MouseEventArgs e)
@@ -262,12 +266,15 @@ namespace UMLGen.ViewModel
             {
                 arrowSource = shape.connectionPoints[2];
                 shapeSource = shape;
+                arrowSource = shape.connectionPoints[2];
                 first = false;
             }
             else
             {
                 undoRedoController.ExecuteCommand(new ConnectShapesCommand(Shapes, arrowSource, shapeSource, shape.connectionPoints[2], shape));
                 first = true;
+                shape.IsSelected = false;
+                shapeSource.IsSelected = false;
             }
         }
         private void MouseDownArrowLeft(MouseEventArgs e)
@@ -285,6 +292,8 @@ namespace UMLGen.ViewModel
             {
                 undoRedoController.ExecuteCommand(new ConnectShapesCommand(Shapes, arrowSource, shapeSource, shape.connectionPoints[3], shape));
                 first = true;
+                shape.IsSelected = false;
+                shapeSource.IsSelected = false;
             }
         }
 
