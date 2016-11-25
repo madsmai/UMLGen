@@ -5,6 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:ignore="http://www.galasoft.ch/ignore"
         xmlns:Model="clr-namespace:UMLGen.Model"
+		xmlns:View="clr-namespace:UMLGen.View"
         xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
         xmlns:cmd="clr-namespace:GalaSoft.MvvmLight.Command;assembly=GalaSoft.MvvmLight.Platform"
         mc:Ignorable="d ignore"
@@ -24,8 +25,9 @@
     -->
     <Viewbox Stretch="Uniform">
     <DockPanel HorizontalAlignment="Left" LastChildFill="True" Width="790">
-        <ToolBar DockPanel.Dock="Left" x:Name="toolBar" Width="100" Margin="0,70,0,0" ToolBarTray.IsLocked="True" ToolBar.OverflowMode="Never" />
-        <Menu DockPanel.Dock="Top" x:Name="menu" VerticalAlignment="Top" Margin="-100,0,0,0" >
+		<View:CustomListView/>
+		<!--<ToolBar DockPanel.Dock="Left" x:Name="toolBar" Width="100" Margin="0,70,0,0" ToolBarTray.IsLocked="True" ToolBar.OverflowMode="Never" />-->
+		<Menu DockPanel.Dock="Top" x:Name="menu" VerticalAlignment="Top" Margin="-100,0,0,0" >
             <MenuItem Header="_File" Height="30" Width="70" Margin="10,0,0,0">
                 <MenuItem Header="_New"/>
                 <MenuItem Header="_Open" Command="{Binding LoadDiagramCommand}"/>

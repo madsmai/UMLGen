@@ -98,8 +98,14 @@
     <Compile Include="View\Arrow.xaml.cs">
       <DependentUpon>Arrow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\CustomListView.xaml.cs">
+      <DependentUpon>CustomListView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\Ellipse.xaml.cs">
       <DependentUpon>Ellipse.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\ItemViewList.xaml.cs">
+      <DependentUpon>ItemViewList.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
@@ -118,9 +124,17 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="View\CustomListView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="View\Ellipse.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\ItemViewList.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="View\MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
