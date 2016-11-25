@@ -10,7 +10,7 @@ namespace UMLGen.Model
     {
 
         private double baseValue = 100;
-
+        
         public Square()
         {
             X = 0;
