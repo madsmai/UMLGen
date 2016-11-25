@@ -1,9 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Media;
 
@@ -28,7 +24,7 @@ namespace UMLGen.Model
 
             ArrowStarts = new ObservableCollection<Arrow>();
             ArrowEnds = new ObservableCollection<Arrow>();
-            BaseColor = Brushes.Firebrick;
+            setColor();
         }
 
         // Used for drag-n-drop
@@ -43,7 +39,7 @@ namespace UMLGen.Model
             Height = baseValue;
             ArrowStarts = new ObservableCollection<Arrow>();
             ArrowEnds = new ObservableCollection<Arrow>();
-            BaseColor = Brushes.Firebrick;
+            setColor();
             connectionPoints[0] = new Point(X + Width / 2, Y); //Top
             connectionPoints[1] = new Point(X + Width, Y + Height / 2); //Right
             connectionPoints[2] = new Point(X + Width / 2, Y + Height); //Bot
@@ -56,6 +52,12 @@ namespace UMLGen.Model
         public override Shape makeCopy()
         {
             return new Ellipse(X, Y, Width, Height);
+        }
+
+        public override void setColor()
+        {
+            IsSelected = false;
+            BaseColor = Brushes.Firebrick;
         }
 
     }

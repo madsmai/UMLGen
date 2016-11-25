@@ -1,13 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Media;
-
-using System.ComponentModel;
-using System.Runtime.CompilerServices;
 using System.Windows;
 
 namespace UMLGen.Model
@@ -33,13 +26,13 @@ namespace UMLGen.Model
         private Brush _baseColor;
 
         public abstract Shape makeCopy();
-
+        public abstract void setColor();
 
         public double X { get { return _x; } set { _x = value; NotifyPropertyChanged(); } }
         public double Y { get { return _y; } set { _y = value; NotifyPropertyChanged();} }
         public double Width { get { return _width; } set { _width = value; NotifyPropertyChanged(); } }
         public double Height { get { return _height; } set { _height = value; NotifyPropertyChanged(); } }
-        public Brush BaseColor { get { return _baseColor; } set { _baseColor = value; NotifyPropertyChanged(); } }
+        public Brush BaseColor { get { return _baseColor; } set { _baseColor = value; NotifyPropertyChanged(); NotifyPropertyChanged("SelectedColor"); } }
 
         public bool IsSelected { get { return _isSelected; } set { _isSelected = value; NotifyPropertyChanged(); NotifyPropertyChanged("SelectedColor"); } }
 

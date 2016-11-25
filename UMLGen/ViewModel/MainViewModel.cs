@@ -11,6 +11,7 @@ using System;
 using System.Linq;
 using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
+using Microsoft.Win32;
 
 namespace UMLGen.ViewModel
 {
@@ -41,8 +42,7 @@ namespace UMLGen.ViewModel
 
         public Shape clipboard { get; set; }
 
-
-        public String pathDirectory;
+        public String pathName;
 
 
         // Commands the UI can be bound to
@@ -65,6 +65,7 @@ namespace UMLGen.ViewModel
         public ICommand SaveCurrentCommand { get; }
         public ICommand SaveCurrentAsCommand { get; }
         public ICommand LoadDiagramCommand { get; }
+
 
 
         // Commands the UI can be bound to
@@ -114,19 +115,15 @@ namespace UMLGen.ViewModel
 
             // Save and Load commands
             SaveCurrentCommand = new RelayCommand(SaveCommand);
-            SaveCurrentAsCommand = new RelayCommand(SaveCommand);
+            SaveCurrentAsCommand = new RelayCommand(SaveAsCommand);
             LoadDiagramCommand = new RelayCommand(LoadCommand);
 
-            pathDirectory = ".../.../Saved/";
+            pathName = "";
 
 
             AddEllipse();
             AddSquare();
             undoRedoController.ExecuteCommand(new AddShapeCommand(Shapes, new UMLClass("ExampleClass", Fields, Methods)));
-
-
-            //SaveCommand();
-            //LoadCommand();
 
         }
 
@@ -136,49 +133,59 @@ namespace UMLGen.ViewModel
         private void SaveCommand()
         {
 
-            String pathName = "file123.xml";
+            if (pathName.Equals(""))
+            {
+                SaveAsCommand();
+            }
+            else
+            {
+                Stream stream = File.Open(pathName, FileMode.Create);
+                BinaryFormatter formatter = new BinaryFormatter();
+                formatter.Serialize(stream, Shapes);
+                stream.Close();
+            }
 
-            Stream stream = File.Open(pathDirectory + pathName, FileMode.Create);
-            BinaryFormatter formatter = new BinaryFormatter();
 
-
-            formatter.Serialize(stream, Shapes);
-
-            //foreach (Shape shape in Shapes)
-            //{
-            //    // Serialize
-            //    Console.WriteLine(shape);
-            //    formatter.Serialize(stream, shape);
-            //}
-
-            stream.Close();
-            
         }
 
+        private void SaveAsCommand()
+        {
+
+            SaveFileDialog _SD = new SaveFileDialog();
+            _SD.Filter = "Text File (*.xml)|*.xml|Show All Files (*.*)|*.*";
+            _SD.FileName = "Untitled";
+            _SD.Title = "Save As";
+            if (_SD.ShowDialog() == true)
+            {
+                pathName = _SD.FileName;
+                SaveCommand();
+            }
+        }
 
         private void LoadCommand()
         {
 
-            String pathName = "file123.xml";
-
-            Stream stream = File.Open(pathDirectory + pathName, FileMode.Open);
-            BinaryFormatter formatter = new BinaryFormatter();
-
-
-
-            // Deserialize
-            ObservableCollection<Shape> a = (ObservableCollection<Shape>) formatter.Deserialize(stream);
-
-            foreach (Shape shape in a)
+            OpenFileDialog _OD = new OpenFileDialog();
+            _OD.Filter = "Text File (*.xml)|*.xml|Show All Files (*.*)|*.*";
+            _OD.FileName = "Untitled";
+            _OD.Title = "Open file";
+            if (_OD.ShowDialog() == true)
             {
+                pathName = _OD.FileName;
+                Shapes.Clear();
 
-                Shapes.Add(shape);
+                Stream stream = File.Open(pathName, FileMode.Open);
+                BinaryFormatter formatter = new BinaryFormatter();
 
+                // Deserialize
+                ObservableCollection<Shape> loadShapes = (ObservableCollection<Shape>)formatter.Deserialize(stream);
+                foreach (Shape shape in loadShapes)
+                {
+                    Shapes.Add(shape);
+                    shape.setColor();
+                }
+                stream.Close();
             }
-
-            stream.Close();
-
-
         }
 
         private bool CanCopyCutShape() => selectedShape != null;
@@ -253,7 +260,7 @@ namespace UMLGen.ViewModel
 
             if (first)
             {
-                arrowSource = shape.connectionPoints[2] ;
+                arrowSource = shape.connectionPoints[2];
                 shapeSource = shape;
                 first = false;
             }

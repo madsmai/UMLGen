@@ -1,9 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Media;
 
@@ -21,7 +17,7 @@ namespace UMLGen.Model
             Y = 0;
             Width = baseValue;
             Height = baseValue;
-            BaseColor = Brushes.ForestGreen;
+            setColor();
             ArrowStarts = new ObservableCollection<Arrow>();
             ArrowEnds = new ObservableCollection<Arrow>();
             connectionPoints[0] = new Point(X+Width / 2, Y); //Top
@@ -34,7 +30,7 @@ namespace UMLGen.Model
         {
             X = x;
             Y = y;
-            BaseColor = Brushes.ForestGreen;
+            setColor();
             ArrowStarts = new ObservableCollection<Arrow>();
             ArrowEnds = new ObservableCollection<Arrow>();
 
@@ -50,6 +46,12 @@ namespace UMLGen.Model
 
         public override Shape makeCopy() {
            return new Square(X, Y, Width, Height);
+        }
+
+        public override void setColor()
+        {
+            IsSelected = false;
+            BaseColor = Brushes.ForestGreen;
         }
 
 

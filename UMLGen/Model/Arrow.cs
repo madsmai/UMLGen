@@ -98,5 +98,10 @@ namespace UMLGen.Model
                     endY - thick, endX + thick + arrowsize, endY - thick + arrowsize, X + thick, Y - thick);
             }
         }
+
+        public override void setColor()
+        {
+
+        }
     }
 }

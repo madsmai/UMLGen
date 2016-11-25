@@ -60,5 +60,9 @@ namespace UMLGen.Model
             return new UMLClass(ClassName, FieldNames, MethodNames);
         }
 
+        public override void setColor()
+        {
+            
+        }
     }
 }
