@@ -24,95 +24,99 @@
     </Window.Resources>
     -->
     <Viewbox Stretch="Uniform">
-    <DockPanel HorizontalAlignment="Left" LastChildFill="True" Width="790">
-		<View:CustomListView/>
-		<Menu DockPanel.Dock="Top" x:Name="menu" VerticalAlignment="Top" Margin="-100,0,0,0" >
-            <MenuItem Header="_File" Height="30" Width="70" Margin="10,0,0,0">
-                <MenuItem Header="_New"/>
-                <MenuItem Header="_Open" Command="{Binding LoadDiagramCommand}"/>
-                <MenuItem Header="_Save" Command="{Binding SaveCurrentCommand}"/>
-                <MenuItem Header="_Save as" Command="{Binding SaveCurrentAsCommand}"/>
-            </MenuItem>
-            <MenuItem Header="_Edit" Height="30" Width="70" Margin="10,0,0,0">
-                <MenuItem Header="_Copy" Command="{Binding CopyShapeCommand}"/>
-                <MenuItem Header="_Cut" Command="{Binding CutShapeCommand}"/>
-                <MenuItem Header="_Paste" Command="{Binding PasteShapeCommand}"/>
-                <MenuItem Header="_Undo" Command="{Binding UndoCommand}"/>
-                <MenuItem Header="_Redo" Command="{Binding RedoCommand}"/>
-                <MenuItem Header="_Delete"  Command="{Binding RemoveShapeCommand}" />
-            </MenuItem>
-        </Menu>
-        <ToolBar DockPanel.Dock="Top" x:Name="toolBar1" Height="40" Margin="-100,0,0,0" ToolBarTray.IsLocked="True" ToolBar.OverflowMode="Never" Width="Auto">
-            <Button x:Name="CopyBtn" Height="30" Command="{Binding CopyShapeCommand}" ToolTip="Copy selection to clipboard" VerticalAlignment="Center" Width="75">
-                <Image Source="/Images/Copy.png"  />
-            </Button>
-            <Button x:Name="CutBtn" Height="30" Command="{Binding CutShapeCommand}"   ToolTip="Cut selection to clipboard" VerticalAlignment="Center" Width="75">
-                <Image Source="/Images/Cut.png" />
-            </Button>
-            <Button x:Name="PasteBtn" Height="30" Command="{Binding PasteShapeCommand}"  ToolTip="Pastes the element in the clipboard" VerticalAlignment="Center" Width="75">
-                <Image Source="/Images/Paste.png" />
-            </Button>
-            <Button x:Name="AddUML" Height="30" Command="{Binding AddUMLCommand}"  ToolTip="Adds a new UML element" VerticalAlignment="Center" Width="75">
-                <Image Source="/Images/Plus.png" />
-            </Button>
-            <Button x:Name="AddSquare" Height="30" Command="{Binding AddSquareCommand}"  ToolTip="Adds a new square" VerticalAlignment="Center" Width="75">
-                <Image Source="/Images/Plus.png" />
-            </Button>
-            <Button x:Name="AddCircle" Height="30" Command="{Binding AddElipseCommand}" ToolTip="Adds a new circle" VerticalAlignment="Center" Width="75">
-                <Image Source="/Images/Plus.png" />
-            </Button>
-        </ToolBar>
+        <DockPanel HorizontalAlignment="Left" LastChildFill="True" Width="790">
+            <View:CustomListView/>
+            <Menu DockPanel.Dock="Top" x:Name="menu" VerticalAlignment="Top" Margin="-100,0,0,0" >
+                <MenuItem Header="_File" Height="30" Width="70" Margin="10,0,0,0">
+                    <MenuItem Header="_New" Command="{Binding NewDiagramCommand}" />
+                    <MenuItem Header="_Open" Command="{Binding LoadDiagramCommand}"/>
+                    <MenuItem Header="_Save" Command="{Binding SaveCurrentCommand}"/>
+                    <MenuItem Header="_Save as" Command="{Binding SaveCurrentAsCommand}"/>
+                </MenuItem>
+                <MenuItem Header="_Edit" Height="30" Width="70" Margin="10,0,0,0">
+                    <MenuItem Header="_Copy" Command="{Binding CopyShapeCommand}"/>
+                    <MenuItem Header="_Cut" Command="{Binding CutShapeCommand}"/>
+                    <MenuItem Header="_Paste" Command="{Binding PasteShapeCommand}"/>
+                    <MenuItem Header="_Undo" Command="{Binding UndoCommand}"/>
+                    <MenuItem Header="_Redo" Command="{Binding RedoCommand}"/>
+                    <MenuItem Header="_Delete"  Command="{Binding RemoveShapeCommand}" />
+                </MenuItem>
+            </Menu>
+            <ToolBar DockPanel.Dock="Top" x:Name="toolBar1" Height="40" Margin="-100,0,0,0" ToolBarTray.IsLocked="True" ToolBar.OverflowMode="Never" Width="Auto">
+                <Button x:Name="CopyBtn" Height="30" Command="{Binding CopyShapeCommand}" ToolTip="Copy selection to clipboard" VerticalAlignment="Center" Width="75">
+                    <Image Source="/Images/Copy.png"  />
+                </Button>
+                <Button x:Name="CutBtn" Height="30" Command="{Binding CutShapeCommand}"   ToolTip="Cut selection to clipboard" VerticalAlignment="Center" Width="75">
+                    <Image Source="/Images/Cut.png" />
+                </Button>
+                <Button x:Name="PasteBtn" Height="30" Command="{Binding PasteShapeCommand}"  ToolTip="Pastes the element in the clipboard" VerticalAlignment="Center" Width="75">
+                    <Image Source="/Images/Paste.png" />
+                </Button>
+                <Button x:Name="AddUML" Height="30" Command="{Binding AddUMLCommand}"  ToolTip="Adds a new UML element" VerticalAlignment="Center" Width="75">
+                    <Image Source="/Images/Plus.png" />
+                </Button>
+                <Button x:Name="AddSquare" Height="30" Command="{Binding AddSquareCommand}"  ToolTip="Adds a new square" VerticalAlignment="Center" Width="75">
+                    <Image Source="/Images/Plus.png" />
+                </Button>
+                <Button x:Name="AddCircle" Height="30" Command="{Binding AddElipseCommand}" ToolTip="Adds a new circle" VerticalAlignment="Center" Width="75">
+                    <Image Source="/Images/Plus.png" />
+                </Button>
+            </ToolBar>
 
-        <StatusBar DockPanel.Dock="Bottom" Height="20" VerticalAlignment="Top" HorizontalAlignment="Center" Width="Auto">
-            <StatusBar.ItemsPanel>
-                <ItemsPanelTemplate>
-                    <Grid>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="100" />
-                            <ColumnDefinition Width="Auto" />
-                            <ColumnDefinition Width="*" />
-                            <ColumnDefinition Width="Auto" />
-                            <ColumnDefinition Width="100" />
-                        </Grid.ColumnDefinitions>
-                    </Grid>
-                </ItemsPanelTemplate>
-            </StatusBar.ItemsPanel>
-            <StatusBarItem Grid.Column="1" >
-                <TextBlock Text="TODO:::::" />
-            </StatusBarItem>
-        </StatusBar>
-
-        <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto">
-            <ItemsControl ItemsSource="{Binding Shapes}">
-                <ItemsControl.ItemsPanel>
+            <StatusBar DockPanel.Dock="Bottom" Height="20" VerticalAlignment="Top" HorizontalAlignment="Center" Width="Auto">
+                <StatusBar.ItemsPanel>
                     <ItemsPanelTemplate>
-
-                        <Canvas Height="470" Width="689" Background="GhostWhite"/>
-
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="100" />
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="100" />
+                            </Grid.ColumnDefinitions>
+                        </Grid>
                     </ItemsPanelTemplate>
-                </ItemsControl.ItemsPanel>
-                <ItemsControl.ItemContainerStyle>
-                    <Style TargetType="ContentPresenter">
-                        <Setter Property="Canvas.Left" Value="{Binding X}"/>
-                        <Setter Property="Canvas.Top" Value="{Binding Y}"/>
-                    </Style>
-                </ItemsControl.ItemContainerStyle>
-            </ItemsControl>
-        </ScrollViewer>
+                </StatusBar.ItemsPanel>
+                <StatusBarItem Grid.Column="1" >
+                    <TextBlock Text="TODO:::::" />
+                </StatusBarItem>
+            </StatusBar>
 
-    </DockPanel>
+            <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto">
+                <ItemsControl ItemsSource="{Binding Shapes}">
+                    <ItemsControl.ItemsPanel>
+                        <ItemsPanelTemplate>
+
+                            <Canvas Height="470" Width="689" Background="GhostWhite"/>
+
+                        </ItemsPanelTemplate>
+                    </ItemsControl.ItemsPanel>
+                    <ItemsControl.ItemContainerStyle>
+                        <Style TargetType="ContentPresenter">
+                            <Setter Property="Canvas.Left" Value="{Binding X}"/>
+                            <Setter Property="Canvas.Top" Value="{Binding Y}"/>
+                        </Style>
+                    </ItemsControl.ItemContainerStyle>
+                </ItemsControl>
+            </ScrollViewer>
+
+        </DockPanel>
     </Viewbox>
-
-
+    
+    
     <Window.InputBindings>
-        <KeyBinding Modifiers="Control" Key="Z" Command="{Binding UndoCommand}"/> <!-- Undo Keybind -->
-        <KeyBinding Modifiers="Control" Key="Y" Command="{Binding RedoCommand}"/> <!-- Redo Keybind -->
+        <KeyBinding Modifiers="Ctrl" Key="Z" Command="{Binding UndoCommand}"/> <!-- Undo Keybind -->
+        <KeyBinding Modifiers="Ctrl" Key="Y" Command="{Binding RedoCommand}"/> <!-- Redo Keybind -->
         <KeyBinding Key="Esc" Command="{Binding DeselectShapeCommand}" /> <!-- Deselect Keybind -->
         <KeyBinding Key="Backspace" Command="{Binding RemoveShapeCommand}" /> <!-- Delete Keybind-->
         <KeyBinding Key="Delete" Command="{Binding RemoveShapeCommand}" /> <!-- Delete Keybind -->
-        <KeyBinding Modifiers="Control" Key="X" Command="{Binding CutShapeCommand}"/> <!-- Cut Keybind -->
-        <KeyBinding Modifiers="Control" Key="C" Command="{Binding CopyShapeCommand}"/> <!-- Copy Keybind -->
-        <KeyBinding Modifiers="Control" Key="V" Command="{Binding PasteShapeCommand}"/> <!-- Paste Keybind -->
+        <KeyBinding Modifiers="Ctrl" Key="X" Command="{Binding CutShapeCommand}"/> <!-- Cut Keybind -->
+        <KeyBinding Modifiers="Ctrl" Key="C" Command="{Binding CopyShapeCommand}"/> <!-- Copy Keybind -->
+        <KeyBinding Modifiers="Ctrl" Key="V" Command="{Binding PasteShapeCommand}"/> <!-- Paste Keybind -->
+        <KeyBinding Modifiers="Ctrl" Key="S" Command="{Binding SaveCurrentCommand}"/> <!-- Save Current Keybind -->
+        <KeyBinding Key="F12" Command="{Binding SaveCurrentAsCommand}" /> <!-- Save As Keybind -->
+        <KeyBinding Modifiers="Ctrl" Key="O" Command="{Binding LoadDiagramCommand}" /> <!-- Open Diagram Keybind -->
+        <KeyBinding Modifiers="Ctrl" Key="N" Command="{Binding NewDiagramCommand}" /> <!-- New Diagram Keybind -->
     </Window.InputBindings>
 
 

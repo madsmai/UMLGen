@@ -36,7 +36,10 @@ namespace UMLGen.Model
             //Y = Source.Y;
             endX = Destination.X;
             endY = Destination.Y;
-            
+            ArrowStarts = new ObservableCollection<Arrow>();
+            ArrowEnds = new ObservableCollection<Arrow>();
+            BaseColor = Brushes.Red;
+
             Data = DrawArrow(source.X, source.Y, endX, endY);
         }
         public void repaint(Double diffX, double diffY, Boolean IsstartArrow)
@@ -127,7 +130,8 @@ namespace UMLGen.Model
 
         public override void setColor()
         {
-
+            IsSelected = false;
+            BaseColor = Brushes.Red;
         }
     }
 }

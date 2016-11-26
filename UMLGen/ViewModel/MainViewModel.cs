@@ -62,6 +62,8 @@ namespace UMLGen.ViewModel
 
 
         // Save and Load commands
+
+        public ICommand NewDiagramCommand { get; }
         public ICommand SaveCurrentCommand { get; }
         public ICommand SaveCurrentAsCommand { get; }
         public ICommand LoadDiagramCommand { get; }
@@ -113,7 +115,8 @@ namespace UMLGen.ViewModel
             MouseDownArrowLeftCommand = new RelayCommand<MouseButtonEventArgs>(MouseDownArrowLeft);
 
 
-            // Save and Load commands
+            // New, Save and Load commands
+            NewDiagramCommand = new RelayCommand(NewCommand);
             SaveCurrentCommand = new RelayCommand(SaveCommand);
             SaveCurrentAsCommand = new RelayCommand(SaveAsCommand);
             LoadDiagramCommand = new RelayCommand(LoadCommand);
@@ -127,8 +130,15 @@ namespace UMLGen.ViewModel
 
         }
 
+        private void NewCommand()
+        {
 
-
+            // TODO: Dialog Box, Do you want to do this?
+            if (true)
+            {
+                Shapes.Clear();
+            }
+        }
 
         private void SaveCommand()
         {
@@ -172,7 +182,7 @@ namespace UMLGen.ViewModel
             if (_OD.ShowDialog() == true)
             {
                 pathName = _OD.FileName;
-                Shapes.Clear();
+                NewCommand();
 
                 Stream stream = File.Open(pathName, FileMode.Open);
                 BinaryFormatter formatter = new BinaryFormatter();
@@ -358,12 +368,15 @@ namespace UMLGen.ViewModel
 
             SelectedShapes.Add(shape);
 
-            shape.X = initialShapePosition.X;
-            shape.Y = initialShapePosition.Y;
+            if (!shape.GetType().ToString().Equals("UMLGen.Model.Arrow")) // Not an arrow
+            {
+                shape.X = initialShapePosition.X;
+                shape.Y = initialShapePosition.Y;
 
-            undoRedoController.ExecuteCommand(new MoveShapeCommand(shape, mousePosition.X - initialMousePosition.X, mousePosition.Y - initialMousePosition.Y));
+                undoRedoController.ExecuteCommand(new MoveShapeCommand(shape, mousePosition.X - initialMousePosition.X, mousePosition.Y - initialMousePosition.Y));
 
-            e.MouseDevice.Target.ReleaseMouseCapture();
+                e.MouseDevice.Target.ReleaseMouseCapture();
+            }         
         }
 
         // Returns a shape from a Mouse Event
