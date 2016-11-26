@@ -77,8 +77,6 @@ namespace UMLGen.ViewModel
 		public ICommand DdDropCommand { get; }
 
 
-
-
 		// Commands the UI can be bound to
 		public ICommand MouseDownShapeCommand { get; }
         public ICommand MouseMoveShapeCommand { get; }
@@ -138,11 +136,9 @@ namespace UMLGen.ViewModel
 
             pathName = "";
 
-
             AddEllipse();
             AddSquare();
             undoRedoController.ExecuteCommand(new AddShapeCommand(Shapes, new UMLClass("ExampleClass", Fields, Methods)));
-
         }
 
 
