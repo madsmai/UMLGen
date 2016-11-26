@@ -30,9 +30,6 @@
         <DataTemplate  DataType="{x:Type Model:Arrow}">
             <View:Arrow/>
         </DataTemplate>
-
-        <Model:TemplateSelector x:Key="dataSelector"/>
-
     </Application.Resources>
     
 </Application>
