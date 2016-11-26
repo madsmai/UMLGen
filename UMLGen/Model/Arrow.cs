@@ -32,8 +32,6 @@ namespace UMLGen.Model
             Source = source;
             Destination = destination;
 
-            //X = Source.X;
-            //Y = Source.Y;
             endX = Destination.X;
             endY = Destination.Y;
             ArrowStarts = new ObservableCollection<Arrow>();
