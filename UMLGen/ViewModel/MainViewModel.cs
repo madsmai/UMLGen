@@ -463,7 +463,10 @@ namespace UMLGen.ViewModel
             if (shape.Equals("Square"))
             {
 
-                undoRedoController.ExecuteCommand(new AddShapeCommand(Shapes, new Square(p.X, p.Y, 75, 75)));
+                Square square = new Square(p.X, p.Y, 75, 75);
+                square.X = p.X - (square.Width / 2);
+                square.Y = p.Y - (square.Height / 2);
+                undoRedoController.ExecuteCommand(new AddShapeCommand(Shapes, square));
 
             }
             else if (shape.Equals("UMLClass"))
@@ -471,13 +474,19 @@ namespace UMLGen.ViewModel
 
                 string Methods = "exampleMethod \n toString \n";
                 string Fields = "String Name \n Int no \n";
-                //undoRedoController.ExecuteCommand(new AddShapeCommand(Shapes, new UMLClass("ExampleClass", Fields, Methods, p.X, p.Y)));
+                UMLClass uml = new UMLClass("ExampleClass", Fields, Methods, p.X, p.Y);
+                uml.X = p.X - (uml.Width / 2);
+                uml.Y = p.Y - (uml.Height / 2);
+                undoRedoController.ExecuteCommand(new AddShapeCommand(Shapes, uml));
 
             }
             else if (shape.Equals("Ellipse"))
             {
 
-                undoRedoController.ExecuteCommand(new AddShapeCommand(Shapes, new Ellipse(p.X, p.Y, 75, 75)));
+                Ellipse ellipse = new Ellipse(p.X, p.Y, 75, 75);
+                ellipse.X = p.X - (ellipse.Width / 2);
+                ellipse.Y = p.Y - (ellipse.Height / 2);
+                undoRedoController.ExecuteCommand(new AddShapeCommand(Shapes, ellipse));
 
             }
             else
@@ -526,12 +535,5 @@ namespace UMLGen.ViewModel
             dynamic parent = VisualTreeHelper.GetParent(o);
             return parent.GetType().IsAssignableFrom(typeof(T)) ? parent : FindParentOfType<T>(parent);
         }
-
-
-
     }
-
-
-
-
 }
