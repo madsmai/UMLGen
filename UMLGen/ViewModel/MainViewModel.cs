@@ -54,12 +54,11 @@ namespace UMLGen.ViewModel
         public ICommand RemoveShapeCommand { get; }
         public ICommand DeselectShapeCommand { get; }
 
+        // Copy, Cut, Paste commands
 
         public ICommand CopyShapeCommand { get; }
         public ICommand CutShapeCommand { get; }
         public ICommand PasteShapeCommand { get; }
-
-
 
         // Save and Load commands
 
@@ -130,10 +129,27 @@ namespace UMLGen.ViewModel
 
         }
 
+
+        private bool DialogBoxNewDiagram()
+        {
+            String message = "Do you want to create a new diagram? Any unsaved changes will be lost!";
+            String title = "Create new document?";
+
+            MessageBoxResult result = MessageBox.Show(message, title, MessageBoxButton.YesNo, MessageBoxImage.Question, MessageBoxResult.Yes);
+
+            return (result == MessageBoxResult.Yes);
+        }
+
+
         private void NewCommand()
         {
-            // TODO: Dialog Box, Do you want to do this?
-            if (true)
+
+            String message = "Do you want to create a new diagram? Any unsaved changes will be lost!";
+            String title = "Create new document?";
+
+            MessageBoxResult result = MessageBox.Show(message, title, MessageBoxButton.YesNo, MessageBoxImage.Question, MessageBoxResult.Yes);
+
+            if (result == MessageBoxResult.Yes)
             {
                 Shapes.Clear();
             }
@@ -232,6 +248,7 @@ namespace UMLGen.ViewModel
             while (current != null);
             return null;
         }
+        
         private void SaveCommand()
         {
 
@@ -495,6 +512,7 @@ namespace UMLGen.ViewModel
             dynamic parent = VisualTreeHelper.GetParent(o);
             return parent.GetType().IsAssignableFrom(typeof(T)) ? parent : FindParentOfType<T>(parent);
         }
+
 
 
     }
