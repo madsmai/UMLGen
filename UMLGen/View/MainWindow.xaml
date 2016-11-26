@@ -101,6 +101,7 @@
         </ScrollViewer>
 
     </DockPanel>
+    </Viewbox>
 
 
     <Window.InputBindings>

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using UMLGen.Model;
 
 namespace UMLGen.Command
@@ -27,15 +28,18 @@ namespace UMLGen.Command
         {
             shape.X += diffX;
             shape.Y += diffY;
-            foreach(Arrow a in shape.ArrowStarts)
+            for (int i = 0; i < 4; i++)
             {
-                a.X += diffX;
-                a.Y += diffY;
+                shape.connectionPoints[i].X += diffX;
+                shape.connectionPoints[i].Y += diffY;
+            }
+            foreach (Arrow a in shape.ArrowStarts)
+            {
+                a.repaint(diffX, diffY, true);
             }
             foreach (Arrow a in shape.ArrowEnds)
             {
-                a.endX += diffX;
-                a.endY += diffY;
+                a.repaint(diffX, diffY, false);
             }
         }
 
@@ -43,15 +47,18 @@ namespace UMLGen.Command
         {
             shape.X -= diffX;
             shape.Y -= diffY;
+            for (int i = 0; i < 4; i++)
+            {
+                shape.connectionPoints[i].X -= diffX;
+                shape.connectionPoints[i].Y -= diffY;
+            }
             foreach (Arrow a in shape.ArrowStarts)
             {
-                a.X -= diffX;
-                a.Y -= diffY;
+                a.repaint(diffX, diffY, true);
             }
             foreach (Arrow a in shape.ArrowEnds)
             {
-                a.endX -= diffX;
-                a.endY -= diffY;
+                a.repaint(diffX, diffY, false);
             }
         }
     }

@@ -39,6 +39,17 @@ namespace UMLGen.Model
             
             Data = DrawArrow(source.X, source.Y, endX, endY);
         }
+        public void repaint(Double diffX, double diffY, Boolean IsstartArrow)
+        {
+            if(IsstartArrow)
+            {
+                Data = DrawArrow(Source.X + diffX, Source.Y + diffY, endX, endY);
+            } else
+            {
+                Data = DrawArrow(Source.X, Source.Y, endX + diffX, endY + diffY);
+            }
+            
+        }
 
 
         public override Shape makeCopy()
@@ -46,57 +57,71 @@ namespace UMLGen.Model
             return new Arrow(Source, Destination);
         }
 
-        private String DrawArrow(double Xvalue, double Yvalue, double endX, double endY)
+        private String DrawArrow(double startX, double startY, double endX, double endY)
         {
 
             double arrowsize = 5;
             double thick = 1;
 
-            if (Xvalue == endX && Yvalue > endY) { //North
+            if (startX == endX && startY > endY) { //North
+                X = endX;
+                Y = endY;
                 return string.Format("M {3} {0} L {4} {1} L {5} {1} L {6} {2} L {7} {1} L {8} {1} L {9} {0} Z",
-                    Yvalue, endY + arrowsize, endY, Xvalue + thick, endX + thick, endX + thick + arrowsize, endX,
-                    endX - thick - arrowsize, endX - thick, Xvalue - thick);
+                    startY, endY + arrowsize, endY, startX + thick, endX + thick, endX + thick + arrowsize, endX,
+                    endX - thick - arrowsize, endX - thick, startX - thick);
             }
-            else if (Xvalue < endX && Yvalue > endY) { //NorthEast
+            else if (startX < endX && startY > endY) { //NorthEast
+                X = startX;
+                Y = endY;
                 return string.Format("M {0} {1} L {2} {3} L {4} {5} L {6} {7} L {8} {9} L {10} {11} L {12} {13} Z",
-                    Xvalue + thick, Yvalue + thick, endX + thick - arrowsize, endY + thick + arrowsize, 
+                    startX + thick, startY + thick, endX + thick - arrowsize, endY + thick + arrowsize, 
                     endX + thick, endY + thick + 2 * arrowsize, endX, endY, endX - thick - 2 * arrowsize, 
-                    endY - thick, endX - thick - arrowsize, endY - thick + arrowsize, Xvalue - thick, Yvalue - thick);
+                    endY - thick, endX - thick - arrowsize, endY - thick + arrowsize, startX - thick, startY - thick);
             }
-            else if (Xvalue < endX && Yvalue == endY) { //East
+            else if (startX < endX && startY == endY) { //East
+                X = startX;
+                Y = startY;
                 return string.Format("M {0} {3} L {1} {4} L {1} {5} L {2} {6} L {1} {7} L {1} {8} L {0} {9} Z", 
-                    Xvalue, endX - arrowsize, endX, Yvalue + thick, endY + thick, endY + thick + arrowsize, endY, 
-                    endY - thick - arrowsize, endY - thick, Yvalue - thick);
+                    startX, endX - arrowsize, endX, startY + thick, endY + thick, endY + thick + arrowsize, endY, 
+                    endY - thick - arrowsize, endY - thick, startY - thick);
             }
-            else if (Xvalue < endX && Yvalue < endY) { //SouthEast
+            else if (startX < endX && startY < endY) { //SouthEast
+                X = startX;
+                Y = startY;
                 return string.Format("M {0} {1} L {2} {3} L {4} {5} L {6} {7} L {8} {9} L {10} {11} L {12} {13} Z",
-                    Xvalue - thick, Yvalue + thick, endX - thick - arrowsize, endY + thick - arrowsize,
+                    startX - thick, startY + thick, endX - thick - arrowsize, endY + thick - arrowsize,
                     endX - thick - 2 * arrowsize, endY + thick, endX, endY, endX + thick,
-                    endY - thick - 2 * arrowsize, endX + thick - arrowsize, endY - thick - arrowsize, Xvalue + thick, Yvalue - thick);
+                    endY - thick - 2 * arrowsize, endX + thick - arrowsize, endY - thick - arrowsize, startX + thick, startY - thick);
             }
-            else if (Xvalue == endX && Yvalue < endY) { //South 
+            else if (startX == endX && startY < endY) { //South 
+                X = startX;
+                Y = startY;
                 return string.Format("M {3} {0} L {4} {1} L {5} {1} L {6} {2} L {7} {1} L {8} {1} L {9} {0} Z",
-                    Yvalue, endY - arrowsize, endY, Xvalue + thick, endX + thick, endX + thick + arrowsize, endX,
-                    endX - thick - arrowsize, endX - thick, Xvalue - thick);
+                    startY, endY - arrowsize, endY, startX + thick, endX + thick, endX + thick + arrowsize, endX,
+                    endX - thick - arrowsize, endX - thick, startX - thick);
             }
-            else if (Xvalue > endX && Yvalue < endY) { //SouthWest
+            else if (startX > endX && startY < endY) { //SouthWest
+                X = endX;
+                Y = startY;
                 return string.Format("M {0} {1} L {2} {3} L {4} {5} L {6} {7} L {8} {9} L {10} {11} L {12} {13} Z",
-                    Xvalue + thick, Yvalue + thick, endX + thick + arrowsize, endY + thick - arrowsize,
+                    startX + thick, startY + thick, endX + thick + arrowsize, endY + thick - arrowsize,
                     endX + thick + 2 * arrowsize, endY + thick, endX, endY, endX - thick,
-                    endY - thick - 2 * arrowsize, endX - thick + arrowsize, endY - thick - arrowsize, Xvalue - thick, Yvalue - thick);
+                    endY - thick - 2 * arrowsize, endX - thick + arrowsize, endY - thick - arrowsize, startX - thick, startY - thick);
             }
-            else if (Xvalue > endX && Yvalue == endY) { //West
+            else if (startX > endX && startY == endY) { //West
+                X = endX;
+                Y = endY;
                 return string.Format("M {0} {3} L {1} {4} L {1} {5} L {2} {6} L {1} {7} L {1} {8} L {0} {9} Z",
-                    Xvalue, endX + arrowsize, endX, Yvalue + thick, endY + thick, endY + thick + arrowsize, endY,
-                    endY - thick - arrowsize, endY - thick, Yvalue - thick);
+                    startX, endX + arrowsize, endX, startY + thick, endY + thick, endY + thick + arrowsize, endY,
+                    endY - thick - arrowsize, endY - thick, startY - thick);
             }
             else { //NorthWest
                 X = endX;
                 Y = endY;
                 return string.Format("M {0} {1} L {2} {3} L {4} {5} L {6} {7} L {8} {9} L {10} {11} L {12} {13} Z",
-                    Xvalue - thick, Yvalue + thick, endX - thick + arrowsize, endY + thick + arrowsize, //0,1,2,3
+                    startX - thick, startY + thick, endX - thick + arrowsize, endY + thick + arrowsize, //0,1,2,3
                     endX - thick, endY + thick + 2 * arrowsize, endX, endY, endX + thick + 2 * arrowsize, //4,5,6,7,8
-                    endY - thick, endX + thick + arrowsize, endY - thick + arrowsize, Xvalue + thick, Yvalue - thick); //9,10,11,12,13
+                    endY - thick, endX + thick + arrowsize, endY - thick + arrowsize, startX + thick, startY - thick); //9,10,11,12,13
             }
         }
 
