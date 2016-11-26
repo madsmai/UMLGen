@@ -24,7 +24,7 @@ namespace UMLGen.Model
 
             ArrowStarts = new ObservableCollection<Arrow>();
             ArrowEnds = new ObservableCollection<Arrow>();
-            setColor();
+            BaseColor = Brushes.Firebrick;
         }
 
         // Used for drag-n-drop
@@ -39,7 +39,7 @@ namespace UMLGen.Model
             Height = baseValue;
             ArrowStarts = new ObservableCollection<Arrow>();
             ArrowEnds = new ObservableCollection<Arrow>();
-            setColor();
+            BaseColor = Brushes.Firebrick;
             connectionPoints[0] = new Point(X + Width / 2, Y); //Top
             connectionPoints[1] = new Point(X + Width, Y + Height / 2); //Right
             connectionPoints[2] = new Point(X + Width / 2, Y + Height); //Bot

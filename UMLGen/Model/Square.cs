@@ -17,7 +17,7 @@ namespace UMLGen.Model
             Y = 0;
             Width = baseValue;
             Height = baseValue;
-            setColor();
+            BaseColor = Brushes.ForestGreen;
             ArrowStarts = new ObservableCollection<Arrow>();
             ArrowEnds = new ObservableCollection<Arrow>();
             connectionPoints[0] = new Point(X+Width / 2, Y); //Top
@@ -30,7 +30,7 @@ namespace UMLGen.Model
         {
             X = x;
             Y = y;
-            setColor();
+            BaseColor = Brushes.ForestGreen;
             ArrowStarts = new ObservableCollection<Arrow>();
             ArrowEnds = new ObservableCollection<Arrow>();
 
