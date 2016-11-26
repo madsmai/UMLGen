@@ -9,13 +9,13 @@
              mc:Ignorable="d"
 			 d:DesignHeight="100" d:DesignWidth="100">
 
-	<ListView DockPanel.Dock="Left" x:Name="toolBar" Width="100" Margin="0,70,0,0" ToolBarTray.IsLocked="True" ToolBar.OverflowMode="Never">
+	<ListView DockPanel.Dock="Left" x:Name="toolBar" Width="100" Margin="0,70,0,0" ToolBarTray.IsLocked="True" ToolBar.OverflowMode="Never" >
 
 		<local:ItemViewList Shape="Square" Source="/Images/Copy.png"/>
 		<local:ItemViewList Shape="Square" Source="/Images/Copy.png"/>
-		<local:ItemViewList Shape="Square" Source="/Images/Copy.png"/>
+        <local:ItemViewList Shape="Square" Source="/Images/Copy.png"/>
 
-		<!--<local:ListviewItem/>
+        <!--<local:ListviewItem/>
 		<local:ListviewItem/>
 		<local:ListviewItem/>-->
 

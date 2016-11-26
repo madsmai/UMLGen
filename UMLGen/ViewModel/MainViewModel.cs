@@ -132,7 +132,6 @@ namespace UMLGen.ViewModel
 
         private void NewCommand()
         {
-
             // TODO: Dialog Box, Do you want to do this?
             if (true)
             {
@@ -140,6 +139,99 @@ namespace UMLGen.ViewModel
             }
         }
 
+        private void DdMouseMove(MouseEventArgs e)
+        {
+            if (e.LeftButton == MouseButtonState.Pressed)
+            {
+                // Package the data.
+                DataObject data = new DataObject();
+                data.SetData("String", ((View.ItemViewList)e.Source).shapeStr);
+
+                // Inititate the drag-and-drop operation.
+                DragDrop.DoDragDrop((DependencyObject)e.OriginalSource, data, DragDropEffects.Move);
+            }
+        }
+
+        private void DdDragEnter(DragEventArgs e)
+        {
+
+            //The bad idea: create a shape
+            //The good idea: Create an adorner
+            //The idea that might work: Use the GiveFeedback event
+
+            Console.WriteLine("DDDragEnter");
+        }
+        private void DdDragExit(DragEventArgs e)
+        {
+
+            //The bad idea: Delete the upper shape
+            //The good idea: Create an adorner
+            //The idea that might work: Use the GiveFeedback event
+
+            Console.WriteLine("DDDragExit");
+        }
+        private void DdDragOver(DragEventArgs e)
+        {
+
+            //The bad idea: Drag the upper shpe around
+            //The good idea: Create an adorner
+            //The idea that might work: Use the GiveFeedback event
+
+            //Console.WriteLine("DDDragOver");
+        }
+
+        private void DdDrop(DragEventArgs e)
+        {
+
+            Canvas canvas = e.Source as Canvas;
+
+            if (canvas == null)
+            {
+                canvas = FindAncestor<Canvas>((DependencyObject)e.OriginalSource);
+            }
+
+            Point p = e.GetPosition(canvas);
+            string shape = (string)e.Data.GetData("String");
+
+            if (shape.Equals("Square"))
+            {
+
+                undoRedoController.ExecuteCommand(new AddShapeCommand(Shapes, new Square(p.X, p.Y, 75, 75)));
+
+            }
+            else if (shape.Equals("UMLClass"))
+            {
+
+                string Methods = "exampleMethod \n toString \n";
+                string Fields = "String Name \n Int no \n";
+                //undoRedoController.ExecuteCommand(new AddShapeCommand(Shapes, new UMLClass("ExampleClass", Fields, Methods, p.X, p.Y)));
+
+            }
+            else if (shape.Equals("Ellipse"))
+            {
+
+                undoRedoController.ExecuteCommand(new AddShapeCommand(Shapes, new Ellipse(p.X, p.Y, 75, 75)));
+
+            }
+            else {
+                Console.WriteLine("Drop event triggered but string identifier is not recognized");
+            }
+        }
+
+        // Helper to search up the VisualTree to find the first parent with type T
+        private static T FindAncestor<T>(DependencyObject current) where T : DependencyObject
+        {
+            do
+            {
+                if (current is T)
+                {
+                    return (T)current;
+                }
+                current = System.Windows.Media.VisualTreeHelper.GetParent(current);
+            }
+            while (current != null);
+            return null;
+        }
         private void SaveCommand()
         {
 
@@ -403,7 +495,6 @@ namespace UMLGen.ViewModel
             dynamic parent = VisualTreeHelper.GetParent(o);
             return parent.GetType().IsAssignableFrom(typeof(T)) ? parent : FindParentOfType<T>(parent);
         }
-
 
 
     }
