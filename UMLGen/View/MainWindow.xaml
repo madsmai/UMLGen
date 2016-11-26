@@ -81,6 +81,57 @@
                     <TextBlock Text="TODO:::::" />
                 </StatusBarItem>
             </StatusBar>
+        <StatusBar DockPanel.Dock="Bottom" Height="20" VerticalAlignment="Top" HorizontalAlignment="Center" Width="690">
+            <StatusBar.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="100" />
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="100" />
+                        </Grid.ColumnDefinitions>
+                    </Grid>
+                </ItemsPanelTemplate>
+            </StatusBar.ItemsPanel>
+            <StatusBarItem Grid.Column="1" >
+                <TextBlock Text="TODO:::::" />
+            </StatusBarItem>
+        </StatusBar>
+
+        <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto">
+				<ItemsControl ItemsSource="{Binding Shapes}">
+					<ItemsControl.ItemsPanel>
+                    <ItemsPanelTemplate>
+
+							<Canvas Height="3000" Width="3000" Background="GhostWhite" AllowDrop="True">
+								<i:Interaction.Triggers>
+									<i:EventTrigger EventName="Drop">
+										<cmd:EventToCommand Command="{Binding DataContext.DdDropCommand, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Canvas}}}" PassEventArgsToCommand="True"/>
+									</i:EventTrigger>
+									<i:EventTrigger EventName="DragEnter">
+										<cmd:EventToCommand Command="{Binding DataContext.DdDragEnterCommand, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Canvas}}}" PassEventArgsToCommand="True"/>
+									</i:EventTrigger>
+									<i:EventTrigger EventName="DragLeave">
+										<cmd:EventToCommand Command="{Binding DataContext.DdDragExitCommand, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Canvas}}}" PassEventArgsToCommand="True"/>
+									</i:EventTrigger>
+									<i:EventTrigger EventName="DragOver">
+										<cmd:EventToCommand Command="{Binding DataContext.DdDragOverCommand, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Canvas}}}" PassEventArgsToCommand="True"/>
+									</i:EventTrigger>
+								</i:Interaction.Triggers>
+							</Canvas>    
+
+					</ItemsPanelTemplate>
+				</ItemsControl.ItemsPanel>
+				<ItemsControl.ItemContainerStyle>
+					<Style TargetType="ContentPresenter">
+						<Setter Property="Canvas.Left" Value="{Binding X}"/>
+						<Setter Property="Canvas.Top" Value="{Binding Y}"/>
+					</Style>
+				</ItemsControl.ItemContainerStyle>
+			</ItemsControl>
+        </ScrollViewer>
 
             <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto">
                 <ItemsControl ItemsSource="{Binding Shapes}">

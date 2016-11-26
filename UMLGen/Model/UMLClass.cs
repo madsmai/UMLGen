@@ -54,8 +54,26 @@ namespace UMLGen.Model
             connectionPoints[3] = new Point(0, Height / 2);
         }
 
+		public UMLClass(string ClassName, string FieldNames, string MethodNames, double x, double y)
+		{
+			this.ClassName = ClassName;
+			this.FieldNames = FieldNames;
+			this.MethodNames = MethodNames;
+			X = x;
+			Y = y;
+			Width = 200;
+			Height = 250;
+			ArrowStarts = new ObservableCollection<Arrow>();
+			ArrowEnds = new ObservableCollection<Arrow>();
+			connectionPoints[0] = new Point(Width / 2, Height);
+			connectionPoints[1] = new Point(Width, Height / 2);
+			connectionPoints[2] = new Point(Width / 2, 0);
+			connectionPoints[3] = new Point(0, Height / 2);
+		}
 
-        public override Shape makeCopy()
+
+
+		public override Shape makeCopy()
         {
             return new UMLClass(ClassName, FieldNames, MethodNames);
         }

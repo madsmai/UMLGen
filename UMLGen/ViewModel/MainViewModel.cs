@@ -69,8 +69,18 @@ namespace UMLGen.ViewModel
 
 
 
-        // Commands the UI can be bound to
-        public ICommand MouseDownShapeCommand { get; }
+		//Commands for drag and drop
+		public ICommand DdMouseMoveCommand { get; }
+		public ICommand DdDragEnterCommand { get; }
+		public ICommand DdDragExitCommand { get; }
+		public ICommand DdDragOverCommand { get; }
+		public ICommand DdDropCommand { get; }
+
+
+
+
+		// Commands the UI can be bound to
+		public ICommand MouseDownShapeCommand { get; }
         public ICommand MouseMoveShapeCommand { get; }
         public ICommand MouseUpShapeCommand { get; }
 
@@ -89,7 +99,6 @@ namespace UMLGen.ViewModel
 
             string Methods = "exampleMethod \n toString \n";
             string Fields = "String Name \n Int no \n";
-
 
             UndoCommand = new RelayCommand(undoRedoController.Undo, undoRedoController.CanUndo);
             RedoCommand = new RelayCommand(undoRedoController.Redo, undoRedoController.CanRedo);
@@ -112,6 +121,13 @@ namespace UMLGen.ViewModel
             MouseDownArrowRightCommand = new RelayCommand<MouseButtonEventArgs>(MouseDownArrowRight);
             MouseDownArrowBotCommand = new RelayCommand<MouseButtonEventArgs>(MouseDownArrowBot);
             MouseDownArrowLeftCommand = new RelayCommand<MouseButtonEventArgs>(MouseDownArrowLeft);
+
+			//Drag and drop commands
+			DdMouseMoveCommand = new RelayCommand<MouseEventArgs>(DdMouseMove);
+			DdDragEnterCommand = new RelayCommand<DragEventArgs>(DdDragEnter);
+			DdDragExitCommand = new RelayCommand<DragEventArgs>(DdDragExit);
+			DdDragOverCommand = new RelayCommand<DragEventArgs>(DdDragOver);
+			DdDropCommand = new RelayCommand<DragEventArgs>(DdDrop);
 
 
             // New, Save and Load commands
