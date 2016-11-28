@@ -1,68 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <?xml-stylesheet type="text/xsl" href="c:\program files (x86)\microsoft visual studio 14.0\team tools\static analysis tools\fxcop\Xml\CodeAnalysisReport.xsl"?>
 <FxCopReport Version="14.0">
- <Targets>
-  <Target Name="C:\Users\Engberg\Documents\UnGit Repositories\UMLGen\UMLGen\UMLGen\bin\Debug\UMLGen.exe">
-   <Modules>
-    <Module Name="umlgen.exe">
-     <Namespaces>
-      <Namespace Name="UMLGen.Model">
-       <Types>
-        <Type Name="Ellipse" Kind="Class" Accessibility="Assembly" ExternallyVisible="False">
-         <Members>
-          <Member Name="#.ctor()" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="False">
-           <Messages>
-            <Message TypeName="DoNotCallOverridableMethodsInConstructors" Category="Microsoft.Usage" CheckId="CA2214" Status="Active" Created="2016-11-25 11:53:54Z" FixCategory="NonBreaking">
-             <Issue Certainty="95" Level="CriticalWarning" Path="C:\Users\Engberg\Documents\UnGit Repositories\UMLGen\UMLGen\UMLGen\Model" File="Ellipse.cs" Line="12">'Ellipse.Ellipse()' contains a call chain that results in a call to a virtual method defined by the class. Review the following call stack for unintended consequences: &#xD;&#xA;&#xD;&#xA;Ellipse..ctor()&#xD;&#xA;Shape.set_X(Double):Void&#xD;&#xA;Shape.set_Y(Double):Void&#xD;&#xA;Shape.set_Width(Double):Void&#xD;&#xA;Shape.set_Height(Double):Void&#xD;&#xA;Shape.get_connectionPoints():Point[]&#xD;&#xA;Shape.get_X():Double&#xD;&#xA;Shape.get_Width():Double&#xD;&#xA;Shape.get_Y():Double&#xD;&#xA;Shape.get_Height():Double&#xD;&#xA;Shape.set_ArrowStarts(ObservableCollection&lt;Arrow&gt;):Void&#xD;&#xA;Shape.set_ArrowEnds(ObservableCollection&lt;Arrow&gt;):Void&#xD;&#xA;Shape.setColor():Void</Issue>
-            </Message>
-           </Messages>
-          </Member>
-          <Member Name="#.ctor(System.Double,System.Double,System.Double,System.Double)" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="False">
-           <Messages>
-            <Message TypeName="DoNotCallOverridableMethodsInConstructors" Category="Microsoft.Usage" CheckId="CA2214" Status="Active" Created="2016-11-25 11:53:54Z" FixCategory="NonBreaking">
-             <Issue Certainty="95" Level="CriticalWarning" Path="C:\Users\Engberg\Documents\UnGit Repositories\UMLGen\UMLGen\UMLGen\Model" File="Ellipse.cs" Line="12">'Ellipse.Ellipse(double, double, double, double)' contains a call chain that results in a call to a virtual method defined by the class. Review the following call stack for unintended consequences: &#xD;&#xA;&#xD;&#xA;Ellipse..ctor(Double, Double, Double, Double)&#xD;&#xA;Shape.set_X(Double):Void&#xD;&#xA;Shape.set_Y(Double):Void&#xD;&#xA;Shape.set_Width(Double):Void&#xD;&#xA;Shape.set_Height(Double):Void&#xD;&#xA;Shape.set_ArrowStarts(ObservableCollection&lt;Arrow&gt;):Void&#xD;&#xA;Shape.set_ArrowEnds(ObservableCollection&lt;Arrow&gt;):Void&#xD;&#xA;Shape.setColor():Void</Issue>
-            </Message>
-           </Messages>
-          </Member>
-         </Members>
-        </Type>
-        <Type Name="Square" Kind="Class" Accessibility="Assembly" ExternallyVisible="False">
-         <Members>
-          <Member Name="#.ctor()" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="False">
-           <Messages>
-            <Message TypeName="DoNotCallOverridableMethodsInConstructors" Category="Microsoft.Usage" CheckId="CA2214" Status="Active" Created="2016-11-25 11:53:54Z" FixCategory="NonBreaking">
-             <Issue Certainty="95" Level="CriticalWarning" Path="C:\Users\Engberg\Documents\UnGit Repositories\UMLGen\UMLGen\UMLGen\Model" File="Square.cs" Line="12">'Square.Square()' contains a call chain that results in a call to a virtual method defined by the class. Review the following call stack for unintended consequences: &#xD;&#xA;&#xD;&#xA;Square..ctor()&#xD;&#xA;Shape.set_X(Double):Void&#xD;&#xA;Shape.set_Y(Double):Void&#xD;&#xA;Shape.set_Width(Double):Void&#xD;&#xA;Shape.set_Height(Double):Void&#xD;&#xA;Shape.setColor():Void</Issue>
-            </Message>
-           </Messages>
-          </Member>
-          <Member Name="#.ctor(System.Double,System.Double,System.Double,System.Double)" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="False">
-           <Messages>
-            <Message TypeName="DoNotCallOverridableMethodsInConstructors" Category="Microsoft.Usage" CheckId="CA2214" Status="Active" Created="2016-11-25 11:53:54Z" FixCategory="NonBreaking">
-             <Issue Certainty="95" Level="CriticalWarning" Path="C:\Users\Engberg\Documents\UnGit Repositories\UMLGen\UMLGen\UMLGen\Model" File="Square.cs" Line="12">'Square.Square(double, double, double, double)' contains a call chain that results in a call to a virtual method defined by the class. Review the following call stack for unintended consequences: &#xD;&#xA;&#xD;&#xA;Square..ctor(Double, Double, Double, Double)&#xD;&#xA;Shape.set_X(Double):Void&#xD;&#xA;Shape.set_Y(Double):Void&#xD;&#xA;Shape.setColor():Void</Issue>
-            </Message>
-           </Messages>
-          </Member>
-         </Members>
-        </Type>
-       </Types>
-      </Namespace>
-     </Namespaces>
-    </Module>
-   </Modules>
-  </Target>
- </Targets>
- <Rules>
-  <Rule TypeName="DoNotCallOverridableMethodsInConstructors" Category="Microsoft.Usage" CheckId="CA2214">
-   <Name>Do not call overridable methods in constructors</Name>
-   <Description>Virtual methods defined on the class should not be called from constructors. If a derived class has overridden the method, the derived class version will be called (before the derived class constructor is called).</Description>
-   <Resolution Name="Default">{0} contains a call chain that results in a call to a virtual method defined by the class. Review the following call stack for unintended consequences: {1}</Resolution>
-   <Owner />
-   <Url>http://msdn.microsoft.com/library/ms182331.aspx</Url>
-   <Email>[none]</Email>
-   <MessageLevel Certainty="95">CriticalWarning</MessageLevel>
-   <File Name="usagerules.dll" Version="14.0.0.0" />
-  </Rule>
- </Rules>
  <Localized>
   <String Key="Category">Category</String>
   <String Key="Certainty">Certainty</String>

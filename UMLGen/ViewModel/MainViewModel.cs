@@ -31,7 +31,6 @@ namespace UMLGen.ViewModel
         // Saves the initial point that the shape has during a move operation.
         private Point initialShapePosition;
 
-
         private Boolean first = true;
         private Point arrowSource = new Point(0, 0);
         private Shape shapeSource = null;
@@ -391,7 +390,11 @@ namespace UMLGen.ViewModel
 
             if (!shape.GetType().ToString().Equals("UMLGen.Model.Arrow")) // Not an arrow
             {
-                shape.X = initialShapePosition.X;
+
+				changeVisibilityOfMenu(shape); //New functionality -- not working yet
+
+
+				shape.X = initialShapePosition.X;
                 shape.Y = initialShapePosition.Y;
 
                 undoRedoController.ExecuteCommand(new MoveShapeCommand(shape, mousePosition.X - initialMousePosition.X, mousePosition.Y - initialMousePosition.Y));
@@ -400,6 +403,34 @@ namespace UMLGen.ViewModel
             }
         }
 
+		private void changeVisibilityOfMenu(Shape shape)
+		{
+
+			View.CustomListView customListView = Application.Current.MainWindow.FindName("SideBar") as View.CustomListView;
+			
+			if(customListView == null) { return; }
+
+			if (shape.GetType().ToString().Equals("UMLGen.Model.Square"))
+			{
+				customListView.SquareMenu.Visibility = Visibility.Visible;
+				customListView.UMLMenu.Visibility = Visibility.Collapsed;
+				customListView.EllipseMenu.Visibility = Visibility.Collapsed;
+			}
+			if (shape.GetType().ToString().Equals("UMLGen.Model.UMLClass"))
+			{
+				customListView.SquareMenu.Visibility = Visibility.Collapsed;
+				customListView.UMLMenu.Visibility = Visibility.Visible;
+				customListView.EllipseMenu.Visibility = Visibility.Collapsed;
+			}
+			if (shape.GetType().ToString().Equals("UMLGen.Model.Ellipse"))
+			{
+				customListView.SquareMenu.Visibility = Visibility.Collapsed;
+				customListView.UMLMenu.Visibility = Visibility.Collapsed;
+				customListView.EllipseMenu.Visibility = Visibility.Visible;
+			}
+
+			return;
+		}
 
 
         private void DdMouseMove(MouseEventArgs e)
