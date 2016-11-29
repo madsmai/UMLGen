@@ -21,6 +21,7 @@ namespace UMLGen.Model
         private Point[] _connectionPoints = new Point[4];
         private ObservableCollection<Arrow> _arrowStarts;
         private ObservableCollection<Arrow> _arrowEnds;
+        private String _name;
 
         [NonSerialized]
         private Brush _baseColor;
@@ -41,5 +42,6 @@ namespace UMLGen.Model
         public ObservableCollection<Arrow> ArrowEnds { get { return _arrowEnds; } set { _arrowEnds = value; NotifyPropertyChanged(); } }
         public Point[] connectionPoints { get { return _connectionPoints; } set { _connectionPoints = value;  NotifyPropertyChanged(); } }
 
+        public String Name { get { return _name; } set { _name = value;  NotifyPropertyChanged(); } }
     }
 }

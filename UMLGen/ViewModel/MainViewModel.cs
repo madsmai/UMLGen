@@ -86,6 +86,9 @@ namespace UMLGen.ViewModel
         public ICommand MouseDownArrowBotCommand { get; }
         public ICommand MouseDownArrowLeftCommand { get; }
 
+        public Statusbar StatusBar { get; set; }
+
+
 
         // The constructor
         public MainViewModel()
@@ -93,9 +96,6 @@ namespace UMLGen.ViewModel
 
             Shapes = new ObservableCollection<Shape>();
             SelectedShapes = new ObservableCollection<Shape>();
-
-            string Methods = "exampleMethod \n toString \n";
-            string Fields = "String Name \n Int no \n";
 
             UndoCommand = new RelayCommand(undoRedoController.Undo, undoRedoController.CanUndo);
             RedoCommand = new RelayCommand(undoRedoController.Redo, undoRedoController.CanRedo);
@@ -135,11 +135,11 @@ namespace UMLGen.ViewModel
 
             pathName = "";
 
-            Statusbar sb = new Statusbar("Welcome to UMLGen");
+            StatusBar = new Statusbar("Welcome to UMLGen");
 
             AddEllipse();
             AddSquare();
-            undoRedoController.ExecuteCommand(new AddShapeCommand(Shapes, new UMLClass("ExampleClass", Fields, Methods)));
+            
 
         }
 
@@ -176,6 +176,7 @@ namespace UMLGen.ViewModel
                 formatter.Serialize(stream, Shapes);
                 stream.Close();
             }
+            StatusBar.Status = "Saved to " + pathName;
         }
 
         private void SaveAsCommand()
@@ -190,6 +191,7 @@ namespace UMLGen.ViewModel
                 pathName = _SD.FileName;
                 SaveCommand();
             }
+            StatusBar.Status = "Saved to " + pathName;
         }
 
         private void LoadCommand()
@@ -217,6 +219,7 @@ namespace UMLGen.ViewModel
                         shape.setColor();
                     }
                     stream.Close();
+                    StatusBar.Status = "Loaded a diagram from " + pathName;
                 }
             }
         }
@@ -226,12 +229,14 @@ namespace UMLGen.ViewModel
         private void CopyShape()
         {
             clipboard = selectedShape.makeCopy();
+            StatusBar.Status = "Copied" + selectedShape.Name;
         }
 
         private void CutShape()
         {
             CopyShape();
             RemoveShape();
+            StatusBar.Status = "Cut" + selectedShape.Name;
         }
 
         private void PasteShape()
@@ -249,6 +254,7 @@ namespace UMLGen.ViewModel
                 selectedShape = null;
             }
             SelectedShapes.Clear();
+            StatusBar.Reset();
 
         }
 
@@ -262,6 +268,7 @@ namespace UMLGen.ViewModel
                 arrowSource = shape.connectionPoints[0];
                 shapeSource = shape;
                 first = false;
+                StatusBar.Status = "Select end point for arrow";
             }
             else
             {
@@ -269,6 +276,7 @@ namespace UMLGen.ViewModel
                 first = true;
                 shape.IsSelected = false;
                 shapeSource.IsSelected = false;
+                StatusBar.Status = "Added arrow connecting a " + shapeSource.Name + " and a " + shape.Name;
             }
         }
         private void MouseDownArrowRight(MouseEventArgs e)
@@ -281,6 +289,7 @@ namespace UMLGen.ViewModel
                 arrowSource = shape.connectionPoints[1];
                 shapeSource = shape;
                 first = false;
+                StatusBar.Status = "Select end point for arrow";
             }
             else
             {
@@ -288,6 +297,7 @@ namespace UMLGen.ViewModel
                 first = true;
                 shape.IsSelected = false;
                 shapeSource.IsSelected = false;
+                StatusBar.Status = "Added arrow connecting a " + shapeSource.Name + " and a " + shape.Name;
             }
         }
         private void MouseDownArrowBot(MouseEventArgs e)
@@ -299,8 +309,8 @@ namespace UMLGen.ViewModel
             {
                 arrowSource = shape.connectionPoints[2];
                 shapeSource = shape;
-                arrowSource = shape.connectionPoints[2];
                 first = false;
+                StatusBar.Status = "Select end point for arrow";
             }
             else
             {
@@ -308,6 +318,7 @@ namespace UMLGen.ViewModel
                 first = true;
                 shape.IsSelected = false;
                 shapeSource.IsSelected = false;
+                StatusBar.Status = "Added arrow connecting a " + shapeSource.Name + " and a " + shape.Name;
             }
         }
         private void MouseDownArrowLeft(MouseEventArgs e)
@@ -320,6 +331,7 @@ namespace UMLGen.ViewModel
                 arrowSource = shape.connectionPoints[3];
                 shapeSource = shape;
                 first = false;
+                StatusBar.Status = "Select end point for arrow";
             }
             else
             {
@@ -327,26 +339,31 @@ namespace UMLGen.ViewModel
                 first = true;
                 shape.IsSelected = false;
                 shapeSource.IsSelected = false;
+                StatusBar.Status = "Added arrow connecting a " + shapeSource.Name +" and a " + shape.Name;
             }
         }
 
         private void AddUML()
         {
             undoRedoController.ExecuteCommand(new AddShapeCommand(Shapes, new UMLClass()));
+            StatusBar.Status = "Added a UMLClass";
         }
         private void AddEllipse()
         {
             undoRedoController.ExecuteCommand(new AddShapeCommand(Shapes, new Ellipse()));
+            StatusBar.Status = "Added an Ellipse";
         }
         private void AddSquare()
         {
             undoRedoController.ExecuteCommand(new AddShapeCommand(Shapes, new Square()));
+            StatusBar.Status = "Added a Square";
         }
 
         private bool CanRemoveShape() => SelectedShapes.Count == 1;
 
         private void RemoveShape()
         {
+            StatusBar.Status = "Removed" + selectedShape.Name;
             undoRedoController.ExecuteCommand(new RemoveShapeCommand(Shapes, SelectedShapes.Cast<Shape>().ToList()));
         }
 

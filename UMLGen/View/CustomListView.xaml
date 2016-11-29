@@ -39,7 +39,7 @@
             </Image>
 
         </ListView>
-        <ListView Visibility="Collapsed" Name="SquareMenu">
+        <!--<ListView Visibility="Collapsed" Name="SquareMenu">
             <Image Source="/Images/Copy.png" Width="75"/>
         </ListView>
 
@@ -49,7 +49,7 @@
 
         <ListView Visibility="Collapsed" Name="EllipseMenu">
             <Image Source="/Images/Plus.png" Width="75"/>
-        </ListView>
+        </ListView>-->
 
     </StackPanel>
 </UserControl>

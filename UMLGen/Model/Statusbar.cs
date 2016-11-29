@@ -17,6 +17,10 @@ namespace UMLGen.Model
         {
             Status = value;
         }
+        public void Reset()
+        {
+            Status = "Welcome to UMLGen";
+        }
 
     }
 }

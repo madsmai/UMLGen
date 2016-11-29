@@ -10,6 +10,7 @@ namespace UMLGen.Model
     {
 
         private double baseValue = 100;
+        private int counter = 0;
 
         public Ellipse()
         {
@@ -25,6 +26,8 @@ namespace UMLGen.Model
             ArrowStarts = new ObservableCollection<Arrow>();
             ArrowEnds = new ObservableCollection<Arrow>();
             BaseColor = Brushes.Firebrick;
+            Name = "Ellipse" + counter;
+            counter++;
         }
 
         // Used for drag-n-drop
@@ -44,6 +47,9 @@ namespace UMLGen.Model
             connectionPoints[1] = new Point(X + Width, Y + Height / 2); //Right
             connectionPoints[2] = new Point(X + Width / 2, Y + Height); //Bot
             connectionPoints[3] = new Point(X, Y + Height / 2); //Left
+
+            Name = "Ellipse" + counter;
+            counter++;
         }
 
 

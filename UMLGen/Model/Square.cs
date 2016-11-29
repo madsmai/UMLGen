@@ -10,6 +10,7 @@ namespace UMLGen.Model
     {
 
         private double baseValue = 100;
+        private int counter = 0;
         
         public Square()
         {
@@ -24,6 +25,8 @@ namespace UMLGen.Model
             connectionPoints[1] = new Point(X+Width, Y + Height / 2); //Right
             connectionPoints[2] = new Point(X + Width / 2, Y + Height); //Bot
             connectionPoints[3] = new Point(X, Y+ Height / 2); //Left
+            Name = "Square" + counter;
+            counter++;
         }
 
         public Square(double x, double y, double width, double height)
@@ -40,7 +43,8 @@ namespace UMLGen.Model
             connectionPoints[1] = new Point(X + Width, Y + Height / 2); //Right
             connectionPoints[2] = new Point(X + Width / 2, Y + Height); //Bot
             connectionPoints[3] = new Point(X, Y + Height / 2); //Left
-
+            Name = "Square" + counter;
+            counter++;
 
         }
 
