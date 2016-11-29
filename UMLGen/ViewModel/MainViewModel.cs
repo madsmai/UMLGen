@@ -12,6 +12,7 @@ using System.Linq;
 using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
 using Microsoft.Win32;
+using System.Text.RegularExpressions;
 
 namespace UMLGen.ViewModel
 {
@@ -44,7 +45,6 @@ namespace UMLGen.ViewModel
 
         public String pathName;
 
-
         // Commands the UI can be bound to
         public ICommand UndoCommand { get; }
         public ICommand RedoCommand { get; }
@@ -67,17 +67,20 @@ namespace UMLGen.ViewModel
         public ICommand SaveCurrentAsCommand { get; }
         public ICommand LoadDiagramCommand { get; }
 
+        //Sidebar commands
+        public ICommand IsTextAllowed { get; }
+        public ICommand OnHeightChanged { get; }
+        public ICommand OnWidthChanged { get; }
 
+        //Commands for drag and drop
+        public ICommand DdMouseMoveCommand { get; }
+        public ICommand DdDragEnterCommand { get; }
+        public ICommand DdDragExitCommand { get; }
+        public ICommand DdDragOverCommand { get; }
+        public ICommand DdDropCommand { get; }
 
-		//Commands for drag and drop
-		public ICommand DdMouseMoveCommand { get; }
-		public ICommand DdDragEnterCommand { get; }
-		public ICommand DdDragExitCommand { get; }
-		public ICommand DdDragOverCommand { get; }
-		public ICommand DdDropCommand { get; }
-
-		// Commands the UI can be bound to
-		public ICommand MouseDownShapeCommand { get; }
+        // Commands the UI can be bound to
+        public ICommand MouseDownShapeCommand { get; }
         public ICommand MouseMoveShapeCommand { get; }
         public ICommand MouseUpShapeCommand { get; }
 
@@ -87,8 +90,6 @@ namespace UMLGen.ViewModel
         public ICommand MouseDownArrowLeftCommand { get; }
 
         public Statusbar StatusBar { get; set; }
-
-
 
         // The constructor
         public MainViewModel()
@@ -119,12 +120,17 @@ namespace UMLGen.ViewModel
             MouseDownArrowBotCommand = new RelayCommand<MouseButtonEventArgs>(MouseDownArrowBot);
             MouseDownArrowLeftCommand = new RelayCommand<MouseButtonEventArgs>(MouseDownArrowLeft);
 
-			//Drag and drop commands
-			DdMouseMoveCommand = new RelayCommand<MouseEventArgs>(DdMouseMove);
-			DdDragEnterCommand = new RelayCommand<DragEventArgs>(DdDragEnter);
-			DdDragExitCommand = new RelayCommand<DragEventArgs>(DdDragExit);
-			DdDragOverCommand = new RelayCommand<DragEventArgs>(DdDragOver);
-			DdDropCommand = new RelayCommand<DragEventArgs>(DdDrop);
+            //Sidebar commands
+            IsTextAllowed = new RelayCommand<TextCompositionEventArgs>(textAllowed);
+            OnHeightChanged = new RelayCommand<TextChangedEventArgs>(handleHeightChanged);
+            OnWidthChanged = new RelayCommand<TextChangedEventArgs>(handleWidthChanged);
+
+            //Drag and drop commands
+            DdMouseMoveCommand = new RelayCommand<MouseEventArgs>(DdMouseMove);
+            DdDragEnterCommand = new RelayCommand<DragEventArgs>(DdDragEnter);
+            DdDragExitCommand = new RelayCommand<DragEventArgs>(DdDragExit);
+            DdDragOverCommand = new RelayCommand<DragEventArgs>(DdDragOver);
+            DdDropCommand = new RelayCommand<DragEventArgs>(DdDrop);
 
 
             // New, Save and Load commands
@@ -250,6 +256,7 @@ namespace UMLGen.ViewModel
         {
             if (selectedShape != null)
             {
+                collapseSideMenu(selectedShape);
                 selectedShape.IsSelected = false;
                 selectedShape = null;
             }
@@ -410,6 +417,8 @@ namespace UMLGen.ViewModel
 
             if (!shape.GetType().ToString().Equals("UMLGen.Model.Arrow")) // Not an arrow
             {
+                changeVisibilityOfMenu(shape);
+
                 shape.X = initialShapePosition.X;
                 shape.Y = initialShapePosition.Y;
 
@@ -419,8 +428,74 @@ namespace UMLGen.ViewModel
             }
         }
 
+        private void collapseSideMenu(Shape shape)
+        {
+            View.CustomListView customListView = Application.Current.MainWindow.FindName("SideBar") as View.CustomListView;
 
+            if (customListView == null) { return; }
 
+            if (shape.GetType().ToString().Equals("UMLGen.Model.Square"))
+            {
+                customListView.SquareMenu.Visibility = Visibility.Collapsed;
+            }
+            if (shape.GetType().ToString().Equals("UMLGen.Model.UMLClass"))
+            {
+                customListView.UMLMenu.Visibility = Visibility.Collapsed;
+            }
+            if (shape.GetType().ToString().Equals("UMLGen.Model.Ellipse"))
+            {
+                customListView.EllipseMenu.Visibility = Visibility.Collapsed;
+            }
+
+            return;
+        }
+
+        private void changeVisibilityOfMenu(Shape shape)
+        {
+
+            View.CustomListView customListView = Application.Current.MainWindow.FindName("SideBar") as View.CustomListView;
+
+            if (customListView == null) { return; }
+
+            if (shape.GetType().ToString().Equals("UMLGen.Model.Square"))
+            {
+                customListView.SquareMenu.Visibility = Visibility.Visible;
+                customListView.UMLMenu.Visibility = Visibility.Collapsed;
+                customListView.EllipseMenu.Visibility = Visibility.Collapsed;
+            }
+            if (shape.GetType().ToString().Equals("UMLGen.Model.UMLClass"))
+            {
+                customListView.SquareMenu.Visibility = Visibility.Collapsed;
+                customListView.UMLMenu.Visibility = Visibility.Visible;
+                customListView.EllipseMenu.Visibility = Visibility.Collapsed;
+            }
+            if (shape.GetType().ToString().Equals("UMLGen.Model.Ellipse"))
+            {
+                customListView.SquareMenu.Visibility = Visibility.Collapsed;
+                customListView.UMLMenu.Visibility = Visibility.Collapsed;
+                customListView.EllipseMenu.Visibility = Visibility.Visible;
+            }
+
+            return;
+        }
+
+        //Sidebar databinding stuff
+        private void textAllowed(TextCompositionEventArgs e)
+        {
+            Regex regex = new Regex("[^0-9.]+"); //regex that matches disallowed text
+            e.Handled = regex.IsMatch(e.Text);
+        }
+
+        private void handleHeightChanged(TextChangedEventArgs e)
+        {
+            selectedShape.Height = Convert.ToDouble(((TextBox)e.Source).Text);
+        }
+
+        private void handleWidthChanged(TextChangedEventArgs e)
+        {
+            selectedShape.Width = Convert.ToDouble(((TextBox)e.Source).Text);
+        }
+                
         private void DdMouseMove(MouseEventArgs e)
         {
             if (e.LeftButton == MouseButtonState.Pressed)
