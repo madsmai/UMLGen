@@ -30,6 +30,7 @@
                     </i:EventTrigger>
                 </i:Interaction.Triggers>
             </Image>
+            
             <Image Source="/Images/Ellipse.png" Name="Ellipse" Height="75" Width="75" ToolTip="Drag this into the canvas to make a Circle">
                 <i:Interaction.Triggers>
                     <i:EventTrigger EventName="MouseMove">
@@ -39,9 +40,6 @@
             </Image>
         </ListView>
 
-        <!--<ListView Visibility="Collapsed" Name="SquareMenu">
-            <Image Source="/Images/Copy.png" Width="75"/>
-        
         <ListView Visibility="Collapsed" Name="SquareMenu">
             <TextBlock Text="Square selected"/>
             <TextBlock Text="Height:"/>
