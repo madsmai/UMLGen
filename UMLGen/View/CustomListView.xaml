@@ -30,4 +30,31 @@
 		</ListView>
 		
 	</StackPanel>
+	<ListView DockPanel.Dock="Left" x:Name="toolBar" Width="100" ToolBarTray.IsLocked="True" ToolBar.OverflowMode="Never" Margin="0,70,0,0">
+
+        <Image Source="/Images/Copy.png" Name="Square" Height="75" Width="75" ToolTip="Drag this into the canvas to make a square">
+            <i:Interaction.Triggers>
+                <i:EventTrigger EventName="MouseMove">
+                    <cmd:EventToCommand Command="{Binding DataContext.DdMouseMoveCommand, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type ListView}}}" PassEventArgsToCommand="True"/>
+                </i:EventTrigger>
+            </i:Interaction.Triggers>
+        </Image>
+
+        <Image Source="/Images/Cut.png" Name="UMLClass" Height="75" Width="75" ToolTip="Drag this into the canvas to make a UML Class">
+            <i:Interaction.Triggers>
+                <i:EventTrigger EventName="MouseMove">
+                    <cmd:EventToCommand Command="{Binding DataContext.DdMouseMoveCommand, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type ListView}}}" PassEventArgsToCommand="True"/>
+                </i:EventTrigger>
+            </i:Interaction.Triggers>
+        </Image>
+        <Image Source="/Images/Plus.png" Name="Ellipse" Height="75" Width="75" ToolTip="Drag this into the canvas to make a Circle">
+            <i:Interaction.Triggers>
+                <i:EventTrigger EventName="MouseMove">
+                    <cmd:EventToCommand Command="{Binding DataContext.DdMouseMoveCommand, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type ListView}}}" PassEventArgsToCommand="True"/>
+                </i:EventTrigger>
+            </i:Interaction.Triggers>
+        </Image>
+
+    </ListView>
+>>>>>>> 782540ea7e64ba75811bcd247c52d0d20ba089c4
 </UserControl>
