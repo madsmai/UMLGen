@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ArrayOfShape xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Shape xsi:type="Ellipse">
+    <Id>1</Id>
+    <X>467</X>
+    <Y>258</Y>
+    <Width>100</Width>
+    <Height>100</Height>
+    <IsSelected>true</IsSelected>
+    <ArrowStarts />
+    <ArrowEnds>
+      <Arrow>
+        <Id>4</Id>
+        <X>0</X>
+        <Y>0</Y>
+        <Width>0</Width>
+        <Height>0</Height>
+        <IsSelected>false</IsSelected>
+        <ArrowStarts />
+        <ArrowEnds />
+        <connectionPoints>
+          <Point>
+            <X>0</X>
+            <Y>0</Y>
+          </Point>
+          <Point>
+            <X>0</X>
+            <Y>0</Y>
+          </Point>
+          <Point>
+            <X>0</X>
+            <Y>0</Y>
+          </Point>
+          <Point>
+            <X>0</X>
+            <Y>0</Y>
+          </Point>
+        </connectionPoints>
+        <Destination>
+          <X>517</X>
+          <Y>258</Y>
+        </Destination>
+        <Source>
+          <X>217</X>
+          <Y>119</Y>
+        </Source>
+        <Data>M 216 120 L 511 254 L 506 259 L 517 258 L 518 247 L 513 252 L 218 118 Z</Data>
+      </Arrow>
+    </ArrowEnds>
+    <connectionPoints>
+      <Point>
+        <X>517</X>
+        <Y>258</Y>
+      </Point>
+      <Point>
+        <X>567</X>
+        <Y>308</Y>
+      </Point>
+      <Point>
+        <X>517</X>
+        <Y>358</Y>
+      </Point>
+      <Point>
+        <X>467</X>
+        <Y>308</Y>
+      </Point>
+    </connectionPoints>
+  </Shape>
+  <Shape xsi:type="Square">
+    <Id>2</Id>
+    <X>167</X>
+    <Y>19</Y>
+    <Width>100</Width>
+    <Height>100</Height>
+    <IsSelected>false</IsSelected>
+    <ArrowStarts>
+      <Arrow>
+        <Id>4</Id>
+        <X>0</X>
+        <Y>0</Y>
+        <Width>0</Width>
+        <Height>0</Height>
+        <IsSelected>false</IsSelected>
+        <ArrowStarts />
+        <ArrowEnds />
+        <connectionPoints>
+          <Point>
+            <X>0</X>
+            <Y>0</Y>
+          </Point>
+          <Point>
+            <X>0</X>
+            <Y>0</Y>
+          </Point>
+          <Point>
+            <X>0</X>
+            <Y>0</Y>
+          </Point>
+          <Point>
+            <X>0</X>
+            <Y>0</Y>
+          </Point>
+        </connectionPoints>
+        <Destination>
+          <X>517</X>
+          <Y>258</Y>
+        </Destination>
+        <Source>
+          <X>217</X>
+          <Y>119</Y>
+        </Source>
+        <Data>M 216 120 L 511 254 L 506 259 L 517 258 L 518 247 L 513 252 L 218 118 Z</Data>
+      </Arrow>
+    </ArrowStarts>
+    <ArrowEnds />
+    <connectionPoints>
+      <Point>
+        <X>217</X>
+        <Y>19</Y>
+      </Point>
+      <Point>
+        <X>267</X>
+        <Y>69</Y>
+      </Point>
+      <Point>
+        <X>217</X>
+        <Y>119</Y>
+      </Point>
+      <Point>
+        <X>167</X>
+        <Y>69</Y>
+      </Point>
+    </connectionPoints>
+  </Shape>
+  <Shape xsi:type="Arrow">
+    <Id>4</Id>
+    <X>0</X>
+    <Y>0</Y>
+    <Width>0</Width>
+    <Height>0</Height>
+    <IsSelected>false</IsSelected>
+    <ArrowStarts />
+    <ArrowEnds />
+    <connectionPoints>
+      <Point>
+        <X>0</X>
+        <Y>0</Y>
+      </Point>
+      <Point>
+        <X>0</X>
+        <Y>0</Y>
+      </Point>
+      <Point>
+        <X>0</X>
+        <Y>0</Y>
+      </Point>
+      <Point>
+        <X>0</X>
+        <Y>0</Y>
+      </Point>
+    </connectionPoints>
+    <Destination>
+      <X>517</X>
+      <Y>258</Y>
+    </Destination>
+    <Source>
+      <X>217</X>
+      <Y>119</Y>
+    </Source>
+    <Data>M 216 120 L 511 254 L 506 259 L 517 258 L 518 247 L 513 252 L 218 118 Z</Data>
+  </Shape>
+</ArrayOfShape>

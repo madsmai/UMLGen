@@ -9,7 +9,7 @@ using System.Windows;
 namespace UMLGen.Model
 {
     [Serializable]
-    class UMLClass : Shape
+    public class UMLClass : Shape
     {
         private String _className;
         private String _fieldNames;
@@ -22,6 +22,7 @@ namespace UMLGen.Model
 
         public UMLClass()
         {
+            Id = 0;
             ClassName = "";
             FieldNames = "";
             MethodNames = "";
@@ -35,13 +36,13 @@ namespace UMLGen.Model
             connectionPoints[2] = new Point(X + Width / 2, Y + Height); //Bot
             connectionPoints[3] = new Point(X, Y + Height / 2); //Left
 
-            ArrowStarts = new ObservableCollection<Arrow>();
-            ArrowEnds = new ObservableCollection<Arrow>();
-            Name = ClassName;
+            ArrowStarts = new ObservableCollection<int>();
+            ArrowEnds = new ObservableCollection<int>();
         }
 
         public UMLClass(String ClassName, String FieldNames, String MethodNames)
         {
+            Id = setId();
             this.ClassName = ClassName;
             this.FieldNames = FieldNames;
             this.MethodNames = MethodNames;
@@ -49,8 +50,8 @@ namespace UMLGen.Model
             Y = 150;
             Width = 200;
             Height = 250;
-            ArrowStarts = new ObservableCollection<Arrow>();
-            ArrowEnds = new ObservableCollection<Arrow>();
+            ArrowStarts = new ObservableCollection<int>();
+            ArrowEnds = new ObservableCollection<int>();
             connectionPoints[0] = new Point(X + Width / 2, Y); //Top
             connectionPoints[1] = new Point(X + Width, Y + Height / 2); //Right
             connectionPoints[2] = new Point(X + Width / 2, Y + Height); //Bot
@@ -60,6 +61,7 @@ namespace UMLGen.Model
 
 		public UMLClass(string ClassName, string FieldNames, string MethodNames, double x, double y)
 		{
+            Id = setId();
 			this.ClassName = ClassName;
 			this.FieldNames = FieldNames;
 			this.MethodNames = MethodNames;
@@ -67,8 +69,8 @@ namespace UMLGen.Model
 			Y = y;
 			Width = 200;
 			Height = 250;
-			ArrowStarts = new ObservableCollection<Arrow>();
-			ArrowEnds = new ObservableCollection<Arrow>();
+			ArrowStarts = new ObservableCollection<int>();
+			ArrowEnds = new ObservableCollection<int>();
 			connectionPoints[0] = new Point(Width / 2, Height);
 			connectionPoints[1] = new Point(Width, Height / 2);
 			connectionPoints[2] = new Point(Width / 2, 0);

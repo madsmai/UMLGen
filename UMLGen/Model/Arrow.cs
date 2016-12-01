@@ -12,28 +12,39 @@ namespace UMLGen.Model
     [Serializable]
     public class Arrow : Shape
     {
-        //private double _endX;
-        //private double _endY;
+
         private string _Data;
 
         private Point _source;
         private Point _destination;
-
-        //public double endX { get { return _endX; } set { _endX = value; NotifyPropertyChanged(); } }
-        //public double endY { get { return _endY; } set { _endY = value; NotifyPropertyChanged(); } }
 
         public Point Destination { get { return _destination; } set { _destination = value; NotifyPropertyChanged(); } }
         public Point Source { get { return _source; } set { _source = value; NotifyPropertyChanged(); } }
 
         public string Data { get { return _Data; } set { _Data = value; NotifyPropertyChanged(); } }
 
+        public Arrow()
+        {
+            Id = 0;
+            Source = new Point(0,0);
+            Destination = new Point(100,100);
+
+            ArrowStarts = new ObservableCollection<int>();
+            ArrowEnds = new ObservableCollection<int>();
+            BaseColor = Brushes.Red;
+
+            Data = DrawArrow(Source.X, Source.Y, Destination.X, Destination.Y);
+        }
+
+
         public Arrow(Point source, Point destination)
         {
+            Id = setId();
             Source = source;
             Destination = destination;
 
-            ArrowStarts = new ObservableCollection<Arrow>();
-            ArrowEnds = new ObservableCollection<Arrow>();
+            ArrowStarts = new ObservableCollection<int>();
+            ArrowEnds = new ObservableCollection<int>();
             BaseColor = Brushes.Red;
 
             Data = DrawArrow(source.X, source.Y, Destination.X, Destination.Y);

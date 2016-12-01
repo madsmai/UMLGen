@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -17,9 +18,12 @@ namespace UMLGen.Command
         private double diffX;
         private double diffY;
 
-        public MoveShapeCommand(Shape _shape, double _diffX, double _diffY)
+        ObservableCollection<Shape> shapes;
+
+        public MoveShapeCommand(ObservableCollection<Shape> _shapes ,Shape _shape, double _diffX, double _diffY)
         {
             shape = _shape;
+            shapes = _shapes;
             diffX = _diffX;
             diffY = _diffY;
         }
@@ -33,13 +37,27 @@ namespace UMLGen.Command
                 shape.connectionPoints[i].X += diffX;
                 shape.connectionPoints[i].Y += diffY;
             }
-            foreach (Arrow a in shape.ArrowStarts)
+            foreach (int id in shape.ArrowStarts)
             {
-                a.repaint(diffX, diffY, true);
+                foreach(Shape s in shapes)
+                {
+                    if(id == s.Id)
+                    {
+                        Arrow a = (Arrow)s;
+                        a.repaint(diffX, diffY, true);
+                    }
+                }
             }
-            foreach (Arrow a in shape.ArrowEnds)
+            foreach (int id in shape.ArrowEnds)
             {
-                a.repaint(diffX, diffY, false);
+                foreach (Shape s in shapes)
+                {
+                    if (id == s.Id)
+                    {
+                        Arrow a = (Arrow)s;
+                        a.repaint(diffX, diffY, false);
+                    }
+                }
             }
         }
 
@@ -52,13 +70,27 @@ namespace UMLGen.Command
                 shape.connectionPoints[i].X -= diffX;
                 shape.connectionPoints[i].Y -= diffY;
             }
-            foreach (Arrow a in shape.ArrowStarts)
+            foreach (int id in shape.ArrowStarts)
             {
-                a.repaint(diffX, diffY, true);
+                foreach (Shape s in shapes)
+                {
+                    if (id == s.Id)
+                    {
+                        Arrow a = (Arrow)s;
+                        a.repaint(diffX, diffY, true);
+                    }
+                }
             }
-            foreach (Arrow a in shape.ArrowEnds)
+            foreach (int id in shape.ArrowEnds)
             {
-                a.repaint(diffX, diffY, false);
+                foreach (Shape s in shapes)
+                {
+                    if (id == s.Id)
+                    {
+                        Arrow a = (Arrow)s;
+                        a.repaint(diffX, diffY, false);
+                    }
+                }
             }
         }
     }

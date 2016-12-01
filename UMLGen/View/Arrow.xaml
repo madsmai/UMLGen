@@ -7,11 +7,13 @@
              xmlns:cmd="clr-namespace:GalaSoft.MvvmLight.Command;assembly=GalaSoft.MvvmLight.Platform"
              xmlns:local="clr-namespace:UMLGen.View"
              mc:Ignorable="d">
+    <!-- Background="{Binding SelectedColor, UpdateSourceTrigger=PropertyChanged}" -->
 
-        <Path x:Name="CollapsedArrow"
+
+    <Path x:Name="arrow"
         Data="{Binding Data}">
-            <Path.Fill>
-                <SolidColorBrush Color="Red" />
+            <Path.Fill >
+            <SolidColorBrush Color="{Binding SelectedColor.Color, UpdateSourceTrigger=PropertyChanged}" />
             </Path.Fill>
         </Path>
 

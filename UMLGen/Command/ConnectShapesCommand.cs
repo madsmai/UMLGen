@@ -33,15 +33,15 @@ namespace UMLGen.Command
         public void Execute()
         {
             shapes.Add(arrow);
-            startShape.ArrowStarts.Add(arrow as Arrow);
-            endShape.ArrowEnds.Add(arrow as Arrow);
+            startShape.ArrowStarts.Add(arrow.Id);
+            endShape.ArrowEnds.Add(arrow.Id);
         }
 
         public void UnExecute()
         {
             shapes.Remove(arrow);
-            startShape.ArrowStarts.Remove(arrow as Arrow);
-            endShape.ArrowEnds.Remove(arrow as Arrow);
+            startShape.ArrowStarts.Remove(arrow.Id);
+            endShape.ArrowEnds.Remove(arrow.Id);
 
         }
     }

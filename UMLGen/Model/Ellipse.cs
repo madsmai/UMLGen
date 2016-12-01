@@ -5,8 +5,9 @@ using System.Windows.Media;
 
 namespace UMLGen.Model
 {
+    
     [Serializable]
-    class Ellipse : Shape
+    public class Ellipse : Shape
     {
 
         private double baseValue = 100;
@@ -14,6 +15,7 @@ namespace UMLGen.Model
 
         public Ellipse()
         {
+            Id = 0;
             X = 200;
             Y = 200;
             Width = baseValue;
@@ -23,8 +25,8 @@ namespace UMLGen.Model
             connectionPoints[2] = new Point(X + Width / 2, Y + Height); //Bot
             connectionPoints[3] = new Point(X, Y + Height / 2); //Left
 
-            ArrowStarts = new ObservableCollection<Arrow>();
-            ArrowEnds = new ObservableCollection<Arrow>();
+            ArrowStarts = new ObservableCollection<int>();
+            ArrowEnds = new ObservableCollection<int>();
             BaseColor = Brushes.Firebrick;
             Name = "Ellipse" + counter;
             counter++;
@@ -33,6 +35,7 @@ namespace UMLGen.Model
         // Used for drag-n-drop
         public Ellipse(double x, double y, double width, double height)
         {
+            Id = setId();
             // x and y should be the coordinate of the mouse when released
             X = x;
             Y = y;
@@ -40,8 +43,8 @@ namespace UMLGen.Model
             Height = height;
             Width = baseValue;
             Height = baseValue;
-            ArrowStarts = new ObservableCollection<Arrow>();
-            ArrowEnds = new ObservableCollection<Arrow>();
+            ArrowStarts = new ObservableCollection<int>();
+            ArrowEnds = new ObservableCollection<int>();
             BaseColor = Brushes.Firebrick;
             connectionPoints[0] = new Point(X + Width / 2, Y); //Top
             connectionPoints[1] = new Point(X + Width, Y + Height / 2); //Right

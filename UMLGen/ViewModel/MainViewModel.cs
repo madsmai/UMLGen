@@ -13,6 +13,7 @@ using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
 using Microsoft.Win32;
 using System.Text.RegularExpressions;
+using System.Xml.Serialization;
 
 namespace UMLGen.ViewModel
 {
@@ -24,6 +25,8 @@ namespace UMLGen.ViewModel
     /// </summary>
     public class MainViewModel : ViewModelBase
     {
+
+        public int shapeCounter;
 
         private UndoRedoController undoRedoController = UndoRedoController.Instance;
 
@@ -79,6 +82,13 @@ namespace UMLGen.ViewModel
         public ICommand DdDragOverCommand { get; }
         public ICommand DdDropCommand { get; }
 
+        //Commands for drag and drop
+        public ICommand DdMouseMoveCommand { get; }
+        public ICommand DdDragEnterCommand { get; }
+        public ICommand DdDragExitCommand { get; }
+        public ICommand DdDragOverCommand { get; }
+        public ICommand DdDropCommand { get; }
+
         // Commands the UI can be bound to
         public ICommand MouseDownShapeCommand { get; }
         public ICommand MouseMoveShapeCommand { get; }
@@ -94,6 +104,8 @@ namespace UMLGen.ViewModel
         // The constructor
         public MainViewModel()
         {
+
+            shapeCounter = 0;
 
             Shapes = new ObservableCollection<Shape>();
             SelectedShapes = new ObservableCollection<Shape>();
@@ -119,6 +131,7 @@ namespace UMLGen.ViewModel
             MouseDownArrowRightCommand = new RelayCommand<MouseButtonEventArgs>(MouseDownArrowRight);
             MouseDownArrowBotCommand = new RelayCommand<MouseButtonEventArgs>(MouseDownArrowBot);
             MouseDownArrowLeftCommand = new RelayCommand<MouseButtonEventArgs>(MouseDownArrowLeft);
+
 
             //Sidebar commands
             IsTextAllowed = new RelayCommand<TextCompositionEventArgs>(textAllowed);
@@ -177,12 +190,47 @@ namespace UMLGen.ViewModel
             }
             else
             {
-                Stream stream = File.Open(pathName, FileMode.Create);
-                BinaryFormatter formatter = new BinaryFormatter();
-                formatter.Serialize(stream, Shapes);
-                stream.Close();
+
+                //Stream stream = File.Open(pathName, FileMode.Create);
+                //BinaryFormatter formatter = new BinaryFormatter();
+                //formatter.Serialize(stream, Shapes);
+                //stream.Close();
+
+                //XmlSerializer ser = new XmlSerializer(typeof(ObservableCollection<Shape>));
+                //TextWriter writer = new StreamWriter(pathName);
+                //ser.Serialize(writer, Shapes);
+                //writer.Close();
+
+
+                Serialize<ObservableCollection<Shape>>(Shapes, pathName);
+
             }
             StatusBar.Status = "Saved to " + pathName;
+        }
+
+        public static void Serialize<T>(T item, string FilePath)
+        {
+            XmlSerializer xs = new XmlSerializer(typeof(T));
+            using (StreamWriter wr = new StreamWriter(FilePath))
+            {
+                xs.Serialize(wr, item);
+            }
+        }
+
+        public void DeSerialize<T>(string FilePath)
+        {
+
+            XmlSerializer xs = new XmlSerializer(typeof(T));
+            StreamReader rd = new StreamReader(FilePath);
+
+            ObservableCollection<Shape> loadShapes = (ObservableCollection<Shape>)xs.Deserialize(rd);
+            foreach (Shape s in loadShapes)
+            {
+                Shapes.Add(s);
+                s.setColor();
+            }
+
+
         }
 
         private void SaveAsCommand()
@@ -203,6 +251,9 @@ namespace UMLGen.ViewModel
         private void LoadCommand()
         {
 
+
+
+
             OpenFileDialog _OD = new OpenFileDialog();
             _OD.Filter = "Text File (*.xml)|*.xml|Show All Files (*.*)|*.*";
             _OD.FileName = "Untitled";
@@ -214,18 +265,34 @@ namespace UMLGen.ViewModel
                 if (DialogBoxNewDiagram())
                 {
                     Shapes.Clear();
-                    Stream stream = File.Open(pathName, FileMode.Open);
-                    BinaryFormatter formatter = new BinaryFormatter();
 
-                    // Deserialize
-                    ObservableCollection<Shape> loadShapes = (ObservableCollection<Shape>)formatter.Deserialize(stream);
-                    foreach (Shape shape in loadShapes)
-                    {
-                        Shapes.Add(shape);
-                        shape.setColor();
-                    }
-                    stream.Close();
-                    StatusBar.Status = "Loaded a diagram from " + pathName;
+                    //Stream stream = File.Open(pathName, FileMode.Open);
+                    //BinaryFormatter formatter = new BinaryFormatter();
+                    //// Deserialize
+                    //ObservableCollection<Shape> loadShapes = (ObservableCollection<Shape>)formatter.Deserialize(stream);
+                    //foreach (Shape shape in loadShapes)
+                    //{
+                    //    Shapes.Add(shape);
+                    //    shape.setColor();
+                    //}
+                    //stream.Close();
+
+                    //XmlSerializer ser = new XmlSerializer(typeof(ObservableCollection<Shape>));
+                    //TextReader reader = new StreamReader(pathName);
+                    //ser.Deserialize(reader);
+
+                    //ObservableCollection<Shape> loadShapes = (ObservableCollection<Shape>)ser.Deserialize(reader);
+                    //foreach (Shape shape in loadShapes)
+                    //{
+                    //    Shapes.Add(shape);
+                    //    shape.setColor();
+                    //}
+                    //reader.Close();
+
+                    
+                    DeSerialize<ObservableCollection<Shape>>(pathName);
+					StatusBar.Status = "Loaded a diagram from " + pathName;
+
                 }
             }
         }
@@ -376,6 +443,7 @@ namespace UMLGen.ViewModel
 
         private void MouseDownShape(MouseButtonEventArgs e)
         {
+
             var shape = TargetShape(e);
             var mousePosition = RelativeMousePosition(e);
 
@@ -402,6 +470,19 @@ namespace UMLGen.ViewModel
         private void MouseUpShape(MouseButtonEventArgs e)
         {
             var shape = TargetShape(e);
+            Console.WriteLine(shape.Id);
+
+            if (shape.ArrowStarts == null)
+            {
+                Console.WriteLine("den er null");
+            }
+
+            foreach (int id in shape.ArrowStarts)
+            {
+                Console.WriteLine("test");
+                Console.WriteLine("Id : " + id);
+            }
+
             var mousePosition = RelativeMousePosition(e);
 
             if (selectedShape != null)
@@ -422,11 +503,12 @@ namespace UMLGen.ViewModel
                 shape.X = initialShapePosition.X;
                 shape.Y = initialShapePosition.Y;
 
-                undoRedoController.ExecuteCommand(new MoveShapeCommand(shape, mousePosition.X - initialMousePosition.X, mousePosition.Y - initialMousePosition.Y));
+                undoRedoController.ExecuteCommand(new MoveShapeCommand(Shapes, shape, mousePosition.X - initialMousePosition.X, mousePosition.Y - initialMousePosition.Y));
 
                 e.MouseDevice.Target.ReleaseMouseCapture();
             }
         }
+
 
         private void collapseSideMenu(Shape shape)
         {
@@ -495,7 +577,7 @@ namespace UMLGen.ViewModel
         {
             selectedShape.Width = Convert.ToDouble(((TextBox)e.Source).Text);
         }
-                
+
         private void DdMouseMove(MouseEventArgs e)
         {
             if (e.LeftButton == MouseButtonState.Pressed)

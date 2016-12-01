@@ -26,26 +26,65 @@ namespace UMLGen.Command
             linesToRemove = new HashSet<Shape>();
             foreach (Shape shape in shapesToRemove)
             {
-                foreach (Shape arrow in shape.ArrowStarts)
+                foreach (int id in shape.ArrowStarts)
                 {
-                    linesToRemove.Add(arrow);
+                    foreach (Shape s in shapes)
+                    {
+                        if(id == s.Id)
+                        {
+                            Arrow a = (Arrow)s;
+                            linesToRemove.Add(a);
+                        }
+                    }
+                    
                 }
-                foreach (Shape arrow in shape.ArrowEnds)
+                foreach (int id in shape.ArrowEnds)
                 {
-                    linesToRemove.Add(arrow);
+                    foreach (Shape s in shapes)
+                    {
+                        if (id == s.Id)
+                        {
+                            Arrow a = (Arrow)s;
+                            linesToRemove.Add(a);
+                        }
+                    }
                 }
             }
         }
         public void Execute()
         {
-            foreach (Shape shape in shapesToRemove) { shapes.Remove(shape); }
-            foreach (Shape arrow in linesToRemove) { shapes.Remove(arrow); }
+            foreach (Shape shape in shapesToRemove) {
+                shapes.Remove(shape);
+            }
+            foreach (Shape arrow in linesToRemove) {
+                shapes.Remove(arrow);
+                //foreach (Shape s in shapes)
+                //{
+                //    foreach (int id in s.ArrowStarts)
+                //    {
+                //        if (id == arrow.Id)
+                //        {
+                //            s.ArrowStarts.Remove(id);
+                //        }
+                //    }
+                //    foreach (int id in s.ArrowEnds)
+                //    {
+                //        if (id == arrow.Id)
+                //        {
+                //            s.ArrowStarts.Remove(id);
+                //        }
+                //    }
+
+                //}
+            }
+            
+            //TODO::Remove arrow ids from shapes aswell.
         }
 
         public void UnExecute()
         {
             foreach (Shape shape in shapesToRemove) { shapes.Add(shape); }
-            foreach (Shape line in linesToRemove) { shapes.Add(line); }
+            foreach (Shape arrow in linesToRemove) { shapes.Add(arrow); }
         }
     }
 }

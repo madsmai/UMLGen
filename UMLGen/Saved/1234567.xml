@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ArrayOfShape xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Shape xsi:type="Ellipse">
+    <Id>1</Id>
+    <X>200</X>
+    <Y>200</Y>
+    <Width>100</Width>
+    <Height>100</Height>
+    <IsSelected>false</IsSelected>
+    <ArrowStarts />
+    <ArrowEnds />
+    <connectionPoints>
+      <Point>
+        <X>250</X>
+        <Y>200</Y>
+      </Point>
+      <Point>
+        <X>300</X>
+        <Y>250</Y>
+      </Point>
+      <Point>
+        <X>250</X>
+        <Y>300</Y>
+      </Point>
+      <Point>
+        <X>200</X>
+        <Y>250</Y>
+      </Point>
+    </connectionPoints>
+  </Shape>
+  <Shape xsi:type="Square">
+    <Id>2</Id>
+    <X>0</X>
+    <Y>0</Y>
+    <Width>100</Width>
+    <Height>100</Height>
+    <IsSelected>false</IsSelected>
+    <ArrowStarts />
+    <ArrowEnds />
+    <connectionPoints>
+      <Point>
+        <X>50</X>
+        <Y>0</Y>
+      </Point>
+      <Point>
+        <X>100</X>
+        <Y>50</Y>
+      </Point>
+      <Point>
+        <X>50</X>
+        <Y>100</Y>
+      </Point>
+      <Point>
+        <X>0</X>
+        <Y>50</Y>
+      </Point>
+    </connectionPoints>
+  </Shape>
+  <Shape xsi:type="UMLClass">
+    <Id>3</Id>
+    <X>150</X>
+    <Y>150</Y>
+    <Width>200</Width>
+    <Height>250</Height>
+    <IsSelected>false</IsSelected>
+    <ArrowStarts />
+    <ArrowEnds />
+    <connectionPoints>
+      <Point>
+        <X>250</X>
+        <Y>150</Y>
+      </Point>
+      <Point>
+        <X>350</X>
+        <Y>275</Y>
+      </Point>
+      <Point>
+        <X>250</X>
+        <Y>400</Y>
+      </Point>
+      <Point>
+        <X>150</X>
+        <Y>275</Y>
+      </Point>
+    </connectionPoints>
+    <ClassName>ExampleClass</ClassName>
+    <FieldNames>String Name 
+ Int no 
+</FieldNames>
+    <MethodNames>exampleMethod 
+ toString 
+</MethodNames>
+  </Shape>
+</ArrayOfShape>
