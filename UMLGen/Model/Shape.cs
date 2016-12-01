@@ -14,6 +14,8 @@ namespace UMLGen.Model
     public abstract class Shape : NotifyBase
     {
 
+        private string _name;
+
         private static int counter = 0;
         private int _id;
 

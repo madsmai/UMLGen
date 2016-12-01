@@ -82,13 +82,6 @@ namespace UMLGen.ViewModel
         public ICommand DdDragOverCommand { get; }
         public ICommand DdDropCommand { get; }
 
-        //Commands for drag and drop
-        public ICommand DdMouseMoveCommand { get; }
-        public ICommand DdDragEnterCommand { get; }
-        public ICommand DdDragExitCommand { get; }
-        public ICommand DdDragOverCommand { get; }
-        public ICommand DdDropCommand { get; }
-
         // Commands the UI can be bound to
         public ICommand MouseDownShapeCommand { get; }
         public ICommand MouseMoveShapeCommand { get; }

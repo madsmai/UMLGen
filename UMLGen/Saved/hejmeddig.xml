@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ArrayOfShape xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Shape xsi:type="Ellipse">
+    <Id>0</Id>
+    <X>352</X>
+    <Y>59</Y>
+    <Width>100</Width>
+    <Height>100</Height>
+    <IsSelected>false</IsSelected>
+    <ArrowStarts />
+    <ArrowEnds>
+      <int>2</int>
+    </ArrowEnds>
+    <connectionPoints>
+      <Point>
+        <X>402</X>
+        <Y>59</Y>
+      </Point>
+      <Point>
+        <X>452</X>
+        <Y>109</Y>
+      </Point>
+      <Point>
+        <X>402</X>
+        <Y>159</Y>
+      </Point>
+      <Point>
+        <X>352</X>
+        <Y>109</Y>
+      </Point>
+    </connectionPoints>
+    <Name>Ellipse0</Name>
+  </Shape>
+  <Shape xsi:type="Square">
+    <Id>0</Id>
+    <X>51</X>
+    <Y>222</Y>
+    <Width>100</Width>
+    <Height>100</Height>
+    <IsSelected>true</IsSelected>
+    <ArrowStarts>
+      <int>2</int>
+    </ArrowStarts>
+    <ArrowEnds />
+    <connectionPoints>
+      <Point>
+        <X>101</X>
+        <Y>222</Y>
+      </Point>
+      <Point>
+        <X>151</X>
+        <Y>272</Y>
+      </Point>
+      <Point>
+        <X>101</X>
+        <Y>322</Y>
+      </Point>
+      <Point>
+        <X>51</X>
+        <Y>272</Y>
+      </Point>
+    </connectionPoints>
+    <Name>Square0</Name>
+  </Shape>
+  <Shape xsi:type="Arrow">
+    <Id>2</Id>
+    <X>0</X>
+    <Y>0</Y>
+    <Width>0</Width>
+    <Height>0</Height>
+    <IsSelected>false</IsSelected>
+    <ArrowStarts />
+    <ArrowEnds />
+    <connectionPoints>
+      <Point>
+        <X>0</X>
+        <Y>0</Y>
+      </Point>
+      <Point>
+        <X>0</X>
+        <Y>0</Y>
+      </Point>
+      <Point>
+        <X>0</X>
+        <Y>0</Y>
+      </Point>
+      <Point>
+        <X>0</X>
+        <Y>0</Y>
+      </Point>
+    </connectionPoints>
+    <Destination>
+      <X>352</X>
+      <Y>109</Y>
+    </Destination>
+    <Source>
+      <X>151</X>
+      <Y>272</Y>
+    </Source>
+    <Data>M 152 273 L 348 115 L 353 120 L 352 109 L 341 108 L 346 113 L 150 271 Z</Data>
+  </Shape>
+</ArrayOfShape>
