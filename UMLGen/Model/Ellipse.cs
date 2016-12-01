@@ -12,6 +12,7 @@ namespace UMLGen.Model
 
         private double baseValue = 100;
         private int counter = 0;
+        
 
         public Ellipse()
         {
@@ -20,16 +21,7 @@ namespace UMLGen.Model
             Y = 200;
             Width = baseValue;
             Height = baseValue;
-            connectionPoints[0] = new Point(X + Width / 2, Y); //Top
-            connectionPoints[1] = new Point(X + Width, Y + Height / 2); //Right
-            connectionPoints[2] = new Point(X + Width / 2, Y + Height); //Bot
-            connectionPoints[3] = new Point(X, Y + Height / 2); //Left
-
-            ArrowStarts = new ObservableCollection<int>();
-            ArrowEnds = new ObservableCollection<int>();
-            BaseColor = Brushes.Firebrick;
-            Name = "Ellipse" + counter;
-            counter++;
+            init();
         }
 
         // Used for drag-n-drop
@@ -43,14 +35,19 @@ namespace UMLGen.Model
             Height = height;
             Width = baseValue;
             Height = baseValue;
+            init();
+
+        }
+
+        public void init()
+        {
             ArrowStarts = new ObservableCollection<int>();
             ArrowEnds = new ObservableCollection<int>();
-            BaseColor = Brushes.Firebrick;
             connectionPoints[0] = new Point(X + Width / 2, Y); //Top
             connectionPoints[1] = new Point(X + Width, Y + Height / 2); //Right
             connectionPoints[2] = new Point(X + Width / 2, Y + Height); //Bot
             connectionPoints[3] = new Point(X, Y + Height / 2); //Left
-
+            BaseColor = Brushes.OrangeRed;
             Name = "Ellipse" + counter;
             counter++;
         }
@@ -66,7 +63,7 @@ namespace UMLGen.Model
         public override void setColor()
         {
             IsSelected = false;
-            BaseColor = Brushes.Firebrick;
+            BaseColor = Brushes.OrangeRed;
         }
 
     }

@@ -25,7 +25,7 @@ namespace UMLGen.ViewModel
     /// </summary>
     public class MainViewModel : ViewModelBase
     {
-
+        enum direction{Top,Right,Bot,Left}
         public int shapeCounter;
 
         private UndoRedoController undoRedoController = UndoRedoController.Instance;
@@ -125,6 +125,7 @@ namespace UMLGen.ViewModel
             MouseDownArrowBotCommand = new RelayCommand<MouseButtonEventArgs>(MouseDownArrowBot);
             MouseDownArrowLeftCommand = new RelayCommand<MouseButtonEventArgs>(MouseDownArrowLeft);
 
+            //MouseDownArrowLeftCommand = new RelayCommand<MouseButtonEventArgs>(MouseDownArrow);
 
             //Sidebar commands
             IsTextAllowed = new RelayCommand<TextCompositionEventArgs>(textAllowed);
@@ -183,18 +184,6 @@ namespace UMLGen.ViewModel
             }
             else
             {
-
-                //Stream stream = File.Open(pathName, FileMode.Create);
-                //BinaryFormatter formatter = new BinaryFormatter();
-                //formatter.Serialize(stream, Shapes);
-                //stream.Close();
-
-                //XmlSerializer ser = new XmlSerializer(typeof(ObservableCollection<Shape>));
-                //TextWriter writer = new StreamWriter(pathName);
-                //ser.Serialize(writer, Shapes);
-                //writer.Close();
-
-
                 Serialize<ObservableCollection<Shape>>(Shapes, pathName);
 
             }
@@ -243,10 +232,6 @@ namespace UMLGen.ViewModel
 
         private void LoadCommand()
         {
-
-
-
-
             OpenFileDialog _OD = new OpenFileDialog();
             _OD.Filter = "Text File (*.xml)|*.xml|Show All Files (*.*)|*.*";
             _OD.FileName = "Untitled";
@@ -258,31 +243,6 @@ namespace UMLGen.ViewModel
                 if (DialogBoxNewDiagram())
                 {
                     Shapes.Clear();
-
-                    //Stream stream = File.Open(pathName, FileMode.Open);
-                    //BinaryFormatter formatter = new BinaryFormatter();
-                    //// Deserialize
-                    //ObservableCollection<Shape> loadShapes = (ObservableCollection<Shape>)formatter.Deserialize(stream);
-                    //foreach (Shape shape in loadShapes)
-                    //{
-                    //    Shapes.Add(shape);
-                    //    shape.setColor();
-                    //}
-                    //stream.Close();
-
-                    //XmlSerializer ser = new XmlSerializer(typeof(ObservableCollection<Shape>));
-                    //TextReader reader = new StreamReader(pathName);
-                    //ser.Deserialize(reader);
-
-                    //ObservableCollection<Shape> loadShapes = (ObservableCollection<Shape>)ser.Deserialize(reader);
-                    //foreach (Shape shape in loadShapes)
-                    //{
-                    //    Shapes.Add(shape);
-                    //    shape.setColor();
-                    //}
-                    //reader.Close();
-
-                    
                     DeSerialize<ObservableCollection<Shape>>(pathName);
 					StatusBar.Status = "Loaded a diagram from " + pathName;
 
@@ -309,8 +269,6 @@ namespace UMLGen.ViewModel
         {
             undoRedoController.ExecuteCommand(new AddShapeCommand(Shapes, clipboard.makeCopy()));
         }
-
-
 
         private void DeselectShape()
         {
@@ -408,6 +366,35 @@ namespace UMLGen.ViewModel
                 shapeSource.IsSelected = false;
                 StatusBar.Status = "Added arrow connecting a " + shapeSource.Name +" and a " + shape.Name;
             }
+        }
+
+        private void MouseDownArrow(MouseEventArgs e)
+        {
+            var shape = TargetShape(e);
+            foreach (Point p in shape.connectionPoints)
+            {
+                if(RelativeMousePosition(e).Equals(p))
+                {
+                    Console.Write("diller");
+                }
+            }
+            shape.IsSelected = true;
+
+            //if (first)
+            //{
+            //    arrowSource = shape.connectionPoints[ap.direction];
+            //    shapeSource = shape;
+            //    first = false;
+            //    StatusBar.Status = "Select end point for arrow";
+            //}
+            //else
+            //{
+            //    undoRedoController.ExecuteCommand(new ConnectShapesCommand(Shapes, arrowSource, shapeSource, shape.connectionPoints[ap.direction], shape));
+            //    first = true;
+            //    shape.IsSelected = false;
+            //    shapeSource.IsSelected = false;
+            //    StatusBar.Status = "Added arrow connecting a " + shapeSource.Name + " and a " + shape.Name;
+            //}
         }
 
         private void AddUML()

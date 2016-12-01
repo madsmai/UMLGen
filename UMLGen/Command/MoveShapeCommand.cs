@@ -37,58 +37,36 @@ namespace UMLGen.Command
                 shape.connectionPoints[i].X += diffX;
                 shape.connectionPoints[i].Y += diffY;
             }
-            foreach (int id in shape.ArrowStarts)
-            {
-                foreach(Shape s in shapes)
-                {
-                    if(id == s.Id)
-                    {
-                        Arrow a = (Arrow)s;
-                        a.repaint(diffX, diffY, true);
-                    }
-                }
-            }
-            foreach (int id in shape.ArrowEnds)
-            {
-                foreach (Shape s in shapes)
-                {
-                    if (id == s.Id)
-                    {
-                        Arrow a = (Arrow)s;
-                        a.repaint(diffX, diffY, false);
-                    }
-                }
-            }
+            repaintArrows(shape.ArrowStarts,true);
+            repaintArrows(shape.ArrowEnds,false);
         }
 
         public void UnExecute()
         {
-            shape.X -= diffX;
-            shape.Y -= diffY;
+            diffX = diffX * -1;
+            diffY = diffY * -1;
+            shape.X += diffX;
+            shape.Y += diffY;
             for (int i = 0; i < 4; i++)
             {
                 shape.connectionPoints[i].X -= diffX;
                 shape.connectionPoints[i].Y -= diffY;
             }
-            foreach (int id in shape.ArrowStarts)
+            repaintArrows(shape.ArrowStarts,true);
+            repaintArrows(shape.ArrowEnds,false);
+
+        }
+
+        private void repaintArrows(ObservableCollection<int> arrows, Boolean isStartArrow)
+        {
+            foreach (int id in arrows)
             {
                 foreach (Shape s in shapes)
                 {
                     if (id == s.Id)
                     {
                         Arrow a = (Arrow)s;
-                        a.repaint(diffX, diffY, true);
-                    }
-                }
-            }
-            foreach (int id in shape.ArrowEnds)
-            {
-                foreach (Shape s in shapes)
-                {
-                    if (id == s.Id)
-                    {
-                        Arrow a = (Arrow)s;
-                        a.repaint(diffX, diffY, false);
+                        a.repaint(diffX, diffY, isStartArrow);
                     }
                 }
             }

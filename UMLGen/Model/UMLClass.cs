@@ -30,33 +30,7 @@ namespace UMLGen.Model
             Y = 150;
             Width = 200;
             Height = 250;
-
-            connectionPoints[0] = new Point(X + Width / 2, Y); //Top
-            connectionPoints[1] = new Point(X + Width, Y + Height / 2); //Right
-            connectionPoints[2] = new Point(X + Width / 2, Y + Height); //Bot
-            connectionPoints[3] = new Point(X, Y + Height / 2); //Left
-
-            ArrowStarts = new ObservableCollection<int>();
-            ArrowEnds = new ObservableCollection<int>();
-        }
-
-        public UMLClass(String ClassName, String FieldNames, String MethodNames)
-        {
-            Id = setId();
-            this.ClassName = ClassName;
-            this.FieldNames = FieldNames;
-            this.MethodNames = MethodNames;
-            X = 150;
-            Y = 150;
-            Width = 200;
-            Height = 250;
-            ArrowStarts = new ObservableCollection<int>();
-            ArrowEnds = new ObservableCollection<int>();
-            connectionPoints[0] = new Point(X + Width / 2, Y); //Top
-            connectionPoints[1] = new Point(X + Width, Y + Height / 2); //Right
-            connectionPoints[2] = new Point(X + Width / 2, Y + Height); //Bot
-            connectionPoints[3] = new Point(X, Y + Height / 2); //Left
-            Name = ClassName;
+            init();
         }
 
 		public UMLClass(string ClassName, string FieldNames, string MethodNames, double x, double y)
@@ -69,25 +43,25 @@ namespace UMLGen.Model
 			Y = y;
 			Width = 200;
 			Height = 250;
-			ArrowStarts = new ObservableCollection<int>();
-			ArrowEnds = new ObservableCollection<int>();
-			connectionPoints[0] = new Point(Width / 2, Height);
-			connectionPoints[1] = new Point(Width, Height / 2);
-			connectionPoints[2] = new Point(Width / 2, 0);
-			connectionPoints[3] = new Point(0, Height / 2);
-            Name = ClassName;
+            init();
 		}
 
-
-
+        public void init() {
+            ArrowStarts = new ObservableCollection<int>();
+            ArrowEnds = new ObservableCollection<int>();
+            connectionPoints[0] = new Point(Width / 2, Height);
+            connectionPoints[1] = new Point(Width, Height / 2);
+            connectionPoints[2] = new Point(Width / 2, 0);
+            connectionPoints[3] = new Point(0, Height / 2);
+            Name = ClassName;
+        }
 		public override Shape makeCopy()
         {
-            return new UMLClass(ClassName, FieldNames, MethodNames);
+            return new UMLClass(ClassName, FieldNames, MethodNames, X, Y);
         }
 
         public override void setColor()
         {
-            
         }
     }
 }

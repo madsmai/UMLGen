@@ -21,15 +21,7 @@ namespace UMLGen.Model
             Y = 0;
             Width = baseValue;
             Height = baseValue;
-            BaseColor = Brushes.ForestGreen;
-            ArrowStarts = new ObservableCollection<int>();
-            ArrowEnds = new ObservableCollection<int>();
-            connectionPoints[0] = new Point(X+Width / 2, Y); //Top
-            connectionPoints[1] = new Point(X+Width, Y + Height / 2); //Right
-            connectionPoints[2] = new Point(X + Width / 2, Y + Height); //Bot
-            connectionPoints[3] = new Point(X, Y+ Height / 2); //Left
-            Name = "Square" + counter;
-            counter++;
+            init();
         }
 
         public Square(double x, double y, double width, double height)
@@ -37,19 +29,23 @@ namespace UMLGen.Model
             Id = setId();
             X = x;
             Y = y;
-            BaseColor = Brushes.ForestGreen;
-            ArrowStarts = new ObservableCollection<int>();
-            ArrowEnds = new ObservableCollection<int>();
-
             Width = width;
             Height = height;
+            init();
+
+
+        }
+
+        public void init() {
+            BaseColor = Brushes.CornflowerBlue;
+            ArrowStarts = new ObservableCollection<int>();
+            ArrowEnds = new ObservableCollection<int>();
             connectionPoints[0] = new Point(X + Width / 2, Y); //Top
             connectionPoints[1] = new Point(X + Width, Y + Height / 2); //Right
             connectionPoints[2] = new Point(X + Width / 2, Y + Height); //Bot
             connectionPoints[3] = new Point(X, Y + Height / 2); //Left
             Name = "Square" + counter;
             counter++;
-
         }
 
         public override Shape makeCopy() {
@@ -59,7 +55,7 @@ namespace UMLGen.Model
         public override void setColor()
         {
             IsSelected = false;
-            BaseColor = Brushes.ForestGreen;
+            BaseColor = Brushes.CornflowerBlue;
         }
 
 

@@ -9,7 +9,6 @@ using System.Windows;
 
 namespace UMLGen.Model
 {
-    [Serializable]
     public class Arrow : Shape
     {
 

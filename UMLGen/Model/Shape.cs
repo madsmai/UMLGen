@@ -49,7 +49,7 @@ namespace UMLGen.Model
 
         public bool IsSelected { get { return _isSelected; } set { _isSelected = value; NotifyPropertyChanged(); NotifyPropertyChanged("SelectedColor"); } }
 
-        public Brush SelectedColor { get { return IsSelected ? Brushes.Yellow : _baseColor; } }
+        public Brush SelectedColor { get { return IsSelected ? Brushes.PaleGreen : _baseColor; } }
         public ObservableCollection<int> ArrowStarts { get { return _arrowStarts; } set { _arrowStarts = value; NotifyPropertyChanged(); } }
         public ObservableCollection<int> ArrowEnds { get { return _arrowEnds; } set { _arrowEnds = value; NotifyPropertyChanged(); } }
         public Point[] connectionPoints { get { return _connectionPoints; } set { _connectionPoints = value;  NotifyPropertyChanged(); } }
@@ -60,7 +60,6 @@ namespace UMLGen.Model
 
         public int setId()
         {
-
             return counter;
         }
 
