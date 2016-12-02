@@ -87,10 +87,8 @@ namespace UMLGen.ViewModel
         public ICommand MouseMoveShapeCommand { get; }
         public ICommand MouseUpShapeCommand { get; }
 
-        public ICommand MouseDownArrowTopCommand { get; }
-        public ICommand MouseDownArrowRightCommand { get; }
-        public ICommand MouseDownArrowBotCommand { get; }
-        public ICommand MouseDownArrowLeftCommand { get; }
+
+        public ICommand MouseDownArrowCommand { get; }
 
         public Statusbar StatusBar { get; set; }
 
@@ -120,12 +118,7 @@ namespace UMLGen.ViewModel
             MouseMoveShapeCommand = new RelayCommand<MouseEventArgs>(MouseMoveShape);
             MouseUpShapeCommand = new RelayCommand<MouseButtonEventArgs>(MouseUpShape);
 
-            MouseDownArrowTopCommand = new RelayCommand<MouseButtonEventArgs>(MouseDownArrowTop);
-            MouseDownArrowRightCommand = new RelayCommand<MouseButtonEventArgs>(MouseDownArrowRight);
-            MouseDownArrowBotCommand = new RelayCommand<MouseButtonEventArgs>(MouseDownArrowBot);
-            MouseDownArrowLeftCommand = new RelayCommand<MouseButtonEventArgs>(MouseDownArrowLeft);
-
-            //MouseDownArrowLeftCommand = new RelayCommand<MouseButtonEventArgs>(MouseDownArrow);
+            MouseDownArrowCommand = new RelayCommand<MouseButtonEventArgs>(MouseDownArrow);
 
             //Sidebar commands
             IsTextAllowed = new RelayCommand<TextCompositionEventArgs>(textAllowed);
@@ -283,118 +276,39 @@ namespace UMLGen.ViewModel
 
         }
 
-        private void MouseDownArrowTop(MouseEventArgs e)
-        {
-            var shape = TargetShape(e);
-            shape.IsSelected = true;
-
-            if (first)
-            {
-                arrowSource = shape.connectionPoints[0];
-                shapeSource = shape;
-                first = false;
-                StatusBar.Status = "Select end point for arrow";
-            }
-            else
-            {
-                undoRedoController.ExecuteCommand(new ConnectShapesCommand(Shapes, arrowSource, shapeSource, shape.connectionPoints[0], shape));
-                first = true;
-                shape.IsSelected = false;
-                shapeSource.IsSelected = false;
-                StatusBar.Status = "Added arrow connecting a " + shapeSource.Name + " and a " + shape.Name;
-            }
-        }
-        private void MouseDownArrowRight(MouseEventArgs e)
-        {
-            var shape = TargetShape(e);
-            shape.IsSelected = true;
-
-            if (first)
-            {
-                arrowSource = shape.connectionPoints[1];
-                shapeSource = shape;
-                first = false;
-                StatusBar.Status = "Select end point for arrow";
-            }
-            else
-            {
-                undoRedoController.ExecuteCommand(new ConnectShapesCommand(Shapes, arrowSource, shapeSource, shape.connectionPoints[1], shape));
-                first = true;
-                shape.IsSelected = false;
-                shapeSource.IsSelected = false;
-                StatusBar.Status = "Added arrow connecting a " + shapeSource.Name + " and a " + shape.Name;
-            }
-        }
-        private void MouseDownArrowBot(MouseEventArgs e)
-        {
-            var shape = TargetShape(e);
-            shape.IsSelected = true;
-
-            if (first)
-            {
-                arrowSource = shape.connectionPoints[2];
-                shapeSource = shape;
-                first = false;
-                StatusBar.Status = "Select end point for arrow";
-            }
-            else
-            {
-                undoRedoController.ExecuteCommand(new ConnectShapesCommand(Shapes, arrowSource, shapeSource, shape.connectionPoints[2], shape));
-                first = true;
-                shape.IsSelected = false;
-                shapeSource.IsSelected = false;
-                StatusBar.Status = "Added arrow connecting a " + shapeSource.Name + " and a " + shape.Name;
-            }
-        }
-        private void MouseDownArrowLeft(MouseEventArgs e)
-        {
-            var shape = TargetShape(e);
-            shape.IsSelected = true;
-
-            if (first)
-            {
-                arrowSource = shape.connectionPoints[3];
-                shapeSource = shape;
-                first = false;
-                StatusBar.Status = "Select end point for arrow";
-            }
-            else
-            {
-                undoRedoController.ExecuteCommand(new ConnectShapesCommand(Shapes, arrowSource, shapeSource, shape.connectionPoints[3], shape));
-                first = true;
-                shape.IsSelected = false;
-                shapeSource.IsSelected = false;
-                StatusBar.Status = "Added arrow connecting a " + shapeSource.Name +" and a " + shape.Name;
-            }
-        }
-
         private void MouseDownArrow(MouseEventArgs e)
         {
             var shape = TargetShape(e);
+            double min = 10000;
+            Point bestfit = new Point(0, 0) ;
             foreach (Point p in shape.connectionPoints)
             {
-                if(RelativeMousePosition(e).Equals(p))
+                Double diffX = Math.Abs(RelativeMousePosition(e).X - p.X);
+                Double diffY = Math.Abs(RelativeMousePosition(e).Y - p.Y);
+                double Totaldifference = diffX + diffY;
+                if(Totaldifference < min)
                 {
-                    Console.Write("");
+                    min = Totaldifference;
+                    bestfit = p;
                 }
             }
             shape.IsSelected = true;
 
-            //if (first)
-            //{
-            //    arrowSource = shape.connectionPoints[ap.direction];
-            //    shapeSource = shape;
-            //    first = false;
-            //    StatusBar.Status = "Select end point for arrow";
-            //}
-            //else
-            //{
-            //    undoRedoController.ExecuteCommand(new ConnectShapesCommand(Shapes, arrowSource, shapeSource, shape.connectionPoints[ap.direction], shape));
-            //    first = true;
-            //    shape.IsSelected = false;
-            //    shapeSource.IsSelected = false;
-            //    StatusBar.Status = "Added arrow connecting a " + shapeSource.Name + " and a " + shape.Name;
-            //}
+            if (first)
+            {
+                arrowSource = bestfit;
+                shapeSource = shape;
+                first = false;
+                StatusBar.Status = "Select end point for arrow";
+            }
+            else
+            {
+                undoRedoController.ExecuteCommand(new ConnectShapesCommand(Shapes, arrowSource, shapeSource, bestfit, shape));
+                first = true;
+                shape.IsSelected = false;
+                shapeSource.IsSelected = false;
+                StatusBar.Status = "Added arrow connecting a " + shapeSource.Name + " and a " + shape.Name;
+            }
         }
 
         private void AddUML()
@@ -450,17 +364,10 @@ namespace UMLGen.ViewModel
         private void MouseUpShape(MouseButtonEventArgs e)
         {
             var shape = TargetShape(e);
-            Console.WriteLine(shape.Id);
 
             if (shape.ArrowStarts == null)
             {
-                Console.WriteLine("den er null");
-            }
-
-            foreach (int id in shape.ArrowStarts)
-            {
-                Console.WriteLine("test");
-                Console.WriteLine("Id : " + id);
+                StatusBar.Status = "The shape is null";
             }
 
             var mousePosition = RelativeMousePosition(e);
