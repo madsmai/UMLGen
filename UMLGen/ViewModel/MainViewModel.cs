@@ -77,9 +77,6 @@ namespace UMLGen.ViewModel
 
         //Commands for drag and drop
         public ICommand DdMouseMoveCommand { get; }
-        public ICommand DdDragEnterCommand { get; }
-        public ICommand DdDragExitCommand { get; }
-        public ICommand DdDragOverCommand { get; }
         public ICommand DdDropCommand { get; }
 
         // Commands the UI can be bound to
@@ -127,9 +124,6 @@ namespace UMLGen.ViewModel
 
             //Drag and drop commands
             DdMouseMoveCommand = new RelayCommand<MouseEventArgs>(DdMouseMove);
-            DdDragEnterCommand = new RelayCommand<DragEventArgs>(DdDragEnter);
-            DdDragExitCommand = new RelayCommand<DragEventArgs>(DdDragExit);
-            DdDragOverCommand = new RelayCommand<DragEventArgs>(DdDragOver);
             DdDropCommand = new RelayCommand<DragEventArgs>(DdDrop);
 
 
@@ -457,12 +451,26 @@ namespace UMLGen.ViewModel
 
         private void handleHeightChanged(TextChangedEventArgs e)
         {
-            selectedShape.Height = Convert.ToDouble(((TextBox)e.Source).Text);
+            try
+            {
+                selectedShape.Height = Convert.ToDouble(((TextBox)e.Source).Text);
+            } catch (Exception ex)
+            {
+                StatusBar.Status = "Exception " + ex;
+            }
+            
         }
 
         private void handleWidthChanged(TextChangedEventArgs e)
         {
-            selectedShape.Width = Convert.ToDouble(((TextBox)e.Source).Text);
+            try
+            {
+                selectedShape.Width = Convert.ToDouble(((TextBox)e.Source).Text);
+            } catch (Exception ex)
+            {
+                StatusBar.Status = "Exception " + ex;
+            }
+            
         }
 
         private void DdMouseMove(MouseEventArgs e)
@@ -476,34 +484,6 @@ namespace UMLGen.ViewModel
                 // Inititate the drag-and-drop operation.
                 DragDrop.DoDragDrop((DependencyObject)e.OriginalSource, data, DragDropEffects.Move);
             }
-        }
-
-        private void DdDragEnter(DragEventArgs e)
-        {
-
-            //The bad idea: create a shape
-            //The good idea: Create an adorner
-            //The idea that might work: Use the GiveFeedback event
-
-            Console.WriteLine("DDDragEnter");
-        }
-        private void DdDragExit(DragEventArgs e)
-        {
-
-            //The bad idea: Delete the upper shape
-            //The good idea: Create an adorner
-            //The idea that might work: Use the GiveFeedback event
-
-            Console.WriteLine("DDDragExit");
-        }
-        private void DdDragOver(DragEventArgs e)
-        {
-
-            //The bad idea: Drag the upper shpe around
-            //The good idea: Create an adorner
-            //The idea that might work: Use the GiveFeedback event
-
-            //Console.WriteLine("DDDragOver");
         }
 
         private void DdDrop(DragEventArgs e)
@@ -541,7 +521,7 @@ namespace UMLGen.ViewModel
             }
             else
             {
-                Console.WriteLine("Drop event triggered but string identifier is not recognized");
+                StatusBar.Status = "Drop event triggered but string identifier is not recognized";
             }
         }
 
