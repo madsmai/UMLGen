@@ -375,7 +375,7 @@ namespace UMLGen.ViewModel
             {
                 if(RelativeMousePosition(e).Equals(p))
                 {
-                    Console.Write("diller");
+                    Console.Write("");
                 }
             }
             shape.IsSelected = true;
@@ -615,7 +615,7 @@ namespace UMLGen.ViewModel
             if (shape.Equals("Square"))
             {
 
-                undoRedoController.ExecuteCommand(new AddShapeCommand(Shapes, new Square(p.X, p.Y, 75, 75)));
+                undoRedoController.ExecuteCommand(new AddShapeCommand(Shapes, new Square(p.X, p.Y, 100, 100)));
 
             }
             else if (shape.Equals("UMLClass"))

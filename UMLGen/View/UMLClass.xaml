@@ -20,7 +20,7 @@
 
         <Viewbox Grid.Row="1" MaxHeight="50" HorizontalAlignment="Left" VerticalAlignment="Top" >
             <Grid>
-                <TextBox x:Name="ClassName" TextWrapping="Wrap" Text="{Binding ClassName}" IsReadOnly="True"/>
+                <TextBox x:Name="ClassName" TextWrapping="Wrap" Text="{Binding ClassName}" IsReadOnly="False"/>
                 <Rectangle Fill="Aqua" Name="Top" HorizontalAlignment="Center" Height="5" Margin="0,0,0,0" Stroke="Black" VerticalAlignment="Top" Width="5">
                     <i:Interaction.Triggers>
                         <i:EventTrigger EventName="MouseDown">
@@ -32,11 +32,11 @@
         </Viewbox>
 
         <Viewbox Grid.Row="2" MaxHeight="200" HorizontalAlignment="Left" VerticalAlignment="Top" >
-            <TextBox x:Name="FieldsBox" TextWrapping="Wrap" Text="{Binding FieldNames}" IsReadOnly="True"/>
+            <TextBox x:Name="FieldsBox" TextWrapping="Wrap" Text="{Binding FieldNames}" IsReadOnly="False"/>
         </Viewbox>
 
         <Viewbox Grid.Row="3" MaxHeight="100" HorizontalAlignment="Left" VerticalAlignment="Top" >
-            <TextBox x:Name="MethodBox" TextWrapping="Wrap" Text="{Binding MethodNames}" IsReadOnly="True"/>
+            <TextBox x:Name="MethodBox" TextWrapping="Wrap" Text="{Binding MethodNames}" IsReadOnly="False"/>
        </Viewbox>
 
         <Border BorderBrush="Black" BorderThickness="2">

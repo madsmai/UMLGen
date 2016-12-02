@@ -15,7 +15,7 @@
 
         <ListView DockPanel.Dock="Left" x:Name="toolBar" Width="130" ToolBarTray.IsLocked="True" ToolBar.OverflowMode="Never" Margin="0,70,0,0">
 
-            <Image Source="/Images/Square.png" Name="Square" Height="75" Width="75" ToolTip="Drag this into the canvas to make a square">
+            <Image Source="/Images/Square.PNG" Name="Square" Height="75" Width="75" ToolTip="Drag this into the canvas to make a square">
                 <i:Interaction.Triggers>
                     <i:EventTrigger EventName="MouseMove">
                         <cmd:EventToCommand Command="{Binding DataContext.DdMouseMoveCommand, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type ListView}}}" PassEventArgsToCommand="True"/>
@@ -23,7 +23,7 @@
                 </i:Interaction.Triggers>
             </Image>
 
-            <Image Source="/Images/UMLClass.png" Name="UMLClass" Height="75" Width="75" ToolTip="Drag this into the canvas to make a UML Class">
+            <Image Source="/Images/UMLClass.PNG" Name="UMLClass" Height="75" Width="75" ToolTip="Drag this into the canvas to make a UML Class">
                 <i:Interaction.Triggers>
                     <i:EventTrigger EventName="MouseMove">
                         <cmd:EventToCommand Command="{Binding DataContext.DdMouseMoveCommand, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type ListView}}}" PassEventArgsToCommand="True"/>
@@ -31,7 +31,7 @@
                 </i:Interaction.Triggers>
             </Image>
             
-            <Image Source="/Images/Ellipse.png" Name="Ellipse" Height="75" Width="75" ToolTip="Drag this into the canvas to make a Circle">
+            <Image Source="/Images/Ellipse.PNG" Name="Ellipse" Height="75" Width="75" ToolTip="Drag this into the canvas to make a Circle">
                 <i:Interaction.Triggers>
                     <i:EventTrigger EventName="MouseMove">
                         <cmd:EventToCommand Command="{Binding DataContext.DdMouseMoveCommand, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type ListView}}}" PassEventArgsToCommand="True"/>
