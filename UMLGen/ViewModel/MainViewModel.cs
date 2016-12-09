@@ -14,6 +14,7 @@ using System.Runtime.Serialization.Formatters.Binary;
 using Microsoft.Win32;
 using System.Text.RegularExpressions;
 using System.Xml.Serialization;
+using System.Threading;
 
 namespace UMLGen.ViewModel
 {
