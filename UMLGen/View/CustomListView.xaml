@@ -10,10 +10,10 @@
 			 d:DesignHeight="100" d:DesignWidth="100">
 
     <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto">
-        <StackPanel Orientation="Vertical" DockPanel.Dock="Left" Width="130" Margin="0,70,0,0" ToolBarTray.IsLocked="True" ToolBar.OverflowMode="Never">
+        <StackPanel Orientation="Vertical" DockPanel.Dock="Left" Width="130" Margin="0,0,0,0" ToolBarTray.IsLocked="True" ToolBar.OverflowMode="Never">
 
 
-        <ListView DockPanel.Dock="Left" x:Name="toolBar" Width="130" ToolBarTray.IsLocked="True" ToolBar.OverflowMode="Never" Margin="0,70,0,0">
+        <ListView DockPanel.Dock="Left" x:Name="toolBar" Width="130" ToolBarTray.IsLocked="True" ToolBar.OverflowMode="Never" Margin="0,0,0,0">
 
             <Image Source="/Images/Square.PNG" Name="Square" Height="75" Width="75" ToolTip="Drag this into the canvas to make a square">
                 <i:Interaction.Triggers>

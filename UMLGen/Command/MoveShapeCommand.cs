@@ -37,27 +37,25 @@ namespace UMLGen.Command
                 shape.connectionPoints[i].X += diffX;
                 shape.connectionPoints[i].Y += diffY;
             }
-            repaintArrows(shape.ArrowStarts,true);
-            repaintArrows(shape.ArrowEnds,false);
+            repaintArrows(shape.ArrowStarts,true, diffX, diffY);
+            repaintArrows(shape.ArrowEnds,false, diffX, diffY);
         }
 
         public void UnExecute()
         {
-            diffX = diffX * -1;
-            diffY = diffY * -1;
-            shape.X += diffX;
-            shape.Y += diffY;
+            shape.X -= diffX;
+            shape.Y -= diffY;
             for (int i = 0; i < 4; i++)
             {
                 shape.connectionPoints[i].X -= diffX;
                 shape.connectionPoints[i].Y -= diffY;
             }
-            repaintArrows(shape.ArrowStarts,true);
-            repaintArrows(shape.ArrowEnds,false);
+            repaintArrows(shape.ArrowStarts,true, -diffX, -diffY);
+            repaintArrows(shape.ArrowEnds,false, -diffX, -diffY);
 
         }
 
-        private void repaintArrows(ObservableCollection<int> arrows, Boolean isStartArrow)
+        private void repaintArrows(ObservableCollection<int> arrows, Boolean isStartArrow, double X, double Y)
         {
             foreach (int id in arrows)
             {
@@ -66,7 +64,7 @@ namespace UMLGen.Command
                     if (id == s.Id)
                     {
                         Arrow a = (Arrow)s;
-                        a.repaint(diffX, diffY, isStartArrow);
+                        a.repaint(X, Y, isStartArrow);
                     }
                 }
             }
