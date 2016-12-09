@@ -139,6 +139,8 @@ namespace UMLGen.ViewModel
             pathName = "";
 
             StatusBar = new Statusbar("Welcome to UMLGen");
+
+            AddUML();
             
 
         }
