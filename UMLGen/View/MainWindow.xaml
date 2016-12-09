@@ -15,18 +15,8 @@
         Title="UMLGen"
         DataContext="{Binding Main, Source={StaticResource Locator}}">
 
-    <!-- 
-    <Window.Resources>
-        <ResourceDictionary>
-            <ResourceDictionary.MergedDictionaries>
-                <ResourceDictionary Source="/Skins/MainSkin.xaml" />
-            </ResourceDictionary.MergedDictionaries>
-        </ResourceDictionary>
-    </Window.Resources>
-    -->
     <DockPanel HorizontalAlignment="Left" LastChildFill="True" Width="Auto">
-        <View:CustomListView x:Name="SideBar"/>
-        <Menu DockPanel.Dock="Top" x:Name="menu" VerticalAlignment="Top" Margin="-130,0,0,0" Width="{Binding ElementName=Window, Path=ActualWidth}" Height="30" >
+        <Menu DockPanel.Dock="Top" x:Name="menu" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="0,0,0,0" Width="{Binding ElementName=Window, Path=ActualWidth}" Height="30" >
             <MenuItem Header="_File" Height="30" Width="70" Margin="10,0,0,0">
                 <MenuItem Header="_New" Command="{Binding NewDiagramCommand}" />
                 <MenuItem Header="_Open" Command="{Binding LoadDiagramCommand}"/>
@@ -42,7 +32,7 @@
                 <MenuItem Header="_Delete"  Command="{Binding RemoveShapeCommand}" />
             </MenuItem>
         </Menu>
-        <ToolBar DockPanel.Dock="Top" x:Name="toolBar1" Height="40" ToolBarTray.IsLocked="True" Margin="-135,0,0,0" ToolBar.OverflowMode="Never" Width="{Binding ElementName=Window, Path=ActualWidth}">
+        <ToolBar DockPanel.Dock="Top" x:Name="toolBar1" Height="40" HorizontalAlignment="Left" ToolBarTray.IsLocked="True" Margin="0,0,0,0" ToolBar.OverflowMode="Never" Width="{Binding ElementName=Window, Path=ActualWidth}">
             <Button x:Name="CopyBtn" Height="30" Command="{Binding CopyShapeCommand}" ToolTip="Copy selection to clipboard" VerticalAlignment="Center" Width="75">
                 <Image Source="/Images/Copy.png"  />
             </Button>
@@ -52,16 +42,9 @@
             <Button x:Name="PasteBtn" Height="30" Command="{Binding PasteShapeCommand}"  ToolTip="Pastes the element in the clipboard" VerticalAlignment="Center" Width="75">
                 <Image Source="/Images/Paste.png" />
             </Button>
-            <!--<Button x:Name="AddUML" Height="30" Command="{Binding AddUMLCommand}"  ToolTip="Adds a new UML element" VerticalAlignment="Center" Width="75">
-                <Image Source="/Images/Plus.png" />
-            </Button>
-            <Button x:Name="AddSquare" Height="30" Command="{Binding AddSquareCommand}"  ToolTip="Adds a new square" VerticalAlignment="Center" Width="75">
-                <Image Source="/Images/Plus.png" />
-            </Button>
-            <Button x:Name="AddCircle" Height="30" Command="{Binding AddElipseCommand}" ToolTip="Adds a new circle" VerticalAlignment="Center" Width="75">
-                <Image Source="/Images/Plus.png" />
-            </Button>-->
         </ToolBar>
+
+        <View:CustomListView x:Name="SideBar"/>
 
         <StatusBar DockPanel.Dock="Bottom" Height="20" VerticalAlignment="Top" HorizontalAlignment="Center" Width="{Binding ElementName=Window, Path=ActualWidth}">
             <StatusBar.ItemsPanel>
