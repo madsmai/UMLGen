@@ -138,9 +138,6 @@ namespace UMLGen.ViewModel
             pathName = "";
 
             StatusBar = new Statusbar("Welcome to UMLGen");
-
-            AddEllipse();
-            AddSquare();
             
 
         }
@@ -517,8 +514,8 @@ namespace UMLGen.ViewModel
 
             if (shape.Equals("Square"))
             {
-
-                undoRedoController.ExecuteCommand(new AddShapeCommand(Shapes, new Square(p.X, p.Y, 100, 100)));
+                
+                undoRedoController.ExecuteCommand(new AddShapeCommand(Shapes, new Square(p.X - 50, p.Y - 50, 100, 100)));
 
             }
             else if (shape.Equals("UMLClass"))
@@ -526,13 +523,12 @@ namespace UMLGen.ViewModel
 
                 string Methods = "exampleMethod \n toString \n";
                 string Fields = "String Name \n Int no \n";
-                undoRedoController.ExecuteCommand(new AddShapeCommand(Shapes, new UMLClass("ExampleClass", Fields, Methods, p.X, p.Y)));
+                undoRedoController.ExecuteCommand(new AddShapeCommand(Shapes, new UMLClass("ExampleClass", Fields, Methods, p.X-100, p.Y-125)));
 
             }
             else if (shape.Equals("Ellipse"))
             {
-
-                undoRedoController.ExecuteCommand(new AddShapeCommand(Shapes, new Ellipse(p.X, p.Y, 75, 75)));
+                undoRedoController.ExecuteCommand(new AddShapeCommand(Shapes, new Ellipse(p.X-50, p.Y-50, 100, 100)));
 
             }
             else

@@ -15,10 +15,10 @@ namespace UMLGen.Model
         private String _fieldNames;
         private String _methodNames;
 
-        public String ClassName { get { return _className; } set { _className = value; NotifyPropertyChanged(); } }
-        public String FieldNames { get { return _fieldNames; } set { _fieldNames = value; NotifyPropertyChanged(); } }
+        public String ClassName { get { return _className; } set { _className = value; NotifyPropertyChanged(); NotifyPropertyChanged("init"); } }
+        public String FieldNames { get { return _fieldNames; } set { _fieldNames = value; NotifyPropertyChanged(); NotifyPropertyChanged("init"); } }
 
-        public String MethodNames { get { return _methodNames; } set { _methodNames = value; NotifyPropertyChanged(); } }
+        public String MethodNames { get { return _methodNames; } set { _methodNames = value; NotifyPropertyChanged(); NotifyPropertyChanged("init"); } }
 
         public UMLClass()
         {
@@ -30,6 +30,7 @@ namespace UMLGen.Model
             Y = 150;
             Width = 200;
             Height = 250;
+            Name = ClassName;
             init();
         }
 
@@ -43,17 +44,18 @@ namespace UMLGen.Model
 			Y = y;
 			Width = 200;
 			Height = 250;
+            Name = ClassName;
             init();
 		}
 
-        public void init() {
+        public override void init() {
             ArrowStarts = new ObservableCollection<int>();
             ArrowEnds = new ObservableCollection<int>();
             connectionPoints[0] = new Point(X + Width / 2, Y); //Top
             connectionPoints[1] = new Point(X + Width, Y + Height / 2); //Right
             connectionPoints[2] = new Point(X + Width / 2, Y + Height); //Bot
             connectionPoints[3] = new Point(X, Y + Height / 2); //Left
-            Name = ClassName;
+            
         }
 		public override Shape makeCopy()
         {
