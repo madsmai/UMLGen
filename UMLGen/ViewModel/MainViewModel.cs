@@ -14,6 +14,7 @@ using System.Runtime.Serialization.Formatters.Binary;
 using Microsoft.Win32;
 using System.Text.RegularExpressions;
 using System.Xml.Serialization;
+using System.Threading;
 
 namespace UMLGen.ViewModel
 {
@@ -25,7 +26,7 @@ namespace UMLGen.ViewModel
     /// </summary>
     public class MainViewModel : ViewModelBase
     {
-        enum direction{Top,Right,Bot,Left}
+        enum direction { Top, Right, Bot, Left }
         public int shapeCounter;
 
         private UndoRedoController undoRedoController = UndoRedoController.Instance;
@@ -169,9 +170,14 @@ namespace UMLGen.ViewModel
             }
             else
             {
-                Serialize<ObservableCollection<Shape>>(Shapes, pathName);
+                var th = new Thread(Saving);
+                th.Start();
+            } 
+        }
 
-            }
+        public void Saving()
+        {
+            Serialize<ObservableCollection<Shape>>(Shapes, pathName);
             StatusBar.Status = "Saved to " + pathName;
         }
 
@@ -202,7 +208,6 @@ namespace UMLGen.ViewModel
 
         private void SaveAsCommand()
         {
-
             SaveFileDialog _SD = new SaveFileDialog();
             _SD.Filter = "Text File (*.xml)|*.xml|Show All Files (*.*)|*.*";
             _SD.FileName = "Untitled";
@@ -212,7 +217,6 @@ namespace UMLGen.ViewModel
                 pathName = _SD.FileName;
                 SaveCommand();
             }
-            StatusBar.Status = "Saved to " + pathName;
         }
 
         private void LoadCommand()
@@ -229,7 +233,7 @@ namespace UMLGen.ViewModel
                 {
                     Shapes.Clear();
                     DeSerialize<ObservableCollection<Shape>>(pathName);
-					StatusBar.Status = "Loaded a diagram from " + pathName;
+                    StatusBar.Status = "Loaded a diagram from " + pathName;
 
                 }
             }
@@ -272,19 +276,23 @@ namespace UMLGen.ViewModel
         {
             var shape = TargetShape(e);
             double min = 10000;
-            Point bestfit = new Point(0, 0) ;
+            Point bestfit = new Point(0, 0);
             foreach (Point p in shape.connectionPoints)
             {
                 Double diffX = Math.Abs(RelativeMousePosition(e).X - p.X);
                 Double diffY = Math.Abs(RelativeMousePosition(e).Y - p.Y);
                 double Totaldifference = diffX + diffY;
-                if(Totaldifference < min)
+                if (Totaldifference < min)
                 {
                     min = Totaldifference;
                     bestfit = p;
                 }
             }
-            shape.IsSelected = true;
+
+            if (selectedShape != null && selectedShape != shape) {
+                selectedShape.IsSelected = false;
+                shape.IsSelected = true;
+            }
 
             if (first)
             {
@@ -343,8 +351,16 @@ namespace UMLGen.ViewModel
 
         private void MouseMoveShape(MouseEventArgs e)
         {
+
             if (Mouse.Captured != null)
             {
+
+                if (!first)
+                {
+                    StatusBar.Status = "Canceled your arrow drawing";
+                    first = true;
+                }
+
                 var shape = TargetShape(e);
 
                 var mousePosition = RelativeMousePosition(e);
@@ -450,11 +466,12 @@ namespace UMLGen.ViewModel
             try
             {
                 selectedShape.Height = Convert.ToDouble(((TextBox)e.Source).Text);
-            } catch (Exception ex)
+            }
+            catch (Exception ex)
             {
                 StatusBar.Status = "Exception " + ex;
             }
-            
+
         }
 
         private void handleWidthChanged(TextChangedEventArgs e)
@@ -462,11 +479,12 @@ namespace UMLGen.ViewModel
             try
             {
                 selectedShape.Width = Convert.ToDouble(((TextBox)e.Source).Text);
-            } catch (Exception ex)
+            }
+            catch (Exception ex)
             {
                 StatusBar.Status = "Exception " + ex;
             }
-            
+
         }
 
         private void changeUML(TextChangedEventArgs e)
