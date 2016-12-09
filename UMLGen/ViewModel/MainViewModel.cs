@@ -257,8 +257,11 @@ namespace UMLGen.ViewModel
 
         private void PasteShape()
         {
-            undoRedoController.ExecuteCommand(new AddShapeCommand(Shapes, clipboard.makeCopy()));
-        }
+			if(clipboard != null)
+			{
+				undoRedoController.ExecuteCommand(new AddShapeCommand(Shapes, clipboard.makeCopy()));
+			}
+		}
 
         private void DeselectShape()
         {
@@ -290,10 +293,10 @@ namespace UMLGen.ViewModel
                 }
             }
 
-            if (selectedShape != null && selectedShape != shape) {
-                selectedShape.IsSelected = false;
-                shape.IsSelected = true;
-            }
+            //if (selectedShape != null && selectedShape != shape) {
+            //    selectedShape.IsSelected = false;
+            //    shape.IsSelected = true;
+            //}
 
             if (first)
             {
@@ -339,7 +342,6 @@ namespace UMLGen.ViewModel
 
         private void MouseDownShape(MouseButtonEventArgs e)
         {
-
             var shape = TargetShape(e);
             var mousePosition = RelativeMousePosition(e);
 
@@ -354,13 +356,6 @@ namespace UMLGen.ViewModel
         {
             if (Mouse.Captured != null)
             {
-
-                if (!first)
-                {
-                    StatusBar.Status = "Canceled your arrow drawing";
-                    first = true;
-                }
-
                 var shape = TargetShape(e);
 				double oldX = shape.X;
 				double oldY = shape.Y;
@@ -428,9 +423,9 @@ namespace UMLGen.ViewModel
             if (!shape.GetType().ToString().Equals("UMLGen.Model.Arrow")) // Not an arrow
             {
 
-                shape.X = initialShapePosition.X;
+                shape.X = initialShapePosition.X; //Reset to prepare for move
                 shape.Y = initialShapePosition.Y;
-				updateArrow(shape, (initialMousePosition.X - mousePosition.X), (initialMousePosition.Y - mousePosition.Y));
+				updateArrow(shape, (initialMousePosition.X - mousePosition.X), (initialMousePosition.Y - mousePosition.Y)); //Move back
 
                 undoRedoController.ExecuteCommand(new MoveShapeCommand(Shapes, shape, mousePosition.X - initialMousePosition.X, mousePosition.Y - initialMousePosition.Y));
 
@@ -541,6 +536,11 @@ namespace UMLGen.ViewModel
         private void handleWidthChanged(TextChangedEventArgs e)
         {
 			selectedShape.Width = Convert.ToDouble(((TextBox)e.Source).Text);
+			//selectedShape.connectionPoints[0].X += selectedShape.Width / 2;
+			//selectedShape.connectionPoints[1].X = selectedShape.Width / 2;
+			//selectedShape.connectionPoints[2].X = selectedShape.Width / 2;
+			//updateArrow(selectedShape, 0, 0);
+
 			//try
 			//{
 
@@ -603,8 +603,8 @@ namespace UMLGen.ViewModel
             else if (shape.Equals("UMLClass"))
             {
 
-                string Methods = "exampleMethod \n toString \n";
-                string Fields = "String Name \n Int no \n";
+                string Methods = "exampleMethod \ntoString \n";
+                string Fields = "String Name \nInt no \n";
                 undoRedoController.ExecuteCommand(new AddShapeCommand(Shapes, new UMLClass("ExampleClass", Fields, Methods, p.X-100, p.Y-125)));
 
             }

@@ -99,7 +99,7 @@
                 </i:Interaction.Triggers>
             </TextBox>
             <TextBlock Text="Field name:"/>
-                <TextBox AcceptsReturn="True" Text="String Name &#x0a; Int no" Name="FieldUML">
+                <TextBox AcceptsReturn="True" Text="String Name &#x0a;Int no" Name="FieldUML">
                 <i:Interaction.Triggers>
                     <i:EventTrigger EventName="TextChanged">
                         <cmd:EventToCommand Command="{Binding DataContext.OnUMLChanged, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type ListView}}}" PassEventArgsToCommand="True"/>
@@ -107,7 +107,7 @@
                 </i:Interaction.Triggers>
             </TextBox>
             <TextBlock Text="Method name:"/>
-                <TextBox AcceptsReturn="True" Text="exampleMethod &#x0a; toString" Name="MethodUML">
+                <TextBox AcceptsReturn="True" Text="exampleMethod &#x0a;toString" Name="MethodUML">
                 <i:Interaction.Triggers>
                     <i:EventTrigger EventName="TextChanged">
                         <cmd:EventToCommand Command="{Binding DataContext.OnUMLChanged, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type ListView}}}" PassEventArgsToCommand="True"/>
