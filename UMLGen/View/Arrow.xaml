@@ -12,13 +12,11 @@
 
     <Path x:Name="arrow"
         Data="{Binding Data}">
-            <Path.Fill >
+        <Path.Fill >
             <SolidColorBrush Color="{Binding SelectedColor.Color, UpdateSourceTrigger=PropertyChanged}" />
-            </Path.Fill>
-        </Path>
-
-
-
+        </Path.Fill>
+    </Path>
+    
     <i:Interaction.Triggers>
         <i:EventTrigger EventName="MouseUp">
             <cmd:EventToCommand Command="{Binding DataContext.MouseUpShapeCommand, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}" PassEventArgsToCommand="True"/>

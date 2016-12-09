@@ -74,6 +74,7 @@ namespace UMLGen.ViewModel
         public ICommand IsTextAllowed { get; }
         public ICommand OnHeightChanged { get; }
         public ICommand OnWidthChanged { get; }
+        public ICommand OnUMLChanged { get; }
 
         //Commands for drag and drop
         public ICommand DdMouseMoveCommand { get; }
@@ -121,6 +122,7 @@ namespace UMLGen.ViewModel
             IsTextAllowed = new RelayCommand<TextCompositionEventArgs>(textAllowed);
             OnHeightChanged = new RelayCommand<TextChangedEventArgs>(handleHeightChanged);
             OnWidthChanged = new RelayCommand<TextChangedEventArgs>(handleWidthChanged);
+            OnUMLChanged = new RelayCommand<TextChangedEventArgs>(changeUML);
 
             //Drag and drop commands
             DdMouseMoveCommand = new RelayCommand<MouseEventArgs>(DdMouseMove);
@@ -142,7 +144,6 @@ namespace UMLGen.ViewModel
             
 
         }
-
 
         private bool DialogBoxNewDiagram()
         {
@@ -298,6 +299,7 @@ namespace UMLGen.ViewModel
             else
             {
                 undoRedoController.ExecuteCommand(new ConnectShapesCommand(Shapes, arrowSource, shapeSource, bestfit, shape));
+
                 first = true;
                 shape.IsSelected = false;
                 shapeSource.IsSelected = false;
@@ -377,9 +379,10 @@ namespace UMLGen.ViewModel
 
             SelectedShapes.Add(shape);
 
+            changeVisibilityOfMenu(shape);
+
             if (!shape.GetType().ToString().Equals("UMLGen.Model.Arrow")) // Not an arrow
             {
-                changeVisibilityOfMenu(shape);
 
                 shape.X = initialShapePosition.X;
                 shape.Y = initialShapePosition.Y;
@@ -397,18 +400,9 @@ namespace UMLGen.ViewModel
 
             if (customListView == null) { return; }
 
-            if (shape.GetType().ToString().Equals("UMLGen.Model.Square"))
-            {
-                customListView.SquareMenu.Visibility = Visibility.Collapsed;
-            }
-            if (shape.GetType().ToString().Equals("UMLGen.Model.UMLClass"))
-            {
-                customListView.UMLMenu.Visibility = Visibility.Collapsed;
-            }
-            if (shape.GetType().ToString().Equals("UMLGen.Model.Ellipse"))
-            {
-                customListView.EllipseMenu.Visibility = Visibility.Collapsed;
-            }
+            customListView.EllipseMenu.Visibility = Visibility.Collapsed;
+            customListView.UMLMenu.Visibility = Visibility.Collapsed;
+            customListView.SquareMenu.Visibility = Visibility.Collapsed;
 
             return;
         }
@@ -426,17 +420,22 @@ namespace UMLGen.ViewModel
                 customListView.UMLMenu.Visibility = Visibility.Collapsed;
                 customListView.EllipseMenu.Visibility = Visibility.Collapsed;
             }
-            if (shape.GetType().ToString().Equals("UMLGen.Model.UMLClass"))
+            else if (shape.GetType().ToString().Equals("UMLGen.Model.UMLClass"))
             {
                 customListView.SquareMenu.Visibility = Visibility.Collapsed;
                 customListView.UMLMenu.Visibility = Visibility.Visible;
                 customListView.EllipseMenu.Visibility = Visibility.Collapsed;
             }
-            if (shape.GetType().ToString().Equals("UMLGen.Model.Ellipse"))
+            else if (shape.GetType().ToString().Equals("UMLGen.Model.Ellipse"))
             {
                 customListView.SquareMenu.Visibility = Visibility.Collapsed;
                 customListView.UMLMenu.Visibility = Visibility.Collapsed;
                 customListView.EllipseMenu.Visibility = Visibility.Visible;
+            } else
+            {
+                customListView.SquareMenu.Visibility = Visibility.Collapsed;
+                customListView.UMLMenu.Visibility = Visibility.Collapsed;
+                customListView.EllipseMenu.Visibility = Visibility.Collapsed;
             }
 
             return;
@@ -471,6 +470,23 @@ namespace UMLGen.ViewModel
                 StatusBar.Status = "Exception " + ex;
             }
             
+        }
+
+        private void changeUML(TextChangedEventArgs e)
+        {
+            UMLClass uml = selectedShape as UMLClass;
+            TextBox t = (TextBox)e.Source;
+
+            if (t.Name == "ClassUML")
+            {
+                uml.ClassName = t.Text;
+            } else if(t.Name == "FieldUML")
+            {
+                uml.FieldNames = t.Text;
+            } else if (t.Name == "MethodUML")
+            {
+                uml.MethodNames = t.Text;
+            }
         }
 
         private void DdMouseMove(MouseEventArgs e)
