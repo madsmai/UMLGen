@@ -40,8 +40,8 @@ namespace UMLGen.Model
 
 
         public int Id { get { return _id; } set { _id = value; counter++; } }
-        public double X { get { return _x; } set { _x = value; NotifyPropertyChanged(); } }
-        public double Y { get { return _y; } set { _y = value; NotifyPropertyChanged(); } }
+        public double X { get { return _x; } set { _x = value; NotifyPropertyChanged(); NotifyPropertyChanged("init"); } }
+        public double Y { get { return _y; } set { _y = value; NotifyPropertyChanged(); NotifyPropertyChanged("init"); } }
         public double Width { get { return _width; } set { _width = value; NotifyPropertyChanged(); } }
         public double Height { get { return _height; } set { _height = value; NotifyPropertyChanged(); } }
         [XmlIgnore]
@@ -56,6 +56,8 @@ namespace UMLGen.Model
 
 
         public String Name { get { return _name; } set { _name = value;  NotifyPropertyChanged(); } }
+
+        public abstract void init();
 
 
         public int setId()

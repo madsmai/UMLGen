@@ -21,6 +21,8 @@ namespace UMLGen.Model
             Y = 200;
             Width = baseValue;
             Height = baseValue;
+            Name = "Ellipse" + counter;
+            counter++;
             init();
         }
 
@@ -35,11 +37,13 @@ namespace UMLGen.Model
             Height = height;
             Width = baseValue;
             Height = baseValue;
+            Name = "Ellipse" + counter;
+            counter++;
             init();
 
         }
 
-        public void init()
+        public override void init()
         {
             ArrowStarts = new ObservableCollection<int>();
             ArrowEnds = new ObservableCollection<int>();
@@ -48,8 +52,7 @@ namespace UMLGen.Model
             connectionPoints[2] = new Point(X + Width / 2, Y + Height); //Bot
             connectionPoints[3] = new Point(X, Y + Height / 2); //Left
             BaseColor = Brushes.OrangeRed;
-            Name = "Ellipse" + counter;
-            counter++;
+
         }
 
 

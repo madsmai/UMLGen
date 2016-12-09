@@ -21,6 +21,8 @@ namespace UMLGen.Model
             Y = 0;
             Width = baseValue;
             Height = baseValue;
+            Name = "Square" + counter;
+            counter++;
             init();
         }
 
@@ -31,12 +33,14 @@ namespace UMLGen.Model
             Y = y;
             Width = width;
             Height = height;
+            Name = "Square" + counter;
+            counter++;
             init();
 
 
         }
 
-        public void init() {
+        public override void init() {
             BaseColor = Brushes.CornflowerBlue;
             ArrowStarts = new ObservableCollection<int>();
             ArrowEnds = new ObservableCollection<int>();
@@ -44,8 +48,7 @@ namespace UMLGen.Model
             connectionPoints[1] = new Point(X + Width, Y + Height / 2); //Right
             connectionPoints[2] = new Point(X + Width / 2, Y + Height); //Bot
             connectionPoints[3] = new Point(X, Y + Height / 2); //Left
-            Name = "Square" + counter;
-            counter++;
+
         }
 
         public override Shape makeCopy() {

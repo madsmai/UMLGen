@@ -26,11 +26,8 @@ namespace UMLGen.Model
         {
             Id = 0;
             Source = new Point(0,0);
-            Destination = new Point(100,100);
-
-            ArrowStarts = new ObservableCollection<int>();
-            ArrowEnds = new ObservableCollection<int>();
-            BaseColor = Brushes.Red;
+            Destination = new Point(100, 100);
+            init();
 
             Data = DrawArrow(Source.X, Source.Y, Destination.X, Destination.Y);
         }
@@ -41,11 +38,7 @@ namespace UMLGen.Model
             Id = setId();
             Source = source;
             Destination = destination;
-
-            ArrowStarts = new ObservableCollection<int>();
-            ArrowEnds = new ObservableCollection<int>();
-            BaseColor = Brushes.Red;
-
+            init();
             Data = DrawArrow(source.X, source.Y, Destination.X, Destination.Y);
         }
         public void repaint(Double diffX, double diffY, Boolean IsstartArrow)
@@ -66,6 +59,12 @@ namespace UMLGen.Model
                 Data = DrawArrow(Source.X, Source.Y, Destination.X, Destination.Y);
             }
             
+        }
+        public override void init()
+        {
+            ArrowStarts = new ObservableCollection<int>();
+            ArrowEnds = new ObservableCollection<int>();
+            BaseColor = Brushes.Black;
         }
 
 
@@ -129,7 +128,7 @@ namespace UMLGen.Model
         public override void setColor()
         {
             IsSelected = false;
-            BaseColor = Brushes.Red;
+            BaseColor = Brushes.Black;
         }
     }
 }
