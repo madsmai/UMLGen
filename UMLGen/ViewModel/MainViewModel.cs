@@ -481,12 +481,16 @@ namespace UMLGen.ViewModel
                 TextBox classNameTB = customListView.FindName("ClassUML") as TextBox;
                 TextBox fieldNameTB = customListView.FindName("FieldUML") as TextBox;
                 TextBox methodNameTB = customListView.FindName("MethodUML") as TextBox;
+				TextBox umlHeightTB = customListView.FindName("HeightUML") as TextBox;
+				TextBox umlWidthTB = customListView.FindName("WidthUML") as TextBox;
 
-                classNameTB.Text = uml.ClassName;
+				classNameTB.Text = uml.ClassName;
                 fieldNameTB.Text = uml.FieldNames;
                 methodNameTB.Text = uml.MethodNames;
+				umlHeightTB.Text = Convert.ToString(uml.Height);
+				umlWidthTB.Text = Convert.ToString(uml.Width);
 
-                customListView.SquareMenu.Visibility = Visibility.Collapsed;
+				customListView.SquareMenu.Visibility = Visibility.Collapsed;
                 customListView.UMLMenu.Visibility = Visibility.Visible;
                 customListView.EllipseMenu.Visibility = Visibility.Collapsed;
             }
@@ -522,27 +526,30 @@ namespace UMLGen.ViewModel
 
         private void handleHeightChanged(TextChangedEventArgs e)
         {
-            try
-            {
-                selectedShape.Height = Convert.ToDouble(((TextBox)e.Source).Text);
-            } catch (Exception ex)
-            {
-                StatusBar.Status = "Exception " + ex;
-            }
 
-        }
+			selectedShape.Height = Convert.ToDouble(((TextBox)e.Source).Text);
+			//try
+			//{
+			
+			//} catch (Exception ex)
+			//{
+			//    StatusBar.Status = "Exception " + ex;
+			//}
+
+		}
 
         private void handleWidthChanged(TextChangedEventArgs e)
         {
-            try
-            {
-                selectedShape.Width = Convert.ToDouble(((TextBox)e.Source).Text);
-            } catch (Exception ex)
-            {
-                StatusBar.Status = "Exception " + ex;
-            }
+			selectedShape.Width = Convert.ToDouble(((TextBox)e.Source).Text);
+			//try
+			//{
 
-        }
+			//} catch (Exception ex)
+			//{
+			//	StatusBar.Status = "Exception " + ex;
+			//}
+
+		}
 
         private void changeUML(TextChangedEventArgs e)
         {
@@ -590,7 +597,7 @@ namespace UMLGen.ViewModel
             if (shape.Equals("Square"))
             {
                 
-                undoRedoController.ExecuteCommand(new AddShapeCommand(Shapes, new Square(p.X, p.Y, 100, 100)));
+                undoRedoController.ExecuteCommand(new AddShapeCommand(Shapes, new Square(p.X-50, p.Y-50, 100, 100)));
 
             }
             else if (shape.Equals("UMLClass"))
@@ -598,13 +605,13 @@ namespace UMLGen.ViewModel
 
                 string Methods = "exampleMethod \n toString \n";
                 string Fields = "String Name \n Int no \n";
-                undoRedoController.ExecuteCommand(new AddShapeCommand(Shapes, new UMLClass("ExampleClass", Fields, Methods, p.X, p.Y)));
+                undoRedoController.ExecuteCommand(new AddShapeCommand(Shapes, new UMLClass("ExampleClass", Fields, Methods, p.X-100, p.Y-125)));
 
             }
             else if (shape.Equals("Ellipse"))
             {
 
-                undoRedoController.ExecuteCommand(new AddShapeCommand(Shapes, new Ellipse(p.X, p.Y, 75, 75)));
+                undoRedoController.ExecuteCommand(new AddShapeCommand(Shapes, new Ellipse(p.X-50, p.Y-50, 100, 100)));
 
             }
             else
