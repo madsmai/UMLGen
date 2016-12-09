@@ -139,10 +139,6 @@ namespace UMLGen.ViewModel
 
             StatusBar = new Statusbar("Welcome to UMLGen");
 
-            AddEllipse();
-            AddSquare();
-            
-
         }
 
         private bool DialogBoxNewDiagram()
@@ -172,9 +168,14 @@ namespace UMLGen.ViewModel
             }
             else
             {
-                Serialize<ObservableCollection<Shape>>(Shapes, pathName);
+                var th = new Thread(Saving);
+                th.Start();
+            } 
+        }
 
-            }
+        public void Saving()
+        {
+            Serialize<ObservableCollection<Shape>>(Shapes, pathName);
             StatusBar.Status = "Saved to " + pathName;
         }
 
@@ -232,7 +233,7 @@ namespace UMLGen.ViewModel
                 {
                     Shapes.Clear();
                     DeSerialize<ObservableCollection<Shape>>(pathName);
-					StatusBar.Status = "Loaded a diagram from " + pathName;
+                    StatusBar.Status = "Loaded a diagram from " + pathName;
 
                 }
             }
@@ -287,7 +288,11 @@ namespace UMLGen.ViewModel
                     bestfit = p;
                 }
             }
-            shape.IsSelected = true;
+
+            if (selectedShape != null && selectedShape != shape) {
+                selectedShape.IsSelected = false;
+                shape.IsSelected = true;
+            }
 
             if (first)
             {
@@ -298,7 +303,7 @@ namespace UMLGen.ViewModel
             }
             else
             {
-				undoRedoController.ExecuteCommand(new ConnectShapesCommand(Shapes, arrowSource, shapeSource, bestfit, shape));
+                undoRedoController.ExecuteCommand(new ConnectShapesCommand(Shapes, arrowSource, shapeSource, bestfit, shape));
 
                 first = true;
                 shape.IsSelected = false;
@@ -343,10 +348,18 @@ namespace UMLGen.ViewModel
             e.MouseDevice.Target.CaptureMouse();
         }
 
+
         private void MouseMoveShape(MouseEventArgs e)
         {
             if (Mouse.Captured != null)
             {
+
+                if (!first)
+                {
+                    StatusBar.Status = "Canceled your arrow drawing";
+                    first = true;
+                }
+
                 var shape = TargetShape(e);
 				double oldX = shape.X;
 				double oldY = shape.Y;
@@ -372,8 +385,8 @@ namespace UMLGen.ViewModel
 					{
 						((Arrow)s).repaint(newX, newY, true);
 					}
-				}
-			}
+            }
+        }
 
 			foreach (int i in shape.ArrowEnds)
 			{
@@ -418,7 +431,7 @@ namespace UMLGen.ViewModel
                 shape.Y = initialShapePosition.Y;
 				updateArrow(shape, (initialMousePosition.X - mousePosition.X), (initialMousePosition.Y - mousePosition.Y));
 
-				undoRedoController.ExecuteCommand(new MoveShapeCommand(Shapes, shape, mousePosition.X - initialMousePosition.X, mousePosition.Y - initialMousePosition.Y));
+                undoRedoController.ExecuteCommand(new MoveShapeCommand(Shapes, shape, mousePosition.X - initialMousePosition.X, mousePosition.Y - initialMousePosition.Y));
 
                 e.MouseDevice.Target.ReleaseMouseCapture();
             }
@@ -515,7 +528,7 @@ namespace UMLGen.ViewModel
             {
                 StatusBar.Status = "Exception " + ex;
             }
-            
+
         }
 
         private void handleWidthChanged(TextChangedEventArgs e)
@@ -527,7 +540,7 @@ namespace UMLGen.ViewModel
             {
                 StatusBar.Status = "Exception " + ex;
             }
-            
+
         }
 
         private void changeUML(TextChangedEventArgs e)
@@ -575,7 +588,7 @@ namespace UMLGen.ViewModel
 
             if (shape.Equals("Square"))
             {
-
+                
                 undoRedoController.ExecuteCommand(new AddShapeCommand(Shapes, new Square(p.X, p.Y, 100, 100)));
 
             }
