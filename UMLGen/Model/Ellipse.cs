@@ -52,9 +52,6 @@ namespace UMLGen.Model
             counter++;
         }
 
-
-
-
         public override Shape makeCopy()
         {
             return new Ellipse(X, Y, Width, Height);

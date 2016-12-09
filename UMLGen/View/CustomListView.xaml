@@ -97,7 +97,7 @@
         <ListView Visibility="Collapsed" Name="EllipseMenu">
             <TextBlock Text="Ellipse selected"/>
             <TextBlock Text="Height:"/>
-            <TextBox AcceptsReturn="False" Text="100" Name="SquareHeightEllipse">
+            <TextBox AcceptsReturn="False" Text="100" Name="HeightEllipse">
                 <i:Interaction.Triggers>
                     <i:EventTrigger EventName="TextChanged">
                         <cmd:EventToCommand Command="{Binding DataContext.OnHeightChanged, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type ListView}}}" PassEventArgsToCommand="True"/>
@@ -105,7 +105,7 @@
                 </i:Interaction.Triggers>
             </TextBox>
             <TextBlock Text="Width:"/>
-            <TextBox AcceptsReturn="False" Text="100" Name="SquareWidthEllipse">
+            <TextBox AcceptsReturn="False" Text="100" Name="WidthEllipse">
                 <i:Interaction.Triggers>
                     <i:EventTrigger EventName="PreviewTextInput">
                         <cmd:EventToCommand Command="{Binding DataContext.IsTextAllowed, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type ListView}}}" PassEventArgsToCommand="True"/>

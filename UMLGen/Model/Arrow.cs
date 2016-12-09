@@ -48,7 +48,7 @@ namespace UMLGen.Model
 
             Data = DrawArrow(source.X, source.Y, Destination.X, Destination.Y);
         }
-        public void repaint(Double diffX, double diffY, Boolean IsstartArrow)
+        public void repaint(double diffX, double diffY, bool IsstartArrow)
         {
             if(IsstartArrow)
             {
@@ -68,8 +68,7 @@ namespace UMLGen.Model
             
         }
 
-
-        public override Shape makeCopy()
+		public override Shape makeCopy()
         {
             return new Arrow(Source, Destination);
         }

@@ -278,8 +278,8 @@ namespace UMLGen.ViewModel
             Point bestfit = new Point(0, 0) ;
             foreach (Point p in shape.connectionPoints)
             {
-                Double diffX = Math.Abs(RelativeMousePosition(e).X - p.X);
-                Double diffY = Math.Abs(RelativeMousePosition(e).Y - p.Y);
+                double diffX = Math.Abs(RelativeMousePosition(e).X - p.X);
+                double diffY = Math.Abs(RelativeMousePosition(e).Y - p.Y);
                 double Totaldifference = diffX + diffY;
                 if(Totaldifference < min)
                 {
@@ -298,7 +298,7 @@ namespace UMLGen.ViewModel
             }
             else
             {
-                undoRedoController.ExecuteCommand(new ConnectShapesCommand(Shapes, arrowSource, shapeSource, bestfit, shape));
+				undoRedoController.ExecuteCommand(new ConnectShapesCommand(Shapes, arrowSource, shapeSource, bestfit, shape));
 
                 first = true;
                 shape.IsSelected = false;
@@ -343,19 +343,49 @@ namespace UMLGen.ViewModel
             e.MouseDevice.Target.CaptureMouse();
         }
 
-
         private void MouseMoveShape(MouseEventArgs e)
         {
             if (Mouse.Captured != null)
             {
                 var shape = TargetShape(e);
+				double oldX = shape.X;
+				double oldY = shape.Y;
 
                 var mousePosition = RelativeMousePosition(e);
 
                 shape.X = initialShapePosition.X + (mousePosition.X - initialMousePosition.X);
                 shape.Y = initialShapePosition.Y + (mousePosition.Y - initialMousePosition.Y);
-            }
+				double newX = shape.X;
+				double newY = shape.Y;
+
+				updateArrow(shape, newX - oldX, newY - oldY);
+			}
         }
+
+        private void updateArrow(Shape shape, double newX, double newY)
+        {
+			
+			foreach (int i in shape.ArrowStarts){
+				foreach (Shape s in Shapes)
+				{
+					if (i == s.Id)
+					{
+						((Arrow)s).repaint(newX, newY, true);
+					}
+				}
+			}
+
+			foreach (int i in shape.ArrowEnds)
+			{
+				foreach (Shape s in Shapes)
+				{
+					if (i == s.Id)
+					{
+						((Arrow)s).repaint(newX, newY, false);
+					}
+				}
+			}
+		}
 
         private void MouseUpShape(MouseButtonEventArgs e)
         {
@@ -379,15 +409,16 @@ namespace UMLGen.ViewModel
 
             SelectedShapes.Add(shape);
 
-            changeVisibilityOfMenu(shape);
+            changeVisibilityOfMenu(shape, e);
 
             if (!shape.GetType().ToString().Equals("UMLGen.Model.Arrow")) // Not an arrow
             {
 
                 shape.X = initialShapePosition.X;
                 shape.Y = initialShapePosition.Y;
+				updateArrow(shape, (initialMousePosition.X - mousePosition.X), (initialMousePosition.Y - mousePosition.Y));
 
-                undoRedoController.ExecuteCommand(new MoveShapeCommand(Shapes, shape, mousePosition.X - initialMousePosition.X, mousePosition.Y - initialMousePosition.Y));
+				undoRedoController.ExecuteCommand(new MoveShapeCommand(Shapes, shape, mousePosition.X - initialMousePosition.X, mousePosition.Y - initialMousePosition.Y));
 
                 e.MouseDevice.Target.ReleaseMouseCapture();
             }
@@ -407,7 +438,7 @@ namespace UMLGen.ViewModel
             return;
         }
 
-        private void changeVisibilityOfMenu(Shape shape)
+        private void changeVisibilityOfMenu(Shape shape, MouseButtonEventArgs e)
         {
 
             View.CustomListView customListView = Application.Current.MainWindow.FindName("SideBar") as View.CustomListView;
@@ -416,18 +447,45 @@ namespace UMLGen.ViewModel
 
             if (shape.GetType().ToString().Equals("UMLGen.Model.Square"))
             {
+                Square sq = selectedShape as Square;
+
+                TextBox sqHeightTB = customListView.FindName("SquareHeightBox") as TextBox;
+                TextBox sqWidthTB = customListView.FindName("SquareWidthBox") as TextBox;
+
+                sqHeightTB.Text = Convert.ToString(sq.Height);
+                sqWidthTB.Text = Convert.ToString(sq.Width);
+
                 customListView.SquareMenu.Visibility = Visibility.Visible;
                 customListView.UMLMenu.Visibility = Visibility.Collapsed;
                 customListView.EllipseMenu.Visibility = Visibility.Collapsed;
+
             }
             else if (shape.GetType().ToString().Equals("UMLGen.Model.UMLClass"))
             {
+                UMLClass uml = selectedShape as UMLClass;
+
+                TextBox classNameTB = customListView.FindName("ClassUML") as TextBox;
+                TextBox fieldNameTB = customListView.FindName("FieldUML") as TextBox;
+                TextBox methodNameTB = customListView.FindName("MethodUML") as TextBox;
+
+                classNameTB.Text = uml.ClassName;
+                fieldNameTB.Text = uml.FieldNames;
+                methodNameTB.Text = uml.MethodNames;
+
                 customListView.SquareMenu.Visibility = Visibility.Collapsed;
                 customListView.UMLMenu.Visibility = Visibility.Visible;
                 customListView.EllipseMenu.Visibility = Visibility.Collapsed;
             }
             else if (shape.GetType().ToString().Equals("UMLGen.Model.Ellipse"))
             {
+                Ellipse el = selectedShape as Ellipse;
+
+                TextBox elHeightTB = customListView.FindName("HeightEllipse") as TextBox;
+                TextBox elWidthTB = customListView.FindName("WidthEllipse") as TextBox;
+
+                elHeightTB.Text = Convert.ToString(el.Height);
+                elWidthTB.Text = Convert.ToString(el.Width);
+
                 customListView.SquareMenu.Visibility = Visibility.Collapsed;
                 customListView.UMLMenu.Visibility = Visibility.Collapsed;
                 customListView.EllipseMenu.Visibility = Visibility.Visible;
