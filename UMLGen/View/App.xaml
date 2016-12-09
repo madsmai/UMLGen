@@ -6,10 +6,10 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
 			 xmlns:ignore="http://www.galasoft.ch/ignore"
              xmlns:View="clr-namespace:UMLGen.View"
-             xmlns:Model="clr-namespace:UMLGen.Model"
+             xmlns:Model="clr-namespace:UMLGen.Model;assembly=ModelDLL"
              StartupUri="MainWindow.xaml"
              mc:Ignorable="d ignore">
-    
+
     <Application.Resources>
         <!--Global View Model Locator-->
         <vm:ViewModelLocator x:Key="Locator"
@@ -31,5 +31,5 @@
             <View:Arrow/>
         </DataTemplate>
     </Application.Resources>
-    
+
 </Application>
