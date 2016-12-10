@@ -5,14 +5,14 @@ using System.Windows.Media;
 
 namespace UMLGen.Model
 {
-    
+
     [Serializable]
     public class Ellipse : Shape
     {
 
         private double baseValue = 100;
         private int counter = 0;
-        
+
         public Ellipse()
         {
             Id = 0;
@@ -45,13 +45,18 @@ namespace UMLGen.Model
         {
             ArrowStarts = new ObservableCollection<int>();
             ArrowEnds = new ObservableCollection<int>();
-            connectionPoints[0] = new Point(X + Width / 2, Y); //Top
-            connectionPoints[1] = new Point(X + Width, Y + Height / 2); //Right
-            connectionPoints[2] = new Point(X + Width / 2, Y + Height); //Bot
-            connectionPoints[3] = new Point(X, Y + Height / 2); //Left
+            setConnectionPoints();
             BaseColor = Brushes.OrangeRed;
         }
-      
+
+        public override void setConnectionPoints()
+        {
+            connectionPoints[0] = new Point(X + Width / 2, Y); //Top
+            connectionPoints[1] = new Point(X + Width, Y + Height / 2); //Right
+            connectionPoints[2] = new Point(X + Width / 2, Y + Height); //Bottom
+            connectionPoints[3] = new Point(X, Y + Height / 2); //Left
+        }
+
         public override Shape makeCopy()
         {
             return new Ellipse(X, Y, Width, Height);

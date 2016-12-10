@@ -40,9 +40,9 @@ namespace UMLGen.Model
 
 
         public int Id { get { return _id; } set { _id = value; counter++; } }
-        public double X { get { return _x; } set { _x = value; NotifyPropertyChanged(); NotifyPropertyChanged("init"); } }
-        public double Y { get { return _y; } set { _y = value; NotifyPropertyChanged(); NotifyPropertyChanged("init"); } }
-        public double Width { get { return _width; } set { _width = value; NotifyPropertyChanged(); } }
+        public double X { get { return _x; } set { _x = value; NotifyPropertyChanged();} }
+        public double Y { get { return _y; } set { _y = value; NotifyPropertyChanged(); } }
+        public double Width { get { return _width; } set { _width = value; NotifyPropertyChanged();  } }
         public double Height { get { return _height; } set { _height = value; NotifyPropertyChanged(); } }
         [XmlIgnore]
         public Brush BaseColor { get { return _baseColor; } set { _baseColor = value; NotifyPropertyChanged(); NotifyPropertyChanged("SelectedColor"); } }
@@ -52,12 +52,14 @@ namespace UMLGen.Model
         public Brush SelectedColor { get { return IsSelected ? Brushes.PaleGreen : _baseColor; } }
         public ObservableCollection<int> ArrowStarts { get { return _arrowStarts; } set { _arrowStarts = value; NotifyPropertyChanged(); } }
         public ObservableCollection<int> ArrowEnds { get { return _arrowEnds; } set { _arrowEnds = value; NotifyPropertyChanged(); } }
-        public Point[] connectionPoints { get { return _connectionPoints; } set { _connectionPoints = value;  NotifyPropertyChanged(); } }
+        public Point[] connectionPoints { get { return _connectionPoints; } set { _connectionPoints = value; NotifyPropertyChanged(); } }
 
 
-        public String Name { get { return _name; } set { _name = value;  NotifyPropertyChanged(); } }
+        public String Name { get { return _name; } set { _name = value; NotifyPropertyChanged(); } }
 
         public abstract void init();
+
+        public abstract void setConnectionPoints();
 
         public int setId()
         {

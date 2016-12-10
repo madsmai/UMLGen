@@ -52,11 +52,16 @@ namespace UMLGen.Model
         {
             ArrowStarts = new ObservableCollection<int>();
             ArrowEnds = new ObservableCollection<int>();
+            setConnectionPoints();
+
+        }
+
+        public override void setConnectionPoints()
+        {
             connectionPoints[0] = new Point(X + Width / 2, Y); //Top
             connectionPoints[1] = new Point(X + Width, Y + Height / 2); //Right
-            connectionPoints[2] = new Point(X + Width / 2, Y + Height); //Bot
+            connectionPoints[2] = new Point(X + Width / 2, Y + Height); //Bottom
             connectionPoints[3] = new Point(X, Y + Height / 2); //Left
-
         }
         public override Shape makeCopy()
         {

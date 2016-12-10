@@ -42,6 +42,11 @@ namespace UMLGen.Model
             BaseColor = Brushes.CornflowerBlue;
             ArrowStarts = new ObservableCollection<int>();
             ArrowEnds = new ObservableCollection<int>();
+            setConnectionPoints();
+        }
+
+        public override void setConnectionPoints()
+        {
             connectionPoints[0] = new Point(X + Width / 2, Y); //Top
             connectionPoints[1] = new Point(X + Width, Y + Height / 2); //Right
             connectionPoints[2] = new Point(X + Width / 2, Y + Height); //Bottom

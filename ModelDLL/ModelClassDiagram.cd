@@ -1,0 +1,96 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="UMLGen.Model.Arrow" Collapsed="true">
+    <Position X="3" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAkAAACAAAAACAAAACAAAABIEAAAEAAIIAAA=</HashCode>
+      <FileName>Model\Arrow.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UMLGen.Model.DataItem" Collapsed="true">
+    <Position X="8" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Model\DataItem.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UMLGen.Model.DataService" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="9.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Model\DataService.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="UMLGen.Model.Ellipse" Collapsed="true">
+    <Position X="7" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAACAAAAAAAAAAAAAAAAACAAAAAMAAAAAAAAIAAA=</HashCode>
+      <FileName>Model\Ellipse.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UMLGen.Model.NotifyBase" Collapsed="true">
+    <Position X="5.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAIAAAAAAAAAAgAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Model\NotifyBase.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="UMLGen.Model.Shape" Collapsed="true">
+    <Position X="6.25" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACJAAIxAyAEAAAAChAAEWACBAAAAMAAQAAAAQIYAA=</HashCode>
+      <FileName>Model\Shape.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UMLGen.Model.Square" Collapsed="true">
+    <Position X="9" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAACAAAAAAAAAAAAAAAAACAAAAAMAAAAAAAAIAAA=</HashCode>
+      <FileName>Model\Square.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UMLGen.Model.Statusbar" Collapsed="true">
+    <Position X="4.25" Y="1.75" Width="1.5" />
+    <InheritanceLine Type="UMLGen.Model.NotifyBase" FixedToPoint="true">
+      <Path>
+        <Point X="6" Y="1.062" />
+        <Point X="6" Y="1.375" />
+        <Point X="5.062" Y="1.375" />
+        <Point X="5.062" Y="1.75" />
+      </Path>
+    </InheritanceLine>
+    <TypeIdentifier>
+      <HashCode>AEAAAAAEAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Model\Statusbar.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UMLGen.Model.UMLClass" Collapsed="true">
+    <Position X="5" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAACAAAAAAAQAAAAACAAAAAIIABAAQBAIAAA=</HashCode>
+      <FileName>Model\UMLClass.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ModelDLL.Properties.Resources" Collapsed="true">
+    <Position X="8" Y="1.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAABEAAAAQAAAAAAAAAAAAAAAIA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ModelDLL.Properties.Settings" Collapsed="true">
+    <Position X="9.75" Y="1.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAIAAAAAABAAAAAAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Interface Name="UMLGen.Model.IDataService" Collapsed="true">
+    <Position X="8" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Model\IDataService.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

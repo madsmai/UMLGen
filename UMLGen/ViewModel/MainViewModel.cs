@@ -147,7 +147,7 @@ namespace UMLGen.ViewModel
             #endregion
         }
 
-        #region SaveLoad
+        #region Save and Load
 
         private void NewCommand()
         {
@@ -182,7 +182,6 @@ namespace UMLGen.ViewModel
                 pathName = _SD.FileName;
                 SaveCommand();
             }
-            StatusBar.Status = "Saved to " + pathName;
         }
 
         public void Saving()
@@ -309,9 +308,13 @@ namespace UMLGen.ViewModel
                 collapseSideMenu(selectedShape);
                 selectedShape.IsSelected = false;
                 selectedShape = null;
+                if (!first)
+                {
+                    first = true;
+                }
             }
             SelectedShapes.Clear();
-            StatusBar.Reset();
+            StatusBar.Status = "Deselected your shapes and cleared any arrow drawings you started";
 
         }
 
@@ -548,12 +551,151 @@ namespace UMLGen.ViewModel
 
         private void handleHeightChanged(TextChangedEventArgs e)
         {
-            selectedShape.Height = Convert.ToDouble(((TextBox)e.Source).Text);
+            if (!((TextBox)e.Source).Text.Equals(""))
+            {
+
+
+
+                double newValue = Convert.ToDouble(((TextBox)e.Source).Text);
+
+                if (newValue < 10) { newValue = 10; }
+
+                double change = newValue - selectedShape.Height;
+
+                int i = 4;
+                foreach (int id in selectedShape.ArrowStarts)
+                {
+                    foreach (Shape s in Shapes)
+                    {
+                        if (id == s.Id)
+                        {
+                            Arrow a = (Arrow)s;
+                            i = findConnectionPoint(selectedShape, a, true);
+
+                            if (i == 2)
+                            {
+                                a.repaint(0, change, true);
+                            }
+                            else if (i == 1 || i == 3)
+                            {
+                                a.repaint(0, change / 2, true);
+                            }
+                        }
+
+                    }
+                }
+                foreach (int id in selectedShape.ArrowEnds)
+                {
+                    foreach (Shape s in Shapes)
+                    {
+                        if (id == s.Id)
+                        {
+                            Arrow a = (Arrow)s;
+                            i = findConnectionPoint(selectedShape, a, false);
+
+                            if (i == 2)
+                            {
+                                a.repaint(0, change, false);
+                            }
+                            else if (i == 1 || i == 3)
+                            {
+                                a.repaint(0, change/2, false);
+                            }
+                        }
+
+                    }
+                }
+                selectedShape.Height = newValue;
+                selectedShape.setConnectionPoints();
+            }
         }
 
         private void handleWidthChanged(TextChangedEventArgs e)
         {
-            selectedShape.Width = Convert.ToDouble(((TextBox)e.Source).Text);
+            if (!((TextBox)e.Source).Text.Equals(""))
+            {
+
+                double newValue = Convert.ToDouble(((TextBox)e.Source).Text);
+
+                if (newValue < 10) { newValue = 10; }
+
+                double change = newValue - selectedShape.Width;
+
+                int i = 4;
+                foreach (int id in selectedShape.ArrowStarts)
+                {
+                    foreach (Shape s in Shapes)
+                    {
+                        if (id == s.Id)
+                        {
+                            Arrow a = (Arrow)s;
+                            i = findConnectionPoint(selectedShape, a, true);
+
+                            if (i == 1)
+                            {
+                                a.repaint(change, 0, true);
+                            }
+                            else if (i == 0 || i == 2)
+                            {
+                                a.repaint(change / 2, 0, true);
+                            }
+                        }
+
+                    }
+                }
+                foreach (int id in selectedShape.ArrowEnds)
+                {
+                    foreach (Shape s in Shapes)
+                    {
+                        if (id == s.Id)
+                        {
+                            Arrow a = (Arrow)s;
+                            i = findConnectionPoint(selectedShape, a, false);
+
+                            if (i == 1)
+                            {
+                                a.repaint(change, 0, false);
+                            }
+                            else if (i == 0 || i == 2)
+                            {
+                                a.repaint(change / 2, 0, false);
+                            }
+                        }
+
+                    }
+                }
+                selectedShape.Width = newValue;
+                selectedShape.setConnectionPoints();
+            }
+
+
+
+        }
+
+        private int findConnectionPoint(Shape shape, Arrow arrow, Boolean start)
+        {
+
+            if (start)
+            {
+                for (int i = 0; i < 4; i++)
+                {
+                    if (shape.connectionPoints[i].Equals(arrow.Source))
+                    {
+                        return i;
+                    }
+                }
+            }
+            else
+            {
+                for (int i = 0; i < 4; i++)
+                {
+                    if (shape.connectionPoints[i].Equals(arrow.Destination))
+                    {
+                        return i;
+                    }
+                }
+            }
+            return 0;
         }
 
         private void changeUML(TextChangedEventArgs e)
