@@ -58,27 +58,7 @@ namespace UMLGen.Command
             }
             foreach (Shape arrow in linesToRemove) {
                 shapes.Remove(arrow);
-                //foreach (Shape s in shapes)
-                //{
-                //    foreach (int id in s.ArrowStarts)
-                //    {
-                //        if (id == arrow.Id)
-                //        {
-                //            s.ArrowStarts.Remove(id);
-                //        }
-                //    }
-                //    foreach (int id in s.ArrowEnds)
-                //    {
-                //        if (id == arrow.Id)
-                //        {
-                //            s.ArrowStarts.Remove(id);
-                //        }
-                //    }
-
-                //}
             }
-            
-            //TODO::Remove arrow ids from shapes aswell.
         }
 
         public void UnExecute()

@@ -34,36 +34,35 @@ namespace UMLGen.Model
             init();
         }
 
-		public UMLClass(string ClassName, string FieldNames, string MethodNames, double x, double y)
-		{
+        public UMLClass(string ClassName, string FieldNames, string MethodNames, double x, double y)
+        {
             Id = setId();
-			this.ClassName = ClassName;
-			this.FieldNames = FieldNames;
-			this.MethodNames = MethodNames;
-			X = x;
-			Y = y;
-			Width = 200;
-			Height = 250;
+            this.ClassName = ClassName;
+            this.FieldNames = FieldNames;
+            this.MethodNames = MethodNames;
+            X = x;
+            Y = y;
+            Width = 200;
+            Height = 250;
             Name = ClassName;
             init();
-		}
+        }
 
-        public override void init() {
+        public override void init()
+        {
             ArrowStarts = new ObservableCollection<int>();
             ArrowEnds = new ObservableCollection<int>();
             connectionPoints[0] = new Point(X + Width / 2, Y); //Top
             connectionPoints[1] = new Point(X + Width, Y + Height / 2); //Right
             connectionPoints[2] = new Point(X + Width / 2, Y + Height); //Bot
             connectionPoints[3] = new Point(X, Y + Height / 2); //Left
-            
+
         }
-		public override Shape makeCopy()
+        public override Shape makeCopy()
         {
             return new UMLClass(ClassName, FieldNames, MethodNames, X, Y);
         }
 
-        public override void setColor()
-        {
-        }
+        public override void setColor() { }
     }
 }

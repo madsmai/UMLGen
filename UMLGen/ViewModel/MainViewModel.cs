@@ -26,7 +26,7 @@ namespace UMLGen.ViewModel
     /// </summary>
     public class MainViewModel : ViewModelBase
     {
-        enum direction{Top,Right,Bot,Left}
+        enum direction { Top, Right, Bot, Left }
         public int shapeCounter;
 
         private UndoRedoController undoRedoController = UndoRedoController.Instance;
@@ -48,6 +48,8 @@ namespace UMLGen.ViewModel
         public Shape clipboard { get; set; }
 
         public String pathName;
+
+        #region Defining commands
 
         // Commands the UI can be bound to
         public ICommand UndoCommand { get; }
@@ -91,6 +93,8 @@ namespace UMLGen.ViewModel
 
         public Statusbar StatusBar { get; set; }
 
+        #endregion
+
         // The constructor
         public MainViewModel()
         {
@@ -99,6 +103,10 @@ namespace UMLGen.ViewModel
 
             Shapes = new ObservableCollection<Shape>();
             SelectedShapes = new ObservableCollection<Shape>();
+            pathName = "";
+            StatusBar = new Statusbar("Welcome to UMLGen");
+
+            #region Initializing commands
 
             UndoCommand = new RelayCommand(undoRedoController.Undo, undoRedoController.CanUndo);
             RedoCommand = new RelayCommand(undoRedoController.Redo, undoRedoController.CanRedo);
@@ -136,22 +144,10 @@ namespace UMLGen.ViewModel
             SaveCurrentAsCommand = new RelayCommand(SaveAsCommand);
             LoadDiagramCommand = new RelayCommand(LoadCommand);
 
-            pathName = "";
-
-            StatusBar = new Statusbar("Welcome to UMLGen");
-
+            #endregion
         }
 
-        private bool DialogBoxNewDiagram()
-        {
-            String message = "Do you want to create a new diagram? Any unsaved changes will be lost!";
-            String title = "Create new document?";
-
-            MessageBoxResult result = MessageBox.Show(message, title, MessageBoxButton.YesNo, MessageBoxImage.Question, MessageBoxResult.Yes);
-
-            return (result == MessageBoxResult.Yes);
-        }
-
+        #region SaveLoad
 
         private void NewCommand()
         {
@@ -171,38 +167,7 @@ namespace UMLGen.ViewModel
             {
                 var th = new Thread(Saving);
                 th.Start();
-            } 
-        }
-
-        public void Saving()
-        {
-            Serialize<ObservableCollection<Shape>>(Shapes, pathName);
-            StatusBar.Status = "Saved to " + pathName;
-        }
-
-        public static void Serialize<T>(T item, string FilePath)
-        {
-            XmlSerializer xs = new XmlSerializer(typeof(T));
-            using (StreamWriter wr = new StreamWriter(FilePath))
-            {
-                xs.Serialize(wr, item);
             }
-        }
-
-        public void DeSerialize<T>(string FilePath)
-        {
-
-            XmlSerializer xs = new XmlSerializer(typeof(T));
-            StreamReader rd = new StreamReader(FilePath);
-
-            ObservableCollection<Shape> loadShapes = (ObservableCollection<Shape>)xs.Deserialize(rd);
-            foreach (Shape s in loadShapes)
-            {
-                Shapes.Add(s);
-                s.setColor();
-            }
-
-
         }
 
         private void SaveAsCommand()
@@ -217,6 +182,12 @@ namespace UMLGen.ViewModel
                 pathName = _SD.FileName;
                 SaveCommand();
             }
+            StatusBar.Status = "Saved to " + pathName;
+        }
+
+        public void Saving()
+        {
+            Serialize<ObservableCollection<Shape>>(Shapes, pathName);
             StatusBar.Status = "Saved to " + pathName;
         }
 
@@ -240,6 +211,42 @@ namespace UMLGen.ViewModel
             }
         }
 
+        private bool DialogBoxNewDiagram()
+        {
+            String message = "Do you want to create a new diagram? Any unsaved changes will be lost!";
+            String title = "Create new document?";
+
+            MessageBoxResult result = MessageBox.Show(message, title, MessageBoxButton.YesNo, MessageBoxImage.Question, MessageBoxResult.Yes);
+
+            return (result == MessageBoxResult.Yes);
+        }
+
+        public static void Serialize<T>(T item, string FilePath)
+        {
+            XmlSerializer xs = new XmlSerializer(typeof(T));
+            using (StreamWriter wr = new StreamWriter(FilePath))
+            {
+                xs.Serialize(wr, item);
+            }
+        }
+
+        public void DeSerialize<T>(string FilePath)
+        {
+            XmlSerializer xs = new XmlSerializer(typeof(T));
+            StreamReader rd = new StreamReader(FilePath);
+
+            ObservableCollection<Shape> loadShapes = (ObservableCollection<Shape>)xs.Deserialize(rd);
+            foreach (Shape s in loadShapes)
+            {
+                Shapes.Add(s);
+                s.setColor();
+            }
+        }
+
+        #endregion
+
+        #region Copy,Cut & Paste
+
         private bool CanCopyCutShape() => selectedShape != null;
 
         private void CopyShape()
@@ -257,64 +264,15 @@ namespace UMLGen.ViewModel
 
         private void PasteShape()
         {
-			if(clipboard != null)
-			{
-				undoRedoController.ExecuteCommand(new AddShapeCommand(Shapes, clipboard.makeCopy()));
-			}
-		}
-
-        private void DeselectShape()
-        {
-            if (selectedShape != null)
+            if (clipboard != null)
             {
-                collapseSideMenu(selectedShape);
-                selectedShape.IsSelected = false;
-                selectedShape = null;
-            }
-            SelectedShapes.Clear();
-            StatusBar.Reset();
-
-        }
-
-        private void MouseDownArrow(MouseEventArgs e)
-        {
-            var shape = TargetShape(e);
-            double min = 10000;
-            Point bestfit = new Point(0, 0) ;
-            foreach (Point p in shape.connectionPoints)
-            {
-                double diffX = Math.Abs(RelativeMousePosition(e).X - p.X);
-                double diffY = Math.Abs(RelativeMousePosition(e).Y - p.Y);
-                double Totaldifference = diffX + diffY;
-                if(Totaldifference < min)
-                {
-                    min = Totaldifference;
-                    bestfit = p;
-                }
-            }
-
-            //if (selectedShape != null && selectedShape != shape) {
-            //    selectedShape.IsSelected = false;
-            //    shape.IsSelected = true;
-            //}
-
-            if (first)
-            {
-                arrowSource = bestfit;
-                shapeSource = shape;
-                first = false;
-                StatusBar.Status = "Select end point for arrow";
-            }
-            else
-            {
-                undoRedoController.ExecuteCommand(new ConnectShapesCommand(Shapes, arrowSource, shapeSource, bestfit, shape));
-
-                first = true;
-                shape.IsSelected = false;
-                shapeSource.IsSelected = false;
-                StatusBar.Status = "Added arrow connecting a " + shapeSource.Name + " and a " + shape.Name;
+                undoRedoController.ExecuteCommand(new AddShapeCommand(Shapes, clipboard.makeCopy()));
             }
         }
+
+        #endregion
+
+        #region Adding and removing shapes
 
         private void AddUML()
         {
@@ -340,6 +298,23 @@ namespace UMLGen.ViewModel
             undoRedoController.ExecuteCommand(new RemoveShapeCommand(Shapes, SelectedShapes.Cast<Shape>().ToList()));
         }
 
+        #endregion
+
+        #region Trigger methods on shapes
+
+        private void DeselectShape()
+        {
+            if (selectedShape != null)
+            {
+                collapseSideMenu(selectedShape);
+                selectedShape.IsSelected = false;
+                selectedShape = null;
+            }
+            SelectedShapes.Clear();
+            StatusBar.Reset();
+
+        }
+
         private void MouseDownShape(MouseButtonEventArgs e)
         {
             var shape = TargetShape(e);
@@ -351,50 +326,31 @@ namespace UMLGen.ViewModel
             e.MouseDevice.Target.CaptureMouse();
         }
 
-
         private void MouseMoveShape(MouseEventArgs e)
         {
             if (Mouse.Captured != null)
             {
+
+                if (!first)
+                {
+                    StatusBar.Status = "Cancelled your arrow drawing";
+                    first = true;
+                }
+
                 var shape = TargetShape(e);
-				double oldX = shape.X;
-				double oldY = shape.Y;
+                double oldX = shape.X;
+                double oldY = shape.Y;
 
                 var mousePosition = RelativeMousePosition(e);
 
                 shape.X = initialShapePosition.X + (mousePosition.X - initialMousePosition.X);
                 shape.Y = initialShapePosition.Y + (mousePosition.Y - initialMousePosition.Y);
-				double newX = shape.X;
-				double newY = shape.Y;
+                double newX = shape.X;
+                double newY = shape.Y;
 
-				updateArrow(shape, newX - oldX, newY - oldY);
-			}
-        }
-
-        private void updateArrow(Shape shape, double newX, double newY)
-        {
-			
-			foreach (int i in shape.ArrowStarts){
-				foreach (Shape s in Shapes)
-				{
-					if (i == s.Id)
-					{
-						((Arrow)s).repaint(newX, newY, true);
-					}
+                updateArrow(shape, newX - oldX, newY - oldY);
             }
         }
-
-			foreach (int i in shape.ArrowEnds)
-			{
-				foreach (Shape s in Shapes)
-				{
-					if (i == s.Id)
-					{
-						((Arrow)s).repaint(newX, newY, false);
-					}
-				}
-			}
-		}
 
         private void MouseUpShape(MouseButtonEventArgs e)
         {
@@ -425,7 +381,7 @@ namespace UMLGen.ViewModel
 
                 shape.X = initialShapePosition.X; //Reset to prepare for move
                 shape.Y = initialShapePosition.Y;
-				updateArrow(shape, (initialMousePosition.X - mousePosition.X), (initialMousePosition.Y - mousePosition.Y)); //Move back
+                updateArrow(shape, (initialMousePosition.X - mousePosition.X), (initialMousePosition.Y - mousePosition.Y)); //Move back
 
                 undoRedoController.ExecuteCommand(new MoveShapeCommand(Shapes, shape, mousePosition.X - initialMousePosition.X, mousePosition.Y - initialMousePosition.Y));
 
@@ -433,6 +389,76 @@ namespace UMLGen.ViewModel
             }
         }
 
+        private void updateArrow(Shape shape, double newX, double newY)
+        {
+
+            foreach (int i in shape.ArrowStarts)
+            {
+                foreach (Shape s in Shapes)
+                {
+                    if (i == s.Id)
+                    {
+                        ((Arrow)s).repaint(newX, newY, true);
+                    }
+                }
+            }
+
+            foreach (int i in shape.ArrowEnds)
+            {
+                foreach (Shape s in Shapes)
+                {
+                    if (i == s.Id)
+                    {
+                        ((Arrow)s).repaint(newX, newY, false);
+                    }
+                }
+            }
+        }
+
+        private void MouseDownArrow(MouseEventArgs e)
+        {
+            var shape = TargetShape(e);
+            double min = 10000;
+            Point bestfit = new Point(0, 0);
+            foreach (Point p in shape.connectionPoints)
+            {
+                double diffX = Math.Abs(RelativeMousePosition(e).X - p.X);
+                double diffY = Math.Abs(RelativeMousePosition(e).Y - p.Y);
+                double Totaldifference = diffX + diffY;
+                if (Totaldifference < min)
+                {
+                    min = Totaldifference;
+                    bestfit = p;
+                }
+            }
+
+            if (selectedShape != null && selectedShape != shape)
+            {
+                selectedShape.IsSelected = false;
+                shape.IsSelected = true;
+            }
+
+            if (first)
+            {
+                arrowSource = bestfit;
+                shapeSource = shape;
+                first = false;
+                StatusBar.Status = "Select end point for arrow";
+            }
+            else
+            {
+                undoRedoController.ExecuteCommand(new ConnectShapesCommand(Shapes, arrowSource, shapeSource, bestfit, shape));
+
+                first = true;
+                shape.IsSelected = false;
+                shapeSource.IsSelected = false;
+                StatusBar.Status = "Added arrow connecting a " + shapeSource.Name + " and a " + shape.Name;
+            }
+        }
+
+        #endregion
+
+        #region Side Menu
 
         private void collapseSideMenu(Shape shape)
         {
@@ -476,16 +502,16 @@ namespace UMLGen.ViewModel
                 TextBox classNameTB = customListView.FindName("ClassUML") as TextBox;
                 TextBox fieldNameTB = customListView.FindName("FieldUML") as TextBox;
                 TextBox methodNameTB = customListView.FindName("MethodUML") as TextBox;
-				TextBox umlHeightTB = customListView.FindName("HeightUML") as TextBox;
-				TextBox umlWidthTB = customListView.FindName("WidthUML") as TextBox;
+                TextBox umlHeightTB = customListView.FindName("HeightUML") as TextBox;
+                TextBox umlWidthTB = customListView.FindName("WidthUML") as TextBox;
 
-				classNameTB.Text = uml.ClassName;
+                classNameTB.Text = uml.ClassName;
                 fieldNameTB.Text = uml.FieldNames;
                 methodNameTB.Text = uml.MethodNames;
-				umlHeightTB.Text = Convert.ToString(uml.Height);
-				umlWidthTB.Text = Convert.ToString(uml.Width);
+                umlHeightTB.Text = Convert.ToString(uml.Height);
+                umlWidthTB.Text = Convert.ToString(uml.Width);
 
-				customListView.SquareMenu.Visibility = Visibility.Collapsed;
+                customListView.SquareMenu.Visibility = Visibility.Collapsed;
                 customListView.UMLMenu.Visibility = Visibility.Visible;
                 customListView.EllipseMenu.Visibility = Visibility.Collapsed;
             }
@@ -502,7 +528,8 @@ namespace UMLGen.ViewModel
                 customListView.SquareMenu.Visibility = Visibility.Collapsed;
                 customListView.UMLMenu.Visibility = Visibility.Collapsed;
                 customListView.EllipseMenu.Visibility = Visibility.Visible;
-            } else
+            }
+            else
             {
                 customListView.SquareMenu.Visibility = Visibility.Collapsed;
                 customListView.UMLMenu.Visibility = Visibility.Collapsed;
@@ -521,35 +548,13 @@ namespace UMLGen.ViewModel
 
         private void handleHeightChanged(TextChangedEventArgs e)
         {
-
-			selectedShape.Height = Convert.ToDouble(((TextBox)e.Source).Text);
-			//try
-			//{
-			
-			//} catch (Exception ex)
-			//{
-			//    StatusBar.Status = "Exception " + ex;
-			//}
-
-		}
+            selectedShape.Height = Convert.ToDouble(((TextBox)e.Source).Text);
+        }
 
         private void handleWidthChanged(TextChangedEventArgs e)
         {
-			selectedShape.Width = Convert.ToDouble(((TextBox)e.Source).Text);
-			//selectedShape.connectionPoints[0].X += selectedShape.Width / 2;
-			//selectedShape.connectionPoints[1].X = selectedShape.Width / 2;
-			//selectedShape.connectionPoints[2].X = selectedShape.Width / 2;
-			//updateArrow(selectedShape, 0, 0);
-
-			//try
-			//{
-
-			//} catch (Exception ex)
-			//{
-			//	StatusBar.Status = "Exception " + ex;
-			//}
-
-		}
+            selectedShape.Width = Convert.ToDouble(((TextBox)e.Source).Text);
+        }
 
         private void changeUML(TextChangedEventArgs e)
         {
@@ -559,14 +564,19 @@ namespace UMLGen.ViewModel
             if (t.Name == "ClassUML")
             {
                 uml.ClassName = t.Text;
-            } else if(t.Name == "FieldUML")
+            }
+            else if (t.Name == "FieldUML")
             {
                 uml.FieldNames = t.Text;
-            } else if (t.Name == "MethodUML")
+            }
+            else if (t.Name == "MethodUML")
             {
                 uml.MethodNames = t.Text;
             }
         }
+        #endregion
+
+        #region Drag and Drop
 
         private void DdMouseMove(MouseEventArgs e)
         {
@@ -596,8 +606,8 @@ namespace UMLGen.ViewModel
 
             if (shape.Equals("Square"))
             {
-                
-                undoRedoController.ExecuteCommand(new AddShapeCommand(Shapes, new Square(p.X-50, p.Y-50, 100, 100)));
+
+                undoRedoController.ExecuteCommand(new AddShapeCommand(Shapes, new Square(p.X - 50, p.Y - 50, 100, 100)));
 
             }
             else if (shape.Equals("UMLClass"))
@@ -605,13 +615,13 @@ namespace UMLGen.ViewModel
 
                 string Methods = "exampleMethod \ntoString \n";
                 string Fields = "String Name \nInt no \n";
-                undoRedoController.ExecuteCommand(new AddShapeCommand(Shapes, new UMLClass("ExampleClass", Fields, Methods, p.X-100, p.Y-125)));
+                undoRedoController.ExecuteCommand(new AddShapeCommand(Shapes, new UMLClass("ExampleClass", Fields, Methods, p.X - 100, p.Y - 125)));
 
             }
             else if (shape.Equals("Ellipse"))
             {
 
-                undoRedoController.ExecuteCommand(new AddShapeCommand(Shapes, new Ellipse(p.X-50, p.Y-50, 100, 100)));
+                undoRedoController.ExecuteCommand(new AddShapeCommand(Shapes, new Ellipse(p.X - 50, p.Y - 50, 100, 100)));
 
             }
             else
@@ -620,21 +630,9 @@ namespace UMLGen.ViewModel
             }
         }
 
-        // Helper to search up the VisualTree to find the first parent with type T
-        private static T FindAncestor<T>(DependencyObject current) where T : DependencyObject
-        {
-            do
-            {
-                if (current is T)
-                {
-                    return (T)current;
-                }
-                current = System.Windows.Media.VisualTreeHelper.GetParent(current);
-            }
-            while (current != null);
-            return null;
-        }
+        #endregion
 
+        #region Auxilliary Methods
 
         // Returns a shape from a Mouse Event
         private Shape TargetShape(MouseEventArgs e)
@@ -661,7 +659,22 @@ namespace UMLGen.ViewModel
             return parent.GetType().IsAssignableFrom(typeof(T)) ? parent : FindParentOfType<T>(parent);
         }
 
+        // Helper to search up the VisualTree to find the first parent with type T
+        private static T FindAncestor<T>(DependencyObject current) where T : DependencyObject
+        {
+            do
+            {
+                if (current is T)
+                {
+                    return (T)current;
+                }
+                current = System.Windows.Media.VisualTreeHelper.GetParent(current);
+            }
+            while (current != null);
+            return null;
+        }
 
+        #endregion
 
     }
 }

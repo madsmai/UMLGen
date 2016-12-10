@@ -69,8 +69,5 @@ namespace UMLGen.Command
         }
 
         #endregion
-
-
-
     }
 }

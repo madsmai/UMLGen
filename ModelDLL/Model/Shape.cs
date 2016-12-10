@@ -59,7 +59,6 @@ namespace UMLGen.Model
 
         public abstract void init();
 
-
         public int setId()
         {
             return counter;

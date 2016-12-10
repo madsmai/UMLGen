@@ -29,7 +29,6 @@ namespace UMLGen.Command
 
         }
 
-
         public void Execute()
         {
             shapes.Add(arrow);

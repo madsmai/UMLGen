@@ -169,10 +169,6 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\Copy.png" />
-    <Page Include="View\Skins\MainSkin.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\Cut.png" />

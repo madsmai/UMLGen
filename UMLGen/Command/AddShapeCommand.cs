@@ -23,7 +23,6 @@ namespace UMLGen.Command
             shape = _shape;
         }
 
-
         public void Execute()
         {
             shapes.Add(shape);

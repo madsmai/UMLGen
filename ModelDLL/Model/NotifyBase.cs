@@ -16,7 +16,6 @@ namespace UMLGen.Model
         [field:NonSerialized]
         public event PropertyChangedEventHandler PropertyChanged;
 
-
         protected void NotifyPropertyChanged([CallerMemberName] string propertyName = null)
         {
 

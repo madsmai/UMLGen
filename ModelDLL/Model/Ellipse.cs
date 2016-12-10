@@ -13,7 +13,6 @@ namespace UMLGen.Model
         private double baseValue = 100;
         private int counter = 0;
         
-
         public Ellipse()
         {
             Id = 0;
@@ -40,7 +39,6 @@ namespace UMLGen.Model
             Name = "Ellipse" + counter;
             counter++;
             init();
-
         }
 
         public override void init()
@@ -52,12 +50,8 @@ namespace UMLGen.Model
             connectionPoints[2] = new Point(X + Width / 2, Y + Height); //Bot
             connectionPoints[3] = new Point(X, Y + Height / 2); //Left
             BaseColor = Brushes.OrangeRed;
-
         }
-
-
-
-
+      
         public override Shape makeCopy()
         {
             return new Ellipse(X, Y, Width, Height);
@@ -68,6 +62,5 @@ namespace UMLGen.Model
             IsSelected = false;
             BaseColor = Brushes.OrangeRed;
         }
-
     }
 }
