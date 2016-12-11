@@ -91,14 +91,14 @@
     <Compile Include="View\App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\Arrow.xaml.cs">
-      <DependentUpon>Arrow.xaml</DependentUpon>
+    <Compile Include="View\ArrowUC.xaml.cs">
+      <DependentUpon>ArrowUC.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\CustomListView.xaml.cs">
-      <DependentUpon>CustomListView.xaml</DependentUpon>
+    <Compile Include="View\CustomListViewUC.xaml.cs">
+      <DependentUpon>CustomListViewUC.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\Ellipse.xaml.cs">
-      <DependentUpon>Ellipse.xaml</DependentUpon>
+    <Compile Include="View\EllipseUC.xaml.cs">
+      <DependentUpon>EllipseUC.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
@@ -110,18 +110,18 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="View\UMLClass.xaml.cs">
-      <DependentUpon>UMLClass.xaml</DependentUpon>
+    <Compile Include="View\UMLClassUC.xaml.cs">
+      <DependentUpon>UMLClassUC.xaml</DependentUpon>
     </Compile>
-    <Page Include="View\Arrow.xaml">
+    <Page Include="View\ArrowUC.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="View\CustomListView.xaml">
+    <Page Include="View\CustomListViewUC.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="View\Ellipse.xaml">
+    <Page Include="View\EllipseUC.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -133,7 +133,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="View\UMLClass.xaml">
+    <Page Include="View\UMLClassUC.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

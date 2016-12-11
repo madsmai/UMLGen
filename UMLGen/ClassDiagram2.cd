@@ -1,0 +1,187 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1" GroupingSetting="Access">
+  <Class Name="UMLGen.Command.AddShapeCommand" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="3" Y="6.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAgAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAABAA=</HashCode>
+      <FileName>Command\AddShapeCommand.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="UMLGen.Command.ConnectShapesCommand" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="3" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAgAAAAAAAAAQAAAAAAAAAAAACAAAgAAAAAAAIBAA=</HashCode>
+      <FileName>Command\ConnectShapesCommand.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.194" />
+  </Class>
+  <Class Name="UMLGen.Command.MoveShapeCommand" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="3" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAgAAAAQBAAAQAAAgAAAAAAAAAAAAAAAAAAAAABAA=</HashCode>
+      <FileName>Command\MoveShapeCommand.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="UMLGen.Command.RemoveShapeCommand" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="3" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAgAAAAAAAAAQAAAAAAAAAAAAACAAAAAAQAAAABAA=</HashCode>
+      <FileName>Command\RemoveShapeCommand.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="UMLGen.Command.UndoRedoController">
+    <Position X="1" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AIAAAAAABAAABAAAAAAAAAADAAAgAAAAQAAAAAEAAAA=</HashCode>
+      <FileName>Command\UndoRedoController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UMLGen.Design.DesignDataService" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="9.25" Y="7" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Design\DesignDataService.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="UMLGen.Properties.Resources" Collapsed="true">
+    <Position X="7.25" Y="7.75" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAABEAAAAQAAAAAAAAAAAAAAAIA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UMLGen.Properties.Settings" Collapsed="true">
+    <Position X="9.25" Y="7.75" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAIAAAAAABAAAAAAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UMLGen.App" Collapsed="true">
+    <Position X="7.25" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>View\App.xaml.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UMLGen.MainWindow" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="7.25" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAEAAAAAA=</HashCode>
+      <FileName>View\MainWindow.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="UMLGen.View.Arrow" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="9.25" Y="2.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>View\ArrowUC.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="UMLGen.View.CustomListView" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="7.25" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>View\CustomListViewUC.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="UMLGen.View.Ellipse" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="9.25" Y="5.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>View\EllipseUC.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="UMLGen.View.SquareUC" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="9.25" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>View\SquareUC.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="UMLGen.View.UMLClass" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="9.25" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>View\UMLClassUC.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="UMLGen.ViewModel.MainViewModel">
+    <Position X="4.75" Y="2" Width="2.25" />
+    <Members>
+      <Property Name="AddElipseCommand" Hidden="true" />
+      <Property Name="AddSquareCommand" Hidden="true" />
+      <Property Name="AddUMLCommand" Hidden="true" />
+      <Field Name="arrowSource" Hidden="true" />
+      <Method Name="CanCopyCutShape" Hidden="true" />
+      <Method Name="CanRemoveShape" Hidden="true" />
+      <Property Name="clipboard" Hidden="true" />
+      <Property Name="CopyShapeCommand" Hidden="true" />
+      <Property Name="CutShapeCommand" Hidden="true" />
+      <Property Name="DdDropCommand" Hidden="true" />
+      <Property Name="DdMouseMoveCommand" Hidden="true" />
+      <Property Name="DeselectShapeCommand" Hidden="true" />
+      <Method Name="DialogBoxNewDiagram" Hidden="true" />
+      <Method Name="FindAncestor" Hidden="true" />
+      <Method Name="findConnectionPoint" Hidden="true" />
+      <Method Name="FindParentOfType" Hidden="true" />
+      <Field Name="first" Hidden="true" />
+      <Field Name="initialMousePosition" Hidden="true" />
+      <Field Name="initialShapePosition" Hidden="true" />
+      <Property Name="IsTextAllowed" Hidden="true" />
+      <Property Name="LoadDiagramCommand" Hidden="true" />
+      <Property Name="MouseDownArrowCommand" Hidden="true" />
+      <Property Name="MouseDownShapeCommand" Hidden="true" />
+      <Property Name="MouseMoveShapeCommand" Hidden="true" />
+      <Property Name="MouseUpShapeCommand" Hidden="true" />
+      <Property Name="NewDiagramCommand" Hidden="true" />
+      <Property Name="OnHeightChanged" Hidden="true" />
+      <Property Name="OnUMLChanged" Hidden="true" />
+      <Property Name="OnWidthChanged" Hidden="true" />
+      <Property Name="PasteShapeCommand" Hidden="true" />
+      <Field Name="pathName" Hidden="true" />
+      <Property Name="RedoCommand" Hidden="true" />
+      <Method Name="RelativeMousePosition" Hidden="true" />
+      <Property Name="RemoveShapeCommand" Hidden="true" />
+      <Property Name="SaveCurrentAsCommand" Hidden="true" />
+      <Property Name="SaveCurrentCommand" Hidden="true" />
+      <Method Name="Saving" Hidden="true" />
+      <Field Name="selectedShape" Hidden="true" />
+      <Property Name="SelectedShapes" Hidden="true" />
+      <Field Name="shapeSource" Hidden="true" />
+      <Property Name="StatusBar" Hidden="true" />
+      <Method Name="TargetShape" Hidden="true" />
+      <Method Name="textAllowed" Hidden="true" />
+      <Property Name="UndoCommand" Hidden="true" />
+      <Field Name="undoRedoController" Hidden="true" />
+      <Method Name="updateArrow" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>5AiFQCSAEBKBQQAJgClIAIGUJLDHMACBQSBgGMAmiMA=</HashCode>
+      <FileName>ViewModel\MainViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UMLGen.ViewModel.ViewModelLocator" Collapsed="true">
+    <Position X="7.25" Y="7" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABEAAAAA=</HashCode>
+      <FileName>ViewModel\ViewModelLocator.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Interface Name="UMLGen.Command.IUndoRedoCommand">
+    <Position X="2.75" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAgAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Command\IUndoRedoCommand.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

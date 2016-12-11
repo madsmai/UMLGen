@@ -179,7 +179,7 @@ namespace UMLGen.ViewModel
             }
         }
 
-        public void Saving()
+        private void Saving()
         {
             Serialize<ObservableCollection<Shape>>(Shapes, pathName);
             StatusBar.Status = "Saved to " + pathName;
@@ -215,7 +215,7 @@ namespace UMLGen.ViewModel
             return (result == MessageBoxResult.Yes);
         }
 
-        public static void Serialize<T>(T item, string FilePath)
+        private static void Serialize<T>(T item, string FilePath)
         {
             XmlSerializer xs = new XmlSerializer(typeof(T));
             using (StreamWriter wr = new StreamWriter(FilePath))
@@ -224,7 +224,7 @@ namespace UMLGen.ViewModel
             }
         }
 
-        public void DeSerialize<T>(string FilePath)
+        private void DeSerialize<T>(string FilePath)
         {
             XmlSerializer xs = new XmlSerializer(typeof(T));
             StreamReader rd = new StreamReader(FilePath);

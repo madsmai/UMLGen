@@ -16,7 +16,7 @@
         DataContext="{Binding Main, Source={StaticResource Locator}}">
 
     <DockPanel HorizontalAlignment="Left" LastChildFill="True" Width="Auto">
-        <Menu DockPanel.Dock="Top" x:Name="menu" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="0,0,0,0" Width="{Binding ElementName=Window, Path=ActualWidth}" Height="30" >
+        <Menu DockPanel.Dock="Top" x:Name="Menu" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="0,0,0,0" Width="{Binding ElementName=Window, Path=ActualWidth}" Height="30" >
             <MenuItem Header="_File" Height="30" Width="70" Margin="10,0,0,0">
                 <MenuItem Header="_New" Command="{Binding NewDiagramCommand}" />
                 <MenuItem Header="_Open" Command="{Binding LoadDiagramCommand}"/>
@@ -32,7 +32,8 @@
                 <MenuItem Header="_Delete"  Command="{Binding RemoveShapeCommand}" />
             </MenuItem>
         </Menu>
-        <ToolBar DockPanel.Dock="Top" x:Name="toolBar1" Height="40" HorizontalAlignment="Left" ToolBarTray.IsLocked="True" Margin="0,0,0,0" ToolBar.OverflowMode="Never" Width="{Binding ElementName=Window, Path=ActualWidth}">
+        
+        <ToolBar DockPanel.Dock="Top" x:Name="ToolBar" Height="40" HorizontalAlignment="Left" ToolBarTray.IsLocked="True" Margin="0,0,0,0" ToolBar.OverflowMode="Never" Width="{Binding ElementName=Window, Path=ActualWidth}">
             <Button x:Name="CopyBtn" Height="30" Command="{Binding CopyShapeCommand}" ToolTip="Copy selection to clipboard" VerticalAlignment="Center" Width="75">
                 <Image Source="/Images/Copy.png"  />
             </Button>
@@ -44,9 +45,9 @@
             </Button>
         </ToolBar>
 
-        <View:CustomListView x:Name="SideBar"/>
+        <View:CustomListView x:Name="Sidepanel"/>
 
-        <StatusBar DockPanel.Dock="Bottom" Height="20" VerticalAlignment="Top" HorizontalAlignment="Center" Width="{Binding ElementName=Window, Path=ActualWidth}">
+        <StatusBar x:Name="Statusbar" DockPanel.Dock="Bottom" Height="20" VerticalAlignment="Top" HorizontalAlignment="Center" Width="{Binding ElementName=Window, Path=ActualWidth}">
             <StatusBar.ItemsPanel>
                 <ItemsPanelTemplate>
                     <Grid>
@@ -65,11 +66,10 @@
             </StatusBarItem>
         </StatusBar>
 
-        <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto">
+        <ScrollViewer x:Name="UMLPresenter" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto">
             <ItemsControl ItemsSource="{Binding Shapes}">
                 <ItemsControl.ItemsPanel>
                     <ItemsPanelTemplate>
-
                         <Canvas Height="3000" Width="3000" Background="GhostWhite" AllowDrop="True">
                             <i:Interaction.Triggers>
                                 <i:EventTrigger EventName="Drop">
@@ -86,7 +86,6 @@
                                 </i:EventTrigger>
                             </i:Interaction.Triggers>
                         </Canvas>
-
                     </ItemsPanelTemplate>
                 </ItemsControl.ItemsPanel>
                 <ItemsControl.ItemContainerStyle>
@@ -97,7 +96,6 @@
                 </ItemsControl.ItemContainerStyle>
             </ItemsControl>
         </ScrollViewer>
-
     </DockPanel>
 
 
