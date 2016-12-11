@@ -10,7 +10,6 @@ using UMLGen.Command;
 using System;
 using System.Linq;
 using System.IO;
-using System.Runtime.Serialization.Formatters.Binary;
 using Microsoft.Win32;
 using System.Text.RegularExpressions;
 using System.Xml.Serialization;
@@ -26,7 +25,6 @@ namespace UMLGen.ViewModel
     /// </summary>
     public class MainViewModel : ViewModelBase
     {
-        public int shapeCounter;
 
         private UndoRedoController undoRedoController = UndoRedoController.Instance;
 
@@ -97,8 +95,6 @@ namespace UMLGen.ViewModel
         // The constructor
         public MainViewModel()
         {
-
-            shapeCounter = 0;
 
             Shapes = new ObservableCollection<Shape>();
             SelectedShapes = new ObservableCollection<Shape>();
