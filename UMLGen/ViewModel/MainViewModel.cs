@@ -26,7 +26,6 @@ namespace UMLGen.ViewModel
     /// </summary>
     public class MainViewModel : ViewModelBase
     {
-        enum direction { Top, Right, Bot, Left }
         public int shapeCounter;
 
         private UndoRedoController undoRedoController = UndoRedoController.Instance;

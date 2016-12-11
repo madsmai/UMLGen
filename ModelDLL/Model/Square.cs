@@ -13,7 +13,7 @@ namespace UMLGen.Model
 
         private double baseValue = 100;
         private int counter = 0;
-        
+
         public Square()
         {
             Id = 0;
@@ -54,7 +54,7 @@ namespace UMLGen.Model
         }
 
         public override Shape makeCopy() {
-           return new Square(X, Y, Width, Height);
+            return new Square(X, Y, Width, Height);
         }
 
         public override void setColor()
@@ -62,5 +62,6 @@ namespace UMLGen.Model
             IsSelected = false;
             BaseColor = Brushes.CornflowerBlue;
         }
+
     }
 }
